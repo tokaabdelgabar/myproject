@@ -5,6 +5,7 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+#config.i18n.fallbacks = true
 
 module Team
   class Application < Rails::Application

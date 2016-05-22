@@ -50,6 +50,8 @@
 					<li><%= link_to "Add New Application", new_app_path %></li>
           <li><%= link_to "Add New Category", new_category_path %></li>
 				<% end %>
+        <li> <%= link_to_unless_current "English", locale: "en" %> </li>
+        <li><%= link_to_unless_current "German", locale: "de" %> </li>
 			</ul>
 		</div>
 </nav>
