@@ -7,9 +7,9 @@
 		<div class="app-info">
 		<h2 class="app-name"><%= App.human_attribute_name(:name) %>: <%= @app.name %></h2>
 		<h4><%= Category.human_attribute_name(:name)%>: <%= @app.category.name %></h4>
-		<h2 class="avg-rating">Durchschnittliche Bewertung</h2>
+		<h2 class="avg-rating">Average Rating</h2>
 		<div class="average-review-rating" data-score=<%= @average_review %>></div>
-		<span class="number-of-reviews">Beyogen auf <%= @app.reviews.count %> bewertungen</span>
+		<span class="number-of-reviews">Based on <%= @app.reviews.count %>reviews</span>
 		<p class="app-desc"><%= App.human_attribute_name(:description) %>: <%= @app.description %></p>
 		<p class="app-name"><%= App.human_attribute_name(:link) %>: <a href="<%= @app.link %>"><%= @app.link %></p></a>
 		<p class="app-name"><%= App.human_attribute_name(:developer)%>: <%= @app.developer %></p>
@@ -24,17 +24,17 @@
 
 		<%= render @app.reviews %>
 		<div>
-				<%= link_to "In Ansicht", new_app_review_path(@app) %>
+				<%= link_to "Add Review", new_app_review_path(@app) %>
 		</div>
 	</div>
 </div>
 
 
-<%= link_to "Zurück", root_path %>
+<%= link_to "Back", root_path %>
 <% if user_signed_in? %>
 	<% if @app.user_id==current_user.id %>
-	<%= link_to "Bearbeiten", edit_app_path(@app) %>
-	<%= link_to "Löschen", app_path(@app), method: :delete, data: {confirm: "Bist du sicher?"} %>
+	<%= link_to "Edit", edit_app_path(@app) %>
+	<%= link_to "Delete", app_path(@app), method: :delete, data: {confirm: "Are you sure"} %>
 	<% end %>
 <% end %>
 

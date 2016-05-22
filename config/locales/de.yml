@@ -1,5 +1,10 @@
 de:
 # config/locales/de.yml
+  apps:
+    show:
+      avragerating: "Durchschnittliche Bewertung"
+      basedon: "Beyogen auf"
+      reviewn: "bewertungen"
 
   hello_world: Hallo german
   hello_flash: Hallo german flash
@@ -19,6 +24,19 @@ de:
           has_one: Datensatz kann nicht gelöscht werden, da ein abhängiger %{record}-Datensatz
             existiert.
           has_many: Datensatz kann nicht gelöscht werden, da abhängige %{record} existieren.
+    attributes:
+      app:
+        name: "Name"
+        description: "Beschreibung"
+        link: "Link"
+        developer: "Entwickler"
+        operation: "Betrieb"
+        price: "Preis"
+      category:
+        name:"Name"
+      Rerview:
+        rating: "Wertung"
+        comment: "Kommentar"
   date:
     abbr_day_names:
     - So
