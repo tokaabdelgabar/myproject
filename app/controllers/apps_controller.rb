@@ -34,7 +34,7 @@ before_action :authenticate_user!, only: [:new, :edit]
 	end
 
 	def new
-		@app=current_user.apps.build
+		@app = current_user.apps.build
 		@categories = Category.all.map{ |c| [c.name, c.id] }
 
 	end
