@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Team</title>
+  <title>Gruppe</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -13,21 +13,21 @@
 		
 
 			<div class="navbar-header">
-				<%= link_to "App Review", root_path, class: "navbar-brand" %>
+				<%= link_to "Prüfung der Bewerbung", root_path, class: "navbar-brand" %>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><%= link_to "Sign Up", new_user_registration_path %></li>
+				<li><%= link_to "Anmelden", new_user_registration_path %></li>
 				<% if user_signed_in? %>
-						<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+						<li><%= link_to "Ausloggen", destroy_user_session_path, method: :delete %></li>
 				<% else %>	
-					<li><%= link_to "Log In", new_user_session_path %></li>
+					<li><%= link_to "Einloggen", new_user_session_path %></li>
 				<% end %>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
 
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Kategorien <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
 						<% Category.all.each do |category| %>
 							<li class="<%= 'active' if params[:category] == category.name %>">
@@ -40,15 +40,15 @@
 			<%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
         		<p>
          	   <%= text_field_tag :search, params[:search], class: "form-control" %>
-       		   <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+       		   <%= submit_tag "Suche", name: nil, class: "btn btn-default" %>
        			 </p>
       			<% end %>
 
 
 
 				<% if user_signed_in? %>
-					<li><%= link_to "Add New Application", new_app_path %></li>
-          <li><%= link_to "Add New Category", new_category_path %></li>
+					<li><%= link_to "Applikation hinzufügen", new_app_path %></li>
+          <li><%= link_to "Neue Kategorie hinzufügen", new_category_path %></li>
 				<% end %>
         <li> <%= link_to_unless_current "English", locale: "en" %> </li>
         <li><%= link_to_unless_current "German", locale: "de" %> </li>
@@ -78,11 +78,11 @@
   <!-- Left and right controls -->
   <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
+    <span class="sr-only">Früher</span>
   </a>
   <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
+    <span class="sr-only">Nächster</span>
   </a>
 </div>
 

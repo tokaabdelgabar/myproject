@@ -7,5 +7,8 @@ class App < ActiveRecord::Base
     validates_attachment_content_type :app_img, :content_type => /\Aimage\/.*\Z/
     translates :description
  
+  def self.find_by(*args)
+    self.where(*args).take
+  end
  
 end
