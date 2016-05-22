@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510110342) do
+ActiveRecord::Schema.define(version: 20160522175924) do
+
+  create_table "app_translations", force: :cascade do |t|
+    t.integer  "app_id",      null: false
+    t.string   "locale",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "description"
+  end
+
+  add_index "app_translations", ["app_id"], name: "index_app_translations_on_app_id"
+  add_index "app_translations", ["locale"], name: "index_app_translations_on_locale"
 
   create_table "apps", force: :cascade do |t|
     t.string   "name"
@@ -35,6 +46,28 @@ ActiveRecord::Schema.define(version: 20160510110342) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "category_translations", force: :cascade do |t|
+    t.integer  "category_id", null: false
+    t.string   "locale",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "name"
+  end
+
+  add_index "category_translations", ["category_id"], name: "index_category_translations_on_category_id"
+  add_index "category_translations", ["locale"], name: "index_category_translations_on_locale"
+
+  create_table "review_translations", force: :cascade do |t|
+    t.integer  "review_id",  null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "comment"
+  end
+
+  add_index "review_translations", ["locale"], name: "index_review_translations_on_locale"
+  add_index "review_translations", ["review_id"], name: "index_review_translations_on_review_id"
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "rating"

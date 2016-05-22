@@ -1,3 +1,4 @@
 class Category < ActiveRecord::Base
 	has_many :apps
+	translates :name
 end
