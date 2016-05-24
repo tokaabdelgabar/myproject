@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+#mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 #begin translate 
 # config/routes.rb
 scope "(:locale)", locale: /en|de/ do
@@ -8,6 +9,7 @@ scope "(:locale)", locale: /en|de/ do
 end
 # config/routes.rb
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: "apps#index"
 end
 # end translate 
