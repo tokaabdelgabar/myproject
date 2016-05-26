@@ -1,17 +1,27 @@
+  <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Price <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <% @blind.each do |blind| %>
+              <li class="<%= 'active' if params[:price] == "free" %>">
+              <%= "free "  %>
+              <%= link_to "paid " %>
+              </li>
+            <% end %>
+          </ul>
+</li>
+ 
+<div class="app">
   <% @blind.each do |blind| %>
-    <section class="product">
-          <h2><%= link_to blind.name, store_product_path(blind) %></h2>
-         
-          <ul><%= number_to_currency blind.price %></ul>
-        </dl>
-        
-        <td class="image-description">
-            <td><%= image_tag blind.app_img.url(:app_index) %></td>
-        </td>
-        <% if blind.category %>
-        <p>
-          <strong>Category:</strong><%= blind.category.name %>
-        </p>
-    <% end %>
-  </section>
-<%end%>
+
+<div class="col-md-3">
+      <a href="/apps/<%= blind.id %>"><%= image_tag blind.app_img.url(:app_index), class: "app_image" %></a>
+      <p><%= link_to blind.name, app_path(blind) %></p>
+      <p class="app-name"><%= blind.price %></p>
+      <div class="average-review-rating" data-score=<%= blind.reviews.average(:rating) %>></div>
+      </div>
+<% end %>
+</div>
+
+
+
+   

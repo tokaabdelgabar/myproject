@@ -1,12 +1,16 @@
-<% @motorical.each do |motorical| %>
-    <section class="product">
-          <h2><%= link_to motorical.name, store_product_path(motorical) %></h2>
-         
-          <ul><%= number_to_currency motorical.price %></ul>
-        </dl>
-        
-        <td class="image-description">
-            <td><%= image_tag motorical.app_img.url(:app_index) %></td>
-        </td>
-  </section>
-<%end%>
+ 
+<div class="app">
+  <% @motorical.each do |motorical| %>
+
+<div class="col-md-3">
+      <a href="/apps/<%= motorical.id %>"><%= image_tag motorical.app_img.url(:app_index), class: "app_image" %></a>
+      <p><%= link_to motorical.name, app_path(motorical) %></p>
+      <p class="app-name"><%= motorical.price %></p>
+      <div class="average-review-rating" data-score=<%= motorical.reviews.average(:rating) %>></div>
+      </div>
+<% end %>
+</div>
+
+
+
+   

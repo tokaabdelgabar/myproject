@@ -1,9 +1,7 @@
 class StoreController < ApplicationController
 
-
-	
-	  
-	  def index
+  
+  def index
 	#@products = App.find(params[:id])
   	@products = App.order(:price)  	 
   end
@@ -26,6 +24,8 @@ class StoreController < ApplicationController
 
   def blind
       @blind = App.where(:category_id => 1)
+      @free_blind = @blind.where(price:'0') 
+      
   end
 
   def sight

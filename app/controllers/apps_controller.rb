@@ -17,11 +17,7 @@ before_action :authenticate_user!, only: [:new, :edit]
 			@apps = App.where(:category_id => @category_id).order("created_at DESC")
 		else
   			@apps = App.where (["name LIKE ?","%#{params[:search]}%"])
-		end	
-		
-		
-		
-
+		end		
 	end
 
 	def show
