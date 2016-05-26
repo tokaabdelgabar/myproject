@@ -4,7 +4,8 @@
             <% @blind.each do |blind| %>
               <li class="<%= 'active' if params[:price] == "free" %>">
               <%= "free "  %>
-              <%= link_to "paid " %>
+              <br></br>
+              <%= "paid " %>
               </li>
             <% end %>
           </ul>
@@ -14,7 +15,7 @@
   <% @blind.each do |blind| %>
 
 <div class="col-md-3">
-      <a href="/apps/<%= blind.id %>"><%= image_tag blind.app_img.url(:app_index), class: "app_image" %></a>
+      <a href="/apps/<%= blind.id %>"><%= image_tag blind.app_img.url(:app_index, :alt => "This is a picture"), class: "app_image"   %></a>
       <p><%= link_to blind.name, app_path(blind) %></p>
       <p class="app-name"><%= blind.price %></p>
       <div class="average-review-rating" data-score=<%= blind.reviews.average(:rating) %>></div>
