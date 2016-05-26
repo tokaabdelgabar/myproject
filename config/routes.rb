@@ -27,5 +27,16 @@ end
     end
     resources :reviews, except: [:show, :index]
   end
+
   
+  resources :categories
+  get 'paid' => 'store#paid'
+  get 'free' => 'store#free'
+  get 'store' => 'store#index'
+  get 'desc' => 'store#desc'
+
+  match 'store/:id' => 'store#show', :as => :store_product, :via => :get
+
+
+
 end

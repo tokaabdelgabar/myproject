@@ -1,0 +1,32 @@
+<h1>Store Listing</h1>
+Sort By: 
+<li><%= link_to "Free", free_path %></li>
+<li><%= link_to "Paid", paid_path %></li>
+
+<br>
+<h3>Price is displayed in descending order.</h3>
+<h3><%= link_to "Price is displayed in ascending order", store_path %></h3>
+
+      <% @desc.each do |product| %>
+    <section class="product">
+          <h2><%= link_to product.name, store_product_path(product) %></h2>
+    
+          <ul><%= number_to_currency product.price %></ul>
+        </dl>
+        
+        <td class="image-description">
+            <td><%= image_tag product.app_img.url(:app_index) %></td>
+        </td>
+        <% if product.category %>
+        <p>
+          <strong>Category:</strong><%= product.category.name %>
+        </p>
+    <% end %>
+  </section>
+<%end%>
+
+
+
+
+
+
