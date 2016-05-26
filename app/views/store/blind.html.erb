@@ -1,0 +1,17 @@
+  <% @blind.each do |blind| %>
+    <section class="product">
+          <h2><%= link_to blind.name, store_product_path(blind) %></h2>
+         
+          <ul><%= number_to_currency blind.price %></ul>
+        </dl>
+        
+        <td class="image-description">
+            <td><%= image_tag blind.app_img.url(:app_index) %></td>
+        </td>
+        <% if blind.category %>
+        <p>
+          <strong>Category:</strong><%= blind.category.name %>
+        </p>
+    <% end %>
+  </section>
+<%end%>

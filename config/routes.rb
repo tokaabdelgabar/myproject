@@ -34,6 +34,9 @@ end
   get 'free' => 'store#free'
   get 'store' => 'store#index'
   get 'desc' => 'store#desc'
+  get 'blind' => 'store#blind'
+  get 'sight' => 'store#sight'
+  get 'motorical' => 'store#motorical'
 
   match 'store/:id' => 'store#show', :as => :store_product, :via => :get
 

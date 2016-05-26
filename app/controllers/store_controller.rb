@@ -1,5 +1,10 @@
 class StoreController < ApplicationController
+
+
+	
+	  
 	  def index
+	#@products = App.find(params[:id])
   	@products = App.order(:price)  	 
   end
 
@@ -17,6 +22,22 @@ class StoreController < ApplicationController
 
   def show
   	@product = App.find(params[:id])
+  end
+
+  def blind
+      @blind = App.where(:category_id => 1)
+  end
+
+  def sight
+      @sight = App.where(:category_id => 2)
+  end
+
+  def motorical 
+  	@motorical= App.where(:category_id=> 3)
+  end 
+
+  def learning
+    @learningDisabled = App.where(:category_id => 4)
   end
 
 end

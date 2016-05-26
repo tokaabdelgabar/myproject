@@ -1,0 +1,12 @@
+<% @sight.each do |sight| %>
+    <section class="product">
+          <h2><%= link_to sight.name, store_product_path(sight) %></h2>
+         
+          <ul><%= number_to_currency sight.price %></ul>
+        </dl>
+        
+        <td class="image-description">
+            <td><%= image_tag sight.app_img.url(:app_index) %></td>
+        </td>
+  </section>
+<%end%>
