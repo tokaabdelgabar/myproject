@@ -1,15 +1,15 @@
   <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Price <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <% @blind.each do |blind| %>
-              <li class="<%= 'active' if params[:price] == "free" %>">
-              <%= "free "  %>
-              <br></br>
-              <%= "paid " %>
+            <% Category.all.each do |category| %>
+              <li class="<%= 'active' if params[:category] == category.name %>">
+                <%= link_to category.name, apps_path(category: category.name), class: "link" %>
+           
               </li>
             <% end %>
           </ul>
-</li>
+        </li>
+<%= say -%>
  
 <div class="app">
   <% @blind.each do |blind| %>

@@ -24,7 +24,7 @@ class StoreController < ApplicationController
 
   def blind
       @blind = App.where(:category_id => 1)
-      @free_blind = @blind.where(price:'0') 
+      @free_blind = @blind.where(price:'0')
       
   end
 
