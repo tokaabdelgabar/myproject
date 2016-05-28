@@ -1,0 +1,28 @@
+  <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <% Category.all.each do |category| %>
+              <li class="<%= 'active' if params[:category] == category.name %>">
+                <%= link_to category.name, apps_path(category: category.name), class: "link" %>
+           
+              </li>
+            <% end %>
+          </ul>
+        </li>
+<%= say -%>
+ 
+<div class="app">
+  <% @blind.each do |blind| %>
+
+<div class="col-md-3">
+      <a href="/apps/<%= blind.id %>"><%= image_tag blind.app_img.url(:app_index, :alt => "This is a picture"), class: "app_image"   %></a>
+      <p><%= link_to blind.name, app_path(blind) %></p>
+      <p class="app-name"><%= blind.price %></p>
+      <div class="average-review-rating" data-score=<%= blind.reviews.average(:rating) %>></div>
+      </div>
+<% end %>
+</div>
+
+
+
+   
