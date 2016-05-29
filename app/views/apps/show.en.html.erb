@@ -1,4 +1,23 @@
 
+
+
+<div align="right">
+
+<a href="javascript:SocialShare('http://www.facebook.com/sharer.php?s','https://sheltered-sierra-40726.herokuapp.com/apps/1', 'Fb Share', 'Facebook share popup', 'https://simplesharebuttons.com/images/somacro/facebook.png', 820, 850)"><img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" /></a>
+
+        
+<a href="javascript:SocialShare('https://twitter.com/share?s','https://sheltered-sierra-40726.herokuapp.com/apps/1', 'Fb Share', 'Facebook share popup', 'https://simplesharebuttons.com/images/somacro/facebook.png', 820, 850)"> <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" /> </a>
+
+
+<a href="javascript:SocialShare('http://www.linkedin.com/shareArticle?s','https://sheltered-sierra-40726.herokuapp.com/apps/1', 'Fb Share', 'Facebook share popup', 'http://jonbennallick.co.uk/wp-content/uploads/2012/08/Facebook-logo-ICON-02.png', 820, 850)"> <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" /></a>
+
+<a href="javascript:SocialShare('https://plus.google.com/share?s','https://sheltered-sierra-40726.herokuapp.com/apps/1', 'Fb Share', 'Facebook share popup', 'http://jonbennallick.co.uk/wp-content/uploads/2012/08/Facebook-logo-ICON-02.png', 820, 850)"> <img src="https://simplesharebuttons.com/images/somacro/google.png" alt="Google" /></a>
+
+</div>
+
+
+    
+	</div>
 <div class="row">
 	<div class="col-md-4">
 	<%= image_tag @app.app_img.url(:app_show), class: "app-show" %>
@@ -58,4 +77,13 @@
 			return $(this).attr('data-score')
 		}
 	});
+</script>
+
+
+<script>
+    function SocialShare(social,url,title, descr, image, winWidth, winHeight) {
+        var winTop = (screen.height / 2) - (winHeight / 2);
+        var winLeft = (screen.width / 2) - (winWidth / 2);
+        window.open(social+'=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+    }
 </script>
