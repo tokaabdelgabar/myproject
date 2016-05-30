@@ -1,16 +1,15 @@
-  <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categories <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <% Category.all.each do |category| %>
-              <li class="<%= 'active' if params[:category] == category.name %>">
-                <%= link_to category.name, apps_path(category: category.name), class: "link" %>
-           
-              </li>
-            <% end %>
-          </ul>
-        </li>
- 
-<div class="app">
+ <h1>Store Listing</h1>
+Sort By: 
+<li><%= link_to "All Products", store_path %></li>
+<li><%= link_to "Free", free_path %></li>
+
+<br>
+<h3>Price is displayed in ascending order.</h3>
+
+
+ <h2> <strong> Blind </strong></h2>
+
+ <div class="app">
   <% @blind.each do |blind| %>
 
 <div class="col-md-3">
@@ -22,6 +21,3 @@
 <% end %>
 </div>
 
-
-
-   
