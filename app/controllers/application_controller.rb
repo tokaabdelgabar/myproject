@@ -3,10 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-#author translation toka
+  #author translation toka
   #begin translate 
-   #http://localhost:3000?locale=de
-   before_action :set_locale
+  #http://localhost:3000?locale=de
+  before_action :set_locale
    def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
