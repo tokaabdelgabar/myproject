@@ -17,18 +17,16 @@ end
   devise_for :users
   resources :categories
   resources :apps do
-  	resources :reviews
+  resources :reviews
   end
   #root 'apps#index'
-
-	resources :apps do
+  resources :apps do
     collection do
       get 'search'
     end
     resources :reviews, except: [:show, :index]
   end
-
-  
+  scope "(:locale)", locale: /en|de/ do
   resources :categories
   get 'paid' => 'store#paid'
   get 'free' => 'store#free'
@@ -43,6 +41,6 @@ end
 
   match 'store/:id' => 'store#show', :as => :store_product, :via => :get
 
-
+end
 
 end

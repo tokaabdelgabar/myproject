@@ -7,7 +7,10 @@ class StoreController < ApplicationController
   end
 
   def free
-  	 @free = App.where(price:'0') 
+
+    @app=App.find(params[:category_id])
+    @opp=App.where(price:'0') 
+    @free=@app && @opp
   end
 
   def desc
@@ -15,17 +18,18 @@ class StoreController < ApplicationController
   end
 
   def paid
-  	@paid = App.where.not(price: 'free') && App.order(:price)
+    @app=App.find(params[:category_id])
+    @pai= App.where.not(price: '0') 
+    @paid=@app && @pai
+
   end
 
   def show
-  	@product = App.find(params[:id])
+  	 @product = App.find(params[:id])
   end
 
   def blind
       @blind = App.where(:category_id => 1)
-      @free_blind = @blind.where(price:'0')
-      
   end
 
   def sight
@@ -37,7 +41,15 @@ class StoreController < ApplicationController
   end 
 
   def learning
-    @learningDisabled = App.where(:category_id => 4)
+    @learning = App.where(:category_id => 4)
+  end
+
+  def hearing
+    @hearing = App.where(:category_id => 5)
+  end
+
+   def WheelChair
+    @WheelChair = App.where(:category_id => 6)
   end
 
 end
