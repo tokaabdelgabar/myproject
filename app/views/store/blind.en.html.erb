@@ -1,14 +1,14 @@
 <h1>Store Listing</h1>
 Sort By: 
 <li><%= link_to "All Products", blind_path %></li>
-<li><%= link_to "Free", free_path(:category_id => 1) %></li>
-<li><%= link_to "Paid", paid_path(:category_id => 1) %></li>
+<li><%= link_to "Free", free_path %></li>
+<li><%= link_to "Paid", paid_path %></li>
 
 <br>
 <h3>Price is displayed in ascending order.</h3>
 
  
-<h2> <strong> Blind </strong></h2>
+<h2> <strong> Blind english </strong></h2>
 <div class="app">
   <% @blind.each do |blind| %>
 

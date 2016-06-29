@@ -20,7 +20,11 @@ end
   resources :reviews
   end
   #root 'apps#index'
+<<<<<<< HEAD
   resources :apps do
+=======
+	resources :apps do
+>>>>>>> refs/remotes/origin/master
     collection do
       get 'search'
     end
@@ -41,6 +45,11 @@ end
 
   match 'store/:id' => 'store#show', :as => :store_product, :via => :get
 
+<<<<<<< HEAD
+=======
+end
+
+>>>>>>> refs/remotes/origin/master
 end
 
 end
