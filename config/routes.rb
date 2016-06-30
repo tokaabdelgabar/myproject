@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'messages/new'
+
 #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 #begin translate 
 # config/routes.rb
@@ -9,6 +11,8 @@ scope "(:locale)", locale: /en|de/ do
 end
 # config/routes.rb
 Rails.application.routes.draw do
+  get 'messages/new'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: "apps#index"
 end
@@ -19,6 +23,11 @@ end
   resources :apps do
   resources :reviews
   end
+
+# Contact
+resources :messages, only: [:new, :create]
+
+
   #root 'apps#index'
 
  

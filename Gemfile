@@ -42,3 +42,11 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# Captcha
+gem "recaptcha", require: "recaptcha/rails"
+
+# Compass
+gem 'compass-rails', '~> 2.0', '>= 2.0.4'
+
+# Fonts
+gem "font-awesome-rails"
