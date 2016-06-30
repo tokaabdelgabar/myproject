@@ -8,9 +8,7 @@ class StoreController < ApplicationController
 
   def free
 
-    @app=App.find(params[:category_id])
-    @opp=App.where(price:'0') 
-    @free=@app && @opp
+    @free=App.where(price:'0') 
   end
 
   def desc
@@ -18,9 +16,7 @@ class StoreController < ApplicationController
   end
 
   def paid
-    @app=App.find(params[:category_id])
-    @pai= App.where.not(price: '0') 
-    @paid=@app && @pai
+    @paid= App.where.not(price: '0') 
 
   end
 
@@ -31,6 +27,11 @@ class StoreController < ApplicationController
   def blind
       @blind = App.where(:category_id => 1)
   end
+
+  def blindFree
+      @blind=App.where(:category_id => 1)
+      @blindFree=@blind.where(price:'0') 
+  end 
 
   def sight
       @sight = App.where(:category_id => 2)
