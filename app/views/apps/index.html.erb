@@ -1,5 +1,5 @@
 
- <br></br>
+<!--  <br></br> -->
  <p><a href="blind" target="_blank" class="btn btn-primary btn-lg" style="margin-left:900px; margin-top: 1px;">See More</a></p>
 
 <% if params[:category].blank? && params[:search].blank? %>
@@ -102,7 +102,7 @@
 		<span class="category-name"><h1 style="font-size:110%;"><%=t :Hearing_Impaired %></h1></span>
 	</b>
 	<div class="app">
-		<% @apps_deaf.limit(5).each do |app| %>
+		<% @apps_hearing.limit(5).each do |app| %>
 			<div class="col-md-3">
 				<div class="app-frame">
 					<a href="/apps/<%= app.id %>"><%= image_tag app.app_img.url(:app_index), class: "app_image" %></a>

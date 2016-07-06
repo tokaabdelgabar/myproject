@@ -1,5 +1,5 @@
 
- <br></br>
+<!--  <br></br> -->
  <p><a href="blind" target="_blank" class="btn btn-primary btn-lg" style="margin-left:900px; margin-top: 1px;">See More</a></p>
 
 <% if params[:category].blank? && params[:search].blank? %>
@@ -7,34 +7,32 @@
 	
 
 	<div class="row">
-	<b>
-		<span class="category-name">
-			<h1 style="font-size:110%;"><%=t :Blind %></h1>
-		</span>
-	</b>
 
-	<div class="app">
-		<% @apps_blind.limit(5).each do |app| %>
-			<div class="col-md-3">
-				<div class="app-frame">
-					<a href="/apps/<%= app.id %>"><%= image_tag app.app_img.url(:app_index), class: "app_image" %></a>
-					<p><%= link_to app.name, app_path(app) %></p>
-					<p class="app-name"><%= app.price %></p>
-					<div class="average-review-rating" data-score=<%= app.reviews.average(:rating) %>></div>
+			<h2 class="title-style-2"><%=t :Blind %><span class="title-under"></span></h2>
+
+		<div class="app">
+			<% @apps_blind.limit(5).each do |app| %>
+				<div class="col-md-3">
+					<div class="app-frame">
+						<a href="/apps/<%= app.id %>"><%= image_tag app.app_img.url(:app_index), class: "app_image" %></a>
+						<p><%= link_to app.name, app_path(app) %></p>
+						<p class="app-name"><%= app.price %></p>
+						<div class="average-review-rating" data-score=<%= app.reviews.average(:rating) %>></div>
+					</div>
 				</div>
-			</div>
-		<% end %>
-	</div>
+			<% end %>
+		</div> 
+
 	</div>
 
 	 <br></br>
 
 	<p><a href="sight" target="_blank" class="btn btn-primary btn-lg" style="margin-left:900px; margin-top: 1px;">See More</a></p>
 
-	<<div class="row">
-	<b>
-		<span class="category-name"><h1 style="font-size:110%;"><%=t :Sight_Impaired %></h1></span>
-	</b>
+	<div class="row">
+
+		<h2 class="title-style-2"><%=t :Sight_Impaired %><span class="title-under"></span></h2>
+
 	<div class="app">
 		<% @apps_sight.limit(5).each do |app| %>
 			<div class="col-md-3">
@@ -56,9 +54,9 @@
 
 
 <div class="row">
-	<b>
-		<span class="category-name"><h1 style="font-size:110%;"><%=t :Motorically_Impaired %></h1></span>
-	</b>
+
+		<h2 class="title-style-2"><%=t :Motorically_Impaired %><span class="title-under"></span></h2>
+
 	<div class="app">
 		<% @apps_motorically.limit(5).each do |app| %>
 			<div class="col-md-3">
@@ -79,9 +77,9 @@
 
 
 <div class="row">
-	<b>
-		<span class="category-name"><h1 style="font-size:110%;"><%=t :Learning_Impaired %></h1></span>
-	</b>
+
+		<h2 class="title-style-2"><%=t :Learning_Impaired %><span class="title-under"></span></h2>
+
 	<div class="app">
 		<% @apps_learning.limit(5).each do |app| %>
 			<div class="col-md-3">
@@ -102,11 +100,11 @@
 
 
 <div class="row">
-	<b>
-		<span class="category-name"><h1 style="font-size:110%;"><%=t :Hearing_Impaired %></h1></span>
-	</b>
+
+		<h2 class="title-style-2"><%=t :Hearing_Impaired %><span class="title-under"></span></h2>
+
 	<div class="app">
-		<% @apps_deaf.limit(5).each do |app| %>
+		<% @apps_hearing.limit(5).each do |app| %>
 			<div class="col-md-3">
 				<div class="app-frame">
 					<a href="/apps/<%= app.id %>"><%= image_tag app.app_img.url(:app_index), class: "app_image" %></a>
@@ -125,9 +123,9 @@
 
 
 <div class="row">
-	<b>
-		<span class="category-name"><h1 style="font-size:110%;"><%=t :WheelChair %></h1></span>
-	</b>
+
+		<h2 class="title-style-2"><%=t :WheelChair %><span class="title-under"></span></h2>
+
 	<div class="app">
 		<% @apps_whealchair.limit(5).each do |app| %>
 			<div class="col-md-3">

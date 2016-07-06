@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>AbilIT.NET</title>
+       <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <!-- Fonts -->
@@ -123,8 +124,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
 
 
-<!-- Carousel
-    ================================================== -->
+<!-- Carousel -->
     <div id="homeCarousel" class="carousel slide carousel-home" data-ride="carousel" data-interval="false" >
 
           <!-- Indicators -->
@@ -170,24 +170,21 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
           </a>
 
     </div><!-- /.carousel -->
-<!-- Back to Top
-    ================================================== -->
+<!-- Back to Top -->
 
 <!-- <a href="#" class="scrollToTop">Scroll To Top</a> -->
 
 
 
 
-<!-- Apps
-    ================================================== -->
+<!-- Apps-->
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 <div class="container">
   <%= yield %>
 </div>
 
-   <!--  Footer
-    ================================================== -->
+   <!--  Footer-->
 
     <footer class="main-footer">
 
@@ -230,8 +227,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
         
     </footer> <!-- main-footer -->
 
-<!--  Scripts
-    ================================================== -->
+<!--  Scripts-->
 
     <!-- jQuery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

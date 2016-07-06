@@ -8,6 +8,7 @@
     float: left;
     border: 1px solid #E4E4E4;
     border-radius: 0.3rem;
+
 }
 a {
     color: inherit;
@@ -16,17 +17,12 @@ a {
     height: 200px;
     width: 200px;
     overflow: hidden;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-.app-frame{
-    height: 300px;
-    width: 220px;
-    overflow: hidden;
+    padding: 10px;
 }
 
+
 # Back to Top
-.scrollToTop > a{
+.scrollToTop {
     width:100px; 
     height:130px;
     padding:10px; 
@@ -35,10 +31,10 @@ a {
     color: #444;
     text-decoration: none;
     position:fixed;
-    top:75px;
+    bottom:200px;
     right:40px;
     display:none;
-    background: url('top-button.png') no-repeat 0px 20px;
+    background-color: green;# no-repeat 0px 20px;
 }
 .scrollToTop:hover{
     text-decoration:none;

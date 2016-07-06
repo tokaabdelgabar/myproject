@@ -2,8 +2,10 @@
 <html>
 <head>
   <title>AbilIT.NET</title>
+       <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      <%= csrf_meta_tags %>
       <!-- Fonts -->
       <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
       
@@ -41,8 +43,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 </script>
 <!--End of Zopim Live Chat Script-->
 
-<!-- Header
-    ================================================== -->
+<!-- Header -->
 <header class="main-header">
         
     
@@ -93,6 +94,8 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                         <li class="submenu-item"><%= link_to_unless_current "German", locale: "de" %></li>
                       </ul>
                     </li>
+                    <li><%= link_to "HELP", help_path %></li>
+                    <li><%= link_to "DICTIONARY", dictionary_path %></li>
                     <!--  -->
                   </ul>
 
@@ -124,9 +127,8 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
     </header> <!-- /. main-header -->
 
 
-<!-- Carousel
-    ================================================== -->
-    <div id="homeCarousel" class="carousel slide carousel-home" data-ride="carousel" data-interval="false" >
+<!-- Carousel-->
+    <div id="homeCarousel" class="carousel slide carousel-home" data-ride="carousel" data-interval="false">
 
           <!-- Indicators -->
           <ol class="carousel-indicators">
@@ -154,7 +156,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
             <div class="item ">
 
-              <%= image_tag("KNFB-Reader.jpg", :alt => "rss feed" ) %>
+              <%= image_tag("KNFB-Reader.jpg", :alt => "rss feed") %>
 
             </div> <!-- /.item -->
 
@@ -171,13 +173,11 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
           </a>
 
     </div><!-- /.carousel -->
-<!-- Back to Top
-    ================================================== -->
+<!-- Back to Top-->
+<!-- <p class="scrollToTop"><a href="#"><%= image_tag("top-button.png", :alt => "Back to top", :size=> "40x40") %></a></p> -->
 
-<!-- <a href="#" class="scrollToTop">Scroll To Top</a> -->
 
-<!-- Apps
-    ================================================== -->
+<!-- Apps-->
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 <div class="container">
@@ -185,8 +185,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 </div>
     
 
-    <!--  Footer
-    ================================================== -->
+    <!--  Footer -->
 
     <footer class="main-footer">
 
@@ -229,8 +228,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
         
     </footer> <!-- main-footer -->
 
-<!--  Scripts
-    ================================================== -->
+<!--  Scripts -->
 
     <!-- jQuery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -248,15 +246,16 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
     
     <%= javascript_include_tag 'main', 'data-turbolinks-track' => true %>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.  -->   
     <script>
         (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
         function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
         e=o.createElement(i);r=o.getElementsByTagName(i)[0];
         e.src='//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga');
         ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
+
 
 </body>
 </html>

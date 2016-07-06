@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get '/dictionary' => 'pages#dictionary'
+  get '/help' => 'pages#help'
   get 'messages/new'
 
 #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -11,6 +13,9 @@ scope "(:locale)", locale: /en|de/ do
 end
 # config/routes.rb
 Rails.application.routes.draw do
+
+  get '/help' => 'pages#help'
+  get '/dictionay' => 'pages#dictionary'
   get 'messages/new'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -25,12 +30,14 @@ end
   end
 
 # Contact
-resources :messages, only: [:new, :create]
+  resources :messages, only: [:new, :create]
 
 
-  #root 'apps#index'
 
- 
+
+
+#root 'apps#index'
+
 	resources :apps do
 
     collection do
