@@ -73,8 +73,8 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
                   <ul class="nav navbar-nav">
 
-                    <li><%= link_to "Prüfung der Bewerbung", root_path %></li>
-                    <li><%= link_to "CONTAKT", new_message_path %></li>
+                    <li><%= link_to "STARTSEITE", root_path %></li>
+                    <li><%= link_to "KONTAKT", new_message_path %></li>
                     <li class="has-child">
                       <a href="#">KATEGORIEN</a>
                       <ul class="submenu" role="menu">
@@ -102,7 +102,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                       <li><%= link_to "AUSLOGGEN", destroy_user_session_path, method: :delete %></li>
                     <% else %>  
                       <li><%= link_to "EINLOGGEN", new_user_session_path %></li>
-                      <li><%= link_to "ANMELDEN", new_user_registration_path %></li>
+                      <li><%= link_to "REGISTRIEREN", new_user_registration_path %></li>
                     <% end %>
                   </ul>
                   <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>

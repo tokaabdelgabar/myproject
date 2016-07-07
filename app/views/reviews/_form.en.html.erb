@@ -1,9 +1,17 @@
+<h2 class="title-style-2">Review<span class="title-under"></span></h2>
 <%= simple_form_for([@app, @app.reviews.build]) do |f| %>
-	<div id="rating-form">
-		<label>Rating</label>
-	</div>
-	<%= f.input :comment %>
-	<%= f.button :submit %>
+	
+	<div class="form-group col-md-6">
+		<div id="rating-form">
+			<!-- <label>Rating</label> -->
+			<h4>Rating</h4>
+		</div>
+		<h4>Comment:</h4> 
+	    <textarea name="message" rows="5" class="form-control" placeholder="Comment*" required></textarea><br/>
+	    <%= f.submit 'Submit', class: 'btn btn-primary pull-left' %>          
+    </div>
+	<!--<%= f.button :submit %> -->
+	<br/>
 
 <% end %>
 <script>

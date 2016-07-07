@@ -1,6 +1,6 @@
 <div class="review-rating" data-score="<%= review.rating %>"></div
-<p><%= review.comment %></p>
-<p>Geschrieben von <b><%= review.user.username %></b></p>
+<h4><%= review.comment %></h4>
+<h4>Geschrieben von <b><%= review.user.username %></b></h4>
 
 
 <% if user_signed_in? %>
@@ -11,4 +11,4 @@
 	<% end %>	
 
 <% end %>
-		
+<br/>		

@@ -1,15 +1,22 @@
-<h2>Resend confirmation instructions</h2>
+<!-- <h2>Resend confirmation instructions</h2> -->
+<h2 class="title-style-2">Resend confirmation instructions<span class="title-under"></span></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
   <%= f.full_error :confirmation_token %>
 
-  <div class="form-inputs">
+  <!-- <div class="form-inputs">
     <%= f.input :email, required: true, autofocus: true %>
+  </div> -->
+  <div class="form-group col-md-6">
+  	<h4>Email:</h4> 
+    <input type="email" name="email" class="form-control" placeholder="Email*" required>
   </div>
-
-  <div class="form-actions">
+  <!-- <div class="form-actions">
     <%= f.button :submit, "Resend confirmation instructions" %>
+  </div> -->
+  <div class="form-group">
+      <%= f.submit 'Sign Up', class: 'btn btn-primary pull-left' %>
   </div>
 <% end %>
 
