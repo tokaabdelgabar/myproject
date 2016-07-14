@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/dictionary' => 'pages#dictionary'
   get '/help' => 'pages#help'
+  get '/disclaimer' => 'pages#disclaimer'
   get 'messages/new'
 
 #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
