@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/dictionary' => 'pages#dictionary'
   get '/help' => 'pages#help'
   get '/disclaimer' => 'pages#disclaimer'
+  get '/notification' => 'notifications#index'
   get 'messages/new'
 
 #mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -32,10 +33,6 @@ end
 
 # Contact
   resources :messages, only: [:new, :create]
-
-
-
-
 
 #root 'apps#index'
 

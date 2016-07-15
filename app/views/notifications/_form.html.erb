@@ -1,0 +1,6 @@
+<%= simple_form_for @notification, :html => { :multipart => true } do |f| %>
+	
+	<%= f.input :title, label: "Title of the notification" %>
+	<%= f.input :description, label: "description of the notification" %>
+	<%= f.button :submit %>
+<% end %>

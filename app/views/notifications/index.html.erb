@@ -1,0 +1,4 @@
+<h2> Notifications Page please edit the layout </h2>
+<% @notifications.each do |notification| %>
+	<b><p><%= link_to notification.title, notification_path(notification) %>, <p><%= link_to notification.content, notification_path(notification) %> </p></b>
+<% end %>
