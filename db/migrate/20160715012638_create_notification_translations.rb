@@ -1,5 +1,5 @@
 class CreateNotificationTranslations < ActiveRecord::Migration
- def up
+ def self.up
     Notification.create_translation_table!({
       title: :string,
       content: :text
@@ -8,7 +8,7 @@ class CreateNotificationTranslations < ActiveRecord::Migration
     })
   end
 
-  def down
+  def self.down
     Notification.drop_translation_table! migrate_data: true
   end
 end

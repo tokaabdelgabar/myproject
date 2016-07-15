@@ -1,6 +1,6 @@
 class CreateReviewTranslations < ActiveRecord::Migration
 
-  def up
+  def self.up
     Review.create_translation_table!({
       comment: :string,
     }, {
@@ -8,7 +8,7 @@ class CreateReviewTranslations < ActiveRecord::Migration
     })
   end
 
-  def down
+  def self.down
     Review.drop_translation_table! migrate_data: true
   end
 end

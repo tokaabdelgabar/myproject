@@ -1,5 +1,5 @@
 class CreateAppTranslations < ActiveRecord::Migration
-	def up
+	def self.up
 		App.create_translation_table!({
 			description: :string,
 			# content: :text 
@@ -7,7 +7,7 @@ class CreateAppTranslations < ActiveRecord::Migration
 			{migrate_data: true })
   end
 
-  def down
+  def self.down
     App.drop_translation_table! migrate_data: true
   end
 end
