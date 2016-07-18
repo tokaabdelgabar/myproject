@@ -24,22 +24,30 @@
 
           <h2 class="title-style-2">CONTACT FORM <span class="title-under"></span></h2>
 
-          <form action="php/mail.php" class="contact-form ajax-form">
+          <!-- <form action="php/mail.php" class="contact-form ajax-form"> -->
 
             <div class="row">
 
               <div class="form-group col-md-6">
-                <input type="text" name="name" class="form-control" placeholder="Name*" required>
+                <!-- <input type="text" name="name" class="form-control" placeholder="Name*" required> -->
+              <%= f.text_field :name, class:"form-control", placeholder:"Name*" %>
               </div>
 
               <div class="form-group col-md-6">
-                <input type="email" name="email" class="form-control" placeholder="E-mail*" required>
+                <!-- <input type="email" name="email" class="form-control" placeholder="E-mail*" required> -->
+                <%= f.text_field :email, class:"form-control", placeholder:"Email*" %>
+              </div>
+
+              <div class="form-group col-md-12">
+                <!-- <input type="email" name="email" class="form-control" placeholder="E-mail*" required> -->
+                <%= f.text_field :subject, class:"form-control", placeholder:"Subject*" %>
               </div>
               
             </div>
 
             <div class="form-group">
-              <textarea name="message" rows="5" class="form-control" placeholder="Message*" required></textarea>
+              <!-- <textarea name="message" rows="5" class="form-control" placeholder="Message*" required></textarea> -->
+              <%= f.text_area :content, class:"form-control", placeholder:"Content*" %>
             </div>
 
             <div class="form-group alerts">
@@ -55,12 +63,12 @@
             </div>  
 
             <div class="form-group">
-              <%= f.submit 'Send message', class: 'btn btn-primary pull-right' %>
+              <%= f.submit 'Send email', class: 'btn btn-primary pull-right' %>
             </div>
 
             <div class="clearfix"></div>
 
-          </form>
+          <!-- </form> -->
 
         </div>
 
