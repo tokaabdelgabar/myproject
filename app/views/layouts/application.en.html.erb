@@ -49,10 +49,32 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
     
         <nav class="navbar navbar-static-top">
 
-<!--             <div class="navbar-top">
+       <div class="navbar-top">
+          <div class="navbar-top">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                </div>
+                <div class="col-sm-6 col-xs-12 text-right">
 
+                        <ul class="list-unstyled list-inline header-contact">
+                            <% if user_signed_in? %>
+                              <li><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
+                            <% else %>  
+                              <li><%= link_to "SIGN IN", new_user_session_path %></li>
+                              <li><%= link_to "SIGN UP", new_user_registration_path %></li>
+                            <% end %>
+                            <li><%= link_to "HELP", help_path %></li>
+                            <li><%= link_to "DICTIONARY", dictionary_path %></li>
+                            <li><%= link_to 'DISCLAIMER', disclaimer_path %></li>
+                            <li><%= link_to 'NOTIFICATION', notification_path %></li>
+                       </ul> <!-- /.header-social  -->
+                      
+                    </div>
+              </div>
+            </div>
 
-            </div> -->
+          </div>
 
             <div class="navbar-main">
               
@@ -77,8 +99,8 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
                     <li><%= link_to "HOME", root_path %></li>
                     <li><%= link_to "CONTACT", new_message_path %></li>
-                    <li><%= link_to 'DISCLAIMER', disclaimer_path %></li>
-                    <li><%= link_to 'NOTIFICATION', notification_path %></li>
+                    <!-- <li><%= link_to 'DISCLAIMER', disclaimer_path %></li>
+                    <li><%= link_to 'NOTIFICATION', notification_path %></li> -->
                     <li class="has-child">
                       <a href="#">CATEGORIES</a>
                       <ul class="submenu" role="menu">
@@ -96,21 +118,19 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                         <li class="submenu-item"><%= link_to_unless_current "German", locale: "de" %></li>
                       </ul>
                     </li>
-                    <li><%= link_to "HELP", help_path %></li>
-                    <li><%= link_to "DICTIONARY", dictionary_path %></li>
                     <!--  -->
                   </ul>
 
                 </div> 
                 <div id="navbar" class="navbar-collapse collapse pull-right">
-                  <ul class="nav navbar-nav">
+<!--                   <ul class="nav navbar-nav">
                     <% if user_signed_in? %>
                       <li><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
                     <% else %>  
                       <li><%= link_to "SIGN IN", new_user_session_path %></li>
                       <li><%= link_to "SIGN UP", new_user_registration_path %></li>
                     <% end %>
-                  </ul>
+                  </ul> -->
                   <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
                       <p>
                        <%= text_field_tag :search, params[:search], class: "form-control" %>
@@ -180,8 +200,8 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
 
 <!-- Apps-->
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<b><h3 class="notice"><%= notice %></h3></b>
+<b><h3 class="alert"><%= alert %></h3></b>
 <div class="container">
   <%= yield %>
 </div>
