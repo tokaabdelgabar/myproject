@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>AbilIT.NET</title>
-       <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <%= csrf_meta_tags %>
@@ -29,6 +29,11 @@
       <!-- Category-App -->
       <%= stylesheet_link_tag    'category-apps', media: 'all', 'data-turbolinks-track' => true %>
 
+      <!-- Breadcrumb -->
+      <!-- <script type="text/javascript" src="/javascript/breadcrumbs.js"></script> -->
+      <%= javascript_include_tag 'breadcrumbs.js', 'data-turbolinks-track' => true %>
+
+      
 </head>
 <body>
 
@@ -53,7 +58,10 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
           <div class="navbar-top">
             <div class="container">
               <div class="row">
-                <div class="col-sm-6 col-xs-12">
+                <div class="col-sm-6 col-xs-12 text-left">
+                  <ul class="list-unstyled list-inline header-contact">
+                    <li><a href="#">High Contrast Theme</a></li>
+                  </ul>
                 </div>
                 <div class="col-sm-6 col-xs-12 text-right">
 
@@ -93,20 +101,21 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                   
                 </div>
 
-                <div id="navbar" class="navbar-collapse collapse pull-left">
+                <div id="navbar" class="navbar-collapse collapse pull-left" aria-label="Main menu" role="navigation">
 
-                  <ul class="nav navbar-nav">
+                  <ul class="nav navbar-nav" role="menubar" id="
+                  nav">
 
                     <li><%= link_to "HOME", root_path %></li>
                     <li><%= link_to "CONTACT", new_message_path %></li>
                     <!-- <li><%= link_to 'DISCLAIMER', disclaimer_path %></li>
                     <li><%= link_to 'NOTIFICATION', notification_path %></li> -->
-                    <li class="has-child">
+                    <li class="has-child" role="menuitem" tabindex="0" aria-haspopup="true">
                       <a href="#">CATEGORIES</a>
-                      <ul class="submenu" role="menu">
+                      <ul class="submenu" role="menu" aria-hidden="false">
                         <% Category.all.each do |category| %>
-                          <li class="<%= 'active' if params[:category] == category.name %>">
-                            <%= link_to category.name, apps_path(category: category.name), class: "link" %>
+                          <li role="menuitem" tabindex="-1" class="<%= 'active' if params[:category] == category.name %>">
+                            <%= link_to category.name, apps_path(category: category.name), class: "link",  :tabindex=>"-1"%>
                           </li>
                         <% end %>
                       </ul>
@@ -133,7 +142,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                   </ul> -->
                   <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
                       <p>
-                       <%= text_field_tag :search, params[:search], class: "form-control" %>
+                       <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Searchfield" %>
                        <%= submit_tag "SEARCH", name: nil, class: "btn btn-default" %>
                        </p>
                       <% end %>
@@ -150,10 +159,10 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
 
 <!-- Carousel-->
-    <div id="homeCarousel" class="carousel slide carousel-home" data-ride="carousel" data-interval="false">
+<!--     <div id="homeCarousel" class="carousel slide carousel-home" data-ride="carousel" data-interval="false">
 
           <!-- Indicators -->
-          <ol class="carousel-indicators">
+          <!-- <ol class="carousel-indicators">
             <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#homeCarousel" data-slide-to="1"></li>
             <li data-target="#homeCarousel" data-slide-to="2"></li>
@@ -169,20 +178,20 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
             </div> <!-- /.item -->
 
 
-            <div class="item ">
+            <!-- <div class="item ">
 
               <%= image_tag("Tap-Tap-See-image.jpg", :alt => "rss feed" ) %>
 
-            </div> <!-- /.item -->
+            </div> --> <!--  /.item -->
 
 
-            <div class="item ">
+            <!-- <div class="item ">
 
               <%= image_tag("KNFB-Reader.jpg", :alt => "rss feed") %>
 
-            </div> <!-- /.item -->
+            </div> --> <!-- /.item -->
 
-          </div>
+          <!-- </div>
 
           <a class="left carousel-control" href="#homeCarousel" role="button" data-slide="prev">
             <span class="fa fa-angle-left" aria-hidden="true"></span>
@@ -194,10 +203,16 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
             <span class="sr-only">Next</span>
           </a>
 
-    </div><!-- /.carousel -->
+    </div> --><!-- /.carousel -->
 <!-- Back to Top-->
 <!-- <p class="scrollToTop"><a href="#"><%= image_tag("top-button.png", :alt => "Back to top", :size=> "40x40") %></a></p> -->
+          <!-- Begin breadcrumb -->
+      <div class="row">
+        <div class="breadcrumbs" id="breadcrumb_dynamic">
 
+        </div>
+      </div>
+        <!-- End of breadcrumb -->
 
 <!-- Apps-->
 <b><h3 class="notice"><%= notice %></h3></b>

@@ -122,7 +122,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                 <div id="navbar" class="navbar-collapse collapse pull-right">
                   <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
                       <p>
-                       <%= text_field_tag :search, params[:search], class: "form-control" %>
+                       <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Suchfeld" %>
                        <%= submit_tag "SUCHE", name: nil, class: "btn btn-default" %>
                        </p>
                       <% end %>
@@ -140,10 +140,10 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
 
 <!-- Carousel -->
-    <div id="homeCarousel" class="carousel slide carousel-home" data-ride="carousel" data-interval="false" >
+   <!--  <div id="homeCarousel" class="carousel slide carousel-home" data-ride="carousel" data-interval="false" > -->
 
           <!-- Indicators -->
-          <ol class="carousel-indicators">
+          <!-- <ol class="carousel-indicators">
             <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#homeCarousel" data-slide-to="1"></li>
             <li data-target="#homeCarousel" data-slide-to="2"></li>
@@ -156,23 +156,23 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
               <%= image_tag("BeMyEyes.png", :alt => "rss feed" ) %>
 
 
-            </div> <!-- /.item -->
+            </div> --> <!-- /.item -->
 
 
-            <div class="item ">
+            <!-- <div class="item ">
 
               <%= image_tag("Tap-Tap-See-image.jpg", :alt => "rss feed" ) %>
 
-            </div> <!-- /.item -->
+            </div> --> <!-- /.item -->
 
 
-            <div class="item ">
+            <!-- <div class="item ">
 
               <%= image_tag("KNFB-Reader.jpg", :alt => "rss feed" ) %>
 
-            </div> <!-- /.item -->
+            </div> --> <!-- /.item -->
 
-          </div>
+          <!-- </div>
 
           <a class="left carousel-control" href="#homeCarousel" role="button" data-slide="prev">
             <span class="fa fa-angle-left" aria-hidden="true"></span>
@@ -184,7 +184,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
             <span class="sr-only">Next</span>
           </a>
 
-    </div><!-- /.carousel -->
+    </div> --><!-- /.carousel -->
 <!-- Back to Top -->
 
 <!-- <a href="#" class="scrollToTop">Scroll To Top</a> -->
