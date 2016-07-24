@@ -110,12 +110,12 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                     <li><%= link_to "CONTACT", new_message_path %></li>
                     <!-- <li><%= link_to 'DISCLAIMER', disclaimer_path %></li>
                     <li><%= link_to 'NOTIFICATION', notification_path %></li> -->
-                    <li class="has-child" role="menuitem" tabindex="0" aria-haspopup="true">
+                    <li class="has-child" role="menuitem" tabindex="1" aria-haspopup="true">
                       <a href="#">CATEGORIES</a>
                       <ul class="submenu" role="menu" aria-hidden="false">
                         <% Category.all.each do |category| %>
-                          <li role="menuitem" tabindex="-1" class="<%= 'active' if params[:category] == category.name %>">
-                            <%= link_to category.name, apps_path(category: category.name), class: "link",  :tabindex=>"-1"%>
+                          <li role="menuitem" tabindex="0" class="<%= 'active' if params[:category] == category.name %>">
+                            <%= link_to category.name, apps_path(category: category.name), class: "link",  :tabindex=>"0"%>
                           </li>
                         <% end %>
                       </ul>
@@ -206,6 +206,8 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
     </div> --><!-- /.carousel -->
 <!-- Back to Top-->
 <!-- <p class="scrollToTop"><a href="#"><%= image_tag("top-button.png", :alt => "Back to top", :size=> "40x40") %></a></p> -->
+
+
           <!-- Begin breadcrumb -->
       <div class="row">
         <div class="breadcrumbs" id="breadcrumb_dynamic">
@@ -220,7 +222,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 <div class="container">
   <%= yield %>
 </div>
-    
+<a href="#top:" class="return-to-top"><%= image_tag("top-button.png", :alt => "Back to top", :size=> "40x40") %></a>   
 
     <!--  Footer -->
 
@@ -235,7 +237,8 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
             <div class="container">
               
 
-              <div class="col-sm-6 col-xs-12 text-right">
+              <div class="col-sm-6 col-xs-12 text-left">
+
               </div>
 
               <div class="col-sm-6 col-xs-12 text-right">
@@ -268,7 +271,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 <!--  Scripts -->
 
     <!-- jQuery -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<%= javascript_include_tag 'jquery-1.11.1.min', 'data-turbolinks-track' => true %>')</script>
 
     <!-- Bootsrap javascript file -->
@@ -292,7 +295,20 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
         r.parentNode.insertBefore(e,r)}(window,document,'script','ga');
         ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
-
+    <script type="text/javascript">
+      $(window).scroll(function() {
+      if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
+          $('#return-to-top').fadeIn(200);    // Fade in the arrow
+      } else {
+          $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+      }
+      });
+      $('#return-to-top').click(function() {      // When arrow is clicked
+      $('body,html').animate({
+          scrollTop : 0                       // Scroll to top of body
+      }, 500);
+      });
+    </script>
 
 </body>
 </html>

@@ -12,39 +12,7 @@
 </div> -->
 
 
-<!-- <div class="row">
-	<div class="col-md-4">
-	<%= image_tag @app.app_img.url(:app_show), class: "app-show" %>
-	</div>
-	<div class="col-md-8">
-		<div class="app-info">
-		<h2 class="app-name"><%= App.human_attribute_name(:name) %>: <%= @app.name %></h2>
-		<h4><%= Category.human_attribute_name(:Category)%>: <%= @app.category.name %></h4>
-		<h2 class="avg-rating">Durchschnittliche Bewertung</h2>
-		<div class="average-review-rating" data-score=<%= @average_review %>></div>
-		<span class="number-of-reviews">Beyogen auf <%= @app.reviews.count %> bewertungen</span>
-		<p class="app-desc"><%= App.human_attribute_name(:description) %>: <%= @app.description %></p>
-		<p class="app-name"><%= App.human_attribute_name(:link) %>: <a href="<%= @app.link %>"><%= @app.link %></p></a>
-		<p class="app-name"><%= App.human_attribute_name(:developer)%>: <%= @app.developer %></p>
-		<p class="app-name"><%= App.human_attribute_name(:operation)%>: <%= @app.operation %></p>
-		<p class="app-name"><%= App.human_attribute_name(:price) %>: <%= @app.price %></p>
-		<!-- <p><%= raw(youtube_embed("https://www.youtube.com/watch?v=Y7bxlR-MxxM")) %></p> -->
-		<!--</div>
-	</div>
-</div>
 
-<div class="row">
-	<div class="col-md-4">
-
-		<%= render @app.reviews %>
-		<div>
-				<%= link_to "In Ansicht", new_app_review_path(@app) %>
-		</div>
-	</div>
-</div>
-
-
-<%= link_to "Zurück", root_path %> -->
 
 <div class="row fadeIn animated">
 
@@ -63,36 +31,41 @@
 		<div class="average-review-rating" data-score=<%= @average_review %>></div>
 		<span class="number-of-reviews"><h4>Basierend auf &nbsp;<%= @app.reviews.count %>&nbsp;Bewertungen</h4></span>
 		<h4><%= App.human_attribute_name(:Beschreibung) %>: <%= @app.description %></h4>
-		<h4><%= App.human_attribute_name(:Link_Zur_Sownloadseite) %>: <a href="<%= @app.link %>"><%= @app.link %></h4></a>
+		<h4><%= App.human_attribute_name(:Link_Zur_Downloadseite) %>: <a href="<%= @app.link %>"><%= @app.link %></h4></a>
 		<h4><%= App.human_attribute_name(:Developer)%>: <%= @app.developer %></h4>
 		<h4><%= App.human_attribute_name(:Operation)%>: <%= @app.operation %></h4>
-		<h4><%= App.human_attribute_name(:Preis) %>: <%= @app.price %></h4>
+		<h4><%= App.human_attribute_name(:Preis) %>: <%= @app.price %>€</h4>
 		
 	</div>
+	<div class="form-group col-md-6">
+          <%= link_to "In Ansicht", new_app_review_path(@app), class: 'btn btn-primary pull-left' %>
+
+          <%= link_to "Zurück", root_path, class: 'btn btn-primary pull-right' %>
+    </div>
 
 </div> <!-- /.row -->
 <br></br>
+
 <div class="row">
-	<div class="col-md-6">
+	<div class="col-md-12">
 
 		<%= render @app.reviews %>
-		<div class="form-group">
-              <%= link_to "In Ansicht", new_app_review_path(@app), class: 'btn btn-primary pull-left' %>
-
-              <%= link_to "Zurück", root_path, class: 'btn btn-primary pull-right' %>
-        </div>
+		<!-- <div>
+				<%= link_to "Add Review", new_app_review_path(@app) %>
+		</div> -->
+		
 	</div>
 </div>
-<div class="row">
+<!-- <div class="row">
 	<div class="col-md-6">
 		<% if user_signed_in? %>
-		<% if @app.user_id==current_user.id %>
-		<%= link_to "Bearbeiten", edit_app_path(@app) %>
-		<%= link_to "Löschen", app_path(@app), method: :delete, data: {confirm: "Bist du sicher?"} %>
+			<% if @app.user_id==current_user.id %>
+			<%= link_to "Bearbeiten", edit_app_path(@app) %>
+			<%= link_to "Löschen", app_path(@app), method: :delete, data: {confirm: "Are you sure"} %>
+			<% end %>
 		<% end %>
-<% end %>
 	</div>
-</div>
+</div> -->
 <br></br>
 <script>
 	$('.review-rating').raty({

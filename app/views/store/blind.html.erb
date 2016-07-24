@@ -14,7 +14,36 @@ Sort By:
 
  <h2> <strong> Blind German </strong></h2>
 
- <div class="app">
+<div class="our-team animate-onscroll fadeIn">
+
+	<div class="container">
+
+	    <div class="row">
+	    	<% @blind.each do |blind| %>
+
+	        <div class="col-md-2 col-sm-2">
+
+	            <div class="team-member">
+
+	                <div class="thumnail">
+
+	                    <a href="/apps/<%= blind.id %>"><%= image_tag blind.app_img.url(:app_index, :alt => "This is a picture"), class: "app_image"   %></a>
+	                    
+	                </div>
+
+	                <p><h4><%= link_to blind.name, app_path(blind) %></h4></p>
+					<p><h4><%= blind.price %>€</h4></p>
+					<div class="average-review-rating" data-score=<%= blind.reviews.average(:rating) %>></div>
+      			</div><br />
+      		</div>
+      		<% end %>
+	    </div> 
+	            
+	</div>
+</div><br></br>
+ <!-- End of Blind -->
+
+ <!-- <div class="app">
   <% @blind.each do |blind| %>
 
 <div class="col-md-3">
@@ -24,5 +53,5 @@ Sort By:
       <div class="average-review-rating" data-score=<%= blind.reviews.average(:rating) %>></div>
       </div>
 <% end %>
-</div>
+</div> -->
 

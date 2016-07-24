@@ -23,9 +23,6 @@ Category
     transition: all 0.2s ease-in-out;
 
 }
-a {
-    color: inherit;
-}
 .app .app_image {
     height: 200px;
     width: 200px;
@@ -111,23 +108,30 @@ a {
     width: 220px;
 }
 # Back to Top
-.scrollToTop {
-    width:100px; 
-    height:130px;
-    padding:10px; 
-    text-align:center; 
-    font-weight: bold;
-    color: #444;
+.return-to-top {
+    position: fixed;
+    bottom-right: 40px;
+    right: 40px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    width: 50px;
+    height: 50px;
+    display: block;
     text-decoration: none;
-    position:fixed;
-    bottom:200px;
-    right:40px;
-    display:none;
-    background-color: green;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    display: none;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
-.scrollToTop:hover{
-    text-decoration:none;
+.return-to-top:hover {
+    background: rgba(0, 0, 0, 0.9);
 }
+
 
 # High contrast
 body.highcontrast {
