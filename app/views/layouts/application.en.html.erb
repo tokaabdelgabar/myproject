@@ -222,7 +222,18 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 <div class="container">
   <%= yield %>
 </div>
-<a href="#top:" class="return-to-top"><%= image_tag("top-button.png", :alt => "Back to top", :size=> "40x40") %></a>   
+
+<!-- <a class="back-to-top" style="display: inline;background: none;margin: 0;position: fixed;bottom: 40px;right: 30px;width: 70px;height: 70px;z-index: 100;display: none;text-decoration: none;color: #ffffff;background-color: #ff9000;"" href="#">Back to Top</a> -->
+<a id="back-to-top" href="#" class="back-to-top" 
+  role="button" title="Back to Top" data-toggle="tooltip" data-placement="top" style="cursor: pointer;position: fixed;bottom: 40px;right: 20px;display: inline;z-index: 100;"><%= image_tag("top-button.png", :alt => "Back to top", :size=> "40x40") %></a>
+   <!-- <div class="row">
+    <div class="col-md-6 col-md-offset-11">
+      <a href="#top" class="go-top" style="display:none"><%= image_tag("top-button.png", :alt => "Back to top", :size=> "40x40") %></a> 
+    </div>
+  </div> -->
+<!-- <div class="container">
+</div> -->
+  
 
     <!--  Footer -->
 
@@ -291,24 +302,68 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
         (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
         function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
         e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='//www.google-analytics.com/analytics.js';
+        e.src='http:http://www.google-analytics.com/analytics.js';
         r.parentNode.insertBefore(e,r)}(window,document,'script','ga');
         ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
-    <script type="text/javascript">
-      $(window).scroll(function() {
-      if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
-          $('#return-to-top').fadeIn(200);    // Fade in the arrow
+    <!--<script >
+         $(document).ready(function(){
+     $(window).scroll(function () {
+            if ($(this).scrollTop() > 300) {
+                $('#back-to-top').fadeIn();
+            } else {
+                $('#back-to-top').fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        $('#back-to-top').click(function () {
+            
+            $('body,html').animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+        
+        
+});
+    </script>--> 
+    <script>
+ 
+      jQuery(document).ready(function() {
+       
+      var offset = 250;
+       
+      var duration = 300;
+       
+      jQuery(window).scroll(function() {
+       
+      if (jQuery(this).scrollTop() > offset) {
+       
+      jQuery('.back-to-top').fadeIn(duration);
+       
       } else {
-          $('#return-to-top').fadeOut(200);   // Else fade out the arrow
+       
+      jQuery('.back-to-top').fadeOut(duration);
+       
       }
+       
       });
-      $('#return-to-top').click(function() {      // When arrow is clicked
-      $('body,html').animate({
-          scrollTop : 0                       // Scroll to top of body
-      }, 500);
+       
+      &nbsp;
+       
+      jQuery('.back-to-top').click(function(event) {
+       
+      event.preventDefault();
+       
+      jQuery('html, body').animate({scrollTop: 0}, duration);
+       
+      return false;
+       
+      })
+       
       });
-    </script>
+   
+  </script>
 
 </body>
 </html>
