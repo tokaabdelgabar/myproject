@@ -17,6 +17,8 @@ Rails.application.config.assets.precompile += %w( jquery-1.11.1.min.js )
 Rails.application.config.assets.precompile += %w( owl.carousel.min.js )
 Rails.application.config.assets.precompile += %w( main.js )
 Rails.application.config.assets.precompile += %w( breadcrumbs.js )
+Rails.application.config.assets.precompile += %w( backtotop.js )
+
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 

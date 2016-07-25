@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>AbilIT.NET</title>
+  <%= csrf_meta_tags %>
        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +28,11 @@
 
       <!-- Category-App -->
       <%= stylesheet_link_tag    'category-apps', media: 'all', 'data-turbolinks-track' => true %>
-      <%= csrf_meta_tags %>
+      
+      <!-- Back to top -->
+      <%= javascript_include_tag 'backtotop.js', 'data-turbolinks-track' => true %>
+
+
 </head>
 <body>
         <!--Start of Zopim Live Chat Script-->
@@ -185,9 +190,9 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
           </a>
 
     </div> --><!-- /.carousel -->
-<!-- Back to Top -->
-
-<!-- <a href="#" class="scrollToTop">Scroll To Top</a> -->
+<!-- Back to top -->
+<a id="back-to-top" href="#" class="back-to-top" 
+  role="button" title="Back to Top" data-toggle="tooltip" data-placement="top" style="cursor: pointer;position: fixed;bottom: 40px;right: 20px;display: inline;z-index: 100;"><%= image_tag("top-button.png", :alt => "Back to top", :size=> "40x40") %></a>
 
 
 

@@ -33,11 +33,14 @@
       <!-- <script type="text/javascript" src="/javascript/breadcrumbs.js"></script> -->
       <%= javascript_include_tag 'breadcrumbs.js', 'data-turbolinks-track' => true %>
 
+      <!-- Back to top -->
+      <%= javascript_include_tag 'backtotop.js', 'data-turbolinks-track' => true %>
+
+
       
 </head>
 <body>
-
-      <!--Start of Zopim Live Chat Script-->
+        <!--Start of Zopim Live Chat Script-->
 <script type="text/javascript">
 window.$zopim||(function(d,s){var z=$zopim=function(c){
 z._.push(c)},$=z.s=
@@ -204,8 +207,6 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
           </a>
 
     </div> --><!-- /.carousel -->
-<!-- Back to Top-->
-<!-- <p class="scrollToTop"><a href="#"><%= image_tag("top-button.png", :alt => "Back to top", :size=> "40x40") %></a></p> -->
 
 
           <!-- Begin breadcrumb -->
@@ -223,16 +224,10 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
   <%= yield %>
 </div>
 
-<!-- <a class="back-to-top" style="display: inline;background: none;margin: 0;position: fixed;bottom: 40px;right: 30px;width: 70px;height: 70px;z-index: 100;display: none;text-decoration: none;color: #ffffff;background-color: #ff9000;"" href="#">Back to Top</a> -->
+<!-- Back to top -->
 <a id="back-to-top" href="#" class="back-to-top" 
   role="button" title="Back to Top" data-toggle="tooltip" data-placement="top" style="cursor: pointer;position: fixed;bottom: 40px;right: 20px;display: inline;z-index: 100;"><%= image_tag("top-button.png", :alt => "Back to top", :size=> "40x40") %></a>
-   <!-- <div class="row">
-    <div class="col-md-6 col-md-offset-11">
-      <a href="#top" class="go-top" style="display:none"><%= image_tag("top-button.png", :alt => "Back to top", :size=> "40x40") %></a> 
-    </div>
-  </div> -->
-<!-- <div class="container">
-</div> -->
+
   
 
     <!--  Footer -->
@@ -306,64 +301,8 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
         r.parentNode.insertBefore(e,r)}(window,document,'script','ga');
         ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
-    <!--<script >
-         $(document).ready(function(){
-     $(window).scroll(function () {
-            if ($(this).scrollTop() > 300) {
-                $('#back-to-top').fadeIn();
-            } else {
-                $('#back-to-top').fadeOut();
-            }
-        });
-        // scroll body to 0px on click
-        $('#back-to-top').click(function () {
-            
-            $('body,html').animate({
-                scrollTop: 0
-            }, 800);
-            return false;
-        });
-        
-        
-});
-    </script>--> 
-    <script>
- 
-      jQuery(document).ready(function() {
-       
-      var offset = 250;
-       
-      var duration = 300;
-       
-      jQuery(window).scroll(function() {
-       
-      if (jQuery(this).scrollTop() > offset) {
-       
-      jQuery('.back-to-top').fadeIn(duration);
-       
-      } else {
-       
-      jQuery('.back-to-top').fadeOut(duration);
-       
-      }
-       
-      });
-       
-      &nbsp;
-       
-      jQuery('.back-to-top').click(function(event) {
-       
-      event.preventDefault();
-       
-      jQuery('html, body').animate({scrollTop: 0}, duration);
-       
-      return false;
-       
-      })
-       
-      });
-   
-  </script>
+
+    
 
 </body>
 </html>

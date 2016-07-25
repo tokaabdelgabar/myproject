@@ -15,11 +15,11 @@
 					<p><%= link_to apps.name, app_path(apps) %></p>
 					<p class="app-name"><%= apps.price %>€</p>
 					<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div>
-				</div> <!-- /.team-member -->
+				</div><br></br>
 			</div>
 			<% end %>
 			<% end %>
-		</div><br></br>
+		</div>
 		<h4><a href="blind" target="_blank" class="navbar-collapse pull-right">See More</a></h4>
 	</div>
 </div>
