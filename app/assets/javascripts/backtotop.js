@@ -1,4 +1,3 @@
-<script>
       $('.back-to-top').css({"display": "none"});
  
       jQuery(document).ready(function() {
@@ -34,5 +33,3 @@
       })
        
       });
-   
-  </script>
