@@ -4,6 +4,9 @@ before_action :authenticate_user!, only: [:new, :edit]
 	
 	def index
 
+		@apps_all= App.all 
+		@categories_list= Category.all
+
 		if params[:category].blank? && params[:search].blank?
 		
 		@apps_blind=App.where(category_id:1)

@@ -43,45 +43,48 @@
 
 	<div class="col-md-6">
 
-		<h2 class="title-style-2"><%= App.human_attribute_name(:Name) %>: <%= @app.name %><span class="title-under"></span></h2>
+		<h2 class="title-style-2"><%= App.human_attribute_name(:App_Name) %>: <%= @app.name %><span class="title-under"></span></h2>
 
 		<h4><%= Category.human_attribute_name(:Category)%>: <%= @app.category.name %></h4>
 		<h2 class="title-style-2">Average Rating</h2>
 		<div class="average-review-rating" data-score=<%= @average_review %>></div>
 		<span class="number-of-reviews"><h4>Based on&nbsp;<%= @app.reviews.count %>&nbsp;reviews</h4></span>
 		<h4><%= App.human_attribute_name(:Description) %>: <%= @app.description %></h4>
-		<h4><%= App.human_attribute_name(:Link) %>: <a href="<%= @app.link %>"><%= @app.link %></h4></a>
+		<h4><%= App.human_attribute_name(:Link_To_Download_Page) %>: <a href="<%= @app.link %>"><%= @app.link %></h4></a>
 		<h4><%= App.human_attribute_name(:Developer)%>: <%= @app.developer %></h4>
 		<h4><%= App.human_attribute_name(:Operation)%>: <%= @app.operation %></h4>
-		<h4><%= App.human_attribute_name(:Price) %>: <%= @app.price %></h4>
+		<h4><%= App.human_attribute_name(:Price) %>: <%= @app.price %>€</h4>
 		
 	</div>
+		<div class="form-group col-md-6">
+          <%= link_to "Add Review", new_app_review_path(@app), class: 'btn btn-primary pull-left' %>
+
+          <%= link_to "Back", root_path, class: 'btn btn-primary pull-right' %>
+    </div>
 
 </div> <!-- /.row -->
 <br></br>
 <div class="row">
-	<div class="col-md-4">
+
+	<div class="col-md-12">
 
 		<%= render @app.reviews %>
 		<!-- <div>
 				<%= link_to "Add Review", new_app_review_path(@app) %>
 		</div> -->
-		<div class="form-group">
-              <%= link_to "Add Review", new_app_review_path(@app), class: 'btn btn-primary pull-left' %>
-
-              <%= link_to "Back", root_path, class: 'btn btn-primary pull-right' %>
-        </div>
 	</div>
+
 </div>
-
-
-<!--<%= link_to "Back", root_path %>-->
-<% if user_signed_in? %>
-	<% if @app.user_id==current_user.id %>
-	<%= link_to "Edit", edit_app_path(@app) %>
-	<%= link_to "Delete", app_path(@app), method: :delete, data: {confirm: "Are you sure"} %>
-	<% end %>
-<% end %>
+<!-- <div class="row">
+	<div class="col-md-6">
+		<% if user_signed_in? %>
+			<% if @app.user_id==current_user.id %>
+			<%= link_to "Edit", edit_app_path(@app) %>
+			<%= link_to "Delete", app_path(@app), method: :delete, data: {confirm: "Are you sure"} %>
+			<% end %>
+		<% end %>
+	</div>
+</div> -->
 <br></br>
 <script>
 	$('.review-rating').raty({

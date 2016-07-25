@@ -1,8 +1,8 @@
-<div class="review-rating" data-score="<%= review.rating %>"></div
-<h4><%= review.comment %></h4>
-<h4>Geschrieben von <b><%= review.user.username %></b></h4>
-
-
+<div class="form-group col-md-6">
+<h4>Geschrieben von Benutzer:&nbsp;<b><%= review.user.username %></b></h4>
+<div class="review-rating" data-score="<%= review.rating %>"><label><h4>Rating:&nbsp;</h4></label></div>
+<h4>Comment:&nbsp;<%= review.comment %></h4>
+<h6 style="visibility:hidden">Rating number:&nbsp;<%= review.rating %>:&nbsp;Stars</h6>
 <% if user_signed_in? %>
 
 	<% if review.user_id == current_user.id %>			
@@ -11,4 +11,7 @@
 	<% end %>	
 
 <% end %>
+</div>
+
+
 <br/>		

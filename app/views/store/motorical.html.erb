@@ -1,5 +1,31 @@
- 
-<div class="app">
+<div class="our-team animate-onscroll fadeIn">
+
+	<div class="container">
+
+	    <div class="row">
+	    	<% @motorical.each do |motorical| %>
+
+	        <div class="col-md-2 col-sm-2">
+
+	            <div class="team-member">
+
+	                <div class="thumnail">
+
+	                    <a href="/apps/<%= motorical.id %>"><%= image_tag motorical.app_img.url(:app_index), class: "app_image"   %></a>
+	                    
+	                </div>
+
+	                <p><h4><%= link_to motorical.name, app_path(motorical) %></h4></p>
+					<p><h4><%= motorical.price %>€</h4></p>
+					<div class="average-review-rating" data-score=<%= motorical.reviews.average(:rating) %>></div>
+      			</div><br />
+      		</div>
+      		<% end %>
+	    </div> 
+	            
+	</div>
+</div><br></br> 
+<!-- <div class="app">
   <% @motorical.each do |motorical| %>
 
 <div class="col-md-3">
@@ -9,7 +35,7 @@
       <div class="average-review-rating" data-score=<%= motorical.reviews.average(:rating) %>></div>
       </div>
 <% end %>
-</div>
+</div> -->
 
 
 

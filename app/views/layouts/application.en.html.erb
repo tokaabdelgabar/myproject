@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>AbilIT.NET</title>
-       <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <%= csrf_meta_tags %>
@@ -29,10 +29,18 @@
       <!-- Category-App -->
       <%= stylesheet_link_tag    'category-apps', media: 'all', 'data-turbolinks-track' => true %>
 
+      <!-- Breadcrumb -->
+      <!-- <script type="text/javascript" src="/javascript/breadcrumbs.js"></script> -->
+      <%= javascript_include_tag 'breadcrumbs.js', 'data-turbolinks-track' => true %>
+
+      <!-- Back to top -->
+      <%= javascript_include_tag 'backtotop.js', 'data-turbolinks-track' => true %>
+
+
+      
 </head>
 <body>
-
-      <!--Start of Zopim Live Chat Script-->
+        <!--Start of Zopim Live Chat Script-->
 <script type="text/javascript">
 window.$zopim||(function(d,s){var z=$zopim=function(c){
 z._.push(c)},$=z.s=
@@ -49,10 +57,35 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
     
         <nav class="navbar navbar-static-top">
 
-<!--             <div class="navbar-top">
+       <div class="navbar-top">
+          <div class="navbar-top">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6 col-xs-12 text-left">
+                  <ul class="list-unstyled list-inline header-contact">
+                    <li><a href="#">High Contrast Theme</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-6 col-xs-12 text-right">
 
+                        <ul class="list-unstyled list-inline header-contact">
+                            <% if user_signed_in? %>
+                              <li><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
+                            <% else %>  
+                              <li><%= link_to "SIGN IN", new_user_session_path %></li>
+                              <li><%= link_to "SIGN UP", new_user_registration_path %></li>
+                            <% end %>
+                            <li><%= link_to "HELP", help_path %></li>
+                            <li><%= link_to "DICTIONARY", dictionary_path %></li>
+                            <li><%= link_to 'DISCLAIMER', disclaimer_path %></li>
+                            <li><%= link_to 'NOTIFICATION', notification_path %></li>
+                       </ul> <!-- /.header-social  -->
+                      
+                    </div>
+              </div>
+            </div>
 
-            </div> -->
+          </div>
 
             <div class="navbar-main">
               
@@ -71,20 +104,21 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                   
                 </div>
 
-                <div id="navbar" class="navbar-collapse collapse pull-left">
+                <div id="navbar" class="navbar-collapse collapse pull-left" aria-label="Main menu" role="navigation">
 
-                  <ul class="nav navbar-nav">
+                  <ul class="nav navbar-nav" role="menubar" id="
+                  nav">
 
                     <li><%= link_to "HOME", root_path %></li>
                     <li><%= link_to "CONTACT", new_message_path %></li>
-                    <li><%= link_to 'DISCLAIMER', disclaimer_path %></li>
-                    <li><%= link_to 'NOTIFICATION', notification_path %></li>
-                    <li class="has-child">
+                    <!-- <li><%= link_to 'DISCLAIMER', disclaimer_path %></li>
+                    <li><%= link_to 'NOTIFICATION', notification_path %></li> -->
+                    <li class="has-child" role="menuitem" tabindex="1" aria-haspopup="true">
                       <a href="#">CATEGORIES</a>
-                      <ul class="submenu" role="menu">
+                      <ul class="submenu" role="menu" aria-hidden="false">
                         <% Category.all.each do |category| %>
-                          <li class="<%= 'active' if params[:category] == category.name %>">
-                            <%= link_to category.name, apps_path(category: category.name), class: "link" %>
+                          <li role="menuitem" tabindex="0" class="<%= 'active' if params[:category] == category.name %>">
+                            <%= link_to category.name, apps_path(category: category.name), class: "link",  :tabindex=>"0"%>
                           </li>
                         <% end %>
                       </ul>
@@ -96,24 +130,22 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                         <li class="submenu-item"><%= link_to_unless_current "German", locale: "de" %></li>
                       </ul>
                     </li>
-                    <li><%= link_to "HELP", help_path %></li>
-                    <li><%= link_to "DICTIONARY", dictionary_path %></li>
                     <!--  -->
                   </ul>
 
                 </div> 
                 <div id="navbar" class="navbar-collapse collapse pull-right">
-                  <ul class="nav navbar-nav">
+<!--                   <ul class="nav navbar-nav">
                     <% if user_signed_in? %>
                       <li><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
                     <% else %>  
                       <li><%= link_to "SIGN IN", new_user_session_path %></li>
                       <li><%= link_to "SIGN UP", new_user_registration_path %></li>
                     <% end %>
-                  </ul>
+                  </ul> -->
                   <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
                       <p>
-                       <%= text_field_tag :search, params[:search], class: "form-control" %>
+                       <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Searchfield" %>
                        <%= submit_tag "SEARCH", name: nil, class: "btn btn-default" %>
                        </p>
                       <% end %>
@@ -130,10 +162,10 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
 
 <!-- Carousel-->
-    <div id="homeCarousel" class="carousel slide carousel-home" data-ride="carousel" data-interval="false">
+<!--     <div id="homeCarousel" class="carousel slide carousel-home" data-ride="carousel" data-interval="false">
 
           <!-- Indicators -->
-          <ol class="carousel-indicators">
+          <!-- <ol class="carousel-indicators">
             <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#homeCarousel" data-slide-to="1"></li>
             <li data-target="#homeCarousel" data-slide-to="2"></li>
@@ -149,20 +181,20 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
             </div> <!-- /.item -->
 
 
-            <div class="item ">
+            <!-- <div class="item ">
 
               <%= image_tag("Tap-Tap-See-image.jpg", :alt => "rss feed" ) %>
 
-            </div> <!-- /.item -->
+            </div> --> <!--  /.item -->
 
 
-            <div class="item ">
+            <!-- <div class="item ">
 
               <%= image_tag("KNFB-Reader.jpg", :alt => "rss feed") %>
 
-            </div> <!-- /.item -->
+            </div> --> <!-- /.item -->
 
-          </div>
+          <!-- </div>
 
           <a class="left carousel-control" href="#homeCarousel" role="button" data-slide="prev">
             <span class="fa fa-angle-left" aria-hidden="true"></span>
@@ -174,18 +206,29 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
             <span class="sr-only">Next</span>
           </a>
 
-    </div><!-- /.carousel -->
-<!-- Back to Top-->
-<!-- <p class="scrollToTop"><a href="#"><%= image_tag("top-button.png", :alt => "Back to top", :size=> "40x40") %></a></p> -->
+    </div> --><!-- /.carousel -->
 
+
+          <!-- Begin breadcrumb -->
+      <div class="row">
+        <div class="breadcrumbs" id="breadcrumb_dynamic">
+
+        </div>
+      </div>
+        <!-- End of breadcrumb -->
 
 <!-- Apps-->
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<b><h3 class="notice"><%= notice %></h3></b>
+<b><h3 class="alert"><%= alert %></h3></b>
 <div class="container">
   <%= yield %>
 </div>
-    
+
+<!-- Back to top -->
+<a id="back-to-top" href="#" class="back-to-top" 
+  role="button" title="Back to Top" data-toggle="tooltip" data-placement="top" style="cursor: pointer;position: fixed;bottom: 40px;right: 20px;display: inline;z-index: 100;"><%= image_tag("top-button.png", :alt => "Back to top", :size=> "40x40") %></a>
+
+  
 
     <!--  Footer -->
 
@@ -200,7 +243,8 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
             <div class="container">
               
 
-              <div class="col-sm-6 col-xs-12 text-right">
+              <div class="col-sm-6 col-xs-12 text-left">
+
               </div>
 
               <div class="col-sm-6 col-xs-12 text-right">
@@ -233,7 +277,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 <!--  Scripts -->
 
     <!-- jQuery -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<%= javascript_include_tag 'jquery-1.11.1.min', 'data-turbolinks-track' => true %>')</script>
 
     <!-- Bootsrap javascript file -->
@@ -253,11 +297,12 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
         (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
         function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
         e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='//www.google-analytics.com/analytics.js';
+        e.src='http:http://www.google-analytics.com/analytics.js';
         r.parentNode.insertBefore(e,r)}(window,document,'script','ga');
         ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
 
+    
 
 </body>
 </html>

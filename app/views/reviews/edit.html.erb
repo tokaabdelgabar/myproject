@@ -1,12 +1,16 @@
-<h1>Bearbeiten Bewertung</h1>
-
+<!-- <h1>Bearbeiten Bewertung</h1> -->
+<h2 class="title-style-2">Bearbeiten Bewertung<span class="title-under"></span></h2>
+<div class="form-group col-md-6">
 <%= simple_form_for([@app, @review]) do |f| %>
 		<div id="rating-form">
-		<label>Wertung</label>
+		<label><b><h4>Wertung</h4></b></label>
 		</div>
-			<%= f.input :comment %>
-			<%= f.button :submit %>
+			<label><b><h4>Comment</h4></b></label>
+			<%= f.text_area :comment, :rows =>"5", class:"form-control", placeholder:"Comment" %><br>
+			<%= f.button :submit , class: 'btn btn-primary pull-left'%><br>
 <% end %>	
+<br>
+</div>	
 <script>
 	$('#rating-form').raty({
 		path: '/assets/',

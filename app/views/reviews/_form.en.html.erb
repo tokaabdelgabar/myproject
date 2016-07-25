@@ -7,7 +7,8 @@
 			<h4>Rating</h4>
 		</div>
 		<h4>Comment:</h4> 
-	    <textarea name="message" rows="5" class="form-control" placeholder="Comment*" required></textarea><br/>
+	    <!-- <textarea name="message" rows="5" class="form-control" placeholder="Comment*" required></textarea> -->
+	    <%= f.text_area :comment, :rows =>"5", class:"form-control", placeholder:"Comment" %><br/>
 	    <%= f.submit 'Submit', class: 'btn btn-primary pull-left' %>          
     </div>
 	<!--<%= f.button :submit %> -->

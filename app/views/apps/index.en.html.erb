@@ -1,192 +1,29 @@
 
 <!--  <br></br> -->
- <p><a href="blind" target="_blank" class="btn btn-primary btn-lg" style="margin-left:900px; margin-top: 1px;">See More</a></p>
-
-<% if params[:category].blank? && params[:search].blank? %>
-
-	
-
-	<div class="row">
-
-			<h2 class="title-style-2"><%=t :Blind %><span class="title-under"></span></h2>
-
-		<div class="app">
-			<% @apps_blind.limit(5).each do |app| %>
-				<div class="col-md-3">
-					<div class="app-frame">
-						<a href="/apps/<%= app.id %>"><%= image_tag app.app_img.url(:app_index), class: "app_image" %></a>
-						<p><%= link_to app.name, app_path(app) %></p>
-						<p class="app-name"><%= app.price %></p>
-						<div class="average-review-rating" data-score=<%= app.reviews.average(:rating) %>></div>
+<% @categories_list.each do |category| %>
+<div class="our-team animate-onscroll fadeIn">
+	<div class="container">
+		<h2 class="title-style-2"><%= category.name %><span class="title-under"></span></h2>
+		<div class="row">
+			<% @apps_all.each do |apps| %>
+			<% if apps.category_id == category.id  %>
+				<div class="col-md-2 col-sm-2">
+				<div class="team-member">
+					<div class="thumnail">
+						<a href="/apps/<%= apps.id %>"><%= image_tag apps.app_img.url(:app_index) %></a>
 					</div>
-				</div>
+					<p><%= link_to apps.name, app_path(apps) %></p>
+					<p class="app-name"><%= apps.price %>€</p>
+					<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div>
+				</div><br></br>
+			</div>
 			<% end %>
-		</div> 
-
-	</div>
-
-	 <br></br>
-
-	<p><a href="sight" target="_blank" class="btn btn-primary btn-lg" style="margin-left:900px; margin-top: 1px;">See More</a></p>
-
-	<div class="row">
-
-		<h2 class="title-style-2"><%=t :Sight_Impaired %><span class="title-under"></span></h2>
-
-	<div class="app">
-		<% @apps_sight.limit(5).each do |app| %>
-			<div class="col-md-3">
-				<div class="app-frame">
-					<a href="/apps/<%= app.id %>"><%= image_tag app.app_img.url(:app_index), class: "app_image" %></a>
-					<p><%= link_to app.name, app_path(app) %></p>
-					<p class="app-name"><%= app.price %></p>
-					<div class="average-review-rating" data-score=<%= app.reviews.average(:rating) %>></div>
-					</div>
-				</div>
-		<% end %>
-	</div>
-
-	</div>
-
-
- <br></br>
-<p><a href="motorical" target="_blank" class="btn btn-primary btn-lg" style="margin-left:900px; margin-top: 1px;">See More</a></p>
-
-
-<div class="row">
-
-		<h2 class="title-style-2"><%=t :Motorically_Impaired %><span class="title-under"></span></h2>
-
-	<div class="app">
-		<% @apps_motorically.limit(5).each do |app| %>
-			<div class="col-md-3">
-				<div class="app-frame">
-					<a href="/apps/<%= app.id %>"><%= image_tag app.app_img.url(:app_index), class: "app_image" %></a>
-					<p><%= link_to app.name, app_path(app) %></p>
-					<p class="app-name"><%= app.price %></p>
-					<div class="average-review-rating" data-score=<%= app.reviews.average(:rating) %>></div>
-					</div>
-				</div>
-		<% end %>
+			<% end %>
+		</div>
+		<h4><a href="blind" target="_blank" class="navbar-collapse pull-right">See More</a></h4>
 	</div>
 </div>
-
-
- <br></br>
-<p><a href="store#index" target="_blank" class="btn btn-primary btn-lg" style="margin-left:900px; margin-top: 1px;">See More</a></p>
-
-
-<div class="row">
-
-		<h2 class="title-style-2"><%=t :Learning_Impaired %><span class="title-under"></span></h2>
-
-	<div class="app">
-		<% @apps_learning.limit(5).each do |app| %>
-			<div class="col-md-3">
-				<div class="app-frame">
-					<a href="/apps/<%= app.id %>"><%= image_tag app.app_img.url(:app_index), class: "app_image" %></a>
-					<p><%= link_to app.name, app_path(app) %></p>
-					<p class="app-name"><%= app.price %></p>
-					<div class="average-review-rating" data-score=<%= app.reviews.average(:rating) %>></div>
-					</div>
-				</div>
-		<% end %>
-	</div>
-</div>
-
-
- <br></br>
-<p><a href="store#index" target="_blank" class="btn btn-primary btn-lg" style="margin-left:900px; margin-top: 1px;">See More</a></p>
-
-
-<div class="row">
-
-		<h2 class="title-style-2"><%=t :Hearing_Impaired %><span class="title-under"></span></h2>
-
-	<div class="app">
-		<% @apps_hearing.limit(5).each do |app| %>
-			<div class="col-md-3">
-				<div class="app-frame">
-					<a href="/apps/<%= app.id %>"><%= image_tag app.app_img.url(:app_index), class: "app_image" %></a>
-					<p><%= link_to app.name, app_path(app) %></p>
-					<p class="app-name"><%= app.price %></p>
-					<div class="average-review-rating" data-score=<%= app.reviews.average(:rating) %>></div>
-					</div>
-				</div>
-		<% end %>
-	</div>
-</div>
-
-
- <br></br>
-<p><a href="store#index" target="_blank" class="btn btn-primary btn-lg" style="margin-left:900px; margin-top: 1px;">See More</a></p>
-
-
-<div class="row">
-
-		<h2 class="title-style-2"><%=t :WheelChair %><span class="title-under"></span></h2>
-
-	<div class="app">
-		<% @apps_whealchair.limit(5).each do |app| %>
-			<div class="col-md-3">
-				<div class="app-frame">
-					<a href="/apps/<%= app.id %>"><%= image_tag app.app_img.url(:app_index), class: "app_image" %></a>
-					<p><%= link_to app.name, app_path(app) %></p>
-					<p class="app-name"><%= app.price %></p>
-					<div class="average-review-rating" data-score=<%= app.reviews.average(:rating) %>></div>
-					</div>
-				</div>
-		<% end %>
-	</div>
-</div>
-
-<br></br>
-
-<% elsif !params[:category].blank? && params[:search].blank? %>
-
-<div class="row">
-	<div class="app">
-		<% @apps.each do |app| %>
-			<div class="col-md-3">
-				<a href="/apps/<%= app.id %>"><%= image_tag app.app_img.url(:app_index), class: "app_image" %></a>
-			<p><%= link_to app.name, app_path(app) %></p>
-			<p class="app-name"><%= app.price %></p>
-			<div class="average-review-rating" data-score=<%= app.reviews.average(:rating) %>></div>
-			</div>	
-		<% end %>
-	</div>
-	</div>
-
-<% elsif %>
-<div class="row">
-	<div class="app">
-		<% @apps.each do |app| %>
-			<div class="col-md-3">
-				<a href="/apps/<%= app.id %>"><%= image_tag app.app_img.url(:app_index), class: "app_image" %></a>
-			<p><%= link_to app.name, app_path(app) %></p>
-			<p class="app-name"><%= app.price %></p>
-			<div class="average-review-rating" data-score=<%= app.reviews.average(:rating) %>></div>
-			</div>	
-		<% end %>
-	</div>
-	</div>
 <% end %>
-
-  <!-- FOOTER -->
-<!--    	  <br></br>
-      <br></br>
-      <br></br>
-      <footer align="center">
-        <p class="pull-right"><a href="#"><%= image_tag("top.gif", :alt => "Back to top", :size=> "130x100" ) %></a></p>
-        <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-      </footer>
-
-<br></br>
-      <br></br>
-      <br></br> -->
-
-
-
 
 <script>
 	$('.average-review-rating').raty({

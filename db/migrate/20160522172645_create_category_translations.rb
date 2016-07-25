@@ -1,5 +1,8 @@
 class CreateCategoryTranslations < ActiveRecord::Migration
-  def self.up
+  class Category < ActiveRecord::Base
+    translates :name, :content
+  end
+  def up
     Category.create_translation_table!({
       name: :string,
       content: :text
@@ -8,7 +11,7 @@ class CreateCategoryTranslations < ActiveRecord::Migration
     })
   end
 
-  def self.down
+  def down
     Category.drop_translation_table! migrate_data: true
   end
 end

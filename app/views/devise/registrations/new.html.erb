@@ -5,34 +5,48 @@
 
 <div class="row">
 
-    <div class="form-group col-md-6">
-      <h4>First Name:</h4> 
-      <input type="text" name="name" class="form-control" placeholder="First Name*" required>
-
-      <h4>Last Name:</h4> 
-      <input type="text" name="name" class="form-control" placeholder="Last Name*" required>
-
-      <h4>Username:</h4> 
-      <input type="text" name="name" class="form-control" placeholder="Username*" required>
-
-      <h4>Date of birth:</h4> 
-      <input type="date" name="date" class="form-control" placeholder="Last Name*" required>
-
-      <h4>Email:</h4> 
-      <input type="email" name="email" class="form-control" placeholder="Email*" required>
-
-      <h4>Password:</h4> <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %>
-      <input type="password" name="password" class="form-control" placeholder="Password*" required>
-
-      <h4>Confirm Password:</h4> 
-      <input type="password_confirmation" name="password_confirmation" class="form-control" placeholder="Confirm Password*" required>
-      <br/>
-      <div class="form-group">
-      <%= f.submit 'Sign Up', class: 'btn btn-primary pull-left' %>
-      </div>
+    <div class="field">
+    <h4>First Name:</h4>
+    <%= f.text_field :first_name, autofocus: true, class:"form-control", placeholder:"First Name"%>
     </div>
+
+    <div class="field">
+        <h4>Last Name:</h4>
+        <%= f.text_field :last_name, autofocus: true, class:"form-control", placeholder:"Last Name" %>
+    </div>
+
+    <div class="field">
+        <h4>Username:</h4>
+        <%= f.text_field :username, autofocus: true, class:"form-control", placeholder:"Username*" %>
+    </div>
+    <div class="field">
+        <h4>Date of Birth:</h4>
+        <%= f.date_field :birthday, autofocus: true, class:"form-control", placeholder:"Date of birth" %>
+    </div>
+
+    <div class="field">
+        <h4>Email:</h4>
+        <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"Email*" %>
+    </div>
+
+    <div class="field">
+        <h4>Password:</h4>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+        <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Password*" %>
+    </div>
+
+    <div class="field">
+        <h4>Password Confirmation:</h4>
+        <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Password*" %><br />
+    </div>
+
+    <div class="actions">
+        <%= f.submit "Sign up", class: 'btn btn-primary pull-left' %><br />
+    </div>
+      <br />
+
     <div class="form-group alerts">
                         
       <div class="alert alert-success" role="alert">

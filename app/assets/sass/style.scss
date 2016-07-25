@@ -1,10 +1,4 @@
-/*------------------------------------------------------------------------------------------------------------------------
- 
- @package: Sadaka
- @author: Ouarmedia/Farouk BLALOU
- @version: 1.0
- 
- --------------------------------------------------------------------------------------------------------------------- */
+
 
 /* =============================================================================
 Imports & Variables
@@ -17,11 +11,11 @@ Imports & Variables
 
 
 /* Variables */
-$color_main : #1f76bd ; // main bleu
-$color_secondary : #115c9b ; // dark blue
+$color_main : #612628; // main bleu
+$color_secondary : #2d0812; // dark blue
 
-$font_main : 'Open sans', sans-serif;
-$font_titles : 'Dosis', sans-serif;
+$font_main : Arial, "Helvetica Neue";
+$font_titles : Arial, "Helvetica Neue";
 
 
 /* =============================================================================
@@ -103,7 +97,7 @@ a {
 	margin-bottom: 0;
 	color: #fff;
 	background: $color_main;
-	
+	text-align:center;
 
 
 
@@ -134,13 +128,13 @@ a {
 	 	visibility: hidden;
 	 	top:85px;
 	 	@include transition(all, .05s);
+	 	
 
 
 	 	 li {
 
 	 	 	border-top: 1px solid darken($color_main, 10%);
 	 	 	
-
 	 	 	&:hover {
 
 		 		background:darken($color_main, 10%);
@@ -154,9 +148,9 @@ a {
 			 	border-bottom: none;
 			 	text-decoration: none;
 			 	padding: 5px 25px;
-			 	display:block;
+			 	display: block;
 			 	font-size: 16px;
-
+			 	
 
 			 }
 
