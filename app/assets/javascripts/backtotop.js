@@ -20,8 +20,6 @@
        
       });
        
-      &nbsp;
-       
       jQuery('.back-to-top').click(function(event) {
        
       event.preventDefault();
