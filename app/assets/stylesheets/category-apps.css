@@ -105,7 +105,7 @@
 .app-image {
     width: 220px;
 }
-# Back to Top
+
 .go-top{
   position: fixed;
   bottom: 20em;
@@ -116,8 +116,6 @@
   padding: 1em;
 }
 
-
-# High contrast
 body.highcontrast {
   background: #000;
   color:#fff;
