@@ -111,8 +111,6 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
                     <li><%= link_to "HOME", root_path %></li>
                     <li><%= link_to "CONTACT", new_message_path %></li>
-                    <!-- <li><%= link_to 'DISCLAIMER', disclaimer_path %></li>
-                    <li><%= link_to 'NOTIFICATION', notification_path %></li> -->
                     <li class="has-child" role="menuitem" tabindex="1" aria-haspopup="true">
                       <a href="#">CATEGORIES</a>
                       <ul class="submenu" role="menu" aria-hidden="false">
@@ -135,14 +133,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
                 </div> 
                 <div id="navbar" class="navbar-collapse collapse pull-right">
-<!--                   <ul class="nav navbar-nav">
-                    <% if user_signed_in? %>
-                      <li><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
-                    <% else %>  
-                      <li><%= link_to "SIGN IN", new_user_session_path %></li>
-                      <li><%= link_to "SIGN UP", new_user_registration_path %></li>
-                    <% end %>
-                  </ul> -->
+
                   <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
                       <p>
                        <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Searchfield" %>
@@ -160,53 +151,6 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
     </header> <!-- /. main-header -->
 
-
-<!-- Carousel-->
-<!--     <div id="homeCarousel" class="carousel slide carousel-home" data-ride="carousel" data-interval="false">
-
-          <!-- Indicators -->
-          <!-- <ol class="carousel-indicators">
-            <li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#homeCarousel" data-slide-to="1"></li>
-            <li data-target="#homeCarousel" data-slide-to="2"></li>
-          </ol>
-
-          <div class="carousel-inner" role="listbox" >
-
-            <div class="item active">
-
-              <%= image_tag("BeMyEyes.png", :alt => "rss feed" ) %>
-
-
-            </div> <!-- /.item -->
-
-
-            <!-- <div class="item ">
-
-              <%= image_tag("Tap-Tap-See-image.jpg", :alt => "rss feed" ) %>
-
-            </div> --> <!--  /.item -->
-
-
-            <!-- <div class="item ">
-
-              <%= image_tag("KNFB-Reader.jpg", :alt => "rss feed") %>
-
-            </div> --> <!-- /.item -->
-
-          <!-- </div>
-
-          <a class="left carousel-control" href="#homeCarousel" role="button" data-slide="prev">
-            <span class="fa fa-angle-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-
-          <a class="right carousel-control" href="#homeCarousel" role="button" data-slide="next">
-            <span class="fa fa-angle-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-
-    </div> --><!-- /.carousel -->
 
 
           <!-- Begin breadcrumb -->
