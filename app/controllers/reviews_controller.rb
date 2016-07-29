@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-	http_basic_authenticate_with :name => "huihui", :password => "test1234"
 before_action :find_app
 before_action :find_review, only: [:edit, :update, :destroy]
 before_action :authenticate_user!, only: [:new, :edit]

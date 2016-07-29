@@ -1,7 +1,4 @@
-class StoreController < ApplicationController
-  http_basic_authenticate_with :name => "huihui", :password => "test1234"
-
-  
+class StoreController < ApplicationController  
   def index
   #@products = App.find(params[:id])
     if params[:category_id]

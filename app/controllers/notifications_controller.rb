@@ -1,5 +1,4 @@
 class NotificationsController < ApplicationController
-	http_basic_authenticate_with :name => "huihui", :password => "test1234"
 
 	def index
 		@notifications=Notification.all.order("created_at DESC")

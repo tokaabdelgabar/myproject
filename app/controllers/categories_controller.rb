@@ -1,5 +1,4 @@
 class CategoriesController < ApplicationController
-	http_basic_authenticate_with :name => "huihui", :password => "test1234"
 before_action :find_category, only: [:show, :edit, :update, :destroy]
 	def index
 		@categories=Category.all.order("created_at DESC")
