@@ -1,4 +1,5 @@
 class StoreController < ApplicationController
+  http_basic_authenticate_with :name => "huihui", :password => "test1234"
 
   
   def index
