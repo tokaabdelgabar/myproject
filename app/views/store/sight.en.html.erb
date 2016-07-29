@@ -1,49 +1,33 @@
- <h1>Store Listing</h1>
+<h1>Store Listing</h1>
 Sort By: 
-<li><%= link_to "All Products", sight_path %></li>
-<li><%= link_to "Free", free_path(:category_id => 2)%></li>
+<li><%= link_to "All Products", store_path %></li>
 
-<br>
-<h3>Price is displayed in ascending order.</h3>
+ <h2> <strong> Sight </strong></h2>
 
 
- <h2> <strong> Sight Impairement </strong></h2>
+ <h2> <strong> Sight German </strong></h2>
 
-<div class="our-team animate-onscroll fadeIn">
+<table id="products">
+  <tr>
+    <th><%= sort_link @search, :name, "Product Name" %></th>
+    <th><%= sort_link @search, :price, "Price" %></th>    
+    <th><%= sort_link @search, :category_id, "Category" %></th>
 
-	<div class="container">
+    <th><%= sort_link @search, :rating, "Review",default_order: :desc %></th>
+    <th><%= sort_link @search, :app_img, "Image" %></th>
 
-	    <div class="row">
-	    	<% @sight.each do |sight| %>
-
-	        <div class="col-md-2 col-sm-2">
-
-	            <div class="team-member">
-
-	                <div class="thumnail">
-
-	                    <a href="/apps/<%= sight.id %>"><%= image_tag sight.app_img.url(:app_index, :alt => "This is a picture"), class: "app_image"   %></a>
-	                    
-	                </div>
-
-	                <p><h4><%= link_to sight.name, app_path(sight) %></h4></p>
-					<p><h4><%= sight.price %>€</h4></p>
-					<div class="average-review-rating" data-score=<%= sight.reviews.average(:rating) %>></div>
-      			</div><br />
-      		</div>
-      		<% end %>
-	    </div> 
-	            
-	</div>
-</div><br></br>
-<!--  <div class="app">
-  <% @sight.each do |sight| %>
-
-<div class="col-md-3">
-      <a href="/apps/<%= sight.id %>"><%= image_tag sight.app_img.url(:app_index, :alt => "This is a picture"), class: "app_image"   %></a>
-      <p><%= link_to sight.name, app_path(sight) %></p>
-      <p class="app-name"><%= sight.price %></p>
-      <div class="average-review-rating" data-score=<%= sight.reviews.average(:rating) %>></div>
-      </div>
+  </tr>
+<% @products.each do |product| %>
+  <tr>
+    <td><%= link_to(product.name, product) %></td>
+    <td><%= number_to_currency(product.price) %></td>
+    <td><%= link_to(product.category.name, product) %></td>
+    <td><%= product.reviews.average(:rating) %></td>
+    
+    <td class="image-description">
+        <td><%= image_tag product.app_img.url(:app_index) %></td>
+    </td>
+  </tr>
 <% end %>
-</div> -->
+</table>
+

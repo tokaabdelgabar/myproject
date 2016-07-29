@@ -1,4 +1,4 @@
-	<section class="product">
+  <section class="product">
           <h2><%= link_to @product.name, store_product_path(@product) %></h2>
           
           <ul><%= number_to_currency @product.price %></ul>
@@ -10,11 +10,11 @@
 
         <% if @product.category %>
         <p>
-        	<strong>Category:</strong><%= @product.category.name %>
+          <strong>Category:</strong><%= @product.category.name %>
         </p>
         <% end %>
-	</section>
+  </section>
 
 <p>
-	<%= link_to "Home", root_path %>
+  <%= link_to "Home", root_path %>
 </p>

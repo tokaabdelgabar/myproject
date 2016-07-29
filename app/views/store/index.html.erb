@@ -1,26 +1,27 @@
 <h1>Store Listing</h1>
-Sort By: 
-<li><%= link_to "Free", free_path %></li>
-<li><%= link_to "Paid", paid_path %></li>
-
 <br>
-<h3>Price is displayed in ascending order.</h3>
-<h3><%= link_to "Price is displayed in descending order", desc_path %></h3>
 
-      <% @products.each do |product| %>
-    <section class="product">
-          <h2><%= link_to product.name, store_product_path(product) %></h2>
-         
-          <ul><%= number_to_currency product.price %></ul>
-        </dl>
-        
-        <td class="image-description">
-            <td><%= image_tag product.app_img.url(:app_index) %></td>
-        </td>
-        <% if product.category %>
-        <p>
-          <strong>Category:</strong><%= product.category.name %>
-        </p>
-    <% end %>
-  </section>
-<%end%>
+<h1>Store Listing</h1>
+
+<table id="products">
+  <tr>
+    <th><%= sort_link @search, :name, "Product Name" %></th>
+    <th><%= sort_link @search, :price, "Price" %></th>    
+    <th><%= sort_link @search, :category_id, "Category" %></th>
+    <th><%= sort_link @search, :rating, "Review" %></th>
+    <th><%= sort_link @search, :app_img, "Image" %></th>
+
+  </tr>
+<% @products.each do |product| %>
+  <tr>
+    <td><%= link_to(product.name, product) %></td>
+    <td><%= number_to_currency(product.price) %></td>
+    <td><%= link_to(product.category.name, product) %></td>
+    <td><%= product.reviews.average(:rating) %></td>
+    
+    <td class="image-description">
+        <td><%= image_tag product.app_img.url(:app_index) %></td>
+    </td>
+  </tr>
+<% end %>
+</table>
