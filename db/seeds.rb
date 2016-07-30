@@ -21,10 +21,37 @@ User.delete_all
   user.save!
 
 Category.delete_all
-first_category = Category.create(:name => "Blind")
-second_category = Category.create(:name => "Sight" )
-fourth_category = Category.create(:name => "Motorical")
-fifth_category = Category.create(:name => "Learning" )
-sixth_category = Category.create(:name => "Hearing" )
+first_category = Category.create(:name => "Blind", :id => 1)
+second_category = Category.create(:name => "Sight", :id => 2 )
+fourth_category = Category.create(:name => "Motorical", :id => 3)
+fifth_category = Category.create(:name => "Learning", :id => 4 )
+sixth_category = Category.create(:name => "Hearing", :id => 5 )
 
 App.delete_all
+blind_1st_app = App.create(:name=> "I'm blind", :category_id => 1)
+blind_2nd_app = App.create(:name=> "Not deaf", :category_id => 1)
+blind_3rd_app = App.create(:name=> "you know", :category_id => 1)
+blind_4th_app = App.create(:name=> "where is it", :category_id => 1)
+blind_5th_app = App.create(:name=> "coming from", :category_id => 1)
+blind_6th_app = App.create(:name=> "Yes you are right!", :category_id => 1)
+
+sight_1st_app = App.create(:name=> "Can't See", :category_id => 1)
+sight_2nd_app = App.create(:name=> "Help me", :category_id => 1)
+sight_3rd_app = App.create(:name=> "Wait", :category_id => 1)
+sight_4th_app = App.create(:name=> "Are you helping me?", :category_id => 1)
+sight_5th_app = App.create(:name=> "Please give me a hand", :category_id => 1)
+sight_6th_app = App.create(:name=> "Don't go away!", :category_id => 1)
+
+motorical_1st_app = App.create(:name=> "I'm blind", :category_id => 1)
+motorical_2nd_app = App.create(:name=> "Not deaf", :category_id => 1)
+motorical_3rd_app = App.create(:name=> "you know", :category_id => 1)
+motorical_4th_app = App.create(:name=> "where is it", :category_id => 1)
+motorical_5th_app = App.create(:name=> "coming from", :category_id => 1)
+motorical_6th_app = App.create(:name=> "Yes you are right!", :category_id => 1)
+
+#learning_1st_app = App.create(:name=> "I'm blind", :category_id => 1)
+#learning_2nd_app = App.create(:name=> "Not deaf", :category_id => 1)
+#learning_3rd_app = App.create(:name=> "you know", :category_id => 1)
+#learning_4th_app = App.create(:name=> "where is it", :category_id => 1)
+#learning_5th_app = App.create(:name=> "coming from", :category_id => 1)
+#learning_6th_app = App.create(:name=> "Yes you are right!", :category_id => 1)
