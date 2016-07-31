@@ -34,11 +34,11 @@ de:
       object_not_found: "%{model} mit Id '%{id}' wurde nicht gefunden"
     table_headers:
       model_name: "Modellname"
-      last_used: "zuletzt benutzt"
+      last_used: "Zuletzt benutzt"
       records: "Datensatz"
       username: "Nutzer"
       changes: "Änderungen"
-      created_at: "Datum/uhrzeit"
+      created_at: "Datum/Uhrzeit"
       item: "Element"
       message: "Meldung"
     actions:

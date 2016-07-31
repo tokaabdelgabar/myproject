@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AbilIT.NET</title>
+  <title>AbilIT.net</title>
   <%= csrf_meta_tags %>
        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
       <meta name="description" content="">
@@ -62,15 +62,15 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
                             <ul class="list-unstyled list-inline header-contact">
                                 <% if user_signed_in? %>
-                                  <li><%= link_to "AUSLOGGEN", destroy_user_session_path, method: :delete %></li>
+                                  <li><%= link_to "Ausloggen", destroy_user_session_path, method: :delete %></li>
                                 <% else %>  
-                                  <li><%= link_to "EINLOGGEN", new_user_session_path %></li>
-                                  <li><%= link_to "REGISTRIEREN", new_user_registration_path %></li>
+                                  <li><%= link_to "Einloggen", new_user_session_path %></li>
+                                  <li><%= link_to "Registrieren", new_user_registration_path %></li>
                                 <% end %>
-                                <li><%= link_to "HELP", help_path %></li>
-                                <li><%= link_to "DICTIONARY", dictionary_path %></li>
-                                <li><%= link_to 'DISCLAIMER', disclaimer_path %>
-                                <li><%= link_to 'NOTIFICATION', notification_path %></li>
+                                <li><%= link_to "Leichte Sprache", help_path %></li>
+                                <li><%= link_to "Wörterbuch", dictionary_path %></li>
+                                <li><%= link_to 'Haftungsausschluss', disclaimer_path %>
+                                <li><%= link_to 'Benachrichtigung', notification_path %></li>
                            </ul> <!-- /.header-social  -->
                           
                         </div>
@@ -100,10 +100,10 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
                   <ul class="nav navbar-nav">
 
-                    <li><%= link_to "STARTSEITE", root_path %></li>
-                    <li><%= link_to "KONTAKT", new_message_path %></li>
+                    <li><%= link_to "Startseite", root_path %></li>
+                    <li><%= link_to "Kontakt", new_message_path %></li>
                     <li class="has-child">
-                      <a href="#">KATEGORIEN</a>
+                      <a href="#">App-Kategorien</a>
                       <ul class="submenu" role="menu">
                         <% Category.all.each do |category| %>
                           <li class="<%= 'active' if params[:category] == category.name %>">
@@ -113,10 +113,10 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                       </ul>
                     </li>
                     <li class="has-child">
-                      <a href="#">SPRACHEN</a>
+                      <a href="#">Sprachen</a>
                       <ul class="submenu">
-                        <li class="submenu-item"><%= link_to_unless_current "English", locale:"en" %></li>
-                        <li class="submenu-item"><%= link_to_unless_current "German", locale: "de" %></li>
+                        <li class="submenu-item"><%= link_to_unless_current "Englisch", locale:"en" %></li>
+                        <li class="submenu-item"><%= link_to_unless_current "Deutsch", locale: "de" %></li>
                       </ul>
                     </li>
                     <!--  -->
@@ -127,7 +127,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                   <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
                       <p>
                        <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Suchfeld" %>
-                       <%= submit_tag "SUCHE", name: nil, class: "btn btn-default" %>
+                       <%= submit_tag "Suche", name: nil, class: "btn btn-default" %>
                        </p>
                       <% end %>
                 </div><!-- /#navbar -->
@@ -193,7 +193,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
         <div class="footer-bottom">
 
             <div class="container text-right">
-                <p>ABILITY.NET @ copyrights 2016</p>
+                <p>AbilIT.net @ Copyrights 2016</p>
             </div>
         </div>
         

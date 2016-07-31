@@ -3,8 +3,8 @@ de:
   apps:
     show:
       avragerating: "Durchschnittliche Bewertung"
-      basedon: "Beyogen auf"
-      reviewn: "bewertungen"
+      basedon: "Bezogen auf"
+      reviewn: "Bewertungen"
 
   hello_world: Hallo german
   hello_flash: Hallo german flash
@@ -28,14 +28,15 @@ de:
       app:
         name: "Name"
         description: "Beschreibung"
-        link: "Link"
+        link: "Link zur Downloadseite"
         developer: "Entwickler"
-        operation: "Betrieb"
+        operation: "Betriebssystem"
         price: "Preis"
+        App img: "App-Logo"
       category:
-        name:"Name"
+        name: "Name"
       Rerview:
-        rating: "Wertung"
+        rating: "Bewertung"
         comment: "Kommentar"
   date:
     abbr_day_names:

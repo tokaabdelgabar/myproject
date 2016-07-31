@@ -2,13 +2,13 @@
 
 <%= simple_form_for @app, :html => { :multipart => true } do |f| %>
 	<%= f.select :category_id,@categories %>
-	<%= f.file_field :app_img %>
-	<%= f.input :name, label: "Name of the application" %>
-	<%= f.input :description %>
-	<%= f.input :link %>
-	<%= f.input :developer %>
-	<%= f.input :operation %>
-	<%= f.input :price %>
-	<%= f.button :submit %>
+	<%= f.file_field :app_img: "Logo of the app" %>
+	<%= f.input :name, label: "Name of the app" %>
+	<%= f.input :description: "Description of the app"  %>
+	<%= f.input :link: "Link to the download page" %>
+	<%= f.input :developer: "Developer of the app" %>
+	<%= f.input :operation: "Operating System of the app" %>
+	<%= f.input :price: "Price of the app" %>
+	<%= f.button :submit: "Submit" %>
 
 <% end %>

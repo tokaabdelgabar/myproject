@@ -1,13 +1,13 @@
 <div class="form-group col-md-6">
-<h4>Geschrieben von Benutzer:&nbsp;<b><%= review.user.username %></b></h4>
-<div class="review-rating" data-score="<%= review.rating %>"><label><h4>Rating:&nbsp;</h4></label></div>
-<h4>Comment:&nbsp;<%= review.comment %></h4>
-<h6 style="visibility:hidden">Rating number:&nbsp;<%= review.rating %>:&nbsp;Stars</h6>
+<h4>Bewertung von:&nbsp;<b><%= review.user.username %></b></h4>
+<div class="review-rating" data-score="<%= review.rating %>"><label><h4>Bewertung:&nbsp;</h4></label></div>
+<h4>Kommentar:&nbsp;<%= review.comment %></h4>
+<h6 style="visibility:hidden">Bewertung:&nbsp;<%= review.rating %>:&nbsp;Sterne</h6>
 <% if user_signed_in? %>
 
 	<% if review.user_id == current_user.id %>			
 		<%= link_to "Bearbeiten", edit_app_review_path(review.app, review) %>
-		<%= link_to "Löschen", app_review_path(review.app, review), method: :delete, data: { confirm: "Bist du sicher?" }%>
+		<%= link_to "Löschen", app_review_path(review.app, review), method: :delete, data: { confirm: "Bist Du sicher?" }%>
 	<% end %>	
 
 <% end %>

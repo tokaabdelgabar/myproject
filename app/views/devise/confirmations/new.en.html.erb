@@ -1,5 +1,5 @@
 <!-- <h2>Resend confirmation instructions</h2> -->
-<h2 class="title-style-2">Sende erneut Bestätigungsanleitung<span class="title-under"></span></h2>
+<h2 class="title-style-2">Resend confirmation instructions<span class="title-under"></span></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
@@ -13,7 +13,7 @@
     <input type="email" name="email" class="form-control" placeholder="Email*" required>
   </div>
   <!-- <div class="form-actions">
-    <%= f.button :submit, "Sende erneut Bestätigungsanleitung" %>
+    <%= f.button :submit, "Resend confirmation instructions" %>
   </div> -->
   <div class="form-group">
       <%= f.submit 'Sign Up', class: 'btn btn-primary pull-left' %>

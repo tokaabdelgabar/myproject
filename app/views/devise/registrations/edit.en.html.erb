@@ -6,43 +6,43 @@
 <div class="row">
 
     <div class="form-group col-md-6">
-      <h4>Vorname:</h4> 
+      <h4>First Name:</h4> 
       <!-- <input type="text" name="name" class="form-control" placeholder="First Name*" required> -->
-      <%= f.text_field :first_name, autofocus: true, class:"form-control", placeholder:"Vorname*" %>
+      <%= f.text_field :first_name, autofocus: true, class:"form-control", placeholder:"First Name*" %>
 
-      <h4>Nachname:</h4> 
+      <h4>Last Name:</h4> 
       <!-- <input type="text" name="name" class="form-control" placeholder="Last Name*" required> -->
-      <%= f.text_field :last_name, autofocus: true, class:"form-control", placeholder:"Nachname*" %>
+      <%= f.text_field :last_name, autofocus: true, class:"form-control", placeholder:"Last Name*" %>
 
-      <h4>Benutzername:</h4> 
+      <h4>Username:</h4> 
       <!-- <input type="text" name="name" class="form-control" placeholder="Username*" required> -->
-      <%= f.text_field :user, autofocus: true, class:"form-control", placeholder:"Benutzername*" %>
+      <%= f.text_field :user, autofocus: true, class:"form-control", placeholder:"Username*" %>
 
-      <h4>Geburtsdatum:</h4> 
+      <h4>Date of birth:</h4> 
       <!-- <input type="date" name="date" class="form-control" placeholder="Last Name*" required> -->
-      <%= f.date_field :birthday, autofocus: true, class:"form-control", placeholder:"Geburtsdatum*" %>
+      <%= f.date_field :birthday, autofocus: true, class:"form-control" %>
 
-      <h4>E.mail:</h4> 
+      <h4>Email:</h4> 
       <!-- <input type="email" name="email" class="form-control" placeholder="Email*" required> -->
-      <%= f.text_field :email, autofocus: true, class:"form-control", placeholder:"E.mail*" %>
+      <%= f.text_field :email, autofocus: true, class:"form-control", placeholder:"Email*" %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Warte auf Bestätigung: <%= resource.unconfirmed_email %></div>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
-      <h4>Passwort:</h4><i>(Lassen Sie das Feld leer, falls sie es nicht ändern möchten.)</i> <% if @minimum_password_length %>
+      <h4>Password:</h4><i>(leave blank if you don't want to change it)</i> <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %>
       <!-- <input type="password" name="password" class="form-control" placeholder="Password*" required> -->
-      <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"*Password*" %>
+      <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Password*" %>
 
-      <h4>Passwort wiederholen:</h4> 
+      <h4>Confirm Password:</h4> 
       <!-- <input type="password_confirmation" name="password_confirmation" class="form-control" placeholder="Confirm Password*" required> -->
-      <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"*Passwort wiederholen*"%>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Password Confirm*"%>
 
-      <h4>Aktuelles Passwort:</h4><i>(Ihr aktuelles Passwort ist nötig um Änderungen zu machen)</i><br /> 
+      <h4>Current Password:</h4><i>(we need your current password to confirm your changes)</i><br /> 
       <!-- <input type="password" name="password_confirmation" class="form-control" placeholder="Current Password*" required> -->
-      <%= f.password_field :current_password, autocomplete: "off", class:"form-control", placeholder:"Aktuelles Passwort*" %>
+      <%= f.password_field :current_password, autocomplete: "off", class:"form-control", placeholder:"Password Confirm*" %>
       <br/>
       <div class="form-group">
       <%= f.submit 'Update', class: 'btn btn-primary pull-left' %>
@@ -100,9 +100,9 @@
   </div>
 <% end %> -->
 
-<h3>Meinen Account löschen</h3>
+<h3>Cancel my account</h3>
 
-<p><h3>Unzufrieden?</h3> <%= button_to "Meinen Account Löschen", registration_path(resource_name), data: { confirm: "Sind Sie sicher?" }, method: :delete %></p>
+<p><h3>Unhappy?</h3> <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Zurück", :back %>
+<%= link_to "Back", :back %>
 </div>
