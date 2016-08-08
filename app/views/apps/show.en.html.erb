@@ -2,83 +2,62 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- <div align="right">
-
-<a href="javascript:SocialShare('https://twitter.com/share?s','https://sheltered-sierra-40726.herokuapp.com/apps/1', 'Fb Share', 'Facebook share popup', 'https://simplesharebuttons.com/images/somacro/facebook.png', 820, 850)"> <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" /> </a>
-
-<a href="javascript:SocialShare('http://www.facebook.com/sharer.php?s','https://sheltered-sierra-40726.herokuapp.com/apps/1', 'Fb Share', 'Facebook share popup', 'https://simplesharebuttons.com/images/somacro/facebook.png', 820, 850)"><img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" /></a>
-
-<a href="javascript:SocialShare('http://www.linkedin.com/shareArticle?s','https://sheltered-sierra-40726.herokuapp.com/apps/1', 'Fb Share', 'Facebook share popup', 'http://jonbennallick.co.uk/wp-content/uploads/2012/08/Facebook-logo-ICON-02.png', 820, 850)"> <img src="https://simplesharebuttons.com/images/somacro/linkedin.png" alt="LinkedIn" /></a>
-
-<a href="javascript:SocialShare('https://plus.google.com/share?s','https://sheltered-sierra-40726.herokuapp.com/apps/1', 'Fb Share', 'Facebook share popup', 'http://jonbennallick.co.uk/wp-content/uploads/2012/08/Facebook-logo-ICON-02.png', 820, 850)"> <img src="https://simplesharebuttons.com/images/somacro/google.png" alt="Google" /></a>
-
-</div> -->
-
-
-<!-- <div class="row">
-	<div class="col-md-4">
-	<%= image_tag @app.app_img.url(:app_show), class: "app-show" %>
-	</div>
-	<div class="col-md-8">
-		<div class="app-info">
-		<h2 class="app-name"><%= App.human_attribute_name(:Name) %>: <%= @app.name %></h2>
-		<h4><%= Category.human_attribute_name(:Category)%>: <%= @app.category.name %></h4>
-		<h2 class="avg-rating">Average Rating</h2>
-		<div class="average-review-rating" data-score=<%= @average_review %>></div>
-		<span class="number-of-reviews">Based on&nbsp;<%= @app.reviews.count %>&nbsp;reviews</span>
-		<p class="app-desc"><%= App.human_attribute_name(:Description) %>: <%= @app.description %></p>
-		<p class="app-name"><%= App.human_attribute_name(:Link) %>: <a href="<%= @app.link %>"><%= @app.link %></p></a>
-		<p class="app-name"><%= App.human_attribute_name(:Developer)%>: <%= @app.developer %></p>
-		<p class="app-name"><%= App.human_attribute_name(:Operation)%>: <%= @app.operation %></p>
-		<p class="app-name"><%= App.human_attribute_name(:Price) %>: <%= @app.price %></p>-->
-
-		<!-- <p><%= raw(youtube_embed("https://www.youtube.com/watch?v=Y7bxlR-MxxM")) %></p> -->
-
-		<!--</div>
-	</div>
-</div> -->
 <div class="row fadeIn animated">
-
 	<div class="col-md-6">
-
 		<%= image_tag @app.app_img.url(:app_show), class: "img-responsive" %>
-
 	</div>
 
 	<div class="col-md-6">
-
 		<h2 class="title-style-2"><%= App.human_attribute_name(:App_Name) %>: <%= @app.name %><span class="title-under"></span></h2>
-
+		<h4><%= App.human_attribute_name(:Type) %>: <%= @app.type %></h4>
 		<h4><%= Category.human_attribute_name(:Category)%>: <%= @app.category.name %></h4>
 		<h2 class="title-style-2">Average Rating</h2>
 		<div class="average-review-rating" data-score=<%= @average_review %>></div>
 		<span class="number-of-reviews"><h4>Based on&nbsp;<%= @app.reviews.count %>&nbsp;reviews</h4></span>
+
 		<h4><%= App.human_attribute_name(:Description) %>: <%= @app.description %></h4>
-		<h4><%= App.human_attribute_name(:Link_To_Download_Page) %>: <a href="<%= @app.link %>"><%= @app.link %></h4></a>
-		<h4><%= App.human_attribute_name(:Developer)%>: <%= @app.developer %></h4>
-		<h4><%= App.human_attribute_name(:Operation)%>: <%= @app.operation %></h4>
-		<h4><%= App.human_attribute_name(:Price) %>: <%= @app.price %>€</h4>
 		
+		<% @app.operations.each do |operatingsystem| %>
+		<h4>System: <%= operatingsystem.id %> </h4>
+		<h4>Information: <%= operatingsystem.information %> </h4>
+		<h4><a href=<%= operatingsystem.link %> >Link</a></h4>
+		<% end %>
+
+		<h4><%= App.human_attribute_name(:Developer)%>: <%= @app.developer %></h4>
+		<h4><%= App.human_attribute_name(:Price) %>: <%= @app.price %>€</h4>
+		<h4><%= App.human_attribute_name(:Price_Pro) %>: <%= @app.price_pro %>€</h4>
+
+		<h4>Languages Avilable:
+			<% @app.languages.each do |language| %>
+			<%= language.name %> **
+			<% end %>
+		</h4>
 	</div>
-		<div class="form-group col-md-6">
-          <%= link_to "Add Review", new_app_review_path(@app), class: 'btn btn-primary pull-left' %>
 
-          <%= link_to "Back", root_path, class: 'btn btn-primary pull-right' %>
+	<div class="col-md-6">
+		<%= image_tag @app.image1.url(:app_show), class: "img-responsive" %>
+		<%= image_tag @app.image2.url(:app_show), class: "img-responsive" %>
+		<%= image_tag @app.image3.url(:app_show), class: "img-responsive" %>
+		<%= image_tag @app.image4.url(:app_show), class: "img-responsive" %>
+		<%= image_tag @app.image5.url(:app_show), class: "img-responsive" %>
+	</div>
+		
+	<div class="form-group col-md-6">
+		<%= link_to "Add Review", new_app_review_path(@app), class: 'btn btn-primary pull-left' %>
+		<%= link_to "Back", root_path, class: 'btn btn-primary pull-right' %>
     </div>
-
 </div> <!-- /.row -->
 <br></br>
+
 <div class="row">
-
 	<div class="col-md-12">
-
 		<%= render @app.reviews %>
 		<!-- <div>
-				<%= link_to "Add Review", new_app_review_path(@app) %>
+		<%= link_to "Add Review", new_app_review_path(@app) %>
 		</div> -->
 	</div>
-
 </div>
+
 <!-- <div class="row">
 	<div class="col-md-6">
 		<% if user_signed_in? %>
@@ -90,6 +69,7 @@
 	</div>
 </div> -->
 <br></br>
+
 <script>
 	$('.review-rating').raty({
 		readOnly: true,
@@ -108,7 +88,6 @@
 		}
 	});
 </script>
-
 
 <script>
     function SocialShare(social,url,title, descr, image, winWidth, winHeight) {

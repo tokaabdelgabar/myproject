@@ -5,8 +5,7 @@ before_action :find_category, only: [:show, :edit, :update, :destroy]
 	end
 
 	def new
-		@category=Category.new
-			
+		@category=Category.new	
 	end
 
 	def show
@@ -14,7 +13,6 @@ before_action :find_category, only: [:show, :edit, :update, :destroy]
 
 	def create
 		@category=Category.new(category_params)
-
 		if @category.save
 			redirect_to root_path
 		else
@@ -22,9 +20,9 @@ before_action :find_category, only: [:show, :edit, :update, :destroy]
 		end
 	end
 
-	def edit
-		
+	def edit	
 	end
+
 	def update
 		if @category.update(category_params)
 			redirect_to category_path(@category)
@@ -34,13 +32,11 @@ before_action :find_category, only: [:show, :edit, :update, :destroy]
 	end
 
 	def destroy
-		
 	end
 
 	private
 		def category_params
 			params.require(:category).permit(:name)
-			
 		end
 
 		def find_category

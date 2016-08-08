@@ -1,12 +1,10 @@
 class NotificationsController < ApplicationController
-
 	def index
 		@notifications=Notification.all.order("created_at DESC")
 	end
 
 	def new
-		@notification=Notification.new
-			
+		@notification=Notification.new	
 	end
 
 	def show
@@ -14,7 +12,6 @@ class NotificationsController < ApplicationController
 
 	def create
 		@notification=Notification.new(category_params)
-
 		if @notification.save
 			redirect_to root_path
 		else
@@ -22,9 +19,9 @@ class NotificationsController < ApplicationController
 		end
 	end
 
-	def edit
-		
+	def edit	
 	end
+
 	def update
 		if @notification.update(notification_params)
 			redirect_to notification_path(@notification)
@@ -33,8 +30,6 @@ class NotificationsController < ApplicationController
 		end
 	end
 
-	def destroy
-		
+	def destroy	
 	end
-
 end

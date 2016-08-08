@@ -11,7 +11,6 @@ before_action :authenticate_user!, only: [:new, :edit]
 		@review=Review.new(review_params)
 		@review.app_id=@app.id
 		@review.user_id=current_user.id
-
 		if @review.save
 			redirect_to app_path(@app)
 		else
@@ -39,9 +38,11 @@ before_action :authenticate_user!, only: [:new, :edit]
 		def review_params
 			params.require(:review).permit(:rating, :comment)
 		end
+
 		def find_app
 			@app=App.find(params[:app_id])
 		end
+		
 		def find_review
 			@review=Review.find(params[:id])
 		end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160715021542) do
+ActiveRecord::Schema.define(version: 20160807034116) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -60,9 +60,7 @@ ActiveRecord::Schema.define(version: 20160715021542) do
   create_table "apps", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "link"
     t.string   "developer"
-    t.string   "operation"
     t.string   "price"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
@@ -72,6 +70,35 @@ ActiveRecord::Schema.define(version: 20160715021542) do
     t.string   "app_img_content_type"
     t.integer  "app_img_file_size"
     t.datetime "app_img_updated_at"
+    t.string   "type"
+    t.string   "price_pro"
+    t.string   "image1_file_name"
+    t.string   "image1_content_type"
+    t.integer  "image1_file_size"
+    t.datetime "image1_updated_at"
+    t.string   "image2_file_name"
+    t.string   "image2_content_type"
+    t.integer  "image2_file_size"
+    t.datetime "image2_updated_at"
+    t.string   "image3_file_name"
+    t.string   "image3_content_type"
+    t.integer  "image3_file_size"
+    t.datetime "image3_updated_at"
+    t.string   "image4_file_name"
+    t.string   "image4_content_type"
+    t.integer  "image4_file_size"
+    t.datetime "image4_updated_at"
+    t.string   "image5_file_name"
+    t.string   "image5_content_type"
+    t.integer  "image5_file_size"
+    t.datetime "image5_updated_at"
+  end
+
+  create_table "apptranslations", force: :cascade do |t|
+    t.integer  "app_id"
+    t.integer  "language_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -210,6 +237,12 @@ ActiveRecord::Schema.define(version: 20160715021542) do
   add_index "comfy_cms_snippets", ["site_id", "identifier"], name: "index_comfy_cms_snippets_on_site_id_and_identifier", unique: true
   add_index "comfy_cms_snippets", ["site_id", "position"], name: "index_comfy_cms_snippets_on_site_id_and_position"
 
+  create_table "languages", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "notification_translations", force: :cascade do |t|
     t.integer  "notification_id", null: false
     t.string   "locale",          null: false
@@ -231,6 +264,32 @@ ActiveRecord::Schema.define(version: 20160715021542) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+  end
+
+  create_table "operatingsystem_translations", force: :cascade do |t|
+    t.integer  "operatingsystem_id", null: false
+    t.string   "locale",             null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "name"
+  end
+
+  add_index "operatingsystem_translations", ["locale"], name: "index_operatingsystem_translations_on_locale"
+  add_index "operatingsystem_translations", ["operatingsystem_id"], name: "index_operatingsystem_translations_on_operatingsystem_id"
+
+  create_table "operatingsystems", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "operations", force: :cascade do |t|
+    t.integer  "app_id"
+    t.integer  "operatingsystem_id"
+    t.string   "information"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "link"
   end
 
   create_table "review_translations", force: :cascade do |t|
