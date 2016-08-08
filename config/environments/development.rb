@@ -41,8 +41,8 @@ Rails.application.configure do
 
  Paperclip.options[:command_path] = "/usr/local/bin/"
 #Toka to view images please keep
- Paperclip.options[:command_path] = '/c/WINDOWS/system32/convert'
- Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin'
+ #Paperclip.options[:command_path] = '/c/WINDOWS/system32/convert'
+ #Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin'
 #images please keep 
  
   config.action_mailer.default_url_options = { host: 'localhost', port:3000 }

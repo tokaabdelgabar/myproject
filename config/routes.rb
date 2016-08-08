@@ -45,8 +45,6 @@ end
   end
   scope "(:locale)", locale: /en|de/ do
   resources :categories
-  get 'paid' => 'store#paid'
-  get 'free' => 'store#free'
   get 'store' => 'store#index'
   get 'desc' => 'store#desc'
   get 'blind' => 'store#blind'
@@ -55,9 +53,6 @@ end
   get 'learning' => 'store#learning'
   get 'hearing' => 'store#hearing'
 
-
   match 'store/:id' => 'store#show', :as => :store_product, :via => :get
-
 end
-
 end

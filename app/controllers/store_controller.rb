@@ -33,7 +33,8 @@ class StoreController < ApplicationController
 
   def blind
       @search = App.search(params[:q])
-      @products = @search.result.where(:category_id => 1)     
+      @products = @search.result.where(:category_id => 1) 
+      @free = App.search(params[:q], :q => '0')
   end
 
   def sight

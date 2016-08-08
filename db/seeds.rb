@@ -28,3 +28,13 @@ fifth_category = Category.create(:name => "Learning" )
 sixth_category = Category.create(:name => "Hearing" )
 
 App.delete_all
+first_app = App.create(:name => "Blind 1", :price => 12, :category_id => 1 )
+second_app = App.create(:name => "Blind 2", :price => 9, :category_id => 1 )
+third_app = App.create(:name => "Blind 3", :price => 0, :category_id => 1 )
+fourth_app = App.create(:name => "Blind 4", :price => 100, :category_id => 1 )
+
+first_app = App.create(:name => "Sight 1", :price => 12, :category_id => 2 )
+second_app = App.create(:name => "Sight 2", :price => 9, :category_id => 2 )
+third_app = App.create(:name => "Sight 3", :price => 0, :category_id => 2)
+fourth_app = App.create(:name => "Sight 4", :price => 100, :category_id => 2 )
+

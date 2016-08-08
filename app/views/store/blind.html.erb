@@ -7,6 +7,16 @@ Sort By:
 
  <h2> <strong> Blind German </strong></h2>
 
+ 
+
+ <div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter 
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu dropdown">
+    <li><a href="#"><%= sort_link @search, :price, "Price" %></a></li>
+  </ul>
+</div>
+
 <table id="products">
   <tr>
     <th><%= sort_link @search, :name, "Product Name" %></th>
@@ -21,7 +31,7 @@ Sort By:
   <tr>
     <td><%= link_to(product.name, product) %></td>
     <td><%= number_to_currency(product.price) %></td>
-    <td><%= link_to(product.category.name, product) %></td>
+
     <td><%= product.reviews.average(:rating) %></td>
     
     <td class="image-description">
