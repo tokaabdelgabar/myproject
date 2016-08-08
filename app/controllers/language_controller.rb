@@ -12,7 +12,6 @@ class LanguageController < ApplicationController
 
 	def create
 		@language=Language.new(language_params)
-
 		if @language.save
 			redirect_to root_path
 		else
@@ -21,7 +20,6 @@ class LanguageController < ApplicationController
 	end
 
 	def edit
-		
 	end
 
 	def update
@@ -32,12 +30,10 @@ class LanguageController < ApplicationController
 		end
 	end
 
-	def destroy
-		
+	def destroy	
 	end
 
 	private
-	
 	def language_params
 		params.require(:language).permit(:name)
 	end

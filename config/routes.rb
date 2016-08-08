@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'set_language/english'
+
+  get 'set_language/german'
 
   get '/dictionary' => 'pages#dictionary'
   get '/help' => 'pages#help'
@@ -7,23 +10,24 @@ Rails.application.routes.draw do
   get '/notification' => 'notifications#index'
   get 'messages/new'
 
-#mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-#begin translate 
-# config/routes.rb
-scope "(:locale)", locale: /en|de/ do
-  resources :apps
-end
-# config/routes.rb
-Rails.application.routes.draw do
 
-  get '/help' => 'pages#help'
-  get '/dictionay' => 'pages#dictionary'
-  get 'messages/new'
+
+ # resources :apps
+#end
+
+Rails.application.routes.draw do
+  get 'set_language/english'
+
+  get 'set_language/german'
+
+  scope "(:locale)", locale: /en|de/ do
+    root to: "apps#index" 
+    get "apps/index"
+  end  
+end
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  root to: "apps#index"
-end
-# end translate 
+
 
   devise_for :users
   resources :categories
@@ -33,9 +37,6 @@ end
 
 # Contact
   resources :messages, only: [:new, :create]
-
-#root 'apps#index'
-
 	resources :apps do
 
     collection do

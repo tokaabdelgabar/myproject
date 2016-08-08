@@ -12,7 +12,6 @@ class OperatingsystemController < ApplicationController
 
 	def create
 		@operatingsystem=Operatingsystem.new(operatingsystem_params)
-
 		if @operatingsystem.save
 			redirect_to root_path
 		else
@@ -20,8 +19,7 @@ class OperatingsystemController < ApplicationController
 		end
 	end
 
-	def edit
-		
+	def edit	
 	end
 
 	def update
@@ -33,11 +31,9 @@ class OperatingsystemController < ApplicationController
 	end
 
 	def destroy
-		
 	end
 
 	private
-	
 	def operatingsystem_params
 		params.require(:operatingsystem).permit(:name)
 	end

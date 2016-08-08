@@ -2,6 +2,11 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
+
+<p><b>I18n.locale:</b> 
+<%= I18n.locale %>
+</p>
+
 <html>
 <head>
   <title>AbilIT.NET</title>
@@ -40,7 +45,6 @@
       <%= javascript_include_tag 'backtotop.js', 'data-turbolinks-track' => true %>
 
 
-      
 </head>
 <body>
         <!--Start of Zopim Live Chat Script-->
@@ -123,17 +127,17 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                           </li>
                         <% end %>
                       </ul>
+                      <p>
                     </li>
                     <li class="has-child">
                       <a href="#">LANGUAGES</a>
                       <ul class="submenu">
-                        <li class="submenu-item"><%= link_to_unless_current "English", locale:"en" %></li>
-                        <li class="submenu-item"><%= link_to_unless_current "German", locale: "de" %></li>
+                        <li class="submenu-item"><%= link_to_unless I18n.locale == :en, "English", locale: :en %></li>
+                        <li class="submenu-item"><%= link_to_unless I18n.locale == :de, "Deutsch", locale: :de %></li>
                       </ul>
                     </li>
                     <!--  -->
                   </ul>
-
                 </div> 
                 <div id="navbar" class="navbar-collapse collapse pull-right">
 
