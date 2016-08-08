@@ -65,7 +65,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                   <div class="row">
                     <div class="col-sm-6 col-xs-12">
                     </div>
-                    <div class="col-sm-6 col-xs-12 text-right">
+                    <div class="col-sm-12 col-xs-12 text-right">
 
                             <ul class="list-unstyled list-inline header-contact">
                                 <% if user_signed_in? %>
@@ -78,6 +78,9 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                                 <li><%= link_to "Wörterbuch", dictionary_path %></li>
                                 <li><%= link_to 'Haftungsausschluss', disclaimer_path %>
                                 <li><%= link_to 'Benachrichtigung', notification_path %></li>
+                                <li> | </li>  
+                                <li><%= link_to_unless I18n.locale == :en, image_tag("English"),set_language_english_path%></li>
+                                <li><%= link_to_unless I18n.locale == :de, image_tag("German"),set_language_german_path %></li>
                            </ul> <!-- /.header-social  -->
                           
                         </div>
@@ -176,10 +179,10 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
             <div class="container">
               
 
-              <div class="col-sm-6 col-xs-12 text-right">
+              <div class="col-sm-12 col-xs-12 text-right">
               </div>
 
-              <div class="col-sm-6 col-xs-12 text-right">
+              <div class="col-sm-12 col-xs-12 text-right">
 
                 <ul class="list-unstyled list-inline header-social">
 
