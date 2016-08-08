@@ -5,7 +5,7 @@ before_action :authenticate_user!, only: [:new, :edit]
 	def index
 
 		@apps_all= App.all 
-		@categories= Category.all
+		@categories_list= Category.all
 		@operatingsystem_list= Operatingsystem.all
 
 		#if params[:category].blank? && params[:search].blank?
