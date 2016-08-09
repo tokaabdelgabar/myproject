@@ -21,11 +21,11 @@ User.delete_all
   user.save!
 
 Category.delete_all
-first_category = Category.create(:name => "Blind")
-second_category = Category.create(:name => "Sight" )
-fourth_category = Category.create(:name => "Motorical")
-fifth_category = Category.create(:name => "Learning" )
-sixth_category = Category.create(:name => "Hearing" )
+first_category = Category.create(:name => "Blind", :id => 1)
+second_category = Category.create(:name => "Sight", :id => 2 )
+fourth_category = Category.create(:name => "Motorical", :id => 3)
+fifth_category = Category.create(:name => "Learning", :id => 4 )
+sixth_category = Category.create(:name => "Hearing", :id => 5 )
 
 App.delete_all
 first_app = App.create(:name => "Blind 1", :price => 12, :category_id => 1 )
@@ -37,4 +37,3 @@ first_app = App.create(:name => "Sight 1", :price => 12, :category_id => 2 )
 second_app = App.create(:name => "Sight 2", :price => 9, :category_id => 2 )
 third_app = App.create(:name => "Sight 3", :price => 0, :category_id => 2)
 fourth_app = App.create(:name => "Sight 4", :price => 100, :category_id => 2 )
-
