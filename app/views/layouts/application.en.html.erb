@@ -87,8 +87,8 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                             <li><%= link_to 'DISCLAIMER', disclaimer_path %></li>
                             <li><%= link_to 'News', notification_path %></li>
                             <li> | </li>  
-                            <li><%= link_to_unless I18n.locale == :en, image_tag("english.png"),set_language_english_path%></li>
-                            <li><%= link_to_unless I18n.locale == :de, image_tag("german.png"),set_language_german_path %></li>
+                            <li><%= link_to_unless I18n.locale == :en, image_tag("english.png",:size => "30x30"),set_language_english_path%></li>
+                            <li><%= link_to_unless I18n.locale == :de, image_tag("german.png",:size => "30x30"),set_language_german_path %></li>
                        </ul> <!-- /.header-social  -->
                       
                     </div>
