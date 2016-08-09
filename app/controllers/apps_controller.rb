@@ -1,5 +1,5 @@
 class AppsController < ApplicationController
-	
+	http_basic_authenticate_with :name => "huihui", :password => "test1234"
 before_action :find_app, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 before_action :authenticate_user!, only: [:new, :edit]
 	
