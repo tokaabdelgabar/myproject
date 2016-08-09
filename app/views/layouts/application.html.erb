@@ -79,8 +79,9 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                                 <li><%= link_to 'Haftungsausschluss', disclaimer_path %>
                                 <li><%= link_to 'Benachrichtigung', notification_path %></li>
                                 <li> | </li>  
-                                <li><%= link_to_unless I18n.locale == :en, image_tag("English"),set_language_english_path%></li>
-                                <li><%= link_to_unless I18n.locale == :de, image_tag("German"),set_language_german_path %></li>
+                                <li><%= link_to_unless I18n.locale == :en, image_tag("english.png"),set_language_english_path%></li>
+                  
+                                <li><%= link_to_unless I18n.locale == :de, image_tag("german.png"),set_language_german_path %></li>
                            </ul> <!-- /.header-social  -->
                           
                         </div>
