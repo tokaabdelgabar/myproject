@@ -148,17 +148,6 @@ ActiveRecord::Schema.define(version: 20160809062135) do
     t.string   "link"
   end
 
-  create_table "review_translations", force: :cascade do |t|
-    t.integer  "review_id",  null: false
-    t.string   "locale",     null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "comment"
-  end
-
-  add_index "review_translations", ["locale"], name: "index_review_translations_on_locale"
-  add_index "review_translations", ["review_id"], name: "index_review_translations_on_review_id"
-
   create_table "reviews", force: :cascade do |t|
     t.integer  "rating"
     t.text     "comment"
