@@ -27,7 +27,6 @@ Sort By:
   <tr>
     <td><%= link_to(product.name, product) %></td>
     <td><%= number_to_currency(product.price) %></td>
-    <td><%= link_to(product.category.name, product) %></td>
     <td><%= product.reviews.average(:rating) %></td>
     
     <td class="image-description">
