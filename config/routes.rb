@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :tabs
   get 'set_language/english'
 
   get 'set_language/german'
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
 #end
 
 Rails.application.routes.draw do
+  resources :tabs
   get 'set_language/english'
 
   get 'set_language/german'

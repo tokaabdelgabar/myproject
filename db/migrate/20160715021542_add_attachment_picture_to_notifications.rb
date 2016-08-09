@@ -9,3 +9,5 @@ class AddAttachmentPictureToNotifications < ActiveRecord::Migration
     remove_attachment :notifications, :picture
   end
 end
+
+

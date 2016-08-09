@@ -1,0 +1,9 @@
+class CreateDisclaimers < ActiveRecord::Migration
+  def change
+    create_table :disclaimers do |t|
+      t.string :name
+
+      t.timestamps null: false
+    end
+  end
+end

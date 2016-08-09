@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160807034116) do
+ActiveRecord::Schema.define(version: 20160809062135) do
 
   create_table "app_translations", force: :cascade do |t|
     t.integer  "app_id",      null: false
@@ -86,6 +86,13 @@ ActiveRecord::Schema.define(version: 20160807034116) do
   add_index "category_translations", ["category_id"], name: "index_category_translations_on_category_id"
   add_index "category_translations", ["locale"], name: "index_category_translations_on_locale"
 
+  create_table "disclaimers", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "source"
+  end
+
   create_table "languages", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -107,12 +114,12 @@ ActiveRecord::Schema.define(version: 20160807034116) do
   create_table "notifications", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
-    t.integer  "picture_file_size"
-    t.datetime "picture_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "operatingsystem_translations", force: :cascade do |t|
@@ -148,6 +155,18 @@ ActiveRecord::Schema.define(version: 20160807034116) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "app_id"
+  end
+
+  create_table "tabs", force: :cascade do |t|
+    t.string   "name"
+    t.string   "infromation"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "paragraph1"
+    t.string   "paragraph2"
+    t.string   "paragraph3"
+    t.string   "paragraph4"
+    t.integer  "disclaimer_id"
   end
 
   create_table "users", force: :cascade do |t|
