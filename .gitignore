@@ -15,3 +15,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+*We don't want to upload images to git.
+/public/system/apps
