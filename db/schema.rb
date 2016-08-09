@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160807034116) do
+ActiveRecord::Schema.define(version: 20160809033912) do
 
   create_table "app_translations", force: :cascade do |t|
     t.integer  "app_id",      null: false
@@ -107,12 +107,12 @@ ActiveRecord::Schema.define(version: 20160807034116) do
   create_table "notifications", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
-    t.integer  "picture_file_size"
-    t.datetime "picture_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "operatingsystem_translations", force: :cascade do |t|
@@ -140,6 +140,17 @@ ActiveRecord::Schema.define(version: 20160807034116) do
     t.datetime "updated_at",         null: false
     t.string   "link"
   end
+
+  create_table "review_translations", force: :cascade do |t|
+    t.integer  "review_id",  null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "comment"
+  end
+
+  add_index "review_translations", ["locale"], name: "index_review_translations_on_locale"
+  add_index "review_translations", ["review_id"], name: "index_review_translations_on_review_id"
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "rating"
