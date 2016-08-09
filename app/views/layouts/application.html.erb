@@ -80,7 +80,8 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                                 <li><%= link_to 'News', notification_path %></li>
                                 <li> | </li>  
                                
-                                <li>Schriftgröße: <a id="zoom_reset"><%= image_tag("zoom1.png",:size => "20x20")%></a> <a id="  zoom_in"><%= image_tag("zoom2.png",:size => "30x30")%> </a></li>
+                                <li>Schriftgröße: <a id="zoom_reset"><%= image_tag("zoom1.png",:size =>"20x20")%></a>
+                                <a id="zoom_in"><%= image_tag("zoom2.png",:size => "30x30")%> </a></li>
                       
                                 <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "30x30"),set_language_english_path%> <%= link_to_unless I18n.locale == :de, image_tag("German.png",:size => "30x30"),set_language_german_path %></li>
                             <li></li>
@@ -250,7 +251,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
         // Click events
         $('#zoom_in').click(function() { zoom_page(20, $(this)) });
-        $('#zoom_out').click(function() { zoom_page(-10, $(this)) });
+        $('#zoom_out').click(function() { zoom_page(30, $(this)) });
         $('#zoom_reset').click(function() { zoom_page(0, $(this)) });
 
         // Zoom function
