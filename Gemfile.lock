@@ -292,8 +292,8 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_votable (~> 0.10.0)
-  bootstrap (~> 4.0.0.alpha3)
   aws-sdk (~> 2.3)
+  bootstrap (~> 4.0.0.alpha3)
   byebug
   coffee-rails (~> 4.1.0)
   compass-rails (~> 2.0, >= 2.0.4)
