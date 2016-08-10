@@ -296,7 +296,7 @@ DEPENDENCIES
   aws-sdk (~> 2.3)
   bootstrap (~> 4.0.0.alpha3)
   byebug
-  cancancan
+  cancancan (~> 1.10)
   coffee-rails (~> 4.1.0)
   compass-rails (~> 2.0, >= 2.0.4)
   devise (~> 3.4, >= 3.4.1)
