@@ -29,7 +29,7 @@
       <%= stylesheet_link_tag    'owl.carousel', media: 'all', 'data-turbolinks-track' => true %>
 
       <!-- Template main Css -->
-      <%= stylesheet_link_tag    'style', media: 'all', 'data-turbolinks-track' => true %>      
+      <%= stylesheet_link_tag    'style.min', media: 'all', 'data-turbolinks-track' => true %>      
       
       <!-- Modernizr -->   
       <%= javascript_include_tag 'modernizr-2.6.2.min', 'data-turbolinks-track' => true %>
@@ -39,7 +39,7 @@
 
       <!-- Breadcrumb -->
       <!-- <script type="text/javascript" src="/javascript/breadcrumbs.js"></script> -->
-      <%= javascript_include_tag 'breadcrumbs.js', 'data-turbolinks-track' => true %>
+      
 
       <!-- Back to top -->
       <%= javascript_include_tag 'backtotop.js', 'data-turbolinks-track' => true %>
@@ -68,30 +68,32 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
           <div class="navbar-top">
             <div class="container">
               <div class="row">
-                <div class="col-sm-12 col-xs-12 text-left">
-                  <ul class="list-unstyled list-inline header-contact">
-                    <li><a href="#" class="highcontrast">High Contrast Theme</a></li>
-                  </ul>
+                <div class="col-sm-6 col-xs-6 text-left">
+                  <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
+                              <p>
+                               <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Searchfield" %>
+                               <%= submit_tag "SEARCH", name: nil, class: "btn btn-default" %>
+                               </p>
+                              <% end %>
                 </div>
-                <div class="col-sm-12 col-xs-12 text-right">
+                <div class="col-sm-6 col-xs-6 text-right">
 
+                        
+                            
                         <ul class="list-unstyled list-inline header-contact">
-                            <% if user_signed_in? %>
-                              <li><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
-                            <% else %>  
-                              <li><%= link_to "SIGN IN", new_user_session_path %></li>
-                              <li><%= link_to "SIGN UP", new_user_registration_path %></li>
-                            <% end %>
-                            <li><%= link_to "HELP", help_path %></li>
-                            <li><%= link_to "DICTIONARY", dictionary_path %></li>
-                            <li><%= link_to 'DISCLAIMER', disclaimer_path %></li>
-                            <li><%= link_to 'News', notification_path %></li>
-                            <li> | </li>  
-                            <li>Zoom: <a id="zoom_reset"><%= image_tag("zoom1.png",:size => "20x20")%></a> <a id="zoom_in"><%= image_tag("zoom2.png",:size => "30x30")%> </a></li>
-                      
-                            <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "30x30"),set_language_english_path%> <%= link_to_unless I18n.locale == :de, image_tag("German.png",:size => "30x30"),set_language_german_path %></li>
-                            <li></li>
-                       </ul> <!-- /.header-social  -->
+                          <% if user_signed_in? %>
+                            <li><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
+                          <% else %>  
+                            <li><%= link_to "SIGN IN", new_user_session_path %></li>
+                            <li><%= link_to "SIGN UP", new_user_registration_path %></li>
+                          <% end %>
+                          <li><%= link_to 'News', notification_path %></li>
+                          <li> | </li>  
+                          <li>Zoom: <a id="zoom_reset"><%= image_tag("zoom1.png",:size => "20x20")%></a> <a id="zoom_in"><%= image_tag("zoom2.png",:size => "30x30")%> </a></li>
+                    
+                          <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "30x30"),set_language_english_path%> <%= link_to_unless I18n.locale == :de, image_tag("German.png",:size => "30x30"),set_language_german_path %></li>
+                          <li></li>
+                       </ul> 
                       
                     </div>
               </div>
@@ -112,7 +114,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                     <span class="icon-bar"></span>
 
                   </button>
-
+                  <%= link_to root_path, :class => 'navbar-brand' do %><%= image_tag ("home.png"), :size => "50x50", :alt =>"" %><% end %>
                   
                 </div>
 
@@ -121,8 +123,8 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                   <ul class="nav navbar-nav" role="menubar" id="
                   nav">
 
-                    <li><%= link_to "HOME", root_path %></li>
-                    <li><%= link_to "CONTACT", new_message_path %></li>
+                    <!-- <li><%= link_to "HOME", root_path %></li> -->
+                    
                     <li class="has-child" role="menuitem" tabindex="1" aria-haspopup="true">
                       <a href="#">CATEGORIES</a>
                       <ul class="submenu" role="menu" aria-hidden="false">
@@ -134,25 +136,20 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                       </ul>
                       <p>
                     </li>
-                    <li class="has-child">
+                    
+                    <li><%= link_to "SIMPLE LANGUAGE"%></li>
+                    <li><%= link_to "ABOUT US" %></li>
+                    <li><%= link_to "CONTACT", new_message_path %></li>
+                    <!-- <li class="has-child">
                       <a href="#">LANGUAGES</a>
                       <ul class="submenu">
                         <li class="submenu-item"><%= link_to_unless I18n.locale == :en, "English", set_language_english_path %></li>
                         <li class="submenu-item"><%= link_to_unless I18n.locale == :de, "Deutsch", set_language_german_path %></li>
                       </ul>
-                    </li>
+                    </li> -->
                     <!--  -->
                   </ul>
                 </div> 
-                <div id="navbar" class="navbar-collapse collapse pull-right">
-
-                  <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
-                      <p>
-                       <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Searchfield" %>
-                       <%= submit_tag "SEARCH", name: nil, class: "btn btn-default" %>
-                       </p>
-                      <% end %>
-                </div><!-- /#navbar -->
 
               </div> <!-- /.container -->
               
@@ -200,7 +197,14 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
               
 
               <div class="col-sm-6 col-xs-12 text-left">
-
+                <ul class="list-unstyled list-inline header-contact">
+                            
+                            <li><%= link_to "HELP", help_path %></li>
+                            <li><%= link_to "DICTIONARY", dictionary_path %></li>
+                            <li><%= link_to 'DISCLAIMER', disclaimer_path %></li>
+                              
+                            
+                       </ul>
               </div>
 
               <div class="col-sm-6 col-xs-12 text-right">
