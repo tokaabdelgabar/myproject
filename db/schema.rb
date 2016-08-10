@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809062135) do
+ActiveRecord::Schema.define(version: 20160810040914) do
 
   create_table "app_translations", force: :cascade do |t|
     t.integer  "app_id",      null: false
@@ -168,6 +168,16 @@ ActiveRecord::Schema.define(version: 20160809062135) do
     t.integer  "app_id"
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "roles_users", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "role_id", null: false
+  end
+
   create_table "tabs", force: :cascade do |t|
     t.string   "name"
     t.string   "infromation"
@@ -198,6 +208,8 @@ ActiveRecord::Schema.define(version: 20160809062135) do
     t.string   "username"
     t.date     "birthday"
     t.boolean  "admin",                  default: false
+    t.string   "role"
+    t.boolean  "superadmin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
