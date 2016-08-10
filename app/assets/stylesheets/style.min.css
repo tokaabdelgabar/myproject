@@ -460,7 +460,7 @@ a:hover, a:focus, a:active {
   display: inline-block;
   width: 35px;
   height: 35px;
-  background: #1f76bd;
+  background: #009688;
   vertical-align: middle;
   margin-right: 5px;
   color: #fff;
@@ -494,7 +494,7 @@ form .alert {
 	Module
 ========================================================================== */
 .btn-primary {
-  background: #115c9b;
+  background: #000;
   border: none;
   border-radius: 0;
   padding: 10px 25px;
@@ -505,19 +505,19 @@ form .alert {
   transition: all, 0.3s;
 }
 .btn-primary:hover {
-  background: #fff;
-  color: #1f76bd;
-  border: 1px solid #1f76bd;
+  background: #009688;
+  color: #000;
+  border: 1px solid #000;
 }
 
 .btn-secondary {
   background: #fff;
-  color: #1f76bd;
+  color: #000;
   border-radius: 0;
 }
 .btn-secondary:hover {
-  background: #1f76bd;
-  color: #fff;
+  background: #009688;
+  color: #000;
 }
 
 .title-style-1 {

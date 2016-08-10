@@ -6,7 +6,7 @@
 			<div class="row">
 				<% @apps_all.each do |apps| %>
 				<% if apps.category_id == category.id  %>
-					<div class="col-md-2 col-sm-2">
+				<div class="col-md-2 col-sm-2">
 					<div class="team-member">
 						<div class="thumnail">
 							<a href="/apps/<%= apps.id %>"><%= image_tag apps.app_img.url(:app_index) %></a>
