@@ -2,6 +2,7 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
 
+<% if params[:category].blank? && params[:search].blank? %>
 <% @categories_list.each do |category| %>
 <div class="our-team">
 	<div class="container">
@@ -18,7 +19,7 @@
 					<p class="app-name"><%= apps.price %>€</p>
 					<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div>
 				</div><br></br>
-			</div>
+				</div>
 			<% end %>
 			<% end %>
 		</div><br></br>
