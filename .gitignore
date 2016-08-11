@@ -12,6 +12,3 @@
 
 # We don't want to upload images to git.
 /public/system/apps
-
-It could be done by rake db:migrate
-/db/schema.rb
