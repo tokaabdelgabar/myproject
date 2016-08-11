@@ -40,7 +40,7 @@
 
 	<div class="col-md-6">
 		<h2 class="title-style-2"><%= App.human_attribute_name(:App_Name) %>: <%= @app.name %><span class="title-under"></span></h2>
-		<h4><%= App.human_attribute_name(:Type) %>: <%= @app.type %></h4>
+		<h4><%= App.human_attribute_name(:Type) %>: <%= @app.detail %></h4>
 		<h4><%= Category.human_attribute_name(:Kategorie)%>: <%= @app.category.name %></h4>
 		<h2 class="title-style-2">Durchschnittliche Bewertung</h2>
 		<div class="average-review-rating" data-score=<%= @average_review %>></div>
