@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
-
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <p><b>I18n.locale:</b> 
 <%= I18n.locale %>
 </p>
-
 <html>
 <head>
-  <title>AbilIT.net</title>
+  <title>Zappatory.com - Supportive Apps Directory</title>
   <%= csrf_meta_tags %>
        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
       <meta name="description" content="">
@@ -38,8 +36,6 @@
       
       <!-- Back to top -->
       <%= javascript_include_tag 'backtotop.js', 'data-turbolinks-track' => true %>
-
-
 </head>
 <body>
         <!--Start of Zopim Live Chat Script-->
@@ -89,6 +85,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                       
                                 <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "30x30"),set_language_english_path%> <%= link_to_unless I18n.locale == :de, image_tag("German.png",:size => "30x30"),set_language_german_path %></li>
                             <li></li>
+>>>>>>> 7ad053e1a27e69aa6277ecf4e04fa1fad3932ea0
                            </ul> <!-- /.header-social  -->
                           
                         </div>
@@ -274,6 +271,5 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
         }
     });
 </script>
-    
 </body>
 </html>
