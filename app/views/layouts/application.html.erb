@@ -78,14 +78,13 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                                 <% end %>
                                 
                                 <li><%= link_to 'News', notification_path %></li>
-                                <li> | </li>  
-                               
+                                <li> | </li> 
+                          
                                 <li>Schriftgröße: <a id="zoom_reset"><%= image_tag("zoom1.png",:size =>"20x20")%></a>
                                 <a id="zoom_in"><%= image_tag("zoom2.png",:size => "30x30")%> </a></li>
                       
                                 <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "30x30"),set_language_english_path%> <%= link_to_unless I18n.locale == :de, image_tag("German.png",:size => "30x30"),set_language_german_path %></li>
                             <li></li>
->>>>>>> 7ad053e1a27e69aa6277ecf4e04fa1fad3932ea0
                            </ul> <!-- /.header-social  -->
                           
                         </div>
