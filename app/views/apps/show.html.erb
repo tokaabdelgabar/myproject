@@ -2,14 +2,45 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
 
-<div class="row fadeIn animated">
+<div class="row">
 	<div class="col-md-6">
-		<%= image_tag @app.app_img.url(:app_show), class: "img-responsive" %>
+		<%= image_tag @app.app_img.url(:app_show), class: "img-responsive" %><br />
+		<div class="row">
+			<div class="col-md-3 col-sm-3">
+				<!-- <div class="team-member"> -->
+					<div class="thumnail">
+						<%= image_tag @app.image1.url(:app_show), class: "img-responsive",:size => "150x150" %>
+					</div>
+				<!-- </div> -->	
+			</div>
+			<div class="col-md-3 col-sm-3">
+				<!-- <div class="team-member"> -->
+					<div class="thumnail">
+						<%= image_tag @app.image2.url(:app_show), class: "img-responsive",:size => "150x150" %>
+					</div>
+				<!-- </div> -->	
+			</div>
+			<div class="col-md-3 col-sm-3">
+				<!-- <div class="team-member"> -->
+					<div class="thumnail">
+						<%= image_tag @app.image3.url(:app_show), class: "img-responsive",:size => "150x150" %>
+					</div>
+				<!-- </div> -->	
+			</div>
+			<div class="col-md-3 col-sm-3">
+				<!-- <div class="team-member"> -->
+					<div class="thumnail">
+						<%= image_tag @app.image4.url(:app_show), class: "img-responsive",:size => "150x150" %>
+					</div>
+				<!-- </div> -->	
+			</div>
+			
+		</div
 	</div>
 
 	<div class="col-md-6">
 		<h2 class="title-style-2"><%= App.human_attribute_name(:App_Name) %>: <%= @app.name %><span class="title-under"></span></h2>
-		<h4><%= App.human_attribute_name(:Type) %>: <%= @app.type %></h4>
+		<h4><%= App.human_attribute_name(:Type) %>: <%= @app.detail %></h4>
 		<h4><%= Category.human_attribute_name(:Kategorie)%>: <%= @app.category.name %></h4>
 		<h2 class="title-style-2">Durchschnittliche Bewertung</h2>
 		<div class="average-review-rating" data-score=<%= @average_review %>></div>
@@ -31,21 +62,22 @@
 			<% @app.languages.each do |language| %>
 			<%= language.name %> **
 			<% end %>
-		</h4>	
+		</h4>
+		<div class="form-group col-md-6">
+		<%= link_to "Bewerten", new_app_review_path(@app), class: 'btn btn-primary pull-left' %>
+		<%= link_to "Zurück", root_path, class: 'btn btn-primary pull-right' %>
+    	</div>	
 	</div>
 
-	<div class="col-md-6">
+	<!-- <div class="col-md-6">
 		<%= image_tag @app.image1.url(:app_show), class: "img-responsive" %>
 		<%= image_tag @app.image2.url(:app_show), class: "img-responsive" %>
 		<%= image_tag @app.image3.url(:app_show), class: "img-responsive" %>
 		<%= image_tag @app.image4.url(:app_show), class: "img-responsive" %>
 		<%= image_tag @app.image5.url(:app_show), class: "img-responsive" %>
-	</div>
+	</div> -->
 
-	<div class="form-group col-md-6">
-		<%= link_to "Bewerten", new_app_review_path(@app), class: 'btn btn-primary pull-left' %>
-		<%= link_to "Zurück", root_path, class: 'btn btn-primary pull-right' %>
-    </div>
+	
 
 </div> <!-- /.row -->
 <br></br>

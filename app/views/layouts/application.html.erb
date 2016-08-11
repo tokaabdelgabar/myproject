@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
-
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <p><b>I18n.locale:</b> 
 <%= I18n.locale %>
 </p>
-
 <html>
 <head>
-  <title>AbilIT.net</title>
+  <title>Zappatory.com - Supportive Apps Directory</title>
   <%= csrf_meta_tags %>
        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
       <meta name="description" content="">
@@ -28,7 +26,7 @@
       <%= stylesheet_link_tag    'owl.carousel', media: 'all', 'data-turbolinks-track' => true %>
 
       <!-- Template main Css -->
-      <%= stylesheet_link_tag    'style', media: 'all', 'data-turbolinks-track' => true %>      
+      <%= stylesheet_link_tag    'style.min', media: 'all', 'data-turbolinks-track' => true %>      
       
       <!-- Modernizr -->   
       <%= javascript_include_tag 'modernizr-2.6.2.min', 'data-turbolinks-track' => true %>
@@ -38,8 +36,6 @@
       
       <!-- Back to top -->
       <%= javascript_include_tag 'backtotop.js', 'data-turbolinks-track' => true %>
-
-
 </head>
 <body>
         <!--Start of Zopim Live Chat Script-->
@@ -63,9 +59,15 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                <div class="navbar-top">
                 <div class="container">
                   <div class="row">
-                    <div class="col-sm-6 col-xs-12">
+                    <div class="col-sm-6 col-xs-6 text-left">
+                      <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
+                    <p>
+                     <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Searchfield" %>
+                     <%= submit_tag "SEARCH", name: nil, class: "btn btn-default" %>
+                     </p>
+                    <% end %>
                     </div>
-                    <div class="col-sm-12 col-xs-12 text-right">
+                    <div class="col-sm-6 col-xs-6 text-right">
 
                             <ul class="list-unstyled list-inline header-contact">
                                 <% if user_signed_in? %>
@@ -74,14 +76,16 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                                   <li><%= link_to "Einloggen", new_user_session_path %></li>
                                   <li><%= link_to "Registrieren", new_user_registration_path %></li>
                                 <% end %>
-                                <li><%= link_to "Leichte Sprache", help_path %></li>
-                                <li><%= link_to "Wörterbuch", dictionary_path %></li>
-                                <li><%= link_to 'Haftungsausschluss', disclaimer_path %>
+                                
                                 <li><%= link_to 'News', notification_path %></li>
                                 <li> | </li>  
-                                <li><%= link_to_unless I18n.locale == :en, image_tag("English.png", :size => "30x30"),set_language_english_path%></li>
-                  
-                                <li><%= link_to_unless I18n.locale == :de, image_tag("German.png",:size => "30x30"),set_language_german_path %></li>
+                               
+                                <li>Schriftgröße: <a id="zoom_reset"><%= image_tag("zoom1.png",:size =>"20x20")%></a>
+                                <a id="zoom_in"><%= image_tag("zoom2.png",:size => "30x30")%> </a></li>
+                      
+                                <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "30x30"),set_language_english_path%> <%= link_to_unless I18n.locale == :de, image_tag("German.png",:size => "30x30"),set_language_german_path %></li>
+                            <li></li>
+>>>>>>> 7ad053e1a27e69aa6277ecf4e04fa1fad3932ea0
                            </ul> <!-- /.header-social  -->
                           
                         </div>
@@ -103,16 +107,13 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                     <span class="icon-bar"></span>
 
                   </button>
-
+                  <%= link_to root_path, :class => 'navbar-brand' do %><%= image_tag ("home.png"), :size => "50x50", :alt =>"" %><% end %>
                   
                 </div>
 
                 <div id="navbar" class="navbar-collapse collapse pull-left">
 
                   <ul class="nav navbar-nav">
-
-                    <li><%= link_to "Startseite", root_path %></li>
-                    <li><%= link_to "Kontakt", new_message_path %></li>
                     <li class="has-child">
                       <a href="#">App-Kategorien</a>
                       <ul class="submenu" role="menu">
@@ -123,25 +124,12 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                         <% end %>
                       </ul>
                     </li>
-                    <li class="has-child">
-                      <a href="#">Sprachen</a>
-                      <ul class="submenu">
-                        <li class="submenu-item"><%= link_to_unless I18n.locale == :en, "English", set_language_english_path %></li>
-                        <li class="submenu-item"><%= link_to_unless I18n.locale == :de, "Deutsch", set_language_german_path %></li>
-                      </ul>
-                    </li>
-                    <!--  -->
+                    <li><%= link_to "Leichte Sprache", new_message_path %></li>
+                    <li><%= link_to "About Us" %></li>
+                    <li><%= link_to "Kontakt", new_message_path %></li>
                   </ul>
 
                 </div> 
-                <div id="navbar" class="navbar-collapse collapse pull-right">
-                  <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
-                      <p>
-                       <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Suchfeld" %>
-                       <%= submit_tag "Suche", name: nil, class: "btn btn-default" %>
-                       </p>
-                      <% end %>
-                </div><!-- /#navbar -->
 
               </div> <!-- /.container -->
               
@@ -171,23 +159,28 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
     <footer class="main-footer">
 
-        <div class="footer-top">
+        <!-- <div class="footer-top">
            
-        </div>
+        </div> -->
 
 
         <div class="footer-main">
             <div class="container">
               
 
-              <div class="col-sm-12 col-xs-12 text-right">
+              <div class="col-sm-6 col-xs-6 text-left">
+                <ul class="list-unstyled list-inline header-contact">
+                            <li><%= link_to "Wörterbuch", dictionary_path %></li>
+                            <li><%= link_to 'Haftungsausschluss', disclaimer_path %></li>
+                              
+                            
+                       </ul>
               </div>
 
-              <div class="col-sm-12 col-xs-12 text-right">
+              <div class="col-sm-6 col-xs-6 text-right">
 
                 <ul class="list-unstyled list-inline header-social">
 
-              
                     <li> <a href="https://facebook.com/sharer/sharer.php?u=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com"> <i class="fa fa-facebook"></i> </a> </li>
                     <li> <a href="https://twitter.com/intent/tweet/?text=Super%20great%20and%20easy%20App%20Web.&amp;url=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com"> <i class="fa fa-twitter"></i>  </a> </li>
                     <li> <a href="https://plus.google.com/share?url=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com"> <i class="fa fa-google"></i>  </a> </li>
@@ -205,16 +198,15 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
         <div class="footer-bottom">
 
             <div class="container text-right">
-                <p>AbilIT.net @ Copyrights 2016</p>
+                <p>ABILITY.NET @ copyrights 2016</p>
             </div>
         </div>
         
-    </footer> <!-- main-footer -->
-
+    </footer>
 <!--  Scripts-->
 
     <!-- jQuery -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<%= javascript_include_tag 'jquery-1.11.1.min', 'data-turbolinks-track' => true %>')</script>
 
     <!-- Bootsrap javascript file -->
@@ -239,6 +231,45 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
         ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
 
-    
+    <!-- jQuery -->
+<script>
+    jQuery(document).ready(function($)
+    {
+        // Set initial zoom level
+        var zoom_level=100;
+
+        // Click events
+        $('#zoom_in').click(function() { zoom_page(20, $(this)) });
+        $('#zoom_out').click(function() { zoom_page(30, $(this)) });
+        $('#zoom_reset').click(function() { zoom_page(0, $(this)) });
+
+        // Zoom function
+        function zoom_page(step, trigger)
+        {
+            // Zoom just to steps in or out
+            if(zoom_level>=120 && step>0 || zoom_level<=80 && step<0) return;
+
+            // Set / reset zoom
+            if(step==0) zoom_level=100;
+            else zoom_level=zoom_level+step;
+
+            // Set page zoom via CSS
+            $('body').css({
+                transform: 'scale('+(zoom_level/100)+')', // set zoom
+                transformOrigin: '50% 0' // set transform scale base
+            });
+
+            // Adjust page to zoom width
+            if(zoom_level>100) $('body').css({ width: (zoom_level*1.2)+'%' });
+            else $('body').css({ width: '100%' });
+
+            // Activate / deaktivate trigger (use CSS to make them look different)
+            if(zoom_level>=120 || zoom_level<=80) trigger.addClass('disabled');
+            else trigger.parents('ul').find('.disabled').removeClass('disabled');
+            if(zoom_level!=100) $('#zoom_reset').removeClass('disabled');
+            else $('#zoom_reset').addClass('disabled');
+        }
+    });
+</script>
 </body>
 </html>

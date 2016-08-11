@@ -1,10 +1,18 @@
 class User < ActiveRecord::Base
 	has_many :apps
 	has_many :reviews
+	#attr_accessible :roles
 
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable, :registerable, 
 	:recoverable, :rememberable, :trackable, :validatable
+
+ #code for getting and setting the list of roles a user belongs to. 
+ #This will perform the necessary bitwise operations to translate an array of roles into the integer field.
+
+#def has_role?(role)
+ #roles.include?(role)
+#end
 
 end

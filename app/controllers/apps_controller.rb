@@ -1,6 +1,6 @@
 class AppsController < ApplicationController
 before_action :find_app, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-before_action :authenticate_user!, only: [:new, :edit]
+before_action :authenticate_user!#, only: [:new, :edit]
 	
 	def index
 

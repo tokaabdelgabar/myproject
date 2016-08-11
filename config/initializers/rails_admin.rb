@@ -2,20 +2,24 @@ RailsAdmin.config do |config|
 
  require 'i18n'
  I18n.default_locale = :de
+  config.main_app_name = ["Cool app", "BackOffice"]
 
-  # config.authorize_with do
-    #redirect_to main_app.root_path unless current_user.admin == true
+  #config.authorize_with do
+   # redirect_to main_app.root_path unless warden.user.admin == true
   #end
+
+
   ### Popular gems integration
 
   ## == Devise ==
-  # config.authenticate_with do
-  #   warden.authenticate! scope: :user
-  # end
-  # config.current_user_method(&:current_user)
+   config.authenticate_with do
+    warden.authenticate! scope: :user
+  end
+  config.current_user_method(&:current_user)
 
   ## == Cancan ==
-  # config.authorize_with :cancan
+   config.authorize_with :cancan, AdminAbility
+
 
   ## == Pundit ==
   # config.authorize_with :pundit

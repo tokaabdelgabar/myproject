@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809062135) do
+ActiveRecord::Schema.define(version: 20160811035413) do
 
   create_table "app_translations", force: :cascade do |t|
     t.integer  "app_id",      null: false
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20160809062135) do
     t.string   "app_img_content_type"
     t.integer  "app_img_file_size"
     t.datetime "app_img_updated_at"
-    t.string   "type"
+    t.string   "detail"
     t.string   "price_pro"
     t.string   "image1_file_name"
     t.string   "image1_content_type"
@@ -187,6 +187,8 @@ ActiveRecord::Schema.define(version: 20160809062135) do
     t.string   "username"
     t.date     "birthday"
     t.boolean  "admin",                  default: false
+    t.string   "role"
+    t.boolean  "superadmin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

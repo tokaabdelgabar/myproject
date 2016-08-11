@@ -9,7 +9,7 @@
 
 <html>
 <head>
-  <title>AbilIT.NET</title>
+  <title>Zappatory.com - Supportive Apps Directory</title>
       <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +29,7 @@
       <%= stylesheet_link_tag    'owl.carousel', media: 'all', 'data-turbolinks-track' => true %>
 
       <!-- Template main Css -->
-      <%= stylesheet_link_tag    'style', media: 'all', 'data-turbolinks-track' => true %>      
+      <%= stylesheet_link_tag    'style.min', media: 'all', 'data-turbolinks-track' => true %>      
       
       <!-- Modernizr -->   
       <%= javascript_include_tag 'modernizr-2.6.2.min', 'data-turbolinks-track' => true %>
@@ -39,7 +39,7 @@
 
       <!-- Breadcrumb -->
       <!-- <script type="text/javascript" src="/javascript/breadcrumbs.js"></script> -->
-      <%= javascript_include_tag 'breadcrumbs.js', 'data-turbolinks-track' => true %>
+      
 
       <!-- Back to top -->
       <%= javascript_include_tag 'backtotop.js', 'data-turbolinks-track' => true %>
@@ -68,28 +68,29 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
           <div class="navbar-top">
             <div class="container">
               <div class="row">
-                <div class="col-sm-12 col-xs-12 text-left">
-                  <ul class="list-unstyled list-inline header-contact">
-                    <li><a href="#" class="highcontrast">High Contrast Theme</a></li>
-                  </ul>
+                <div class="col-sm-6 col-xs-6 text-left">
+                  <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
+                    <p>
+                     <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Searchfield" %>
+                     <%= submit_tag "SEARCH", name: nil, class: "btn btn-default" %>
+                     </p>
+                    <% end %>
                 </div>
-                <div class="col-sm-12 col-xs-12 text-right">
-
-                        <ul class="list-unstyled list-inline header-contact">
-                            <% if user_signed_in? %>
-                              <li><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
-                            <% else %>  
-                              <li><%= link_to "SIGN IN", new_user_session_path %></li>
-                              <li><%= link_to "SIGN UP", new_user_registration_path %></li>
-                            <% end %>
-                            <li><%= link_to "HELP", help_path %></li>
-                            <li><%= link_to "DICTIONARY", dictionary_path %></li>
-                            <li><%= link_to 'DISCLAIMER', disclaimer_path %></li>
-                            <li><%= link_to 'News', notification_path %></li>
-                            <li> | </li>  
-                            <li><%= link_to_unless I18n.locale == :en, image_tag("english.png",:size => "30x30"),set_language_english_path%></li>
-                            <li><%= link_to_unless I18n.locale == :de, image_tag("german.png",:size => "30x30"),set_language_german_path %></li>
-                       </ul> <!-- /.header-social  -->
+                <div class="col-sm-6 col-xs-6 text-right">
+                  <ul class="list-unstyled list-inline header-contact">
+                          <% if user_signed_in? %>
+                            <li><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
+                          <% else %>  
+                            <li><%= link_to "SIGN IN", new_user_session_path %></li>
+                            <li><%= link_to "SIGN UP", new_user_registration_path %></li>
+                          <% end %>
+                          <li><%= link_to 'News', notification_path %></li>
+                          <li> | </li>  
+                          <li>Zoom: <a id="zoom_reset"><%= image_tag("zoom1.png",:size => "20x20")%></a> <a id="zoom_in"><%= image_tag("zoom2.png",:size => "30x30")%> </a></li>
+                    
+                          <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "30x30"),set_language_english_path%> <%= link_to_unless I18n.locale == :de, image_tag("German.png",:size => "30x30"),set_language_german_path %></li>
+                          <li></li>
+                       </ul> 
                       
                     </div>
               </div>
@@ -110,7 +111,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                     <span class="icon-bar"></span>
 
                   </button>
-
+                  <%= link_to root_path, :class => 'navbar-brand' do %><%= image_tag ("home.png"), :size => "50x50", :alt =>"" %><% end %>
                   
                 </div>
 
@@ -119,10 +120,10 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                   <ul class="nav navbar-nav" role="menubar" id="
                   nav">
 
-                    <li><%= link_to "HOME", root_path %></li>
-                    <li><%= link_to "CONTACT", new_message_path %></li>
+                    <!-- <li><%= link_to "HOME", root_path %></li> -->
+                    
                     <li class="has-child" role="menuitem" tabindex="1" aria-haspopup="true">
-                      <a href="#">CATEGORIES</a>
+                      <a href="#">App Categories</a>
                       <ul class="submenu" role="menu" aria-hidden="false">
                         <% Category.all.each do |category| %>
                           <li role="menuitem" tabindex="0" class="<%= 'active' if params[:category] == category.name %>">
@@ -132,25 +133,20 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                       </ul>
                       <p>
                     </li>
-                    <li class="has-child">
+                    
+                    <li><%= link_to "Simple Language", help_path%></li>
+                    <li><%= link_to "About Us" %></li>
+                    <li><%= link_to "Contact", new_message_path %></li>
+                    <!-- <li class="has-child">
                       <a href="#">LANGUAGES</a>
                       <ul class="submenu">
                         <li class="submenu-item"><%= link_to_unless I18n.locale == :en, "English", set_language_english_path %></li>
                         <li class="submenu-item"><%= link_to_unless I18n.locale == :de, "Deutsch", set_language_german_path %></li>
                       </ul>
-                    </li>
+                    </li> -->
                     <!--  -->
                   </ul>
                 </div> 
-                <div id="navbar" class="navbar-collapse collapse pull-right">
-
-                  <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
-                      <p>
-                       <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Searchfield" %>
-                       <%= submit_tag "SEARCH", name: nil, class: "btn btn-default" %>
-                       </p>
-                      <% end %>
-                </div><!-- /#navbar -->
 
               </div> <!-- /.container -->
               
@@ -164,11 +160,11 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
 
           <!-- Begin breadcrumb -->
-      <div class="row">
+      <!-- <div class="row">
         <div class="breadcrumbs" id="breadcrumb_dynamic">
 
         </div>
-      </div>
+      </div> -->
         <!-- End of breadcrumb -->
 
 <!-- Apps-->
@@ -188,20 +184,27 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
     <footer class="main-footer">
 
-        <div class="footer-top">
+        <!-- <div class="footer-top">
            
-        </div>
+        </div> -->
 
 
         <div class="footer-main">
             <div class="container">
               
 
-              <div class="col-sm-6 col-xs-12 text-left">
-
+              <div class="col-sm-6 col-xs-6 text-left">
+                <ul class="list-unstyled list-inline header-contact">
+                            
+                            <li><%= link_to "HELP", help_path %></li>
+                            <li><%= link_to "DICTIONARY", dictionary_path %></li>
+                            <li><%= link_to 'DISCLAIMER', disclaimer_path %></li>
+                              
+                            
+                       </ul>
               </div>
 
-              <div class="col-sm-6 col-xs-12 text-right">
+              <div class="col-sm-6 col-xs-6 text-right">
 
                 <ul class="list-unstyled list-inline header-social">
 
@@ -226,7 +229,8 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
             </div>
         </div>
         
-    </footer> <!-- main-footer -->
+    </footer> 
+    <!-- main-footer -->
 
 <!--  Scripts -->
 
@@ -256,7 +260,46 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
         ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
 
-    
+    <!-- jQuery -->
+<script>
+    jQuery(document).ready(function($)
+    {
+        // Set initial zoom level
+        var zoom_level=100;
+
+        // Click events
+        $('#zoom_in').click(function() { zoom_page(20, $(this)) });
+        $('#zoom_out').click(function() { zoom_page(30, $(this)) });
+        $('#zoom_reset').click(function() { zoom_page(0, $(this)) });
+
+        // Zoom function
+        function zoom_page(step, trigger)
+        {
+            // Zoom just to steps in or out
+            if(zoom_level>=120 && step>0 || zoom_level<=80 && step<0) return;
+
+            // Set / reset zoom
+            if(step==0) zoom_level=100;
+            else zoom_level=zoom_level+step;
+
+            // Set page zoom via CSS
+            $('body').css({
+                transform: 'scale('+(zoom_level/100)+')', // set zoom
+                transformOrigin: '50% 0' // set transform scale base
+            });
+
+            // Adjust page to zoom width
+            if(zoom_level>100) $('body').css({ width: (zoom_level*1.2)+'%' });
+            else $('body').css({ width: '100%' });
+
+            // Activate / deaktivate trigger (use CSS to make them look different)
+            if(zoom_level>=120 || zoom_level<=80) trigger.addClass('disabled');
+            else trigger.parents('ul').find('.disabled').removeClass('disabled');
+            if(zoom_level!=100) $('#zoom_reset').removeClass('disabled');
+            else $('#zoom_reset').addClass('disabled');
+        }
+    });
+</script>
 
 </body>
 </html>

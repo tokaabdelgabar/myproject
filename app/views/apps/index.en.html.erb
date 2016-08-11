@@ -2,28 +2,64 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
-<% @categories_list.each do |category| %>
-<div class="our-team">
-	<div class="container">
-		<h2 class="title-style-2"><%= category.name %><span class="title-under"></span></h2>
-		<div class="row">
-			<% @apps_all.each do |apps| %>
-			<% if apps.category_id == category.id  %>
+<% if params[:category].blank? && params[:search].blank? %>
+	<% @categories_list.each do |category| %>
+	<div class="our-team">
+		<div class="container">
+			<h2 class="title-style-2"><%= category.name %><span class="title-under"></span></h2>
+			<div class="row">
+				<% @apps_all.each do |apps| %>
+				<% if apps.category_id == category.id  %>
 				<div class="col-md-2 col-sm-2">
-				<div class="team-member">
-					<div class="thumnail">
-						<a href="en/apps/<%= apps.id %>"><%= image_tag apps.app_img.url(:app_index) %></a>
-					</div>
-					<p><%= link_to apps.name, app_path(apps) %></p>
-					<p class="app-name"><%= apps.price %>€</p>
-					<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div>
-				</div><br></br>
+					<div class="team-member">
+						<div class="thumnail">
+							<a href="/apps/<%= apps.id %>"><%= image_tag apps.app_img.url(:app_index) %></a>
+						</div>
+						<p><%= link_to apps.name, app_path(apps) %></p>
+						<p class="app-name"><%= apps.price %>€</p>
+						<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div>
+					</div><br></br>
+				</div>
+				<% end %>
+				<% end %>
 			</div>
-			<% end %>
-			<% end %>
+			<h4><a href="blind" target="_blank" class="navbar-collapse pull-right">See More</a></h4>
 		</div>
-		<h4><a href="blind" target="_blank" class="navbar-collapse pull-right">See More</a></h4>
 	</div>
+	<% end %>
+<br></br>
+
+<% elsif !params[:category].blank? && params[:search].blank? %>
+
+<div class="row">
+	<% @apps_all.each do |apps| %>
+		<div class="col-md-2 col-sm-2">
+		<div class="team-member">
+			<div class="thumnail">
+				<a href="/apps/<%= apps.id %>"><%= image_tag apps.app_img.url(:app_index) %></a>
+			</div>
+			<p><%= link_to apps.name, app_path(apps) %></p>
+			<p class="app-name"><%= apps.price %>€</p>
+			<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div>
+		</div><br></br>
+	</div>
+	<% end %>
+</div>
+
+<% elsif %>
+<div class="row">
+	<% @apps_all.each do |apps| %>
+		<div class="col-md-2 col-sm-2">
+		<div class="team-member">
+			<div class="thumnail">
+				<a href="/apps/<%= apps.id %>"><%= image_tag apps.app_img.url(:app_index) %></a>
+			</div>
+			<p><%= link_to apps.name, app_path(apps) %></p>
+			<p class="app-name"><%= apps.price %>€</p>
+			<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div>
+		</div><br></br>
+	</div>
+	<% end %>
 </div>
 <% end %>
 
@@ -36,8 +72,3 @@
 		}
 	});
 </script>
-
-
-
-
-
