@@ -3,7 +3,7 @@ class AdminAbility
   include CanCan::Ability
   def initialize(user)
   	can :read, :all 
-    if user && user.admin == true
+  #  if user && user.admin == true
       can :access, :rails_admin
       can :dashboard 
       can :manage, :all
@@ -14,7 +14,7 @@ class AdminAbility
       #elsif user.has_ole? :admin
        # can :manage, [App, Category]  # allow managers to do anything to products and users
     #end 
-    end
+   # end
   end
 end
 
