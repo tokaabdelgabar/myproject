@@ -3,5 +3,4 @@ class Ability
   def initialize(user)
     can :read, :all
 end
-
 end

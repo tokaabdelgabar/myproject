@@ -5,6 +5,7 @@ class TabsController < ApplicationController
   # GET /tabs.json
   def index
     @tabs = Tab.all
+    @disclaimers_list = Disclaimer.all
   end
 
   # GET /tabs/1
