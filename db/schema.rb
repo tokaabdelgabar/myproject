@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160813091913) do
+ActiveRecord::Schema.define(version: 20160813120401) do
 
   create_table "app_translations", force: :cascade do |t|
     t.integer  "app_id",      null: false
@@ -91,6 +91,24 @@ ActiveRecord::Schema.define(version: 20160813091913) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "source"
+  end
+
+  create_table "help_items", force: :cascade do |t|
+    t.string   "heading1"
+    t.string   "heading2"
+    t.string   "title1"
+    t.string   "title2"
+    t.string   "bullet_heading"
+    t.string   "bullet1"
+    t.string   "bullet2"
+    t.string   "bullet3"
+    t.string   "bullet5"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "languages", force: :cascade do |t|

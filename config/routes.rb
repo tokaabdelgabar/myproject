@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
+  resources :help_items
   resources :tabs
   get 'set_language/english'
 
   get 'set_language/german'
 
   get '/dictionary' => 'pages#dictionary'
-  get '/help' => 'pages#help'
+  get '/help' => 'help_items#index'
   get '/disclaimer' => 'tabs#index'
   get '/notification' => 'notifications#index'
   get 'messages/new'
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
 #end
 
 Rails.application.routes.draw do
+  resources :help_items
   resources :tabs
   get 'set_language/english'
 

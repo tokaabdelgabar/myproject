@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  heading1: MyString
+  heading2: MyString
+  title1: MyString
+  title2: MyString
+  bullet_heading: MyString
+  bullet1: MyString
+  bullet2: MyString
+  bullet3: MyString
+  bullet5: MyString
+
+two:
+  heading1: MyString
+  heading2: MyString
+  title1: MyString
+  title2: MyString
+  bullet_heading: MyString
+  bullet1: MyString
+  bullet2: MyString
+  bullet3: MyString
+  bullet5: MyString
