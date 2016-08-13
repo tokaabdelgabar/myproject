@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160811035413) do
+ActiveRecord::Schema.define(version: 20160813091913) do
 
   create_table "app_translations", force: :cascade do |t|
     t.integer  "app_id",      null: false
@@ -156,6 +156,21 @@ ActiveRecord::Schema.define(version: 20160811035413) do
     t.integer  "user_id"
     t.integer  "app_id"
   end
+
+  create_table "tab_translations", force: :cascade do |t|
+    t.integer  "tab_id",     null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.string   "paragraph1"
+    t.string   "paragraph2"
+    t.string   "paragraph3"
+    t.string   "paragraph4"
+  end
+
+  add_index "tab_translations", ["locale"], name: "index_tab_translations_on_locale"
+  add_index "tab_translations", ["tab_id"], name: "index_tab_translations_on_tab_id"
 
   create_table "tabs", force: :cascade do |t|
     t.string   "name"

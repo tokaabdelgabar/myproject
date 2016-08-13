@@ -1,0 +1,16 @@
+<h2>English Version</h2>
+
+
+<% @disclaimers_list.each do |disclaimer| %>
+  
+  <% @tabs.each do |tab| %>
+
+    <% if tab.disclaimer_id == disclaimer.id  %>
+    <h2 class="title-style-2"><%= tab.name %></h2>
+    <p><h4><%= tab.paragraph1 %></h4></p>
+    <p><h4><%= tab.paragraph2 %></h4></p>
+    <p><h4><%= tab.paragraph3 %></h4></p>
+    <p><h4><%= tab.paragraph4 %></h4></p>
+    <% end %>
+  <% end %>
+<% end %>
