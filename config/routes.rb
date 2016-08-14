@@ -35,9 +35,6 @@ end
 
   devise_for :users
   resources :categories
-  resources :apps do
-  resources :reviews
-  end
 
 # Contact
   resources :messages, only: [:new, :create]

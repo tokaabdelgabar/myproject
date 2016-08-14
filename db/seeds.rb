@@ -27,13 +27,28 @@ fourth_category = Category.create(:name => "Motorical", :id => 3)
 fifth_category = Category.create(:name => "Learning", :id => 4 )
 sixth_category = Category.create(:name => "Hearing", :id => 5 )
 
+Review.delete_all
+first_review = Review.create(:id => 1, :rating => 5, :comment => "very good", :app_id => 1)
+second_review = Review.create(:id => 2, :rating => 4, :comment => "good", :app_id => 2)
+third_review = Review.create(:id => 3, :rating => 3, :comment => "average", :app_id => 3)
+fourth_review = Review.create(:id => 4, :rating => 2, :comment => "bad", :app_id => 4)
+fifth_review = Review.create(:id => 5, :rating => 1, :comment => "very good", :app_id => 5)
+
+sixth_review = Review.create(:id => 6, :rating => 5, :comment => "very good", :app_id => 6)
+seventh_review = Review.create(:id => 7, :rating => 4, :comment => "good", :app_id => 7)
+eigth_review = Review.create(:id => 8, :rating => 3, :comment => "average", :app_id => 8)
+ninth_review = Review.create(:id => 9, :rating => 2, :comment => "bad", :app_id => 9)
+tenth_review = Review.create(:id => 10, :rating => 1, :comment => "very good", :app_id => 10)
+
 App.delete_all
 first_app = App.create(:id => 1, :name => "Blind 1", :price => 12, :category_id => 1)
 second_app = App.create(:id => 2, :name => "Blind 2", :price => 9, :category_id => 1 )
 third_app = App.create(:id => 3, :name => "Blind 3", :price => 0, :category_id => 1 )
 fourth_app = App.create(:id => 4,:name => "Blind 4", :price => 100, :category_id => 1 )
+fifth_app = App.create(:id => 5,:name => "Blind 5", :price => 99, :category_id => 1 )
 
-first_app = App.create(:id => 5, :name => "Sight 1", :price => 12, :category_id => 2 )
-second_app = App.create(:id =>6, :name => "Sight 2", :price => 9, :category_id => 2 )
-third_app = App.create(:id =>7, :name => "Sight 3", :price => 0, :category_id => 2)
-fourth_app = App.create(:id =>8,:name => "Sight 4", :price => 100, :category_id => 2 )
+sixth_app = App.create(:id => 6, :name => "Sight 1", :price => 12, :category_id => 2 )
+seventh_app = App.create(:id =>7, :name => "Sight 2", :price => 9, :category_id => 2 )
+eight_app = App.create(:id =>8, :name => "Sight 3", :price => 0, :category_id => 2)
+ninth_app = App.create(:id =>9,:name => "Sight 4", :price => 100, :category_id => 2 )
+tenth_app = App.create(:id =>10,:name => "Sight 5", :price => 99, :category_id => 2 )

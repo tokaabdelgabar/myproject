@@ -31,4 +31,8 @@ class App < ActiveRecord::Base
     def self.find_by(*args)
         self.where(*args).take
     end
+
+    ransacker :average do
+        Arel.sql('average')
+    end
 end

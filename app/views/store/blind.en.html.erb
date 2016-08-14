@@ -2,24 +2,18 @@
 Sort By: 
 <li><%= link_to "All Products", store_path %></li>
 
-<h2> <strong> Blind english </strong></h2>
+ <h2> <strong> Blind </strong></h2>
 
-<div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
-    <li><a href="#">HTML</a></li>
-    <li><a href="#">CSS</a></li>
-    <li><a href="#">JavaScript</a></li>
-  </ul>
-</div>
+
+ <h2> <strong> Blind German </strong></h2>
+
+    <li><%= sort_link @search, :price, "Price" %></a></li>
 
 <table id="products">
   <tr>
     <th><%= sort_link @search, :name, "Product Name" %></th>
     <th><%= sort_link @search, :price, "Price" %></th>    
-    <th><%= sort_link @search, :category_id, "Category" %></th>
-    <th><%= sort_link @search, :rating, "Review" %></th>
+    <th><%= sort_link @search, :average_rating, "Review", default_order: :asc %></th>
     <th><%= sort_link @search, :app_img, "Image" %></th>
 
   </tr>
@@ -37,6 +31,3 @@ Sort By:
 </table>
 
 
-
-
-   

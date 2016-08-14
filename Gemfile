@@ -8,21 +8,27 @@ gem 'sqlite3', group: :development
 gem 'pg', '0.18.4', group: :production
 gem 'rails_12factor', group: :production
 gem 'sass-rails', '~> 5.0'
+# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'simple_form', '~> 3.1.0'
 gem 'bootstrap', '~> 4.0.0.alpha3'
+#user authentication
 gem 'devise', '~> 3.4', '>= 3.4.1'
+#image upload
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
+#rating system
 gem 'acts_as_votable', '~> 0.10.0'
+#ransack as sort
 gem 'ransack'
 gem 'rdoc'
 #gem 'paperclip-i18n'
