@@ -26,10 +26,8 @@ Rails.application.routes.draw do
 end
 
 resources :apps do
-   resources :reviews
+  resources :reviews
 end
-
-
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
@@ -49,7 +47,7 @@ end
   scope "(:locale)", locale: /en|de/ do
   resources :categories
   get 'store' => 'store#index'
-  #get 'blind' => 'store#blind'
+  get 'blind' => 'store#blind'
   get 'sight' => 'store#sight'
   get 'motorical' => 'store#motorical'
   get 'learning' => 'store#learning'

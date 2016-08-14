@@ -3,8 +3,9 @@
 <%= search_form_for @search do |f| %>
   <div class="field">
       Sort:
-      <%= f.label :name_cont, "Name contains" %>
-      <%= f.text_field :name_cont %>
+      <%= f.sort_fields do |s| %>
+        <%= s.sort_select %>
+      <% end %>
   </div>
 <div class="actions"><%= f.submit "Search" %></div>
 <% end %>
