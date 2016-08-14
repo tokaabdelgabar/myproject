@@ -5,18 +5,23 @@
 
 <table id="products">
   <tr>
+    <li><%= sort_link @search, :price, "Price" %></li>
+    <li><%= sort_link @search, :name, "Product Name" %></li> 
+    <li><%= sort_link @search, :average, "Review" %></li>
+  </tr>
+
+
+<table id="products">
+  <tr>
     <th><%= sort_link @search, :name, "Product Name" %></th>
     <th><%= sort_link @search, :price, "Price" %></th>    
-    <th><%= sort_link @search, :category_id, "Category" %></th>
-    <th><%= sort_link @search, :rating, "Review" %></th>
-    <th><%= sort_link @search, :app_img, "Image" %></th>
+    <th><%= sort_link @search, :average, "Review" %></th>
 
   </tr>
 <% @products.each do |product| %>
   <tr>
     <td><%= link_to(product.name, product) %></td>
     <td><%= number_to_currency(product.price) %></td>
-    <td><%= link_to(product.category.name, product) %></td>
     <td><%= product.reviews.average(:rating) %></td>
     
     <td class="image-description">

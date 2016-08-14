@@ -28,13 +28,14 @@ class StoreController < ApplicationController
   end
 
   def show
-     @product = App.find(params[:id])
+     @product = Category.find(params[:id])
   end
 
   def blind
       @search = App.search(params[:q])
-      @products = @search.result.joins(:reviews).select("*, avg(reviews.rating) as average").group("reviews.id").where(:category_id => 1)
-      @free = App.search(params[:q], :q => '0')
+      @products = @search.result.joins(:reviews).select("*, avg(reviews.rating) as average").group("reviews.id").where(:category_id => 2)
+      @search.build_sort if @search.sorts.empty?
+      @free = App.search(params[:q], :preis=> '0')
   end
 
   def sight
