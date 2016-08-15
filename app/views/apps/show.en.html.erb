@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-
+<title><%= @app.name %></title>
 <div class="row">
 	<div class="col-md-6">
 		<%= image_tag @app.app_img.url(:app_show), class: "img-responsive" %><br />
@@ -88,6 +88,12 @@
 		<!-- <div>
 		<%= link_to "Add Review", new_app_review_path(@app) %>
 		</div> -->
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<h2 class="title-style-2">Related Apps<span class="title-under"></span></h2>
+		<!-- This is for related apps -->
 	</div>
 </div>
 
