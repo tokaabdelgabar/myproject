@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 	devise :database_authenticatable, :registerable, 
 	:recoverable, :rememberable, :trackable, :validatable
 
+	validates_format_of :email,:with => Devise::email_regexp
  #code for getting and setting the list of roles a user belongs to. 
  #This will perform the necessary bitwise operations to translate an array of roles into the integer field.
 
