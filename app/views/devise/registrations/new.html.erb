@@ -4,48 +4,46 @@
   <%= devise_error_messages! %>
 
 <div class="row">
-
-    <div class="field">
+<div class="col-md-6">
+  <div class="field">
     <h4>Vorname:</h4>
-    <%= f.text_field :first_name, autofocus: true, class:"form-control", placeholder:"Vorname*"%>
+    <%= f.text_field :first_name, autofocus: true, class:"form-control", placeholder:"Vorname"%>
     </div>
-
-    <div class="field">
-        <h4>Nachname:</h4>
-        <%= f.text_field :last_name, autofocus: true, class:"form-control", placeholder:"Nachname*" %>
-    </div>
-
     <div class="field">
         <h4>Benutzername:</h4>
         <%= f.text_field :username, autofocus: true, class:"form-control", placeholder:"Benutzername*" %>
     </div>
     <div class="field">
-        <h4>Geburtsdatum:</h4>
-        <%= f.date_field :birthday, autofocus: true, class:"form-control", placeholder:"Geburtsdatum*" %>
-    </div>
-
-    <div class="field">
         <h4>E-mail:</h4>
         <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"E-mail Adresse*" %>
     </div>
-
-    <div class="field">
-        <h4>Passwort:</h4>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %>
-        <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Passwort*" %>
-    </div>
-
     <div class="field">
         <h4>Passwort wiederholen:</h4>
         <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Passwort wiederholen*" %><br />
     </div>
-
     <div class="actions">
         <%= f.submit "Registrieren", class: 'btn btn-primary pull-left' %><br />
     </div>
       <br />
+</div>
+<div class="col-md-6">
+  <div class="field">
+        <h4>Nachname:</h4>
+        <%= f.text_field :last_name, autofocus: true, class:"form-control", placeholder:"Nachname" %>
+    </div>
+    <div class="field">
+        <h4>Geburtsdatum:</h4>
+        <%= f.date_field :birthday, autofocus: true, class:"form-control", placeholder:"Geburtsdatum" %>
+    </div>
+    <div class="field">
+        <h4>Passwort:&nbsp; <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %></h4>
+        
+        <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Passwort*" %>
+    </div>
+    
+</div>
 
     <div class="form-group alerts">
                         

@@ -24,7 +24,7 @@
 
       <h4>Email:</h4> 
       <!-- <input type="email" name="email" class="form-control" placeholder="Email*" required> -->
-      <%= f.text_field :email, autofocus: true, class:"form-control", placeholder:"Email*" %>
+      <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"Email*" %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

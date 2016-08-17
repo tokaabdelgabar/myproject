@@ -6,8 +6,9 @@ class User < ActiveRecord::Base
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable, :registerable, 
-	:recoverable, :rememberable, :trackable, :validatable
+	:recoverable, :rememberable, :trackable, :validatable, :confirmable
 
+	validates_format_of :email,:with => Devise::email_regexp
  #code for getting and setting the list of roles a user belongs to. 
  #This will perform the necessary bitwise operations to translate an array of roles into the integer field.
 

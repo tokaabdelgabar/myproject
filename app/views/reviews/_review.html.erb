@@ -2,7 +2,7 @@
 <h4>Bewertung von:&nbsp;<b><%= review.user.username %></b></h4>
 <div class="review-rating" data-score="<%= review.rating %>"><label><h4>Bewertung:&nbsp;</h4></label></div>
 <h4>Kommentar:&nbsp;<%= review.comment %></h4>
-<h6 style="visibility:hidden">Bewertung:&nbsp;<%= review.rating %>:&nbsp;Sterne</h6>
+<h6 style="visibility:hidden">Bewertung:&nbsp;<%= review.rating %>&nbsp;von 5 Sterne</h6>
 <% if user_signed_in? %>
 
 	<% if review.user_id == current_user.id %>			

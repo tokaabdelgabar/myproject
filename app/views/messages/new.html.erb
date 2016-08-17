@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<title>Contact</title>
 <%= form_for @message do |f| %>
   <% if @message.errors.any? %>
     <div id="error_explanation">
@@ -37,7 +41,7 @@
               <div class="form-group col-md-12">
               <label><h4>Email:</h4></label>
                 <!-- <input type="email" name="email" class="form-control" placeholder="E-mail*" required> -->
-                <%= f.text_field :email, class:"form-control", placeholder:"Email*" %>
+                <%= f.email_field :email, class:"form-control", placeholder:"Email*" %>
               </div>
 
               <div class="form-group col-md-12">
@@ -72,7 +76,7 @@
 
             <div class="clearfix"></div>
 
-          <!-- </form> -->
+
 
         </div>
 
@@ -94,7 +98,7 @@
 
         </div>
 
-      </div> <!-- /.row -->
+      </div> 
 
 
     </div>
