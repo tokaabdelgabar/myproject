@@ -84,9 +84,9 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                             <li><%= link_to "SIGN IN", new_user_session_path %></li>
                             <li><%= link_to "SIGN UP", new_user_registration_path %></li>
                           <% end %>
-                          <li><%= link_to 'News', notification_path %></li>
+                          
                           <li> | </li>  
-                          <li>Zoom: <a id="zoom_reset"><%= image_tag("zoom1.png",:size => "20x20")%></a> <a id="zoom_in"><%= image_tag("zoom2.png",:size => "30x30")%> </a></li>
+                          <li>Zoom: <a id="zoom_reset"><%= image_tag("zoom out.png",:size => "30x30")%></a> <a id="zoom_in"><%= image_tag("zoom in.png",:size => "30x30")%> </a></li>
                     
                           <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "30x30"),set_language_english_path%> <%= link_to_unless I18n.locale == :de, image_tag("German.png",:size => "30x30"),set_language_german_path %></li>
                           <li></li>
@@ -133,7 +133,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                       </ul>
                       <p>
                     </li>
-                    
+                    <li><%= link_to 'News', notification_path %></li>
                     <li><%= link_to "Simple Language", help_path%></li>
                     <li><%= link_to "About Us" %></li>
                     <li><%= link_to "Contact", new_message_path %></li>
@@ -223,8 +223,8 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
         <div class="footer-bottom">
 
-            <div class="container text-right">
-                <p>ABILITY.NET @ copyrights 2016</p>
+            <div class="container text-left">
+                <p>UNIVERSITÄT MANNHEIM @ copyrights 2016</p>
             </div>
         </div>
         
@@ -235,7 +235,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
     <!-- jQuery -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<%= javascript_include_tag 'jquery-1.11.1.min', 'data-turbolinks-track' => true %>')</script>
+    <!-- <script>window.jQuery || document.write('<%= javascript_include_tag 'jquery-1.11.1.min', 'data-turbolinks-track' => true %>')</script> -->
 
     <!-- Bootsrap javascript file -->
     

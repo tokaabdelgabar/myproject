@@ -42,7 +42,7 @@ a:hover, a:focus, a:active {
 
 .navbar-top {
   background: #009688;
-  font-size: 12px;
+  font-size: 15px;
   padding: 3px 0;
 }
 .navbar-top .list-inline {
@@ -76,7 +76,7 @@ a:hover, a:focus, a:active {
   list-style: none;
   background: #000;
   padding: 0;
-  width: 150px;
+  width: 200px;
   left: -5px;
   visibility: hidden;
   top: 85px;
@@ -105,7 +105,7 @@ a:hover, a:focus, a:active {
 }
 .navbar-main li a {
   font-family: "Dosis", sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   padding: 20px 15px;
   border-bottom: 2px solid transparent;
 }
@@ -334,7 +334,7 @@ a:hover, a:focus, a:active {
   color: #fff;
 }
 .main-footer .footer-main {
-  padding: 30px 0;
+  padding: 10px 0;
 }
 .main-footer .footer-title {
   text-transform: uppercase;
