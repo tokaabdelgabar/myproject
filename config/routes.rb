@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  root to: "apps#index"
   resources :help_items
   resources :tabs
   get 'set_language/english'
@@ -20,7 +19,7 @@ Rails.application.routes.draw do
   get 'set_language/german'
 
   scope "(:locale)", locale: /en|de/ do
-  #  root to: "apps#index" 
+    root to: "apps#index" 
     get "apps/index"
   end  
 end
@@ -37,13 +36,13 @@ end
 
 # Contact
   resources :messages, only: [:new, :create]
-	resources :apps
-   # collection do
-    #  get 'search'
-    #end
-    #resources :reviews, except: [:show, :index]
+	resources :apps do
+    collection do
+      get 'search'
+    end
+    resources :reviews, except: [:show, :index]
     #collection { post :search, to: 'apps#index' }
-  #end
+  end
   scope "(:locale)", locale: /en|de/ do
   resources :categories
   get 'store' => 'store#index'

@@ -33,7 +33,7 @@ class StoreController < ApplicationController
 
   def blind
       @search = App.search(params[:q])
-      @products = @search.result.joins(:reviews).select("*, avg(reviews.rating) as average").group("reviews.id").where(:category_id => 2)
+      @products = @search.result.joins(:reviews).select("*, avg(reviews.rating) as average").group("reviews.id").where(:category_id => 1)
       @search.build_sort if @search.sorts.empty?
       @free = App.search(params[:q], :preis=> '0')
   end
