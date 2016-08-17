@@ -37,6 +37,7 @@ categories = category_names.each_with_index.map{|name, i| Category.create!(name:
 
 
 Review.delete_all
+=begin
 first_review = user.reviews.create!(:id => 1, :rating => 5, :comment => "very good", :app_id => first_app.id)
 second_review = Review.create!(:id => 2, :rating => 4, :comment => "good", :app_id => 2)
 third_review = Review.create(:id => 3, :rating => 3, :comment => "average", :app_id => 3)
@@ -48,6 +49,7 @@ seventh_review = Review.create(:id => 7, :rating => 4, :comment => "good", :app_
 eigth_review = Review.create(:id => 8, :rating => 3, :comment => "average", :app_id => 8)
 ninth_review = Review.create(:id => 9, :rating => 2, :comment => "bad", :app_id => 9)
 tenth_review = Review.create(:id => 10, :rating => 1, :comment => "very good", :app_id => 10)
+=end
 
 App.delete_all
 #:app_img_file_name => File.open(File.join(Rails.root, 'public', 'stock', 'app1.jpg')
