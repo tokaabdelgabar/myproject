@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/disclaimer' => 'tabs#index'
   get '/notification' => 'notifications#index'
   get 'messages/new'
-
+  get 'pages/news'
 Rails.application.routes.draw do
   resources :help_items
   resources :tabs
@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     root to: "apps#index" 
     get "apps/index"
   end  
+  get 'pages/news'
 end
 
 resources :apps do
