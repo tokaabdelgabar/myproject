@@ -48,9 +48,6 @@ end
   get 'store' => 'store#index'
   get 'blind' => 'store#blind'
   get 'sight' => 'store#sight'
-  get 'motorical' => 'store#motorical'
-  get 'learning' => 'store#learning'
-  get 'hearing' => 'store#hearing'
 
   match 'store/:id' => 'store#show', :as => :store_product, :via => :get
 end

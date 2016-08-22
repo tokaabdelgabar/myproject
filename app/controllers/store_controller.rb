@@ -32,34 +32,15 @@ class StoreController < ApplicationController
   end
 
   def blind
-      @search = App.search(params[:q])
-      @products = @search.result.joins(:reviews).select("*, avg(reviews.rating) as average").group("reviews.id").where(:category_id => 1)
+      @search = App.ransack(params[:q])
+      #@products = @search.result.where(:category_id => 1) 
+      @products = @search.result.joins(:reviews).select("apps.*, avg(reviews.rating) as average, count(*) as total").group("apps.id").where(:category_id => 1)
       @search.build_sort if @search.sorts.empty?
-      @free = App.search(params[:q], :preis=> '0')
+      @free = App.search(params[:q]).result.joins(:languages)
   end
 
   def sight
       @search = App.search(params[:q])
       @products = @search.result.where(:category_id => 2) 
-  end
-
-  def motorical 
-      @search = App.search(params[:q])
-      @products = @search.result.where(:category_id => 3)  
-  end 
-
-  def learning
-      @@search = App.search(params[:q])
-      @products = @search.result.where(:category_id => 4)  
-  end
-
-  def hearing
-      @search = App.search(params[:q])
-      @products = @search.result.where(:category_id => 5)  
-  end
-
-   def WheelChair
-      @search = App.search(params[:q])
-      @products = @search.result.where(:category_id => 6)  
   end
 end

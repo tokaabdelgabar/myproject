@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 	has_many :apps
-	has_many :reviews
+	has_many :reviews, :through => :apps
 	#attr_accessible :roles
 
 	# Include default devise modules. Others available are:

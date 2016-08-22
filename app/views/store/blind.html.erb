@@ -23,43 +23,11 @@ Sort By:
   <tr>
     <li><%= sort_link @search, :name, "Product Name" %></li>
     <li><%= sort_link @search, :price, "Price" %></li>    
-    <li><%= sort_link @search, :average, "Review" %></li>
+    <li><%= sort_link @search, :average, "Average Review" %></li>
+    <li><%= sort_link @search, :total, "Total Review" %></li>
   </tr>
   </table>
-
   <br></br>
-
-<!-- Sort begin 
-
-
-
-<table id="products">
-  <tr>
-    <li><%= sort_link @search, :price, "Price" %></li>
-    <li><%= sort_link @search, :name, "Product Name" %></li> 
-    <li><%= sort_link @search, :average, "Review" %></li>
-  </tr>
-
-<table id="products">
-  <tr>
-    <th><%= sort_link @search, :name, "Product Name" %></th>
-    <th><%= sort_link @search, :price, "Price" %></th>    
-    <th><%= sort_link @search, :average, "Review" %></th>
-
-  </tr>
-<% @products.each do |product| %>
-  <tr>
-    <td><%= link_to(product.name, product) %></td>
-    <td><%= number_to_currency(product.price) %></td>
-    <td><%= product.reviews.average(:rating) %></td>
-    
-    <td class="image-description">
-        <td><%= image_tag product.app_img.url(:app_index) %></td>
-    </td>
-  </tr>
-<% end %>
-</table>
--->
 
 <div class="row">
   <% @products.each do |product| %>
@@ -69,11 +37,33 @@ Sort By:
         <%= image_tag product.app_img.url(:app_index) %></a>
       </div>
       <p><%= link_to product.name, app_path(product) %></p>
-      <p class="app-name"><%= product.price %>€</p>
+      <p> 
+        <% product.operatingsystems.each do |operation| %>
+          <li><%= operation.name %></li>
+        <% end %>
+      </ul>
+      </p>
+      <p> 
+        <% product.languages.each do |lang| %>
+          <li><%= lang.name %></li>
+        <% end %>
+      </ul>
+      </p>
+      <p class="app-name"><%= number_to_currency(product.price) %></p>
       <div class="average-review-rating" data-score=<%= product.reviews.average(:rating) %>></div>
     </div><br></br>
   </div>
   <% end %>
 </div>
+
+  <script>
+  $('.average-review-rating').raty({
+    readOnly: true,
+    path: '/assets/',
+    score: function() {
+      return $(this).attr('data-score')
+    }
+  });
+</script>
 
 

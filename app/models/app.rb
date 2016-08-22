@@ -35,4 +35,8 @@ class App < ActiveRecord::Base
     ransacker :average do
         Arel.sql('average')
     end
+
+    ransacker :total do
+        Arel.sql('total')
+    end
 end
