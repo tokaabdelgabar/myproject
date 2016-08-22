@@ -4,13 +4,18 @@
     <% @help_items.each do |help_item| %>
     <div class="row">
       <h2 class="title-style-2"><%= help_item.heading1 %></h2>
-      <h2 class="title-style-2"><%= help_item.heading2 %></h2>
+      <!-- <h2 class="title-style-2"><%= help_item.heading2 %></h2> -->
       <div class="col-sm-6 col-md-12">
-        <h4><%= help_item.title1 %></h4>
-        <h4><%= help_item.title2 %></h4>
-        <h4><%= help_item.bullet_heading %></h4>
+        <h4><%= help_item.title1 %></h4><br />
+        <!-- <h4><%= help_item.title2 %></h4> -->
+        
       </div>
+
+<div class="col-sm-6 col-md-4">
+    <%= image_tag (help_item.photo), :style => "height: 50%; width: 50%", class: "help-image" %>
+</div>  
 <div class="col-sm-6 col-md-8">
+  <h4><strong><%= help_item.bullet_heading %></strong></h4>
   <ul>
     <li><%= help_item.bullet1 %></li>
     <li><%= help_item.bullet2 %></li>
@@ -18,8 +23,5 @@
     <li><%= help_item.bullet5 %></li>
   </ul>
 </div>
-<div class="col-sm-6 col-md-4">
-    <%= image_tag (help_item.photo), :style => "height: 50%; width: 50%", class: "help-image" %>
-</div>  
-</div>
+</div><br />
 <% end %>
