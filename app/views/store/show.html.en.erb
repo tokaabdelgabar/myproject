@@ -1,4 +1,12 @@
-<h1>Store Listing</h1>
+<section class="product">
+  <% if @product %>
+    <p>
+     <strong>Category:</strong><%= @product.name %>
+    </p>
+     <% end %>
+</section>
+
+<li><%= link_to "All Products", store_product_path %></li>
 
 <%= search_form_for @search do |f| %>
   <div class="field">
@@ -9,21 +17,7 @@
   </div>
 <div class="actions"><%= f.submit "Search" %></div>
 <% end %>
-
-
-<%= search_form_for @search do |f| %>
-        <%= f.search_field :name %>
-        <%= f.button :submit %>
-<% end %>
-
-
-Sort By: 
-<li><%= link_to "All Products", store_path %></li>
-
- <h2> <strong> <%= @name %> </strong></h2>
-
-
- <h2> <strong> Blind German </strong></h2>
+  <br></br>
 
  <table id="products">
   <tr>
@@ -35,7 +29,7 @@ Sort By:
   </table>
   <br></br>
 
-<div class="row">
+  <div class="row">
   <% @products.each do |product| %>
     <div class="col-md-2 col-sm-2">
     <div class="team-member">
@@ -71,5 +65,3 @@ Sort By:
     }
   });
 </script>
-
-
