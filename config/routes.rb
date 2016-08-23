@@ -29,20 +29,19 @@ resources :apps do
 end
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-
-
   devise_for :users, controllers: { confirmations: 'confirmations' }
   resources :categories
 
 # Contact
   resources :messages, only: [:new, :create]
+
 	resources :apps do
     collection do
       get 'search'
     end
     resources :reviews, except: [:show, :index]
     #collection { post :search, to: 'apps#index' }
-  end
+end
   scope "(:locale)", locale: /en|de/ do
   resources :categories
   get 'store' => 'store#index'

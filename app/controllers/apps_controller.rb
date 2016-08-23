@@ -12,10 +12,6 @@ before_action :authenticate_user!#, only: [:new, :edit]
 		
 		#@apps_blind=App.where(category_id:1)
 		#@apps_hearing=App.where(category_id:2)
-		#@apps_learning=App.where(category_id:3)
-		#@apps_sight=App.where(category_id:4)
-		#@apps_motorically=App.where(category_id:5)
-		#@apps_whealchair=App.where(category_id:6)
 		
 		#elsif !params[:category].blank? && params[:search].blank?
 		#	@category_id = Category.find_by(name: params[:category]).id

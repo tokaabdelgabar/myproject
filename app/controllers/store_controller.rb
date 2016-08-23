@@ -28,11 +28,17 @@ class StoreController < ApplicationController
   end
 
   def show
-     @product = Category.find(params[:id])
+    @product = Category.find(params[:id])
+    @search = App.ransack(params[:q]).find(params[:id])
+    @products = @search.result.joins(:reviews).select("apps.*, avg(reviews.rating) as average, count(*) as total").group("apps.id").where(Category.find(params[:id]))
+    @search.build_sort if @search.sorts.empty?
   end
 
   def blind
+      #@name = params[:category_name]
+      #@dropdown = Language.ransack(params[:q])
       @search = App.ransack(params[:q])
+      #@language = App.ransack(params[:q]).result.joins(:operatingsystems)
       #@products = @search.result.where(:category_id => 1) 
       @products = @search.result.joins(:reviews).select("apps.*, avg(reviews.rating) as average, count(*) as total").group("apps.id").where(:category_id => 1)
       @search.build_sort if @search.sorts.empty?

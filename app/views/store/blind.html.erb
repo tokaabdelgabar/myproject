@@ -4,17 +4,23 @@
   <div class="field">
       Sort:
       <%= f.sort_fields do |s| %>
-        <%= s.sort_select %>
+        <%= s.sort_select associations: [:operatingsystems] %>
       <% end %>
   </div>
 <div class="actions"><%= f.submit "Search" %></div>
 <% end %>
 
 
+<%= search_form_for @search do |f| %>
+        <%= f.search_field :name %>
+        <%= f.button :submit %>
+<% end %>
+
+
 Sort By: 
 <li><%= link_to "All Products", store_path %></li>
 
- <h2> <strong> Blind </strong></h2>
+ <h2> <strong> <%= @name %> </strong></h2>
 
 
  <h2> <strong> Blind German </strong></h2>
