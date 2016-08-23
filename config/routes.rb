@@ -23,22 +23,20 @@ Rails.application.routes.draw do
     root to: "apps#index" 
     get "apps/index"
     match 'store/:id' => 'store#show', :as => :store_product, :via => :get
-end
-
-
+  end
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { confirmations: 'confirmations' }
   resources :categories
 
-# Contact
+  #Contact
   resources :messages, only: [:new, :create]
 
 	resources :apps do
     collection do
       get 'search'
     end
-    resources :reviews, except: [:show, :index]
+  resources :reviews, except: [:show, :index]
     collection { post :search, to: 'apps#index' }
-end
+  end
 end
