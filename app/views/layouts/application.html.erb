@@ -59,7 +59,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                <div class="navbar-top">
                 <div class="container">
                   <div class="row">
-                    <div class="col-sm-6 col-xs-6 text-center">
+                    <div class="col-sm-6 col-xs-6 text-left">
 
                             <ul class="list-unstyled list-inline header-contact">
                                <li><%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", role: "search" do %></li>
@@ -72,6 +72,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                     <div class="col-sm-6 col-xs-6 text-right">
 
                             <ul class="list-unstyled list-inline header-contact">
+                          <% if user_signed_in? %>
                                 <% if user_signed_in? %>
                                   <li><%= link_to "Ausloggen", destroy_user_session_path, method: :delete %></li>
                                 <% else %>  
@@ -80,8 +81,10 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                                 <% end %>
                                 
                                 <li> | </li> 
-                          
-                                <li>Schriftgröße: <a id="zoom_reset"><%= image_tag("zoom out.png",:size =>"30x30")%></a>
+                                <li>HighContrast:
+                            <a href="#" onclick="body.style.backgroundColor='black'"><%= image_tag("Black.png",:size => "20x20")%></a>
+                          <a href="#" onclick="body.style.backgroundColor='White'"><%= image_tag("White.png",:size => "18x18")%></a>
+                                Schriftgröße: <a id="zoom_reset"><%= image_tag("zoom out.png",:size =>"30x30")%></a>
                                 <a id="zoom_in"><%= image_tag("zoom in.png",:size => "30x30")%> </a></li>
                       
                                 <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "40x25"),set_language_english_path%> <%= link_to_unless I18n.locale == :de, image_tag("German.png",:size => "40x25"),set_language_german_path %></li>
@@ -273,3 +276,4 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 </script>
 </body>
 </html>
+<% end %>
