@@ -59,13 +59,15 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                <div class="navbar-top">
                 <div class="container">
                   <div class="row">
-                    <div class="col-sm-6 col-xs-6 text-left">
-                      <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
-                    <p>
-                     <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Searchfield" %>
-                     <%= submit_tag "SEARCH", name: nil, class: "btn btn-default" %>
-                     </p>
-                    <% end %>
+                    <div class="col-sm-6 col-xs-6 text-center">
+
+                            <ul class="list-unstyled list-inline header-contact">
+                               <li><%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", role: "search" do %></li>
+                               <li><%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Searchfield" %></li>
+                               <li><%= submit_tag "SEARCH", name: nil, class: "btn btn-default" %></li>
+                     
+                            <% end %>
+                           </ul> <!-- /.header-social  -->
                     </div>
                     <div class="col-sm-6 col-xs-6 text-right">
 
@@ -77,7 +79,6 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                                   <li><%= link_to "Registrieren", new_user_registration_path %></li>
                                 <% end %>
                                 
-                                
                                 <li> | </li> 
                           
                                 <li>Schriftgröße: <a id="zoom_reset"><%= image_tag("zoom out.png",:size =>"30x30")%></a>
@@ -86,7 +87,6 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                                 <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "30x30"),set_language_english_path%> <%= link_to_unless I18n.locale == :de, image_tag("German.png",:size => "30x30"),set_language_german_path %></li>
                             <li></li>
                            </ul> <!-- /.header-social  -->
-                          
                         </div>
                     </div>
                 </div>
