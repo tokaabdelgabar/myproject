@@ -69,7 +69,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                             <% end %>
                            </ul> <!-- /.header-social  -->
                     </div>
-                    <div class="col-sm-6 col-xs-6 text-right">
+                    <div class="col-sm-6 col-xs-12 text-right">
 
                             <ul class="list-unstyled list-inline header-contact">
                           <% if user_signed_in? %>
@@ -80,7 +80,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                                   <li><%= link_to "Registrieren", new_user_registration_path %></li>
                                 <% end %>
                                 
-                                <li> | </li> 
+                                 | 
                                 <li>HighContrast:
                             <a href="#" onclick="body.style.backgroundColor='black'"><%= image_tag("Black.png",:size => "20x20")%></a>
                           <a href="#" onclick="body.style.backgroundColor='White'"><%= image_tag("White.png",:size => "18x18")%></a>

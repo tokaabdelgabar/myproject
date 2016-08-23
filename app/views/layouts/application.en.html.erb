@@ -78,8 +78,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                     </div>
                 <div class="col-sm-6 col-xs-12 text-right">
                   <ul class="list-unstyled list-inline header-contact">
-                          <a href="#" onclick="body.style.backgroundColor='black'"><%= image_tag("Black.png",:size => "30x30")%></a>
-                          <a href="#" onclick="body.style.backgroundColor='White'"><%= image_tag("White.png",:size => "30x30")%></a>
+                          
                           <% if user_signed_in? %>
                             <li><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
                           <% else %>  
@@ -87,7 +86,9 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                             <li><%= link_to "SIGN UP", new_user_registration_path %></li>
                           <% end %>
                           
-                          <li> | </li>  
+                           | 
+                          HighContrast:<a href="#" onclick="body.style.backgroundColor='black'"><%= image_tag("Black.png",:size => "20x20")%></a>
+                          <a href="#" onclick="body.style.backgroundColor='White'"><%= image_tag("White.png",:size => "18x18")%></a>
                           <li>Zoom: <a id="zoom_reset"><%= image_tag("zoom out.png",:size => "30x30")%></a> <a id="zoom_in"><%= image_tag("zoom in.png",:size => "30x30")%> </a></li>
                     
                           <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "40x25"),set_language_english_path%> <%= link_to_unless I18n.locale == :de, image_tag("German.png",:size => "40x25"),set_language_german_path %></li>
@@ -95,6 +96,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                        </ul> 
                       
                     </div>
+                    
               </div>
             </div>
 
