@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/disclaimer' => 'tabs#index'
   get '/notification' => 'notifications#index'
   get 'messages/new'
+  get 'pages/news'
 
   scope "(:locale)", locale: /en|de/ do
     root to: "apps#index" 

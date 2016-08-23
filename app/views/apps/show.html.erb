@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
-
+<html lang="de" xml:lang="se" xmlns="http://www.w3.org/1999/xhtml">
+<title><%= @app.name %></title>
 <div class="row">
 	<div class="col-md-6">
 		<%= image_tag @app.app_img.url(:app_show), class: "img-responsive" %><br />
@@ -35,9 +35,9 @@
 				<!-- </div> -->	
 			</div>
 			
-		</div
-	</div>
+		</div> 
 
+	</div>
 	<div class="col-md-6">
 		<h2 class="title-style-2"><%= App.human_attribute_name(:App_Name) %>: <%= @app.name %><span class="title-under"></span></h2>
 		<h4><%= App.human_attribute_name(:Type) %>: <%= @app.detail %></h4>
@@ -68,6 +68,7 @@
 		<%= link_to "Zurück", root_path, class: 'btn btn-primary pull-right' %>
     	</div>	
 	</div>
+	
 
 	<!-- <div class="col-md-6">
 		<%= image_tag @app.image1.url(:app_show), class: "img-responsive" %>
@@ -76,9 +77,8 @@
 		<%= image_tag @app.image4.url(:app_show), class: "img-responsive" %>
 		<%= image_tag @app.image5.url(:app_show), class: "img-responsive" %>
 	</div> -->
-
+		
 	
-
 </div> <!-- /.row -->
 <br></br>
 
@@ -86,28 +86,17 @@
 	<div class="col-md-12">
 		<%= render @app.reviews %>
 		<!-- <div>
-				<%= link_to "Bewerten", new_app_review_path(@app) %>
+		<%= link_to "Add Review", new_app_review_path(@app) %>
 		</div> -->
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-12">
-		<h2 class="title-style-2">In Verbindung stehende Apps<span class="title-under"></span></h2>
-		
+		<h2 class="title-style-2">Related Apps<span class="title-under"></span></h2>
 		<!-- This is for related apps -->
 	</div>
 </div>
-<!-- <div class="row">
-	<div class="col-md-6">
-		<% if user_signed_in? %>
-			<% if @app.user_id==current_user.id %>
-			<%= link_to "Bearbeiten", edit_app_path(@app) %>
-			<%= link_to "Löschen", app_path(@app), method: :delete, data: {confirm: "Are you sure"} %>
-			<% end %>
-		<% end %>
-	</div>
-</div> -->
-<br></br>
+
 
 <script>
 	$('.review-rating').raty({

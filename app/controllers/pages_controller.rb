@@ -4,4 +4,8 @@ class PagesController < ApplicationController
   
   def dictionary
   end
+
+  def news
+  	
+  end
 end
