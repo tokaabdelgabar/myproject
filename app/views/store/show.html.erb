@@ -1,10 +1,33 @@
 <section class="product">
   <% if @product %>
     <p>
-        <strong>Category:</strong><%= @product.name %>
+     <strong>Category:</strong><%= @product.name %>
     </p>
-        <% end %>
-  </section>
+     <% end %>
+</section>
+
+<li><%= link_to "All Products", store_path %></li>
+
+<%= search_form_for @search do |f| %>
+  <div class="field">
+      Sort:
+      <%= f.sort_fields do |s| %>
+        <%= s.sort_select associations: [:operatingsystems] %>
+      <% end %>
+  </div>
+<div class="actions"><%= f.submit "Search" %></div>
+<% end %>
+  <br></br>
+
+ <table id="products">
+  <tr>
+    <li><%= sort_link @search, :name, "Product Name" %></li>
+    <li><%= sort_link @search, :price, "Price" %></li>    
+    <li><%= sort_link @search, :average, "Average Review" %></li>
+    <li><%= sort_link @search, :total, "Total Review" %></li>
+  </tr>
+  </table>
+  <br></br>
 
   <div class="row">
   <% @products.each do |product| %>
@@ -42,10 +65,3 @@
     }
   });
 </script>
-
-
-
-
-<p>
-  <%= link_to "Home", root_path %>
-</p>
