@@ -1,5 +1,6 @@
 class OperatingsystemController < ApplicationController
 	def index
+		operatingsystem_params
 		@operatingsystems=Operatingsystem.all.order("created_at DESC")
 	end
 

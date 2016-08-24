@@ -26,8 +26,13 @@ class StoreController < ApplicationController
 
   def show
     @product = Category.find(params[:id])
+
+    @language = Language.all
+    @os = Operatingsystem.all
+
     @search = App.ransack(params[:q])
     @products = @search.result.joins(:reviews).select("apps.*, avg(reviews.rating) as average, count(*) as total").group("apps.id").where(:category_id => params[:id])
+    @search.build_condition if @search.conditions.empty?
     @search.build_sort if @search.sorts.empty?
   end
 end
