@@ -8,14 +8,14 @@ before_action :authenticate_user!#, only: [:new, :edit]
 		@categories_list= Category.all
 		@operatingsystem_list= Operatingsystem.all
 
-		#if params[:category].blank? && params[:search].blank?
+		if params[:category].blank? && params[:search].blank?
 		
-		#elsif !params[:category].blank? && params[:search].blank?
-		#	@category_id = Category.find_by(name: params[:category]).id
-		#	@apps = App.where(:category_id => @category_id).order("created_at DESC")
-		#else
-  		#	@apps = App.where (["name LIKE ?","%#{params[:search]}%"])
-		#end		
+		elsif !params[:category].blank? && params[:search].blank?
+			@category_id = Category.find_by(name: params[:category]).id
+			@apps = App.where(:category_id => @category_id).order("created_at DESC")
+		else
+  			@apps = App.where (["name LIKE ?","%#{params[:search]}%"])
+		end		
 	end
 
 	def show
