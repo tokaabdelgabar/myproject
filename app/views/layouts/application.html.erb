@@ -63,7 +63,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
                             <ul class="list-unstyled list-inline header-contact">
                                <li><%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", role: "search" do %></li>
-                               <li><%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Searchfield" %></li>
+                               <li><%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Searchfield", size: "18" %></li>
                                <li><%= submit_tag "SEARCH", name: nil, class: "btn btn-default" %></li>
                      
                             <% end %>
