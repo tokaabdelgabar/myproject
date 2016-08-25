@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 #img1 = File.new("#{Rails.root}/app/assets/images/image.jpg")
 
 #App.create!(category_id: "1" , app_img: File.new("#{Rails.root}/app/assets/images/image.jpg"),
@@ -13,8 +5,8 @@
   #link: "http://www.bemyeyes.org/", developer: "someone", 
   #operation: "abc", price: "free", locale: "en")
 User.delete_all
-#user1 = User.create!(:id => 1, :email => "admin@abc.com", :password => "12345678", :password_confirmation => "12345678",:username	=> "huihui",:confirmation_token => true, :admin => true,:superadmin => true, :confirmed_at => "2016-08-23 10:15:50", :confirmation_sent_at => "2016-08-23 10:15:40")
-#user1.save!
+user1 = User.create!(:id => 1, :email => "admin@abc.com", :password => "12345678", :password_confirmation => "12345678",:username	=> "huihui",:confirmation_token => true, :admin => true,:superadmin => true, :confirmed_at => "2016-08-23 10:15:50", :confirmation_sent_at => "2016-08-23 10:15:40")
+user1.save!
 user2 = User.create!(:id => 2, :email => "huihui@abc.com", :password => "12345678", :password_confirmation => "12345678",:username  => "xiaohui")
 user3 = User.create!(:id => 3, :email => "abc@huihui.com", :password => "12345678", :password_confirmation => "12345678",:username  => "ahhui")
 
