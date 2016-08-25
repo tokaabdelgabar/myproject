@@ -6,24 +6,21 @@
 <body>
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Help Items</h1>
+<h1>Simple Language</h1>
     <% @help_items.each do |help_item| %>
     <div class="row">
-      
-      
+
       <div class="col-sm-6 col-md-12">
-        <h2 class="title-style-2"><%= help_item.heading1 %></h2>
-        <br />
-        <!-- <h4><%= help_item.title2 %></h4> -->
-        
+        <h2 class="title-style-2"><%= help_item.heading %></h2>
+        <br />    
       </div>
 
 <div class="col-sm-6 col-md-3">
     <%= image_tag (help_item.photo), :style => "height: 70%; width: 70%", class: "help-image" %>
 </div>  
-<div class="col-sm-6 col-md-9">
-  <h2 class="title-style-2" style="margin-left: 20px"><%= help_item.heading2 %></h2>
+<div class="col-sm-3 col-md-9">
   <h3 style="margin-left: 20px"><%= help_item.title1 %></h3>
+  <h3 style="margin-left: 20px"><%= help_item.title2 %></h3>
   <h4 style="margin-left: 20px"><strong><%= help_item.bullet_heading %></strong></h4>
   <ul>
     <li class="contact-item"><%= help_item.bullet1 %></li>
