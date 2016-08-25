@@ -6,18 +6,7 @@
 	<% end %>
 </section>
 
-<li><%= link_to "All Products", store_path %></li>
 
-<%= search_form_for @search, url: store_product_path do |f| %>
-<div class="field">
-	Sort:
-	<%= f.sort_fields do |s| %>
-	<%= s.sort_select associations: [:operatingsystems] %>
-	<% end %>
-</div>
-<div class="actions"><%= f.submit "Search" %></div>
-<% end %>
-</br>
 
 <%= label_tag "Type of Sort" %>
 <table id="products">
@@ -30,10 +19,10 @@
 </table>
 </br>
 
-<%= label_tag "Type of Filter -> Category" %>
+<%= label_tag "Type of Filter -> OS" %>
 <% @products.each do |product| %>
 <% product.operatingsystems.each do |operation| %>
-<li><%= operation.name %></li>
+<li><%= link_to operation.name, search_stores_path(q: {operation_name_eq: operation.name}) %></li>
 <% end %>
 <% end %>
 </br>

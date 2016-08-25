@@ -26,11 +26,19 @@ Rails.application.routes.draw do
   resources :apps do
     #collection { post :search, to: 'store#index' }
     resources :reviews, except: [:show, :index]
-    collection {get :search, to: 'store#index'}
+    #collection {get :search, to: 'store#show'}
     #collection do
-     # get 'search'
+     #get 'search'
     #end  
   end
+
+  resources :stores do
+    collection {get :search, to: 'store#show'}
+    collection do
+     get 'search'
+    end
+  end  
+
 
   #language
   get 'set_language/english'

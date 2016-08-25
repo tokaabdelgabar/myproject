@@ -10,9 +10,6 @@ before_action :authenticate_user!#, only: [:new, :edit]
 
 		#if params[:category].blank? && params[:search].blank?
 		
-		#@apps_blind=App.where(category_id:1)
-		#@apps_hearing=App.where(category_id:2)
-		
 		#elsif !params[:category].blank? && params[:search].blank?
 		#	@category_id = Category.find_by(name: params[:category]).id
 		#	@apps = App.where(:category_id => @category_id).order("created_at DESC")
