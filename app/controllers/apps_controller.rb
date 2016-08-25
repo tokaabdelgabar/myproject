@@ -24,7 +24,6 @@ before_action :authenticate_user!#, only: [:new, :edit]
 		else
 			@average_review=@app.reviews.average(:rating).round(2)
 		end
-		@page_title = "App Details"
 	end
 
 	def new

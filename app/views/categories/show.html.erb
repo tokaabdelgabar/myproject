@@ -2,5 +2,83 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
 
-<b><p><%= @category.name %></p></b>
+<h1><b><p><%= @category.name %></p></b></h1>
+
+<section class="product">
+	<% if @product %>
+	<p>
+		<strong>Category:</strong><%= @product.name %>
+	</p>
+	<% end %>
+</section>
+
+
+
+<%= label_tag "Type of Sort" %>
+<table id="products">
+	<tr>
+		<li><%= sort_link @search, :name, "Product Name" %></li>
+		<li><%= sort_link @search, :price, "Price" %></li>    
+		<li><%= sort_link @search, :average, "Average Review" %></li>
+		<li><%= sort_link @search, :total, "Total Review" %></li>
+	</tr>
+</table>
+</br>
+
+<%= label_tag "Type of Filter -> OS" %>
+<% @products.each do |product| %>
+<% product.operatingsystems.each do |operation| %>
+<li><%= link_to operation.name, search_stores_path(q: {operatingsystems_name_eq: operation.name}) %></li>
+<% end %>
+<% end %>
+</br>
+
+<%= label_tag "Type of Filter -> Language" %>
+<% @products.each do |product| %>
+<% product.languages.each do |lang| %>
+<li><%= lang.name %></li>
+<% end %>
+<% end %>
+</br>
+
+
+<div class="row">
+	<% @products.each do |product| %>
+	<div class="col-md-2 col-sm-2">
+		<div class="team-member">
+			<div class="thumnail">
+				<%= image_tag product.app_img.url(:app_index) %></a>
+			</div>
+			<p><%= link_to product.name, app_path(product) %></p>
+			<p> 
+				<% product.operatingsystems.each do |operation| %>
+				<li><%= operation.name %></li>
+				<% end %>
+			</ul>
+		</p>
+		<p> 
+			<% product.languages.each do |lang| %>
+			<li><%= lang.name %></li>
+			<% end %>
+		</ul>
+	</p>
+	<p class="app-name"><%= number_to_currency(product.price) %></p>
+	<div class="average-review-rating" data-score=<%= product.reviews.average(:rating) %>></div>
+</div><br></br>
+</div>
+<% end %>
+</div>
+
+<script>
+	$('.average-review-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
+	});
+</script>
+
+
+
 <%= link_to 'Bearbeiten', edit_category_path(@category) %>

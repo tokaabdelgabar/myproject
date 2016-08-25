@@ -9,9 +9,6 @@ Rails.application.routes.draw do
     root "apps#index" 
   end
 
-  #matching
-  match 'store/:id' => 'store#show', :as => :store_product, :via => :get
-
   #resources
   resources :help_items
   resources :tabs
@@ -24,12 +21,10 @@ Rails.application.routes.draw do
 
   #app resources
   resources :apps do
-    #collection { post :search, to: 'store#index' }
     resources :reviews, except: [:show, :index]
-    #collection {get :search, to: 'store#show'}
-    #collection do
-     #get 'search'
-    #end  
+    collection do
+     get 'search'
+    end  
   end
 
   resources :stores do
