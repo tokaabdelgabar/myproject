@@ -6,15 +6,14 @@
 <body>
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Help Items</h1>
+<h1>Simple Language</h1>
     <% @help_items.each do |help_item| %>
     <div class="row">
       
-      <!-- <h2 class="title-style-2"><%= help_item.heading2 %></h2> -->
       <div class="col-sm-6 col-md-12">
-        <h2 class="title-style-2"><%= help_item.heading1 %></h2>
+        <h2 class="title-style-2"><%= help_item.heading %></h2>
         <h3><%= help_item.title1 %></h3><br />
-        <!-- <h4><%= help_item.title2 %></h4> -->
+        <h4><%= help_item.title2 %></h4>
         
       </div>
 

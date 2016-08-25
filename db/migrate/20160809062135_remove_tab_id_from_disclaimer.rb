@@ -3,3 +3,4 @@ class RemoveTabIdFromDisclaimer < ActiveRecord::Migration
     remove_column :disclaimers, :tab_id, :integer
   end
 end
+
