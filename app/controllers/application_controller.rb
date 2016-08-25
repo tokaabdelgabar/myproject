@@ -5,7 +5,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   #begin translate 
   before_filter :set_locale
+  private
 
+  def set_page_title
+    @page_title = "Zappatory.com - Supportive Apps Directory"
+  end
   private
   #def extract_locale_from_accept_language_header
   #request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first

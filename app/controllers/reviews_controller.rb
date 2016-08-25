@@ -46,4 +46,9 @@ before_action :authenticate_user!, only: [:new, :edit]
 		def find_review
 			@review=Review.find(params[:id])
 		end
+	private
+
+	  def set_page_title
+	    @page_title = "Review and Rating"
+	  end
 end

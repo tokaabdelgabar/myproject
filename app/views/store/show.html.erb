@@ -22,7 +22,7 @@
 <%= label_tag "Type of Filter -> OS" %>
 <% @products.each do |product| %>
 <% product.operatingsystems.each do |operation| %>
-<li><%= link_to operation.name, search_stores_path(q: {operation_name_eq: operation.name}) %></li>
+<li><%= link_to operation.name, search_stores_path(q: {operatingsystems_name_eq: operation.name}) %></li>
 <% end %>
 <% end %>
 </br>

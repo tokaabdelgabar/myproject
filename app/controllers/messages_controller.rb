@@ -15,7 +15,12 @@ class MessagesController < ApplicationController
 
   private
 
-  def message_params
-    params.require(:message).permit(:name, :email, :subject, :content)
-  end
+    def message_params
+      params.require(:message).permit(:name, :email, :subject, :content)
+    end
+  private
+
+    def set_page_title
+      @page_title = "Contact Us"
+    end
 end
