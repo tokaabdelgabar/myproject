@@ -71,4 +71,9 @@ class DisclaimersController < ApplicationController
     def disclaimer_params
       params.fetch(:disclaimer, {})
     end
+  private
+
+    def set_page_title
+      @page_title = "Disclaimer page"
+    end
 end

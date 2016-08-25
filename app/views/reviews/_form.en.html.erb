@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= h @page_title %></title>
+</head>
+<body>
 <h2 class="title-style-2">Review<span class="title-under"></span></h2>
 <%= simple_form_for([@app, @app.reviews.build]) do |f| %>
 	
@@ -21,4 +27,5 @@
 		scoreName: 'review[rating]'
 	});
 </script>
-
+</body>
+</html>

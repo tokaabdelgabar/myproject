@@ -9,6 +9,7 @@ before_action :find_category, only: [:show, :edit, :update, :destroy]
 	end
 
 	def show
+		@page_title = "Category Details"
 	end
 
 	def create

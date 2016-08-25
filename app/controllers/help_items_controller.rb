@@ -71,4 +71,9 @@ class HelpItemsController < ApplicationController
     def help_item_params
       params.require(:help_item).permit(:heading1, :heading2, :title1, :title2, :bullet_heading, :bullet1, :bullet2, :bullet3, :bullet5)
     end
+  private
+
+    def set_page_title
+      @page_title = "Easy Language"
+    end
 end
