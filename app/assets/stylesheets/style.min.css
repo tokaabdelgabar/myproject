@@ -41,7 +41,7 @@ a:hover, a:focus, a:active {
 }
 
 .navbar-top {
-  background: #006666;
+  background: #0A4958;
   font-size: 15px;
   padding: 3px 0;
 }
@@ -58,7 +58,7 @@ a:hover, a:focus, a:active {
 .navbar-main {
   margin-bottom: 0;
   color: #000;
-  background: #FFDE00;
+  background: #01B6AD;
 }
 .navbar-main .navbar-brand {
   border-bottom: none !important;
@@ -74,7 +74,7 @@ a:hover, a:focus, a:active {
 .navbar-main .submenu {
   position: absolute;
   list-style: none;
-  background: #006666;
+  background: #0A4958;
   color: #fff;
   padding: 0;
   width: 200px;
@@ -90,7 +90,7 @@ a:hover, a:focus, a:active {
   border-top: 1px solid #9E9E9E;
 }
 .navbar-main .submenu li:hover {
-  background: #FFDE00;
+  background: #01B6AD;
   color: #000;
   -moz-transition: all, 0.3s;
   -o-transition: all, 0.3s;
@@ -332,7 +332,7 @@ a:hover, a:focus, a:active {
 }
 
 .main-footer {
-  background: #FFDE00;
+  background: #01B6AD;
   color: #fff;
 }
 .main-footer .footer-main {
@@ -372,7 +372,7 @@ a:hover, a:focus, a:active {
 }
 
 .footer-bottom {
-  background: #009688;
+  background: #0A4958;
   padding: 3px;
 }
 
@@ -497,7 +497,7 @@ form .alert {
 	Module
 ========================================================================== */
 .btn-primary {
-  background: #006666;
+  background:  #0A4958;
   color: #fff;
   border: none;
   border-radius: 0;
@@ -509,7 +509,7 @@ form .alert {
   transition: all, 0.3s;
 }
 .btn-primary:hover {
-  background: #FFDE00;
+  background: #01B6AD;
   color: #000;
   border: 1px solid #000;
 }
