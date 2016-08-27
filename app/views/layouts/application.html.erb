@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<p style="display:none"><b>I18n.locale:</b> 
-<%= I18n.locale %>
-</p>
+<p style="display:none"><b>I18n.locale:</b> <%= I18n.locale %> </p>
 <html>
 <head>
   <title><%= h @page_title %></title>
@@ -130,33 +128,23 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                     <li><%= link_to "About Us" %></li>
                     <li><%= link_to "Kontakt", new_message_path %></li>
                   </ul>
-
                 </div> 
-
               </div> <!-- /.container -->
-              
             </div> <!-- /.navbar-main -->
-
-
         </nav> 
-
     </header> <!-- /. main-header -->
-
 
 <!-- Back to top -->
 <a id="back-to-top" href="#" class="back-to-top" 
   role="button" title="Back to Top" data-toggle="tooltip" data-placement="top" style="cursor: pointer;position: fixed;bottom: 40px;right: 20px;display: inline;z-index: 100;"><%= image_tag("top-button.png", :alt => "Back to top", :size=> "40x40") %></a>
 
-
-
-
 <!-- Apps-->
-<b><h3 class="notice"><%= notice %></h3></b>
-<b><h3 class="alert"><%= alert %></h3></b>
 <div class="container">
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
   <%= yield %>
 </div>
-
+<br><br />
    <!--  Footer-->
 
     <footer class="main-footer">
@@ -202,8 +190,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
             <div class="container text-left">
                 <p>UNIVERSITY OF MANNHEIM @ copyrights 2016</p>
             </div>
-        </div>
-        
+        </div> 
     </footer>
 <!--  Scripts-->
 
