@@ -13,11 +13,7 @@ Rails.application.routes.draw do
   resources :help_items
   resources :tabs
   resources :operatingsystems
-  resources :language do
-     collection do
-     get 'search'
-    end
-  end
+  resources :language
 
   #Contact
   resources :messages, only: [:new, :create]
@@ -36,8 +32,6 @@ Rails.application.routes.draw do
      get 'search'
     end
   end
-
-
   #language
   get 'set_language/english'
   get 'set_language/german'

@@ -3,15 +3,21 @@ class CategoriesController < ApplicationController
 	def index
 		@categories=Category.all
 
-		if params[:language]
-			@products = Language.where(:name => params[:name])
-		else
-			@products = App.all
+		#if params[:language]
+		#	@products = Language.where(:name => params[:name])
+		#else
+		#	@products = App.all
 
+		#filter OS
 		@os=App.joins(:operations)
 		.where(:category_id => params[:id])
 		.merge(Operation.where(:operatingsystem_id => params[:operatingsystem_id]) )
-		end
+
+		#filter language
+    	@lang=App.joins(:apptranslations)
+    	.where(:category_id => params[:id])
+    	.merge(Apptranslation.where(:language_id=> params[:language_id]))
+		#end
 	end
 
 	def new
@@ -22,13 +28,14 @@ class CategoriesController < ApplicationController
 		#filter language
     	@lang=App.joins(:operations).
     	where(:category_id => Category.find(1)).
-    	merge(Operation.where(:operatingsystem_id => params[:operatingsystem_id]))
+    	merge(Apptranslation.where(:language_id => params[:language_id]))
+
 
     	#filter OS
     	@os=App
     	.joins(:apptranslations)
     	.where(:category_id => params[:id])
-    	.merge(Apptranslation.where(:language_id => params[:language_id]))
+    	.merge(Operation.where(:operatingsystem_id => params[:operatingsystem_id]))
 	end
 
 	def show
