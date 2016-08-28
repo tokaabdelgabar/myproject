@@ -1,17 +1,17 @@
 
-	<div class="form-group col-md-6" style="border: 1px solid #9E9E9E">
-	<h4>Posted by:&nbsp;<b><%= review.user.username %></b></h4>
-	<div class="review-rating" data-score="<%= review.rating %>"><label><h4>Rating:&nbsp;</h4></label></div>
-	<h4>Comment:&nbsp;<%= review.comment %></h4>
-	<h6 style="visibility:hidden">Rating:&nbsp;<%= review.rating %>&nbsp;of 5 Stars</h6>
-		<% if user_signed_in? %>
+	<div class="form-group">
+		<h4><b><%= review.user.username %>:&nbsp;</b><%= review.comment %></h4>
+		<div class="review-rating" data-score="<%= review.rating %>"><label><h4>Rating:&nbsp;</h4></label></div>
+		<!-- <h4>Comment:&nbsp;<%= review.comment %></h4> -->
+		<h6>Rating:&nbsp;<%= review.rating %>&nbsp;of 5 Stars</h6>
+			<% if user_signed_in? %>
 
-		<% if review.user_id == current_user.id %>			
-			<%= link_to "Edit", edit_app_review_path(review.app, review)%>
-			<%= link_to "Delete", app_review_path(review.app, review), method: :delete, data: { confirm: "Are you sure?" }%>
-		<% end %>	
+			<% if review.user_id == current_user.id %>			
+				<%= link_to "Edit", edit_app_review_path(review.app, review)%>
+				<%= link_to "Delete", app_review_path(review.app, review), method: :delete, data: { confirm: "Are you sure?" }%>
+			<% end %>	
 
-	<% end %>
+		<% end %>
 	</div>
 
 <br/>			

@@ -3,51 +3,35 @@
 <html lang="de" xml:lang="se" xmlns="http://www.w3.org/1999/xhtml">
 <title><%= h @page_title %></title>
 <div class="row">
+	<div class="col-md-12">
+		<h2 class="title-style-2"><%= App.human_attribute_name(:App_Name) %>: <%= @app.name %><span class="title-under"></span></h2>
+	</div>
 	<div class="col-md-6">
-		<%= image_tag @app.app_img.url(:app_show), class: "img-responsive" %><br />
-		<div class="row">
-			<div class="col-md-3 col-sm-3">
-				<!-- <div class="team-member"> -->
-					<div class="thumnail">
-						<%= image_tag @app.image1.url(:app_show), class: "img-responsive",:size => "150x150" %>
-					</div>
-				<!-- </div> -->	
-			</div>
-			<div class="col-md-3 col-sm-3">
-				<!-- <div class="team-member"> -->
-					<div class="thumnail">
-						<%= image_tag @app.image2.url(:app_show), class: "img-responsive",:size => "150x150" %>
-					</div>
-				<!-- </div> -->	
-			</div>
-			<div class="col-md-3 col-sm-3">
-				<!-- <div class="team-member"> -->
-					<div class="thumnail">
-						<%= image_tag @app.image3.url(:app_show), class: "img-responsive",:size => "150x150" %>
-					</div>
-				<!-- </div> -->	
-			</div>
-			<div class="col-md-3 col-sm-3">
-				<!-- <div class="team-member"> -->
-					<div class="thumnail">
-						<%= image_tag @app.image4.url(:app_show), class: "img-responsive",:size => "150x150" %>
-					</div>
-				<!-- </div> -->	
+		<div class="col-md-6 col-xs-6">
+			<div class="col-md-3 col-xs-3">
+				<%= image_tag @app.app_img.url(:app_show), class: "img-responsive" %>
 			</div>
 			
-		</div> 
+		</div>
+		<div class="col-md-6 col-xs-6">
+			<h4><%= App.human_attribute_name(:Preis) %>: <%= @app.price %>€</h4>
+			<h4><%= App.human_attribute_name(:Type) %>: <%= @app.detail %></h4>
+			<h3 >Average Rating</h3>
+			<div class="average-review-rating" data-score=<%= @average_review %>></div>
+			<span class="number-of-reviews"><h4>Based on&nbsp;<%= @app.reviews.count %>&nbsp;reviews</h4></span>
+		</div>
+		<div class="col-md-6 col-xs-6">
+			<h4 class="title-style-2">Links Seiten zum Download:</h3>
+			<h4><a href="#" class="btn btn-primary">iOS</a></h4>
+			<h4><a href="#" class="btn btn-primary">Android</a></h4>
+			<h4><a href="#" class="btn btn-primary">Windows Phone</a></h4>
+		</div>
+		 
 
 	</div>
 	<div class="col-md-6">
-		<h2 class="title-style-2"><%= App.human_attribute_name(:App_Name) %>: <%= @app.name %><span class="title-under"></span></h2>
-		<h4><%= App.human_attribute_name(:Type) %>: <%= @app.detail %></h4>
 		<h4><%= Category.human_attribute_name(:Kategorie)%>: <%= @app.category.name %></h4>
-		<h2 class="title-style-2">Durchschnittliche Bewertung</h2>
-		<div class="average-review-rating" data-score=<%= @average_review %>></div>
-		<span class="number-of-reviews"><h4>Basierend auf &nbsp;<%= @app.reviews.count %>&nbsp;Bewertungen</h4></span>
-		
 		<h4><%= App.human_attribute_name(:Beschreibung) %>: <%= @app.description %></h4>
-
 		<% @app.operations.each do |operatingsystem| %>
 		<h4>System: <%= operatingsystem.id %> </h4>
 		<h4>Information: <%= operatingsystem.information %> </h4>
@@ -55,7 +39,7 @@
 		<% end %>
 
 		<h4><%= App.human_attribute_name(:Entwickler)%>: <%= @app.developer %></h4>
-		<h4><%= App.human_attribute_name(:Preis) %>: <%= @app.price %>€</h4>
+		
 		<h4><%= App.human_attribute_name(:Price_Pro) %>: <%= @app.price_pro %>€</h4>
 
 		<h4>Languages Avilable:
@@ -83,7 +67,37 @@
 <br></br>
 
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-6 col-sm-6">
+		<div class="col-md-3 col-sm-3">
+		
+			<div class="thumnail">
+				<%= image_tag @app.image1.url(:app_show), class: "img-responsive",:size => "150x150" %>
+			</div>
+		
+		</div>
+		<div class="col-md-3 col-sm-3">
+			
+				<div class="thumnail">
+					<%= image_tag @app.image2.url(:app_show), class: "img-responsive",:size => "150x150" %>
+				</div>
+			
+		</div>
+		<div class="col-md-3 col-sm-3">
+			
+				<div class="thumnail">
+					<%= image_tag @app.image3.url(:app_show), class: "img-responsive",:size => "150x150" %>
+				</div>
+				
+		</div>
+		<div class="col-md-3 col-sm-3">
+			
+				<div class="thumnail">
+					<%= image_tag @app.image4.url(:app_show), class: "img-responsive",:size => "150x150" %>
+				</div>
+			
+		</div>
+	</div>
+	<div class="col-md-6">
 		<%= render @app.reviews %>
 		<!-- <div>
 		<%= link_to "Add Review", new_app_review_path(@app) %>
@@ -95,7 +109,7 @@
 		<h2 class="title-style-2">Related Apps<span class="title-under"></span></h2>
 		<!-- This is for related apps -->
 	</div>
-</div>
+</div><br />
 
 
 <script>
