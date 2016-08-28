@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   #devise
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users, controllers: { confirmations: 'confirmations' }
+  devise_for :users, controllers: { confirmations: 'confirmations'}
+
 
   #language scope
   scope "(:locale)", locale: /en|de/ do
