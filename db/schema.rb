@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825185043) do
+ActiveRecord::Schema.define(version: 20160828105232) do
 
   create_table "app_translations", force: :cascade do |t|
     t.integer  "app_id",      null: false
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20160825185043) do
     t.string   "name"
     t.text     "description"
     t.string   "developer"
-    t.string   "price"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "user_id"
@@ -59,6 +58,7 @@ ActiveRecord::Schema.define(version: 20160825185043) do
     t.string   "image5_content_type"
     t.integer  "image5_file_size"
     t.datetime "image5_updated_at"
+    t.decimal  "price"
   end
 
   create_table "apptranslations", force: :cascade do |t|

@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 	before_action :find_category, only: [:show, :edit, :update, :destroy]
 	def index
-		@categories=Category.all.order("created_at DESC")
+		@categories=Category.all
 	end
 
 	def new
@@ -11,44 +11,56 @@ class CategoriesController < ApplicationController
 	def show
 		@page_title = "Category Details"
 		@search = App.ransack(params[:q])
-    	#@search = @search.includes(:operatingsystems).where(operatingsystem: {name: params[:q][:operation_name_eq]})
-    	@products = @search
-    	.result
-    	.joins(:reviews)
-    	.select("apps.*, avg(reviews.rating) as average, count(*) as total")
-    	.group("apps.id")
-    	.where(:category_id => params[:id])
-    end
 
-    def create
-    	@category=Category.new(category_params)
-    	if @category.save
-    		redirect_to root_path
-    	else
-    		render 'new'
-    	end
-    end
+		#if params[:language_id].present?
+		#filter language
+			@lang=App.joins(:apptranslations)
+			.where(:category_id => params[:id])
+			.merge(Apptranslation.where(:language_id=> params[:language_id]))
+		#elsif params[:operatingsystem_id].present?
+		#filter OS
+			@os=App.joins(:operations)
+			.where(:category_id => params[:id])
+			.merge(Operation.where(:operatingsystem_id => params[:operatingsystem_id]) )
+		#else
+			@products = @search
+			.result
+			.joins(:reviews)
+			.select("apps.*, avg(reviews.rating) as average, count(*) as total")
+			.group("apps.id")
+			.where(:category_id => params[:id])
+	#end
+end
 
-    def edit	
-    end
+def create
+	@category=Category.new(category_params)
+	if @category.save
+		redirect_to root_path
+	else
+		render 'new'
+	end
+end
 
-    def update
-    	if @category.update(category_params)
-    		redirect_to category_path(@category)
-    	else
-    		render 'edit'
-    	end
-    end
+def edit	
+end
 
-    def destroy
-    end
+def update
+	if @category.update(category_params)
+		redirect_to category_path(@category)
+	else
+		render 'edit'
+	end
+end
 
-    private
-    def category_params
-    	params.require(:category).permit(:name)
-    end
+def destroy
+end
 
-    def find_category
-    	@category=Category.find(params[:id])
-    end
+private
+def category_params
+	params.require(:category).permit(:name)
+end
+
+def find_category
+	@category=Category.find(params[:id])
+end
 end
