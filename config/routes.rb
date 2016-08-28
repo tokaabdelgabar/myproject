@@ -12,9 +12,12 @@ Rails.application.routes.draw do
   #resources
   resources :help_items
   resources :tabs
-  resources :categories
-  resources :operatingsystem
-  resources :language
+  resources :operatingsystems
+  resources :language do
+     collection do
+     get 'search'
+    end
+  end
 
   #Contact
   resources :messages, only: [:new, :create]
@@ -27,12 +30,12 @@ Rails.application.routes.draw do
     end  
   end
 
-  resources :stores do
-    collection {get :search, to: 'store#show'}
+  #categories resources
+  resources :categories do
     collection do
      get 'search'
     end
-  end  
+  end
 
 
   #language
@@ -46,5 +49,4 @@ Rails.application.routes.draw do
   get '/notification' => 'notifications#index'
   get 'messages/new'
   get 'pages/news'
-  get 'store' => 'store#index'
 end

@@ -1,17 +1,39 @@
 class CategoriesController < ApplicationController
 	before_action :find_category, only: [:show, :edit, :update, :destroy]
 	def index
-		@categories=Category.all.order("created_at DESC")
+		@categories=Category.all
+
+		if params[:language]
+			@products = Language.where(:name => params[:name])
+		else
+			@products = App.all
+
+		@os=App.joins(:operations)
+		.where(:category_id => params[:id])
+		.merge(Operation.where(:operatingsystem_id => params[:operatingsystem_id]) )
+		end
 	end
 
 	def new
 		@category=Category.new	
 	end
 
+	def filter
+		#filter language
+    	@lang=App.joins(:operations).
+    	where(:category_id => Category.find(1)).
+    	merge(Operation.where(:operatingsystem_id => params[:operatingsystem_id]))
+
+    	#filter OS
+    	@os=App
+    	.joins(:apptranslations)
+    	.where(:category_id => params[:id])
+    	.merge(Apptranslation.where(:language_id => params[:language_id]))
+	end
+
 	def show
 		@page_title = "Category Details"
 		@search = App.ransack(params[:q])
-    	#@search = @search.includes(:operatingsystems).where(operatingsystem: {name: params[:q][:operation_name_eq]})
     	@products = @search
     	.result
     	.joins(:reviews)

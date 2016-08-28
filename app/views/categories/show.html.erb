@@ -12,7 +12,7 @@
 	<% end %>
 </section>
 
-
+ 
 
 <%= label_tag "Type of Sort" %>
 <table id="products">
@@ -28,7 +28,7 @@
 <%= label_tag "Type of Filter -> OS" %>
 <% @products.each do |product| %>
 <% product.operatingsystems.each do |operation| %>
-<li><%= link_to operation.name, search_stores_path(q: {operatingsystems_name_eq: operation.name}) %></li>
+<li><%= link_to operation.name, controller: "categories", action: "index", id: @category.id, operatingsystem_id: operation.id  %></li>
 <% end %>
 <% end %>
 </br>
@@ -36,10 +36,13 @@
 <%= label_tag "Type of Filter -> Language" %>
 <% @products.each do |product| %>
 <% product.languages.each do |lang| %>
-<li><%= lang.name %></li>
+<li><%= link_to lang.name, controller: "categories", action: "index", id: @category.id, language_id: lang.id %></li>
 <% end %>
 <% end %>
 </br>
+
+<%= link_to "German", categories_path(:language=>"German") %>
+
 
 
 <div class="row">
