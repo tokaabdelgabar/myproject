@@ -308,6 +308,8 @@ a:hover, a:focus, a:active {
 /* Team 
 ================================= */
 .team-member {
+    width: 150px;
+    height: 220px;
     background: #fff;
     color: #000;
     text-align: center;
