@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-
+<html>
+<head>
+	<title></title>
+</head>
+<body>
 <% if params[:category].blank? && params[:search].blank? %>
 	<% @categories_list.each do |category| %>
 	<div class="our-team">
@@ -22,8 +26,11 @@
 				</div>
 				<% end %>
 				<% end %>
+				<div>
+					<h4 style="padding-top: 30px"><%= link_to "See More Apps...", controller: "categories", action: "show", id: category.id %></h4>
+				</div>
 			</div>
-			<h4><%= link_to "See More...", controller: "categories", action: "show", id: category.id %></h4>
+			
 		</div>
 	</div>
 	<% end %>
@@ -72,3 +79,5 @@
 		}
 	});
 </script>
+</body>
+</html>
