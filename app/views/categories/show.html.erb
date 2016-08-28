@@ -25,7 +25,7 @@
 </table>
 </br>
 
-<%= label_tag "Type of Filter -> OS" %>
+<%= label_tag "Type of Filter -> Operating Systems" %>
 <% @products.each do |product| %>
 <% product.operatingsystems.each do |operation| %>
 <li><%= link_to operation.name, controller: "categories", action: "show", id: @category.id, operatingsystem_id: operation.id  %></li>
