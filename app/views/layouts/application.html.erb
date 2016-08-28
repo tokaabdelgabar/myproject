@@ -107,7 +107,6 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
                   </button>
                   <%= link_to root_path, :class => 'navbar-brand' do %><%= image_tag ("home.png"), :size => "50x50", :alt =>"" %><% end %>
-                  
                 </div>
 
                 <div id="navbar" class="navbar-collapse collapse pull-left">
@@ -128,7 +127,9 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                     <li><%= link_to "About Us" %></li>
                     <li><%= link_to "Kontakt", new_message_path %></li>
                   </ul>
+
                 </div> 
+
               </div> <!-- /.container -->
             </div> <!-- /.navbar-main -->
         </nav> 
@@ -140,8 +141,11 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
 <!-- Apps-->
 <div class="container">
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+  <br><br />
+
+  <% flash.each do |key, alert| %>
+    <div role="alert" class="alert alert-<%= key %>"><%= alert %></div>
+  <% end %>
   <%= yield %>
 </div>
 <br><br />
