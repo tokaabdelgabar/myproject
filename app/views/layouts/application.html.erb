@@ -120,7 +120,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                       <ul class="submenu" role="menu">
                         <% Category.all.each do |category| %>
                           <li class="<%= 'active' if params[:category] == category.name %>">
-                            <%= link_to category.name, controller: "categories", action: "show", id: category.id %>
+                           <%= link_to category.name, apps_path(category: category.name), class: "link",  :tabindex=>"0"%>
                           </li>
                         <% end %>
                       </ul>
