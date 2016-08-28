@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<p style="display:none"><b>I18n.locale:</b> 
-<%= I18n.locale %>
-</p>
+<p style="display:none"><b>I18n.locale:</b> <%= I18n.locale %> </p>
 <html>
 <head>
   <title>Zappatory.com - unterstützende App-Verzeichnis</title>
@@ -74,6 +72,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
                             <ul class="list-unstyled list-inline header-contact">
                                 <% if user_signed_in? %>
+                                 <li><%= link_to "My Account", edit_user_registration_path %></li>
                                   <li><%= link_to "Ausloggen", destroy_user_session_path, method: :delete %></li>
                                 <% else %>  
                                   <li><%= link_to "Einloggen", new_user_session_path %></li>
@@ -110,7 +109,6 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
                   </button>
                   <%= link_to root_path, :class => 'navbar-brand' do %><%= image_tag ("home.png"), :size => "50x50", :alt =>"" %><% end %>
-                  
                 </div>
 
                 <div id="navbar" class="navbar-collapse collapse pull-left">
@@ -135,29 +133,24 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                 </div> 
 
               </div> <!-- /.container -->
-              
             </div> <!-- /.navbar-main -->
-
-
         </nav> 
-
     </header> <!-- /. main-header -->
-
 
 <!-- Back to top -->
 <a id="back-to-top" href="#" class="back-to-top" 
   role="button" title="Back to Top" data-toggle="tooltip" data-placement="top" style="cursor: pointer;position: fixed;bottom: 40px;right: 20px;display: inline;z-index: 100;"><%= image_tag("top-button.png", :alt => "Back to top", :size=> "40x40") %></a>
 
-
-
-
 <!-- Apps-->
-<b><h3 class="notice"><%= notice %></h3></b>
-<b><h3 class="alert"><%= alert %></h3></b>
 <div class="container">
+  <br><br />
+
+  <% flash.each do |key, alert| %>
+    <div role="alert" class="alert alert-<%= key %>"><%= alert %></div>
+  <% end %>
   <%= yield %>
 </div>
-
+<br><br />
    <!--  Footer-->
 
     <footer class="main-footer">
@@ -203,8 +196,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
             <div class="container text-left">
                 <p>UNIVERSITY OF MANNHEIM @ copyrights 2016</p>
             </div>
-        </div>
-        
+        </div> 
     </footer>
 <!--  Scripts-->
 

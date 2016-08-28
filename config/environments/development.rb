@@ -44,7 +44,10 @@ Rails.application.configure do
  Paperclip.options[:command_path] = '/c/WINDOWS/system32/convert'
  Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin'
 #images please keep 
+
  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {:address => "localhost", :port => 1025}
   config.action_mailer.default_url_options = { host: 'localhost', port:3000 }
 
  # config.paperclip_defaults = {
