@@ -19,6 +19,9 @@ before_action :find_app, only: [:show, :edit, :update, :destroy, :upvote, :downv
 	end
 
 	def show
+	@app = App.find(params[:id])
+    @reviews = @app.reviews.paginate(page: params[:page], :per_page => 5)
+
 		if @app.reviews.blank?
 			@average_review=0
 		else
