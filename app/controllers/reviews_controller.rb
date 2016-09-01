@@ -2,7 +2,6 @@ class ReviewsController < ApplicationController
 before_action :find_app
 before_action :find_review, only: [:edit, :update, :destroy]
 before_action :authenticate_user!, only: [:new, :edit]
-
 	def new
 		@review=Review.new
 	end
@@ -46,6 +45,7 @@ before_action :authenticate_user!, only: [:new, :edit]
 		def find_review
 			@review=Review.find(params[:id])
 		end
+
 	private
 
 	  def set_page_title
