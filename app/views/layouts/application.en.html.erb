@@ -168,11 +168,15 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
         </div>
       </div> -->
         <!-- End of breadcrumb -->
-
 <!-- Apps-->
 <div class="container">
-<p role="notice" class="notice"><%= notice %></p>
-<p role="alert" class="alert"><%= alert %></p>
+<br><br />
+  <% if notice %>
+  <p role="notice" class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p role="alert" class="alert alert-danger"><%= alert %></p>
+<% end %>
   <%= yield %>
 </div>
 
