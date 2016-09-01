@@ -19,6 +19,13 @@ Rails.application.config.assets.precompile += %w( main.js )
 #Rails.application.config.assets.precompile += %w( breadcrumbs.js )
 Rails.application.config.assets.precompile += %w( backtotop.js )
 
+Rails.application.config.assets.precompile += %w( jquery.etalage.min.js )
+
+Rails.application.config.assets.precompile += %w( jquery.min.js )
+Rails.application.config.assets.precompile += %w( bootstrap2.css )
+Rails.application.config.assets.precompile += %w( etalage.css )
+Rails.application.config.assets.precompile += %w( style2.css )
+
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 
