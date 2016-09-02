@@ -14,7 +14,7 @@
 		</div>
 		<div class="col-md-6 col-xs-6">
 			<h4><%= App.human_attribute_name(:Price) %>: <%= @app.price %>€</h4>
-			<h4><%= App.human_attribute_name(:Type) %>: <%= @app.type %></h4>
+			<h4><%= App.human_attribute_name(:Type) %>: <%= @app.app_type %></h4>
 			<h3 >Average Rating</h3>
 			<div class="average-review-rating" data-score=<%= @average_review %>></div>
 			<span class="number-of-reviews"><h4>Based on&nbsp;<%= @app.reviews.count %>&nbsp;reviews</h4></span>
