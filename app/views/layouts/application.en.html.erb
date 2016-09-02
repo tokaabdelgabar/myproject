@@ -77,7 +77,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                   <ul class="list-unstyled list-inline header-contact">
                           
                           <% if user_signed_in? %>
-                           <li><%= link_to "My Account", edit_user_registration_path %></li>
+                          <li><%= link_to "My Account", edit_user_registration_path %></li>
                             <li><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
                           <% else %>  
                             <li><%= link_to "SIGN IN", new_user_session_path %></li>
@@ -139,6 +139,10 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                     <li><%= link_to "Simple Language", help_path%></li>
                     <li><%= link_to "About Us" %></li>
                     <li><%= link_to "Contact", new_message_path %></li>
+
+                    <% if user_signed_in? && (current_user.admin ==true or current_user.superadmin == true) %>
+                    <li> <%= link_to 'Administration', rails_admin.dashboard_path, method: :get %><li>  
+                         <% end %> 
                     <!-- <li class="has-child">
                       <a href="#">LANGUAGES</a>
                       <ul class="submenu">

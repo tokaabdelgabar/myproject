@@ -2,8 +2,15 @@ RailsAdmin.config do |config|
 
  require 'i18n'
  I18n.default_locale = :de
-  config.main_app_name = ["Cool app", "BackOffice"]
+  config.main_app_name = ["Zappatory "]
 
+  config.current_user_method { current_user }
+  config.main_app_name.push(Rails.env) unless Rails.env == "production"
+
+  #config.audit_with :history, User
+  #config.total_columns_width = 1000
+  #config.compact_show_view = true
+  
   #config.authorize_with do
    # redirect_to main_app.root_path unless warden.user.admin == true
   #end
