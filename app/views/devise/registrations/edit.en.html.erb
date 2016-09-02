@@ -19,7 +19,7 @@
         <%= f.text_field :username, autofocus: true, class:"form-control", placeholder:"Username*" %>
 
       <h4>Date of birth:</h4> 
-      <!-- <input type="date" name="date" class="form-control" placeholder="Last Name*" required> -->
+      <!-- <input type="date" name="date" class="form-control" placeholder="Date of birth*" required> -->
       <%= f.date_field :birthday, autofocus: true, class:"form-control" %>
 
       <h4>Email:</h4> 
@@ -30,17 +30,17 @@
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
-      <h4>Password:</h4><i>(leave blank if you don't want to change it)</i> <% if @minimum_password_length %>
+      <h4>New Password:</h4><i>(leave blank if you don't want to change it)</i> <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %>
       <!-- <input type="password" name="password" class="form-control" placeholder="Password*" required> -->
       <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Password*" %>
 
-      <h4>Confirm Password:</h4> 
+      <h4>Confirm New Password:</h4> 
       <!-- <input type="password_confirmation" name="password_confirmation" class="form-control" placeholder="Confirm Password*" required> -->
       <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Password Confirm*"%>
 
-      <h4>Current Password:</h4><i>(we need your current password to confirm your changes)</i><br /> 
+      <h4>Current Password:**</h4><i>(we need your current password to confirm your changes)</i><br /> 
       <!-- <input type="password" name="password_confirmation" class="form-control" placeholder="Current Password*" required> -->
       <%= f.password_field :current_password, autocomplete: "off", class:"form-control", placeholder:"Password Confirm*" %>
       <br/>

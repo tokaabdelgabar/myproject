@@ -5,9 +5,9 @@
   #link: "http://www.bemyeyes.org/", developer: "someone", 
   #operation: "abc", price: "free", locale: "en")
 User.delete_all
-user1 = User.create!(:id => 1, :email => "admin@abc.com", :password => "12345678", :password_confirmation => "12345678",:username	=> "huihui",:confirmation_token => true, :admin => true,:superadmin => true, :confirmed_at => "2016-08-23 10:15:50", :confirmation_sent_at => "2016-08-23 10:15:40")
+user1 = User.create!(:id => 1, :email => "superadmin@abc.com", :password => "12345678", :password_confirmation => "12345678",:username	=> "huihui",:confirmation_token => true, :superadmin => true, :confirmed_at => "2016-08-23 10:15:50", :confirmation_sent_at => "2016-08-23 10:15:40")
 user1.save!
-user2 = User.create!(:id => 2, :email => "huihui@abc.com", :password => "12345678", :password_confirmation => "12345678",:username  => "xiaohui")
+user2 = User.create!(:id => 2, :email => "admin@abc.com", :password => "12345678", :password_confirmation => "12345678",:username  => "xiaohui", :admin => true)
 user3 = User.create!(:id => 3, :email => "abc@huihui.com", :password => "12345678", :password_confirmation => "12345678",:username  => "ahhui")
 
 Category.delete_all

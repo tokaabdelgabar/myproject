@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 	has_many :apps
 	has_many :reviews, :through => :apps
+
+	#ROLES = %i[admin moderator author banned]
 	#attr_accessible :roles
 
 	# Include default devise modules. Others available are:

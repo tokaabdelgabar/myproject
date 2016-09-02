@@ -30,17 +30,17 @@
       <div>Warte auf Bestätigung: <%= resource.unconfirmed_email %></div>
       <% end %>
 
-      <h4>Passwort:</h4><i>(Lassen Sie das Feld leer, falls sie es nicht ändern möchten.)</i> <% if @minimum_password_length %>
+      <h4>New Passwort:</h4><i>(Lassen Sie das Feld leer, falls sie es nicht ändern möchten.)</i> <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %>
       <!-- <input type="password" name="password" class="form-control" placeholder="Password*" required> -->
       <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"*Password*" %>
 
-      <h4>Passwort wiederholen:</h4> 
+      <h4>New Passwort wiederholen:</h4> 
       <!-- <input type="password_confirmation" name="password_confirmation" class="form-control" placeholder="Confirm Password*" required> -->
       <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"*Passwort wiederholen*"%>
 
-      <h4>Aktuelles Passwort:</h4><i>(Ihr aktuelles Passwort ist nötig um Änderungen zu machen)</i><br /> 
+      <h4>Aktuelles Passwort:**</h4><i>(Ihr aktuelles Passwort ist nötig um Änderungen zu machen)</i><br /> 
       <!-- <input type="password" name="password_confirmation" class="form-control" placeholder="Current Password*" required> -->
       <%= f.password_field :current_password, autocomplete: "off", class:"form-control", placeholder:"Aktuelles Passwort*" %>
       <br /> 
