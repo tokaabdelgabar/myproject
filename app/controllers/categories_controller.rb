@@ -17,18 +17,28 @@ class CategoriesController < ApplicationController
 			@lang=App.joins(:apptranslations)
 			.where(:category_id => params[:id])
 			.merge(Apptranslation.where(:language_id=> params[:language_id]))
-		#elsif params[:operatingsystem_id].present?
+
 		#filter OS
 			@os=App.joins(:operations)
 			.where(:category_id => params[:id])
 			.merge(Operation.where(:operatingsystem_id => params[:operatingsystem_id]) )
-		#else
+
+		#display Product
 			@products = @search
 			.result
 			.joins(:reviews)
 			.select("apps.*, avg(reviews.rating) as average, count(*) as total")
 			.group("apps.id")
 			.where(:category_id => params[:id])
+
+		#free
+			@free=@search
+			.result
+			.joins(:reviews)
+			.select("apps.*, avg(reviews.rating) as average, count(*) as total")
+			.group("apps.id")
+			.where(:category_id => params[:id])
+			.where(:price => 0)
 	#end
 end
 
