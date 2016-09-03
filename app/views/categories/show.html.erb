@@ -42,11 +42,11 @@
 <% end %>
 </br>
 
+<% if @free_app.present? %>
 <%= label_tag "Free" %>
-<% @free.each do |product| %>
-<li><%= link_to product.price, "Free", controller: "categories", action: "show", id: @category.id %></li>
-<% end %>
+<li><%= link_to "Free", controller: "categories", action: "show", id: @category.id, price: '0' %></li>
 </br>
+<% end %>
 
 
 <% unless @lang.present? || @os.present? || @free.present? %>

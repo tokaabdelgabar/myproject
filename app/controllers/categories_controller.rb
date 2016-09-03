@@ -32,14 +32,14 @@ class CategoriesController < ApplicationController
 			.where(:category_id => params[:id])
 
 		#free
-			@free=@search
-			.result
-			.joins(:reviews)
-			.select("apps.*, avg(reviews.rating) as average, count(*) as total")
-			.group("apps.id")
+			@free=App
 			.where(:category_id => params[:id])
-			.where(:price => 0)
-	#end
+			.where(:price => params[:price])
+
+		#redundant, refactor later
+			@free_app=App
+			.where(:category_id => params[:id])
+			.where(:price => '0')
 end
 
 def create
