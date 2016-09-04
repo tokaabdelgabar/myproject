@@ -79,12 +79,11 @@
 
                   | 
                   <li>HighContrast:
-                    <a href="#" onclick="body.style.backgroundColor='black'"><%= image_tag("Black.png",:size => "20x20")%></a>
-                    <a href="#" onclick="body.style.backgroundColor='White'"><%= image_tag("White.png",:size => "18x18")%></a>
-                    Schriftgröße: <a id="zoom_reset"><%= image_tag("zoom out.png",:size =>"30x30")%></a>
-                    <a id="zoom_in"><%= image_tag("zoom in.png",:size => "30x30")%> </a></li>
-
-                    <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "40x25"),set_language_english_path%> <%= link_to_unless I18n.locale == :de, image_tag("German.png",:size => "40x25"),set_language_german_path %></li>
+                    <a href="#" onclick="body.style.backgroundColor='black'"><%= image_tag("Black.png",:size => "20x20",:alt =>"convert backgroundColor to balck")%></a>
+                    <a href="#" onclick="body.style.backgroundColor='White'"><%= image_tag("White.png",:size => "18x18",:alt =>"convert backgroundColor to white")%></a>
+                    Schriftgröße: <a id="zoom_reset"><%= image_tag("zoom out.png",:size =>"30x30",:alt =>"make the page bigger")%></a>
+                    <a id="zoom_in"><%= image_tag("zoom in.png",:size => "30x30",:alt =>"return the page to normal size")%> </a></li>
+                    <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "40x25",:alt =>"Show page in English"),set_language_english_path%> <%= link_to_unless I18n.locale == :de, image_tag("German.png",:size => "40x25",:alt =>"Show page in German"),set_language_german_path %></li>
                     <li></li>
                   </ul> <!-- /.header-social  -->
                 </div>
@@ -106,7 +105,7 @@
                 <span class="icon-bar"></span>
 
               </button>
-              <%= link_to root_path, :class => 'navbar-brand' do %><%= image_tag ("home.png"), :size => "50x50", :alt =>"" %><% end %>
+              <%= link_to root_path, :class => 'navbar-brand' do %><%= image_tag ("home.png"), :size => "50x50", :alt =>"Go to Homepage" %><% end %>
             </div>
 
             <div id="navbar" class="navbar-collapse collapse pull-left">

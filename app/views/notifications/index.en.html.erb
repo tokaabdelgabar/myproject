@@ -18,7 +18,7 @@
 			<p><h4><%= notification.content%></h4></p>
 		</div>
 		<div class="col-md-3 news" style="  padding-top:40px;">
-			<%= image_tag notification.image.url(:notification_index), class:"news" %>
+			<%= image_tag notification.image.url(:notification_index), class:"news",:alt => "Notification" %>
 		</div>
 		<p class="col-md-12" style="padding-bottom:10px;"><a href="" class="news">Read the whole story</a></p>
 	</div><br />
