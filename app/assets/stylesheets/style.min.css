@@ -33,12 +33,10 @@ a:hover, a:focus, a:active {
 ========================================================================== */
 .news a{
   padding-bottom:10px;
+  color: #9E9E9E;
 }
 .news img{
   height: 150px; width: 150px; border: 1px solid #9E9E9E; padding:1px;
-}
-.news a:hover{
-  color: #01B6AD;
 }
 .news{
   background:#fff; border-radius: 5px;
@@ -48,6 +46,12 @@ a:hover, a:focus, a:active {
 }
 .news h5{
   color: #9E9E9E;
+}
+/* =============================================================================
+  Contact
+========================================================================== */
+.contact{
+  background:#fff; border-radius: 5px;
 }
 /* =============================================================================
   Layout

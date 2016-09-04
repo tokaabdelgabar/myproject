@@ -26,8 +26,11 @@
     <div class="container">
 
       <div class="row">
+        <div class="col-md-3">
+          
+        </div>
 
-        <div class="col-md-7 col-sm-12 col-form">
+        <div class="col-md-6 col-sm-12 col-form contact">
 
           <h2 class="title-style-2">SEND US AN EMAIL<span class="title-under"></span></h2>
 
@@ -39,20 +42,21 @@
               <label><h4>Username:</h4></label>
                 <!-- <input type="text" name="name" class="form-control" placeholder="Name*" required> -->
                 
-                
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user blue"></i></span>
                 <%= f.text_field :name,:value=> current_user.username, :readonly=>true, class:"form-control" %>
               </div>
 
               <div class="form-group col-md-12">
               <label><h4>Email:</h4></label>
                 <!-- <input type="email" name="email" class="form-control" placeholder="E-mail*" required> -->
-                
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope blue"></i></span>
                 <%= f.text_field :email,:value=> current_user.email, :readonly=>true, class:"form-control" %>
               </div>
 
               <div class="form-group col-md-12">
               <label><h4>Subject:</h4></label>
                 <!-- <input type="email" name="email" class="form-control" placeholder="E-mail*" required> -->
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope blue"></i></span>
                 <%= f.text_field :subject, class:"form-control", placeholder:"Subject*" %>
               </div>
               
@@ -85,24 +89,10 @@
 
 
         </div>
-
-        <!-- <div class="col-md-4 col-md-offset-1 col-contact">
-
-          <h2 class="title-style-2">GET IN TOUCH<span class="title-under"></span></h2>
+        <div class="col-md-3">
           
-          <p>Visit us at our office</p>
+        </div>
 
-          <div class="contact-items">
-
-            <ul class="list-unstyled contact-items-list">
-              <li class="contact-item"> <span class="contact-icon"> <i class="fa fa-map-marker"></i></span>AbilIT</li>
-              <li class="contact-item"> <span class="contact-icon"> <i class="fa fa-phone"></i></span>Phone Number</li>
-
-              <li class="contact-item"> <span class="contact-icon"> <i class="fa fa-envelope"></i></span> contact@ability.net</li>
-            </ul>
-          </div>
-
-        </div> -->
 
       </div> 
 
@@ -115,11 +105,14 @@
   <% else %>
     <div class="main-container fadeIn animated">
 
-    <div class="container">
+    <div class="container contact">
 
       <div class="row">
+      <div class="col-md-3">
+        
+      </div>
 
-        <div class="col-md-7 col-sm-12 col-form">
+        <div class="col-md-6 col-sm-12 col-form"">
 
           <h2 class="title-style-2">SEND US AN EMAIL<span class="title-under"></span></h2>
 
@@ -131,20 +124,21 @@
               <label><h4>Name:</h4></label>
                 <!-- <input type="text" name="name" class="form-control" placeholder="Name*" required> -->
                 
-                
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user blue"></i></span>
                 <%= f.text_field :name, class:"form-control", placeholder:"Name*" %>
               </div>
 
               <div class="form-group col-md-12">
               <label><h4>Email:</h4></label>
                 <!-- <input type="email" name="email" class="form-control" placeholder="E-mail*" required> -->
-                
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope blue"></i></span>
                 <%= f.text_field :email, class:"form-control", placeholder:"Email*" %>
               </div>
 
               <div class="form-group col-md-12">
               <label><h4>Subject:</h4></label>
                 <!-- <input type="email" name="email" class="form-control" placeholder="E-mail*" required> -->
+                <span class="input-group-addon"><i class="glyphicon glyphicon-phone blue"></i></span>
                 <%= f.text_field :subject, class:"form-control", placeholder:"Subject*" %>
               </div>
               
@@ -153,6 +147,7 @@
             <div class="form-group">
             <label><h4>Message:</h4></label>
               <!-- <textarea name="message" rows="5" class="form-control" placeholder="Message*" required></textarea> -->
+              <span class="input-group-addon"><i class="glyphicon glyphicon-comment blue"></i></span
               <%= f.text_area :content, class:"form-control", placeholder:"Content*" %>
             </div>
 
@@ -169,7 +164,7 @@
             </div>  
 
             <div class="form-group">
-              <%= f.submit 'Send email', class: 'btn btn-primary pull-right' %>
+              <%= f.submit 'Send email', class: 'btn btn-primary pull-right' %><span class="glyphicon glyphicon-send"></span></button>
             </div>
 
             <div class="clearfix"></div>
@@ -177,6 +172,7 @@
 
 
         </div>
+        <div class="col-md-3"></div>
 
       </div> 
 
