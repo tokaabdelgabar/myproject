@@ -64,24 +64,24 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
           <div class="navbar-top">
             <div class="container">
               <div class="row">
-                <div class="col-sm-2 col-xs-2"></div>
-                <div class="col-sm-4 col-xs-4 text-center">
+                <!-- <div class="col-sm-2 col-xs-2"></div> -->
+                <!-- <div class="col-sm-4 col-xs-4 text-center">
                             <ul class="list-unstyled list-inline header-contact">
                                <li><%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", role: "search" do %></li>
                                <li><%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Searchfield" %></li>
                                <li><%= submit_tag "SEARCH", name: nil, class: "btn btn-default" %></li>
                             <% end %>
-                           </ul> <!-- /.header-social  -->
-                    </div>
-                <div class="col-sm-6 col-xs-12 text-right">
+                           </ul> --><!-- /.header-social  -->
+                    </div> 
+                <div class="col-sm-12 col-xs-12 text-right">
                   <ul class="list-unstyled list-inline header-contact">
                           
                           <% if user_signed_in? %>
                           <li><%= link_to "My Account", edit_user_registration_path %></li>
-                            <li><%= link_to "SIGN OUT", destroy_user_session_path, method: :delete %></li>
+                            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
                           <% else %>  
-                            <li><%= link_to "SIGN IN", new_user_session_path %></li>
-                            <li><%= link_to "SIGN UP", new_user_registration_path %></li>
+                            <li><%= link_to "Sign In", new_user_session_path %></li>
+                            <li><%= link_to "Sign Up", new_user_registration_path %></li>
                           <% end %>
                           
                            | 
@@ -153,6 +153,19 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                     <!--  -->
                   </ul>
                 </div> 
+                <div class="navbar-collapse collapse pull-right" role="searchbar">
+                  <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", :style =>"padding-top:12px", role: "search" do %>
+                   <div class="input-group">
+                       <!-- <input type="Search" placeholder="Search..." class="form-control" /> -->
+                       <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Search..." %>
+                       <div class="input-group-btn">
+                           <button class="btn btn-info">
+                           <span class="glyphicon glyphicon-search"></span>
+                           </button>
+                       </div>
+                   </div>
+                <% end %> 
+                </div>
 
               </div> <!-- /.container -->
               

@@ -18,7 +18,7 @@ Rails.application.config.assets.precompile += %w( owl.carousel.min.js )
 Rails.application.config.assets.precompile += %w( main.js )
 #Rails.application.config.assets.precompile += %w( breadcrumbs.js )
 Rails.application.config.assets.precompile += %w( backtotop.js )
-
+#Rails.application.config.assets.precompile += %w( superfish.js )
 Rails.application.config.assets.precompile += %w( jquery.etalage.min.js )
 
 Rails.application.config.assets.precompile += %w( jquery.min.js )
