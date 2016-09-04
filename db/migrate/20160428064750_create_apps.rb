@@ -7,7 +7,7 @@ class CreateApps < ActiveRecord::Migration
       t.string :developer
       t.string :operation
       t.string :price
-
+      t.string :youtubeLink
       t.timestamps null: false
     end
   end

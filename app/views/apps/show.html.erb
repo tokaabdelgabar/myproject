@@ -47,7 +47,10 @@
 			<% else %>
 			<%= link_to "Add Review", new_app_review_path(@app), id: 'new_review', class: 'btn btn-primary pull-left' %>
 			<%= link_to "Back", root_path, class: 'btn btn-primary pull-right' %>
-			<% end %>
+			<% end %> 
+			<% unless @app.youtube_link.blank? %>
+		 	<%= raw(youtube_embed(@app.youtube_link))%>
+		 	<%end%>
     	</div>	
 	</div>	
 </div> <!-- /.row -->
