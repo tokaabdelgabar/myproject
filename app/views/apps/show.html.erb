@@ -60,22 +60,23 @@
 	<div class="col-md-6 col-sm-6">
 		<div class="col-md-3 col-sm-3">
 			<div class="thumnail">
-				<%= image_tag @app.image1.url(:app_show), class: "img-responsive",:size => "150x150",alt: "It is a Image" %>
+				<%= image_tag @app.image1.url(:app_show), class: "img-responsive",:size => "150x150",
+				 :alt=> @app.image1_alt %>
 			</div>
 		</div>
 		<div class="col-md-3 col-sm-3">
 				<div class="thumnail">
-					<%= image_tag @app.image2.url(:app_show), class: "img-responsive",:size => "150x150" %>
+					<%= image_tag @app.image2.url(:app_show), class: "img-responsive",:size => "150x150",:alt=> @app.image2_alt %>
 				</div>
 		</div>
 		<div class="col-md-3 col-sm-3">
 				<div class="thumnail">
-					<%= image_tag @app.image3.url(:app_show), class: "img-responsive",:size => "150x150" %>
+					<%= image_tag @app.image3.url(:app_show), class: "img-responsive",:size => "150x150", :alt=> @app.image3_alt%>
 				</div>
 		</div>
 		<div class="col-md-3 col-sm-3">
 				<div class="thumnail">
-					<%= image_tag @app.image4.url(:app_show), class: "img-responsive",:size => "150x150" %>
+					<%= image_tag @app.image4.url(:app_show), class: "img-responsive",:size => "150x150", :alt=> @app.image4_alt %>
 				</div>
 		</div>
 	</div>

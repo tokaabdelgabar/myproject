@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160904124723) do
+ActiveRecord::Schema.define(version: 20160904141347) do
 
   create_table "app_translations", force: :cascade do |t|
     t.integer  "app_id",      null: false
