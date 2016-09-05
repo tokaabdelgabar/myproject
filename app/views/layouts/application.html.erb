@@ -57,16 +57,16 @@
            <div class="navbar-top">
             <div class="container">
               <div class="row">
-                <div class="col-sm-6 col-xs-6 text-left">
+                <!-- <div class="col-sm-6 col-xs-6 text-left">
 
                   <ul class="list-unstyled list-inline header-contact">
                    <li><%= form_tag apps_path, :method => 'get', class: "navbar-form navbar-right" do %></li>
                    <li><%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Searchfield", size: "18" %></li>
                    <li><%= submit_tag "Search", name: nil, class: "btn btn-default" %></li>
                   <% end %>
-                </ul> <!-- /.header-social  -->
-              </div>
-              <div class="col-sm-6 col-xs-12 text-right">
+                </ul> 
+              </div> -->
+              <div class="col-sm-12 col-xs-12 text-right">
 
                 <ul class="list-unstyled list-inline header-contact">
                   <% if user_signed_in? %>
@@ -128,6 +128,19 @@
              </ul>
 
            </div> 
+           <div class="navbar-collapse collapse pull-right" role="searchbar">
+                  <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", :style =>"padding-top:12px", role: "search" do %>
+                   <div class="input-group">
+                       <!-- <input type="Search" placeholder="Search..." class="form-control" /> -->
+                       <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Search..." %>
+                       <div class="input-group-btn">
+                           <button class="btn btn-info">
+                           <span class="glyphicon glyphicon-search"></span>
+                           </button>
+                       </div>
+                   </div>
+                <% end %> 
+                </div>
 
          </div> <!-- /.container -->
        </div> <!-- /.navbar-main -->
