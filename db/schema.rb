@@ -24,8 +24,51 @@ ActiveRecord::Schema.define(version: 20160904141347) do
   add_index "app_translations", ["app_id"], name: "index_app_translations_on_app_id"
   add_index "app_translations", ["locale"], name: "index_app_translations_on_locale"
 
-# Could not dump table "apps" because of following NoMethodError
-#   undefined method `[]' for nil:NilClass
+  create_table "apps", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "developer"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.string   "app_img_file_name"
+    t.string   "app_img_content_type"
+    t.integer  "app_img_file_size"
+    t.datetime "app_img_updated_at"
+    t.decimal  "price_pro"
+    t.string   "image1_file_name"
+    t.string   "image1_content_type"
+    t.integer  "image1_file_size"
+    t.datetime "image1_updated_at"
+    t.string   "image2_file_name"
+    t.string   "image2_content_type"
+    t.integer  "image2_file_size"
+    t.datetime "image2_updated_at"
+    t.string   "image3_file_name"
+    t.string   "image3_content_type"
+    t.integer  "image3_file_size"
+    t.datetime "image3_updated_at"
+    t.string   "image4_file_name"
+    t.string   "image4_content_type"
+    t.integer  "image4_file_size"
+    t.datetime "image4_updated_at"
+    t.string   "image5_file_name"
+    t.string   "image5_content_type"
+    t.integer  "image5_file_size"
+    t.datetime "image5_updated_at"
+    t.decimal  "price"
+    t.decimal  "size"
+    t.string   "app_type"
+    t.string   "youtube_link"
+    t.string   "image1_alt"
+    t.string   "image2_alt"
+    t.string   "image3_alt"
+    t.string   "image4_alt"
+    t.string   "image5_alt"
+    t.string   "app_img_alt"
+    t.string   "youtube_alt"
+  end
 
   create_table "apptranslations", force: :cascade do |t|
     t.integer  "app_id"
