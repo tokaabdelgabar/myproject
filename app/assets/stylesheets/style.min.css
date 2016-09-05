@@ -66,7 +66,7 @@ a:hover, a:focus, a:active {
   color:#01B6AD;
 }
 .disclaimer{
-  border-bottom: 1px solid #9E9E9E;
+  padding-bottom: 15px;
 }
 /* =============================================================================
   Layout

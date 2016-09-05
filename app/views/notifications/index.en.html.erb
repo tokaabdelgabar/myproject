@@ -13,8 +13,14 @@
 	
 </head>
 <body>
+<div class="row">
+	
+		<h2 class="title-style-2" style="padding-left:29px;">News<span class="title-under"></span></h2>
+
+</div><br />
 <% @notifications.each do |notification| %>
 <div class="row">
+	
 	<div class="col-md-12 news" style="background:#fff; border-radius: 5px;">
 		<div class="col-md-9">
 			<p><h2 class="news"><%= notification.title%></h2></p>
