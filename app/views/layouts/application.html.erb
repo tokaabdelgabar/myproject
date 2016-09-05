@@ -70,7 +70,7 @@
 
                 <ul class="list-unstyled list-inline header-contact">
                   <% if user_signed_in? %>
-                  <li><%= link_to "My Account", edit_user_registration_path %></li>
+                  <li><%= link_to "Mein Konto", edit_user_registration_path %></li>
                   <li><%= link_to "Ausloggen", destroy_user_session_path, method: :delete %></li>
                   <% else %>  
                   <li><%= link_to "Einloggen", new_user_session_path %></li>
@@ -121,9 +121,9 @@
                    <% end %>
                  </ul>
                </li>
-               <li><%= link_to 'News', notification_path %></li>
+               <li><%= link_to 'Neuigkeiten', notification_path %></li>
                <li><%= link_to "Leichte Sprache", help_path %></li>
-               <li><%= link_to "About Us" %></li>
+               <li><%= link_to "Über uns" %></li>
                <li><%= link_to "Kontakt", new_message_path %></li>
              </ul>
 
@@ -206,7 +206,7 @@
       <div class="footer-bottom">
 
         <div class="container text-left">
-          <p>UNIVERSITY OF MANNHEIM @ copyrights 2016</p>
+          <p>Copyright @ Universität Mannheim 2016</p>
         </div>
       </div> 
     </footer>

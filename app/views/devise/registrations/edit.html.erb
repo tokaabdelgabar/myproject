@@ -14,44 +14,44 @@
       <!-- <input type="text" name="name" class="form-control" placeholder="Last Name*" required> -->
       <%= f.text_field :last_name, autofocus: true, class:"form-control", placeholder:"Nachname*" %>
 
-      <h4>Username:</h4>
+      <h4>Benutzername:</h4>
       <!-- <input type="text" name="name" class="form-control" placeholder="Username*" required> -->
-      <%= f.text_field :username, autofocus: true, class:"form-control", placeholder:"Username*" %>
+      <%= f.text_field :username, autofocus: true, class:"form-control", placeholder:"Benutzername*" %>
 
       <h4>Geburtsdatum:</h4> 
       <!-- <input type="date" name="date" class="form-control" placeholder="Last Name*" required> -->
       <%= f.date_field :birthday, autofocus: true, class:"form-control", placeholder:"Geburtsdatum*" %>
 
-      <h4>E.mail:</h4> 
+      <h4>E-Mail-Adresse:</h4> 
       <!-- <input type="email" name="email" class="form-control" placeholder="Email*" required> -->
-      <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"E.mail*" %>
+      <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"E-Mail-Adresse*" %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Warte auf Bestätigung: <%= resource.unconfirmed_email %></div>
       <% end %>
 
-      <h4>New Passwort:</h4><i>(Lassen Sie das Feld leer, falls sie es nicht ändern möchten.)</i> <% if @minimum_password_length %>
+      <h4>Neues Passwort:</h4><i>(Lassen Sie das Feld leer, falls sie das Passwort nicht ändern möchten.)</i> <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %>
       <!-- <input type="password" name="password" class="form-control" placeholder="Password*" required> -->
-      <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"*Password*" %>
+      <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Passwort*" %>
 
       <h4>New Passwort wiederholen:</h4> 
       <!-- <input type="password_confirmation" name="password_confirmation" class="form-control" placeholder="Confirm Password*" required> -->
-      <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"*Passwort wiederholen*"%>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Passwort wiederholen*"%>
 
-      <h4>Aktuelles Passwort:**</h4><i>(Ihr aktuelles Passwort ist nötig um Änderungen zu machen)</i><br /> 
+      <h4>Aktuelles Passwort:**</h4><i>(Ihr aktuelles Passwort ist nötig um Änderungen zu machen.)</i><br /> 
       <!-- <input type="password" name="password_confirmation" class="form-control" placeholder="Current Password*" required> -->
       <%= f.password_field :current_password, autocomplete: "off", class:"form-control", placeholder:"Aktuelles Passwort*" %>
       <br /> 
 
       <div class="form-group">
-      <%= f.submit 'Update', class: 'btn btn-primary pull-left' %>
+      <%= f.submit 'Konto aktualisieren', class: 'btn btn-primary pull-left' %>
       <% end %>
       </div>
     </div>
 
-<h3>Meinen Account löschen</h3>
-<p><h3>Unzufrieden?</h3> <%= button_to "Meinen Account Löschen", registration_path(resource_name), data: { confirm: "Sind Sie sicher?" }, method: :delete %></p>
+<h3>Mein Konto löschen</h3>
+<p><h3>Sie sind nicht zufrieden?</h3> <%= button_to "Mein Konto löschen", registration_path(resource_name), data: { confirm: "Sind Sie sicher?" }, method: :delete %></p>
 <%= link_to "Zurück", :back %>
 </div>
