@@ -61,8 +61,8 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
                             <ul class="list-unstyled list-inline header-contact">
                                <li><%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", role: "search" do %></li>
-                               <li><%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Searchfield", size: "18" %></li>
-                               <li><%= submit_tag "SEARCH", name: nil, class: "btn btn-default" %></li>
+                               <li><%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Eine App Suchen", size: "18" %></li>
+                               <li><%= submit_tag "Suchen", name: nil, class: "btn btn-default" %></li>
                      
                             <% end %>
                            </ul> <!-- /.header-social  -->
@@ -71,7 +71,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
 
                             <ul class="list-unstyled list-inline header-contact">
                                 <% if user_signed_in? %>
-                                 <li><%= link_to "My Account", edit_user_registration_path %></li>
+                                 <li><%= link_to "Mein Konto", edit_user_registration_path %></li>
                                   <li><%= link_to "Ausloggen", destroy_user_session_path, method: :delete %></li>
                                 <% else %>  
                                   <li><%= link_to "Einloggen", new_user_session_path %></li>
@@ -79,7 +79,7 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                                 <% end %>
                                 
                                  | 
-                                <li>HighContrast:
+                                <li>Hoher Kontrast
                             <a href="#" onclick="body.style.backgroundColor='black'"><%= image_tag("Black.png",:size => "20x20")%></a>
                           <a href="#" onclick="body.style.backgroundColor='White'"><%= image_tag("White.png",:size => "18x18")%></a>
                                 Schriftgröße: <a id="zoom_reset"><%= image_tag("zoom out.png",:size =>"30x30")%></a>
@@ -123,9 +123,9 @@ type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
                         <% end %>
                       </ul>
                     </li>
-                    <li><%= link_to 'News', notification_path %></li>
+                    <li><%= link_to "Neuigkeiten", notification_path %></li>
                     <li><%= link_to "Leichte Sprache", help_path %></li>
-                    <li><%= link_to "About Us" %></li>
+                    <li><%= link_to "Über uns" %></li>
                     <li><%= link_to "Kontakt", new_message_path %></li>
                   </ul>
 

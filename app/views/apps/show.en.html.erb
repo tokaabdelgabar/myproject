@@ -48,11 +48,13 @@
 		</h4>
 		
 		<div class="form-group col-md-6">
+			<% if user_signed_in? %>
 			<% if Review.where(user_id: current_user.id, app_id: @app.id).count > 0 %>
 			<%= link_to "Back", root_path, class: 'btn btn-primary pull-right' %>
 			<% else %>
 			<%= link_to "Add Review", new_app_review_path(@app), id: 'new_review', class: 'btn btn-primary pull-left' %>
 			<%= link_to "Back", root_path, class: 'btn btn-primary pull-right' %>
+			<% end %>
 			<% end %>
     	</div>
 	</div>
