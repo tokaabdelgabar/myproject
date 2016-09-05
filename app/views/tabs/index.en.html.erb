@@ -1,24 +1,28 @@
 <!DOCTYPE html>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <html>
 <head>
   <title>Disclaimer</title>
 </head>
 <body>
-<h2>English Version</h2>
+<div class="row" style="background:#fff; border-radius: 5px;">
+  <p><h2 style="padding-left:10px">Disclaimer</h2></p>
 
 
-<% @disclaimers_list.each do |disclaimer| %>
-  
-  <% @tabs.each do |tab| %>
-
-    <% if tab.disclaimer_id == disclaimer.id  %>
-    <h2 class="title-style-2"><%= tab.name %></h2>
-    <p><h4><%= tab.paragraph1 %></h4></p>
-    <p><h4><%= tab.paragraph2 %></h4></p>
-    <p><h4><%= tab.paragraph3 %></h4></p>
-    <p><h4><%= tab.paragraph4 %></h4></p>
-    <% end %>
+  <% @disclaimers_list.each do |disclaimer| %>
+    <div class="col-md-12 disclaimer">  
+      <% @tabs.each do |tab| %>
+        <% if tab.disclaimer_id == disclaimer.id  %>
+        <p><h3 style="color:#01B6AD;"><%= tab.name %></h3></p>
+        <p><h4><%= tab.paragraph1 %></h4></p>
+        <p><h4><%= tab.paragraph2 %></h4></p>
+        <p><h4><%= tab.paragraph3 %></h4></p>
+        <p><h4><%= tab.paragraph4 %></h4></p>
+        <% end %>
+      <% end %>
+    </div><br />
   <% end %>
-<% end %>
+</div><br />
 </body>
 </html>
