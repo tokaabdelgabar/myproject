@@ -12,7 +12,7 @@
 	<% end %>
 </section>
 
-<%= link_to "All Apps", categories_path(@category.name) %> 
+<%= link_to "All Apps", controller: "categories", action: "show", category_id: @category.id %> 
 <br></br>
 
 <%= label_tag "Type of Sort" %>
@@ -27,19 +27,16 @@
 </br>
 
 <%= label_tag "Type of Filter -> Operating Systems" %>
-<% @products.each do |product| %>
-<% product.operatingsystems.each do |operation| %>
-<li><%= link_to operation.name, controller: "categories", action: "show", id: @category.id, operatingsystem_id: operation.id  %></li>
-<% end %>
-<% end %>
+<li><%= link_to "Andriod", controller: "categories", action: "show", operatingsystem_id: 1  %></li>
+<li><%= link_to "IOS", controller: "categories", action: "show", operatingsystem_id: 2  %></li>
+<li><%= link_to "Windows", controller: "categories", action: "show", operatingsystem_id: 3  %></li>
 </br>
 
 <%= label_tag "Type of Filter -> Language" %>
-<% @products.each do |product| %>
-<% product.languages.each do |lang| %>
-<li><%= link_to lang.name, controller: "categories", action: "show", id: @category.id, language_id: lang.id %></li>
-<% end %>
-<% end %>
+
+<li><%= link_to "German", controller: "categories", action: "show",language_id: 1 %></li>
+<li><%= link_to "English", controller: "categories", action: "show",language_id: 2 %></li>
+
 </br>
 
 <% if @free_app.present? %>
