@@ -1,77 +1,150 @@
 <!DOCTYPE html>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<html>
 <head>
-	<title></title>
+	<title><%= h @page_title %></title>
+	<%= stylesheet_link_tag    'bootstrap-image-gallery.min', media: 'all', 'data-turbolinks-track' => true %>      
+	<%= javascript_include_tag 'bootstrap-image-gallery.min', 'data-turbolinks-track' => true %>
+	<link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+	<%= javascript_include_tag 'jquery-image-gallery.min', 'data-turbolinks-track' => true %>
 </head>
 <body>
-<% if params[:category].blank? && params[:search].blank? %>
-	<% @categories_list.each do |category| %>
-	<div class="our-team">
-		<div class="container">
-			<h2 class="title-style-2"><%= category.name %><span class="title-under"></span></h2>
+<div class="main" >
+	<div class="container">
+		<div class="col-md-12">
+			<h2 class="title-style-2"><%= App.human_attribute_name(:App_Name) %>: <%= @app.name %><span class="title-under"></span></h2>
+		</div>
+
+		<div class="col-md-5 form-group" style="background:#fff; border-radius: 5px; margin-left:-5px; float: left;">
 			<div class="row">
-				<% @apps_all.each do |apps| %>
-				<% if apps.category_id == category.id  %>
-				<div class="col-md-2 col-sm-2">
-					<div class="team-member">
-						<div class="thumnail">
-							<a href="/apps/<%= apps.id %>"><%= image_tag apps.app_img.url(:app_index) %></a>
-						</div>
-						<p><%= link_to apps.name, app_path(apps) %></p>
-						<p class="app-name"><%= apps.price %>€</p>
-						<a href="/apps/<%= apps.id %>">
-							<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div> 
-						</a>
-					</div><br></br>
+				<div class="app-logo">
+				<%= image_tag @app.app_img.url(:app_show), class: "img-responsive" %>
 				</div>
-				<% end %>
-				<% end %>
-				<div>
-					<h4 style="padding-top: 30px"><%= link_to "See More Apps...", controller: "categories", action: "show", id: category.id %></h4>
+			</div><br>
+			<div class="row" style="margin-left:3px;">
+				<p>This is for the gallery</p>
+				<div id="links">
+				    <a href="<%= @app.image1.url(:app_show) %>" data-gallery>
+				        <%= image_tag @app.image1.url(:app_show), alt: "Image gallery", class: "gallery" %>
+				    </a>				    
+				    <a href="<%= @app.image2.url(:app_show) %>" data-gallery>
+				        <%= image_tag @app.image2.url(:app_show), alt: "Image gallery", class: "gallery" %>
+				    </a>				  				    
+				    <a href="<%= @app.image3.url(:app_show) %>" data-gallery>
+				        <%= image_tag @app.image3.url(:app_show), alt: "Image gallery", class: "gallery" %>
+				    </a>
+				    <a href="<%= @app.image4.url(:app_show) %>" data-gallery>
+				        <%= image_tag @app.image4.url(:app_show), alt: "Image gallery", class: "gallery" %>
+				    </a>
+				    <a href="<%= @app.image5.url(:app_show) %>" data-gallery>
+				        <%= image_tag @app.image5.url(:app_show), alt: "Image gallery", class: "gallery" %>
+				    </a>				    
 				</div>
-			</div>
-			
+			</div><br>
+			<div class="row" style="margin-left:3px;">
+				<p>This is for embeded video</p>
+				<% unless @app.youtube_link.blank? %>
+			 	<%= raw(youtube_embed(@app.youtube_link))%>
+			 	<% end %>
+			 	<div class="embed-responsive embed-responsive-16by9" style="margin-right:20px">
+                    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/zpOULjyy-n8?rel=0"></iframe>
+                </div>
+			</div><br>
+		</div>
+		<div class="col-md-7 form-group" style="float:right; margin-right: -5px;">
+			<div class="col-md-12" style="background:#fff; border-radius: 5px">
+				<div class="row" style="margin-left:3px;margin-right:3px">
+					<h4>By <%= App.human_attribute_name(:Developer)%>: <%= @app.developer %></h4>			
+					<p><div class="average-review-rating" data-score=<%= @average_review %>></div><h4>Based on&nbsp;<%= @app.reviews.count %>&nbsp;reviews</h4></p>						
+					<h4><%= App.human_attribute_name(:Price) %>: <%= @app.price %>€</h4>				
+				</div><br>
+				<div class="row" style="border-top:1px solid #9E9E9E; margin-left:3px;margin-right:3px">
+					<p style="padding-left:15px;"><h4><%= App.human_attribute_name(:Description) %>: <%= @app.description %></h4></p>
+				</div><br>
+				<div class="row" style="border-top:1px solid #9E9E9E;margin-left:3px; margin-right:3px">
+					<h4>Links to download pages:</h4>
+					<% @app.operations.each do |operatingsystem| %>
+					<div class="col-md-4">
+						<h4>System: <%= operatingsystem.id %> <a class="btn btn-primary" href=<%= operatingsystem.link %>>Link</a></h4>
+					</div>
+					
+					<!-- <h4>Information: <%= operatingsystem.information %> </h4> -->
+					<% end %>
+				</div><br>
+				<div class="row" style="border-top:1px solid #9E9E9E;margin-left:3px;margin-right:3px">
+					<p style="padding-left:15px;"><h4><%= App.human_attribute_name(:Price_Pro) %>: <%= @app.price_pro %>€</h4></p>
+					<p style="padding-left:15px;"><h4><%= App.human_attribute_name(:App_Type) %>: <%= @app.app_type %></h4></p>
+					<p style="padding-left:15px;"><h4>Languages Avilable:
+					<% @app.languages.each do |language| %>
+					<%= language.name %> **
+					<% end %>
+					</h4></p>
+				</div>
+			</div><br>
+			<div class="col-md-12" style="background:#fff; border-radius: 5px; margin-top:25px;">
+				<div class="row" style="margin-left:3px;margin-right:3px; margin-top:10px">			
+					<% if user_signed_in? %>
+					<% if Review.where(user_id: current_user.id, app_id: @app.id).count > 0 %>
+					<%= link_to "Back", root_path, class: 'btn btn-primary pull-right' %>
+					<% else %>
+					<%= link_to "Add Review", new_app_review_path(@app), id: 'new_review', class: 'btn btn-primary pull-left' %>
+					<%= link_to "Back", root_path, class: 'btn btn-primary pull-right' %>
+					<% end %> 
+					<% end %>			
+				</div><br>
+				<div class="row" style="margin-left:3px;margin-right:3px"">
+					<p>User Rating</p>
+					<%= render @reviews %>
+					<%= will_paginate @reviews , :previous_label => t("previous"), :next_label => t("next")%>
+				</div>
+			</div>			
 		</div>
 	</div>
-	<% end %>
-<br></br>
-
-<% elsif !params[:category].blank? && params[:search].blank? %>
-
-<div class="row">
-	<% @apps_all.each do |apps| %>
-		<div class="col-md-2 col-sm-2">
-		<div class="team-member">
-			<div class="thumnail">
-				<a href="/apps/<%= apps.id %>"><%= image_tag apps.app_img.url(:app_index) %></a>
-			</div>
-			<p><%= link_to apps.name, app_path(apps) %></p>
-			<p class="app-name"><%= apps.price %>€</p>
-			<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div>
-		</div><br></br>
+	<div class="container">
+		<div id="blueimp-gallery" class="blueimp-gallery">
+		    <!-- The container for the modal slides -->
+		    <div class="slides"></div>
+		    <!-- Controls for the borderless lightbox -->
+		    <h3 class="title"></h3>
+		    <a class="prev">‹</a>
+		    <a class="next">›</a>
+		    <a class="close">×</a>
+		    <a class="play-pause"></a>
+		    <ol class="indicator"></ol>
+		    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+		    <div class="modal fade">
+		        <div class="modal-dialog">
+		            <div class="modal-content">
+		                <div class="modal-header">
+		                    <button type="button" class="close" aria-hidden="true">&times;</button>
+		                    <h4 class="modal-title"></h4>
+		                </div>
+		                <div class="modal-body next"></div>
+		                <div class="modal-footer">
+		                    <button type="button" class="btn btn-primary pull-left prev">
+		                        <i class="glyphicon glyphicon-chevron-left"></i>
+		                        Previous
+		                    </button>
+		                    <button type="button" class="btn btn-primary next">
+		                        Next
+		                        <i class="glyphicon glyphicon-chevron-right"></i>
+		                    </button>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
 	</div>
-	<% end %>
-</div>
-
-<% elsif %>
-<div class="row">
-	<% @apps_all.each do |apps| %>
-		<div class="col-md-2 col-sm-2">
-		<div class="team-member">
-			<div class="thumnail">
-				<a href="/apps/<%= apps.id %>"><%= image_tag apps.app_img.url(:app_index) %></a>
-			</div>
-			<p><%= link_to apps.name, app_path(apps) %></p>
-			<p class="app-name"><%= apps.price %>€</p>
-			<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div>
-		</div><br></br>
-	</div>
-	<% end %>
-</div>
-<% end %>
-
+</div><br>
+<script>
+	$('.review-rating').raty({
+		readOnly: true,
+		score: function() {
+			return $(this).attr('data-score');
+		},
+		path: '/assets/'
+	});
+</script>
 <script>
 	$('.average-review-rating').raty({
 		readOnly: true,
@@ -80,6 +153,14 @@
 			return $(this).attr('data-score')
 		}
 	});
+</script>
+
+<script>
+    function SocialShare(social,url,title, descr, image, winWidth, winHeight) {
+        var winTop = (screen.height / 2) - (winHeight / 2);
+        var winLeft = (screen.width / 2) - (winWidth / 2);
+        window.open(social+'=100&p[title]=' + title + '&p[summary]=' + descr + '&p[url]=' + url + '&p[images][0]=' + image, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+    }
 </script>
 </body>
 </html>
