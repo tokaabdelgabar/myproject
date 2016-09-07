@@ -24,21 +24,31 @@
 			<div class="row" style="margin-left:3px;">
 				<p>This is for the gallery</p>
 				<div id="links">
-				    <a href="<%= @app.image1.url(:app_show) %>" data-gallery>
-				        <%= image_tag @app.image1.url(:app_show), alt: "Image gallery", class: "gallery" %>
-				    </a>				    
-				    <a href="<%= @app.image2.url(:app_show) %>" data-gallery>
-				        <%= image_tag @app.image2.url(:app_show), alt: "Image gallery", class: "gallery" %>
-				    </a>				  				    
-				    <a href="<%= @app.image3.url(:app_show) %>" data-gallery>
-				        <%= image_tag @app.image3.url(:app_show), alt: "Image gallery", class: "gallery" %>
-				    </a>
-				    <a href="<%= @app.image4.url(:app_show) %>" data-gallery>
-				        <%= image_tag @app.image4.url(:app_show), alt: "Image gallery", class: "gallery" %>
-				    </a>
-				    <a href="<%= @app.image5.url(:app_show) %>" data-gallery>
-				        <%= image_tag @app.image5.url(:app_show), alt: "Image gallery", class: "gallery" %>
-				    </a>				    
+					    <% unless @app.image1.blank? %>	
+					    <a href="<%= @app.image1.url(:app_show) %>" data-gallery>
+					        <%= image_tag @app.image1.url(:app_show), alt: "Image gallery", class: "gallery" %>
+					    </a>
+					    <% end %>				    
+					    <% unless @app.image2.blank? %>	
+					    <a href="<%= @app.image2.url(:app_show) %>" data-gallery>
+					        <%= image_tag @app.image2.url(:app_show), alt: "Image gallery", class: "gallery" %>
+					    </a>
+					    <% end %>
+					    <% unless @app.image3.blank? %>				  				    
+					    <a href="<%= @app.image3.url(:app_show) %>" data-gallery>
+					        <%= image_tag @app.image3.url(:app_show), alt: "Image gallery", class: "gallery" %>
+					    </a>
+					    <% end %>
+					    <% unless @app.image4.blank? %>
+					    <a href="<%= @app.image4.url(:app_show) %>" data-gallery>
+					        <%= image_tag @app.image4.url(:app_show), alt: "Image gallery", class: "gallery" %>
+					    </a>
+					    <% end %>
+					    <% unless @app.image5.blank? %>
+					    <a href="<%= @app.image5.url(:app_show) %>" data-gallery>
+					        <%= image_tag @app.image5.url(:app_show), alt: "Image gallery", class: "gallery" %>
+					    </a>
+					    <% end %>					    
 				</div>
 			</div><br>
 			<div class="row" style="margin-left:3px;">
