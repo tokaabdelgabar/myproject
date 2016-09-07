@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160904141347) do
+ActiveRecord::Schema.define(version: 20160907180622) do
+
+  create_table "about_us", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.string   "paragraph1heading"
+    t.string   "paragraph1content"
+    t.string   "paragraph2heading"
+    t.string   "paragraph2content"
+  end
 
   create_table "app_translations", force: :cascade do |t|
     t.integer  "app_id",      null: false

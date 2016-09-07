@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :about_us
   #devise
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { confirmations: 'confirmations'}
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   resources :tabs
   resources :operatingsystems
   resources :language
+  resources :about_us
 
   #Contact
   resources :messages, only: [:new, :create]
