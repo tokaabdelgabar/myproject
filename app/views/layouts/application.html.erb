@@ -1,282 +1,172 @@
 <!DOCTYPE html>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<p style="display:none"><b>I18n.locale:</b> <%= I18n.locale %> </p>
-<html>
+<html lang="de">
+
 <head>
-  <title><%= h @page_title %></title>
-  <%= csrf_meta_tags %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Fonts -->
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-
-  <link href='http://fonts.googleapis.com/css?family=Dosis:400,700' rel='stylesheet' type='text/css'>
-
-  <!-- Bootsrap -->
-  <%= stylesheet_link_tag    'bootstrap.min', media: 'all', 'data-turbolinks-track' => true %>
-
-  <!-- Font awesome -->
-  <%= stylesheet_link_tag    'font-awesome.min', media: 'all', 'data-turbolinks-track' => true %>
-
-  <!-- Owl carousel -->
-  <%= stylesheet_link_tag    'owl.carousel', media: 'all', 'data-turbolinks-track' => true %>
-
-  <!-- Template main Css -->
-  <%= stylesheet_link_tag    'style.min', media: 'all', 'data-turbolinks-track' => true %>      
-
-  <!-- Modernizr -->   
+  <title>Zappatory.com - Supportive Apps Directory</title>
+  <meta http-equiv="content-type" content="text/html" charset="UTF-8"
+  name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' type='text/css'>
+  <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700'  type='text/css'>
+  <%= stylesheet_link_tag 'bootstrap.min', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'font-awesome.min', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'owl.carousel', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'style.min', media: 'all', 'data-turbolinks-track' => true %>         
   <%= javascript_include_tag 'modernizr-2.6.2.min', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'category-apps', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 
-  <!-- Category-App -->
-  <%= stylesheet_link_tag    'category-apps', media: 'all', 'data-turbolinks-track' => true %>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <%= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'owl.carousel.min', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'main', 'data-turbolinks-track' => true %>
 
-  <!-- Back to top -->
-  <%= javascript_include_tag 'backtotop.js', 'data-turbolinks-track' => true %>
+  <script>
+  (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+  e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+  e.src='http:http://www.google-analytics.com/analytics.js';
+  r.parentNode.insertBefore(e,r)}(window,document,'script','ga');
+  ga('create','UA-XXXXX-X');ga('send','pageview');
+  </script>
+  <script>
+    jQuery(document).ready(function($)
+    {
+      var zoom_level=100;
+      $('#zoom_in').click(function() { zoom_page(20, $(this)) });
+      $('#zoom_out').click(function() { zoom_page(30, $(this)) });
+      $('#zoom_reset').click(function() { zoom_page(0, $(this)) });
+      function zoom_page(step, trigger){
+        if(zoom_level>=120 && step>0 || zoom_level<=80 && step<0) return;
+        if(step==0) zoom_level=100;
+        else zoom_level=zoom_level+step;
+        $('body').css({
+        transform: 'scale('+(zoom_level/100)+')', // set zoom
+        transformOrigin: '50% 0' // set transform scale base
+      });
+        if(zoom_level>100) $('body').css({ width: (zoom_level*1.2)+'%' });
+        else $('body').css({ width: '100%' });
+        if(zoom_level>=120 || zoom_level<=80) trigger.addClass('disabled');
+        else trigger.parents('ul').find('.disabled').removeClass('disabled');
+        if(zoom_level!=100) $('#zoom_reset').removeClass('disabled');
+        else $('#zoom_reset').addClass('disabled');
+      }
+    });
+</script>
 </head>
-<body>
-  <!--Start of Zopim Live Chat Script-->
-  <script type="text/javascript">
-    window.$zopim||(function(d,s){var z=$zopim=function(c){
-      z._.push(c)},$=z.s=
-      d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
-        _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
-        $.src='//v2.zopim.com/?3x6HD4XfKARGFEWbUWcltRYw9XxC99mh';z.t=+new Date;$.
-        type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
-      </script>
-      <!--End of Zopim Live Chat Script-->
 
-
-      <header class="main-header">
-
-
-        <nav class="navbar navbar-static-top">
-
-         <div class="navbar-top">
-           <div class="navbar-top">
-            <div class="container">
-              <div class="row">
-                <!-- <div class="col-sm-6 col-xs-6 text-left">
-
-                  <ul class="list-unstyled list-inline header-contact">
-                   <li><%= form_tag apps_path, :method => 'get', class: "navbar-form navbar-right" do %></li>
-                   <li><%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Searchfield", size: "18" %></li>
-                   <li><%= submit_tag "Search", name: nil, class: "btn btn-default" %></li>
-                  <% end %>
-                </ul> 
-              </div> -->
-              <div class="col-sm-12 col-xs-12 text-right">
-
-                <ul class="list-unstyled list-inline header-contact">
-                  <% if user_signed_in? %>
-                  <li><%= link_to "Mein Konto", edit_user_registration_path %></li>
-                  <li><%= link_to "Ausloggen", destroy_user_session_path, method: :delete %></li>
-                  <% else %>  
-                  <li><%= link_to "Einloggen", new_user_session_path %></li>
-                  <li><%= link_to "Registrieren", new_user_registration_path %></li>
-                  <% end %>
-
-                  | 
-                  <li>HighContrast:
-                    <a href="#" onclick="body.style.backgroundColor='black'"><%= image_tag("Black.png",:size => "20x20",:alt =>"convert backgroundColor to balck")%></a>
-                    <a href="#" onclick="body.style.backgroundColor='White'"><%= image_tag("White.png",:size => "18x18",:alt =>"convert backgroundColor to white")%></a>
-                    Schriftgröße: <a id="zoom_reset"><%= image_tag("zoom out.png",:size =>"30x30",:alt =>"make the page bigger")%></a>
-                    <a id="zoom_in"><%= image_tag("zoom in.png",:size => "30x30",:alt =>"return the page to normal size")%> </a></li>
-                    <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "40x25",:alt =>"Show page in English"),set_language_english_path%> <%= link_to_unless I18n.locale == :de, image_tag("German.png",:size => "40x25",:alt =>"Show page in German"),set_language_german_path %></li>
-                    <li></li>
-                  </ul> <!-- /.header-social  -->
-                </div>
-              </div>
-            </div>
+<body class="texts">
+<header role="banner">
+  <a href="#main" class="offscreen" role=link tabindex=0 accesskey="s">Skip To Main Content</a>
+  <nav class="navbar navbar-static-top" role="navigation">
+      <div class="navbar-top">
+        <div class="container">
+          <div class="col-sm-6 col-xs-12 text-right">
+            <h2 class="offscreen">Website Navigation</h2>
+            <ul class="list-unstyled list-inline header-contact">
+              <% if user_signed_in? %>
+              <li><%= link_to "Mein Konto", edit_user_registration_path %></li>
+              <li><%= link_to "Ausloggen", destroy_user_session_path, method: :delete %></li>
+              <% else %>  
+              <li><%= link_to "Einloggen", new_user_session_path %></li>
+              <li><%= link_to "Registrieren", new_user_registration_path%></li>
+              <% end %>
+              <h2 class="offscreen">Schriftgröße:</h2>
+              <a role=button tabindex=0 id="zoom_reset" accesskey="o"><%= image_tag("zoom out.png",:size =>"30x30",:alt => "Zoom Out")%></a>
+              <a role=button tabindex=0 id="zoom_in" accesskey="i"><%= image_tag("zoom in.png",:size => "30x30",:alt => "Zoom In")%></a>
+              <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "40x25", :alt => "Zur Englischen Seite wechseln"),set_language_english_path%></li>
+            </ul>
           </div>
+        </div>
+      </div> 
 
-        </div> 
-        <div class="navbar-main">
-
-          <div class="container">
-
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-
+      <div class="navbar-main">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
               </button>
               <%= link_to root_path, :class => 'navbar-brand' do %><%= image_tag ("home.png"), :size => "50x50", :alt =>"Go to Homepage" %><% end %>
-            </div>
-
-            <div id="navbar" class="navbar-collapse collapse pull-left">
-
-              <ul class="nav navbar-nav">
-                <li class="has-child">
-                  <a href="#">App-Kategorien</a>
-                  <ul class="submenu" role="menu">
-                    <% Category.all.each do |category| %>
-                    <li class="<%= 'active' if params[:category] == category.name %>">
-                     <%= link_to category.name, apps_path(category: category.name), class: "link",  :tabindex=>"0"%>
-                   </li>
-                   <% end %>
-                 </ul>
-               </li>
-               <li><%= link_to 'Neuigkeiten', notification_path %></li>
-               <li><%= link_to "Leichte Sprache", help_path %></li>
-               <li><%= link_to "Über uns" %></li>
-               <li><%= link_to "Kontakt", new_message_path %></li>
-             </ul>
-
-           </div> 
-           <div class="navbar-collapse collapse pull-right" role="searchbar">
-                  <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", :style =>"padding-top:12px", role: "search" do %>
-                   <div class="input-group">
-                       <!-- <input type="Search" placeholder="Search..." class="form-control" /> -->
-                       <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Search..." %>
-                       <div class="input-group-btn">
-                           <button class="btn btn-info">
-                           <span class="glyphicon glyphicon-search"></span>
-                           </button>
-                       </div>
-                   </div>
-                <% end %> 
+          </div>
+          <div class="navbar-collapse collapse pull-left">
+            <h2 class="offscreen">Pages Navigation</h2>
+            <ul class="nav navbar-nav" id="nav">
+              <li><%= link_to 'Neuigkeiten', notification_path %></li>
+              <li><%= link_to "Leichte Sprache", help_path%></li>
+              <li><%= link_to "Über uns" %></li>
+              <li><%= link_to "Kontakt", new_message_path %></li>
+              <% if user_signed_in? && (current_user.admin ==true or current_user.superadmin == true) %>
+              <li><%= link_to "Administration", rails_admin.dashboard_path, method: :get %><li>  
+                <% end %>
+              </ul>
+            </div> 
+            <div class="navbar-collapse collapse pull-right" role="searchbar">
+              <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", :style =>"padding-top:12px", role: "search" do %>
+              <div class="input-group">
+                <!-- <input type="Search" placeholder="Search..." class="form-control" /> -->
+                <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Search..." %>
+                <div class="input-group-btn">
+                  <button class="btn btn-info">
+                    <span class="glyphicon glyphicon-search"></span>
+                  </button>
                 </div>
+              </div>
+              <% end %> 
+            </div>
+          </div>
+        </div>
+      </nav>
+</header>
 
-         </div> <!-- /.container -->
-       </div> <!-- /.navbar-main -->
-     </nav> 
-   </header> <!-- /. main-header -->
-
-   <!-- Back to top -->
-   <a id="back-to-top" href="#" class="back-to-top" 
-   role="button" title="Back to Top" data-toggle="tooltip" data-placement="top" style="cursor: pointer;position: fixed;bottom: 40px;right: 20px;display: inline;z-index: 100;"><%= image_tag("top-button.png", :alt => "Back to top", :size=> "40x40") %></a>
-
-   <!-- Apps-->
-   <div class="container">
-    <br><br />
+<main role="main" id="main">
+  <div class="container">
+    <br><br/>
     <% if notice %>
     <p role="notice" class="alert alert-success"><%= notice %></p>
     <% end %>
     <% if alert %>
     <p role="alert" class="alert alert-danger"><%= alert %></p>
     <% end %>
-    <%= yield %>
+      <%= yield %>
+    <a id="back-to-top" href="#" class="back-to-top" 
+    role="button" title="Back to Top" data-toggle="tooltip" data-placement="top" style="cursor: pointer;position: fixed;bottom: 40px;right: 20px;display: inline;z-index: 100;"><%= image_tag("top-button.png", :alt => "Back to top", :size=> "40x40") %>
+    </a>
   </div>
-  <br><br />
-  <!--  Footer-->
+</main>
 
-  <footer class="main-footer">
-
-        <!-- <div class="footer-top">
-           
-      </div> -->
-
-
-      <div class="footer-main">
-        <div class="container">
-
-
-          <div class="col-sm-6 col-xs-6 text-left">
-            <ul class="list-unstyled list-inline header-contact">
-              <li><%= link_to "Wörterbuch", dictionary_path %></li>
-              <li><%= link_to 'Haftungsausschluss', disclaimer_path %></li>
-
-
-            </ul>
-          </div>
-
-          <div class="col-sm-6 col-xs-6 text-right">
-
-            <ul class="list-unstyled list-inline header-social">
-
-              <li> <a href="https://facebook.com/sharer/sharer.php?u=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com"> <i class="fa fa-facebook"></i> </a> </li>
-              <li> <a href="https://twitter.com/intent/tweet/?text=Super%20great%20and%20easy%20App%20Web.&amp;url=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com"> <i class="fa fa-twitter"></i>  </a> </li>
-              <li> <a href="https://plus.google.com/share?url=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com"> <i class="fa fa-google"></i>  </a> </li>
-              <li> <a href="https://pinterest.com/pin/create/button/?url=http%3A%2F%2Fsharingbuttons.io&amp;media=http%3A%2F%2Fsharingbuttons.io&amp;summary=Super%20great%20and%20easy%20App%20Web."> <i class="fa fa fa-pinterest-p"></i>  </a> </li>
-              <!-- <li> <a href="#"> <i class="fa fa-youtube"></i>  </a> </li>-->
-            </ul> 
-
-          </div>
-
-        </div><!-- /.footer-social  -->
-
-
-      </div>
-
-      <div class="footer-bottom">
-
-        <div class="container text-left">
-          <p>Copyright @ Universität Mannheim 2016</p>
+<footer role="contentinfo" class="main-footer">
+    <div class="footer-main">
+      <div class="container">
+        <div class="col-sm-6 col-xs-6 text-left">
+          <h2 class="offscreen">other pages</h2>
+          <ul class="list-unstyled list-inline header-contact">
+            <li><%= link_to 'Haftungsausschluss', disclaimer_path %></li>
+          </ul>
         </div>
-      </div> 
-    </footer>
-    <!--  Scripts-->
+        <div class="col-sm-6 col-xs-6 text-right">
+          <ul class="list-unstyled list-inline header-social"> Share To:
+            <h2 class="offscreen">Facebook</h2>
+            <li><a href="https://facebook.com/sharer/sharer.php?u=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com" alt="facebook"><i class="fa fa-facebook"></i></a></li>
+            <h2 class="offscreen">Twitter</h2>
+            <li><a href="https://twitter.com/intent/tweet/?text=Super%20great%20and%20easy%20App%20Web.&amp;url=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com" alt="twitter"><i class="fa fa-twitter"></i></a></li>
+            <h2 class="offscreen">Google</h2>
+            <li><a href="https://plus.google.com/share?url=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com" alt="google"> <i class="fa fa-google"></i></a></li>
+            <h2 class="offscreen">Pintrest</h2>
+            <li> <a href="https://pinterest.com/pin/create/button/?url=http%3A%2F%2Fsharingbuttons.io&amp;media=http%3A%2F%2Fsharingbuttons.io&amp;summary=Super%20great%20and%20easy%20App%20Web." alt="pintrest"> <i class="fa fa fa-pinterest-p"></i></a></li>
+          </ul> 
+        </div>
+      </div>
+    </div>
 
-    <!-- jQuery -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- <script>window.jQuery || document.write(<%= javascript_include_tag 'jquery-1.11.1.min', 'data-turbolinks-track' => true %>)</script> -->
-
-    <!-- Bootsrap javascript file -->
+    <div class="footer-bottom">
+      <div class="container text-left">
+        <p>UNIVERSITÄT MANNHEIM @ copyrights 2016</p>
+      </div>
+    </div> 
     
-    <%= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track' => true %>
-    
-    <!-- owl carouseljavascript file -->
-
-    <%= javascript_include_tag 'owl.carousel.min', 'data-turbolinks-track' => true %>
-
-    <!-- Template main javascript -->
-    
-    <%= javascript_include_tag 'main', 'data-turbolinks-track' => true %>
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
-
-    <!-- jQuery -->
-    <script>
-      jQuery(document).ready(function($)
-      {
-        // Set initial zoom level
-        var zoom_level=100;
-
-        // Click events
-        $('#zoom_in').click(function() { zoom_page(200, $(this)) });
-        $('#zoom_out').click(function() { zoom_page(30, $(this)) });
-        $('#zoom_reset').click(function() { zoom_page(0, $(this)) });
-
-        // Zoom function
-        function zoom_page(step, trigger)
-        {
-            // Zoom just to steps in or out
-            if(zoom_level>=120 && step>0 || zoom_level<=80 && step<0) return;
-
-            // Set / reset zoom
-            if(step==0) zoom_level=100;
-            else zoom_level=zoom_level+step;
-
-            // Set page zoom via CSS
-            $('body').css({
-                transform: 'scale('+(zoom_level/100)+')', // set zoom
-                transformOrigin: '50% 0' // set transform scale base
-              });
-
-            // Adjust page to zoom width
-            if(zoom_level>100) $('body').css({ width: (zoom_level*1.2)+'%' });
-            else $('body').css({ width: '100%' });
-
-            // Activate / deaktivate trigger (use CSS to make them look different)
-            if(zoom_level>=120 || zoom_level<=80) trigger.addClass('disabled');
-            else trigger.parents('ul').find('.disabled').removeClass('disabled');
-            if(zoom_level!=100) $('#zoom_reset').removeClass('disabled');
-            else $('#zoom_reset').addClass('disabled');
-          }
-        });
-      </script>
-    </body>
-    </html>
+  </footer> 
+</body>
+</html>
