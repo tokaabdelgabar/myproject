@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20160907180622) do
     t.string   "name"
     t.text     "description"
     t.string   "developer"
+    t.string   "youtubeLink"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "user_id"
