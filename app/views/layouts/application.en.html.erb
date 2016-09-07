@@ -82,16 +82,16 @@
 
       <div class="navbar-main">
         <div class="container">
-          <div class="navbar-header">
+          <div class="navbar-collapse collapse pull-left">
+            <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
-              </button>
-              <%= link_to root_path, :class => 'navbar-brand' do %><%= image_tag ("home.png"), :size => "50x50", :alt =>"Go to Homepage" %><% end %>
-          </div>
-          <div class="navbar-collapse collapse pull-left">
+            </button>
+            </div>
+            
             <h2 class="offscreen">Pages Navigation</h2>
             <ul class="nav navbar-nav" id="nav">
               <li><%= link_to 'News', notification_path %></li>
@@ -103,6 +103,7 @@
                 <% end %>
               </ul>
             </div> 
+
             <div class="navbar-collapse collapse pull-right" role="searchbar">
               <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", :style =>"padding-top:12px", role: "search" do %>
               <div class="input-group">
@@ -116,6 +117,7 @@
               </div>
               <% end %> 
             </div>
+
           </div>
         </div>
       </nav>
@@ -130,7 +132,6 @@
     <% if alert %>
     <p role="alert" class="alert alert-danger"><%= alert %></p>
     <% end %>
-     <%= yield %>
     <a id="back-to-top" href="#" class="back-to-top" 
     role="button" title="Back to Top" data-toggle="tooltip" data-placement="top" style="cursor: pointer;position: fixed;bottom: 40px;right: 20px;display: inline;z-index: 100;"><%= image_tag("top-button.png", :alt => "Back to top", :size=> "40x40") %>
     </a>
