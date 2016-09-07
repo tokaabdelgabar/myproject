@@ -24,47 +24,48 @@
   <div class="main-container">
 
     <div class="container">
-
+      <!-- <h2 class="title-style-2">SEND US AN EMAIL<span class="title-under"></span></h2> -->
       <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-3"></div>
+          <div class="col-md-6"><h2 class="title-style-2">SEND US AN EMAIL<span class="title-under"></span></h2></div>
+          <div class="col-md-3"></div>
+        </div>
         <div class="col-md-3">
           
         </div>
 
-        <div class="col-md-6 col-sm-12 col-form contact">
-
-          <h2 class="title-style-2">Senden Sie uns eine Nachricht<span class="title-under"></span></h2>
-          <p>Haben Sie Fragen an uns, Anregungen für uns oder Beschwerden jeglicher Art mitzuteilen? Zögern Sie nicht uns eine Nachricht zu hinterlassen, wir antworten so bald wie möglich. Vielen Dank für Ihre Unterstützung!</p>
-
-
+        <div class="col-md-6 col-sm-12 col-form contact" >
 
             <div class="row">
             
               <div class="form-group col-md-12">
-              <label><h4>Benutzername:</h4></label>
+              <label><h4>Username:</h4></label>
 
                 
-                <%= f.text_field :name,:value=> current_user.username, :readonly=>true, class:"form-control", placeholder:"Benutzername*"  %>
+                <%= f.text_field :name,:value=> current_user.username, :readonly=>true, class:"form-control" %>
               </div>
 
               <div class="form-group col-md-12">
-              <label><h4>E-Mail-Adresse:</h4></label>
+              <label><h4>Email:</h4></label>
 
-                <%= f.text_field :email,:value=> current_user.email, :readonly=>true, class:"form-control", placeholder:"E-Mail-adresse*"  %>
+                <%= f.text_field :email,:value=> current_user.email, :readonly=>true, class:"form-control" %>
               </div>
 
               <div class="form-group col-md-12">
-              <label><h4>Betreff:</h4></label>
+              <label><h4>Subject:</h4></label>
 
 
-                <%= f.text_field :subject, class:"form-control", placeholder:"Betreff*" %>
+                <%= f.text_field :subject, class:"form-control", placeholder:"Subject*" %>
               </div>
-              
-            </div>
+              <div class="form-group col-md-12">
+              <label><h4>Message:</h4></label>
 
-            <div class="form-group">
-            <label><h4>Nachricht:</h4></label>
-
-              <%= f.text_area :content, class:"form-control", placeholder:"Nachricht*" %>
+                <%= f.text_area :content, class:"form-control", placeholder:"Content*" %>
+              </div><br>
+              <div class="form-group col-md-12">
+                <%= f.submit 'Send email', class: 'btn btn-primary pull-right' %>
+              </div><br />
             </div>
 
             <div class="form-group alerts">
@@ -79,27 +80,17 @@
               
             </div>  
 
-            <div class="form-group">
-              <%= f.submit 'Nachricht senden', class: 'btn btn-primary pull-right' %>
-            </div><br />
-
             <div class="clearfix"></div>
-
-
 
         </div><br />
         <div class="col-md-3">
           
         </div>
 
-
       </div> 
 
-
     </div>
-    
-
-
+ 
   </div>
   <% else %>
     <div class="main-container">
@@ -107,11 +98,14 @@
     <div class="container contact">
 
       <div class="row">
+        <div class="col-md-12">
+          <div class="col-md-3"></div>
+          <div class="col-md-6"><h2 class="title-style-2">SEND US AN EMAIL<span class="title-under"></span></h2></div>
+          <div class="col-md-3"></div>
+        </div>
         <div class="col-md-3"></div>
 
-        <div class="col-md-6 col-sm-12 col-form"">
-
-          <h2 class="title-style-2">SEND US AN EMAIL<span class="title-under"></span></h2>
+        <div class="col-md-6 col-sm-12 col-form">
 
             <div class="row">
               <div class="form-group col-md-12">
@@ -135,11 +129,14 @@
               </div>
               
 
-            <div class="form-group">
-            <label><h4>Message:</h4></label>
+              <div class="form-group col-md-12">
+              <label><h4>Message:</h4></label>
 
-              <%= f.text_area :content, class:"form-control", placeholder:"Content*" %>
-            </div>
+                <%= f.text_area :content, class:"form-control", placeholder:"Content*" %>
+              </div>
+              <div class="form-group col-md-12">
+                <%= f.submit 'Send email', class: 'btn btn-primary pull-right' %><span class="glyphicon glyphicon-send"></span>
+              </div><br />
 
             <div class="form-group alerts">
                         
@@ -152,10 +149,6 @@
               </div>
               
             </div>  
-
-            <div class="form-group">
-              <%= f.submit 'Send email', class: 'btn btn-primary pull-right' %><span class="glyphicon glyphicon-send"></span>
-            </div><br />
 
             <div class="clearfix"></div>
           

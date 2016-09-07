@@ -43,9 +43,17 @@ a:hover, a:focus, a:active {
   Single app page
 ========================================================================== */
 .app-logo{
-  height: 120px; width: 120px; border: 1px solid #9E9E9E; padding:1px;border-radius: 5px;
-  margin-top: 10px; margin-bottom: 10px;
+  height: 200px; width: 200px; border: 1px solid #9E9E9E; padding:1px;border-radius: 5px;
+  margin-top: 10px; margin-bottom: 10px; margin-left:130px;
 
+}
+.app{
+  border-top: 1px solid #9E9E9E;
+}
+.gallery{
+  height: 200px;
+  width: 200px;
+  margin: 7px;
 }
 /* =============================================================================
   Contact
@@ -53,6 +61,7 @@ a:hover, a:focus, a:active {
 .contact{
   background:#fff; border-radius: 5px;
 }
+
 /* =============================================================================
   About us
 ========================================================================== */
@@ -541,7 +550,7 @@ form .alert {
   background:  #0A4958;
   color: #fff;
   border: none;
-  border-radius: 0;
+  border-radius: 5px;
   padding: 10px 25px;
   border: 1px solid transparent;
   -moz-transition: all, 0.3s;
@@ -1101,8 +1110,8 @@ form .alert {
 .zoomIn {
   -webkit-animation-name: zoomIn;
   animation-name: zoomIn;
-
 }
+
 
 a.offscreen {
 position:absolute;
