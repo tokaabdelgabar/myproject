@@ -3,7 +3,7 @@
 
 <head>
   <title>Zappatory.com - Supportive Apps Directory</title>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" 
+  <meta http-equiv="content-type" content="text/html" charset="UTF-8"
   name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' type='text/css'>
   <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700'  type='text/css'>
@@ -55,50 +55,49 @@
 </script>
 </head>
 
-<header role="banner">
-<a href="#main" class="offscreen">Skip To Main Content</a>
-</header>
-
 <body class="texts">
-  <nav aria-label="main Navigation" class="navbar navbar-static-top">
-    <div class="navbar-top">
+<header role="banner">
+  <a href="#main" class="offscreen" role=link tabindex=0 accesskey="s">Skip To Main Content</a>
+  <nav class="navbar navbar-static-top" role="navigation">
+      <div class="navbar-top">
         <div class="container">
           <div class="col-sm-6 col-xs-12 text-right">
-            <ul role="Account and Accessibility bar" class="list-unstyled list-inline header-contact">
+            <h2 class="offscreen">Website Navigation</h2>
+            <ul class="list-unstyled list-inline header-contact">
               <% if user_signed_in? %>
-              <li role="menuitem"><%= link_to "My Account", edit_user_registration_path %></li>
-              <li role="menuitem"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to "My Account", edit_user_registration_path %></li>
+              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
               <% else %>  
-              <li role="menuitem"><%= link_to "Sign In", new_user_session_path %></li>
-              <li role="menuitem"><%= link_to "Register", new_user_registration_path%></li>
+              <li><%= link_to "Sign In", new_user_session_path %></li>
+              <li><%= link_to "Register", new_user_registration_path%></li>
               <% end %>
-            
-               <li role="menuitem"> <a id="zoom_reset" alt="Zoom Out"><%= image_tag("zoom out.png",:size =>"30x30")%></a>  </li role="menuitem">
-                <li> <a id="zoom_in" alt="Zoom In"><%= image_tag("zoom in.png",:size => "30x30")%></a> </li>
-              <li role="menuitem"><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "40x25", :alt => "Switch language to English "),set_language_english_path%><%= link_to_unless I18n.locale == :de, image_tag("German.png",:size => "40x25", :alt => "Switch language to German "),set_language_german_path %></li>
+              <h2 class="offscreen">Page size</h2>
+              <a role=button tabindex=0 id="zoom_reset" accesskey="o"><%= image_tag("zoom out.png",:size =>"30x30",:alt => "Zoom Out")%></a>
+              <a role=button tabindex=0 id="zoom_in" accesskey="i"><%= image_tag("zoom in.png",:size => "30x30",:alt => "Zoom In")%></a>
+              <li><%= link_to_unless I18n.locale == :de, image_tag("German.png",:size => "40x25", :alt => "Switch language to German"),set_language_german_path %></li>
             </ul>
           </div>
         </div>
       </div> 
-    </nav>
 
-    <nav aria-label="page navigation" class="navbar navbar-static-top">
       <div class="navbar-main">
         <div class="container">
           <div class="navbar-collapse collapse pull-left">
-            <ul role="menubar" class="nav navbar-nav" id="nav">
-              <li role="menuitem" ><%= link_to 'News', notification_path %></li>
-              <li role="menuitem"><%= link_to "Simple Language", help_path%></li>
-              <li role="menuitem"><%= link_to "About Us" %></li>
-              <li role="menuitem"><%= link_to "Contact", new_message_path %></li>
+            <h2 class="offscreen">Pages Navigation</h2>
+            <ul class="nav navbar-nav" id="nav">
+              <li><%= link_to 'News', notification_path %></li>
+              <li><%= link_to "Simple Language", help_path%></li>
+              <li><%= link_to "About Us" %></li>
+              <li><%= link_to "Contact", new_message_path %></li>
               <% if user_signed_in? && (current_user.admin ==true or current_user.superadmin == true) %>
-              <li role="menuitem"><%= link_to "Administration", rails_admin.dashboard_path, method: :get %><li>  
+              <li><%= link_to "Administration", rails_admin.dashboard_path, method: :get %><li>  
                 <% end %>
-            </ul>
-          </div> 
+              </ul>
+            </div> 
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+</header>
 
 <main role="main" id="main">
   <div class="container">
@@ -109,32 +108,31 @@
     <% if alert %>
     <p role="alert" class="alert alert-danger"><%= alert %></p>
     <% end %>
+     <%= yield %>
     <a id="back-to-top" href="#" class="back-to-top" 
     role="button" title="Back to Top" data-toggle="tooltip" data-placement="top" style="cursor: pointer;position: fixed;bottom: 40px;right: 20px;display: inline;z-index: 100;"><%= image_tag("top-button.png", :alt => "Back to top", :size=> "40x40") %>
     </a>
   </div>
-
 </main>
 
 <footer role="contentinfo" class="main-footer">
     <div class="footer-main">
       <div class="container">
         <div class="col-sm-6 col-xs-6 text-left">
+          <h2 class="offscreen">other pages</h2>
           <ul class="list-unstyled list-inline header-contact">
             <li><%= link_to 'Disclaimer', disclaimer_path %></li>
           </ul>
         </div>
         <div class="col-sm-6 col-xs-6 text-right">
-          <ul class="list-unstyled list-inline header-social">
-            Share:
-           <li> <a href="https://facebook.com/sharer/sharer.php?u=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com" alt="facebook">
-            <i class="fa fa-facebook"></i></a></li>
-
-
-
-            <li> <a href="https://twitter.com/intent/tweet/?text=Super%20great%20and%20easy%20App%20Web.&amp;url=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com" alt="twitter">
-              <i class="fa fa-twitter"></i></a></li>
-            <li> <a href="https://plus.google.com/share?url=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com" alt="google"> <i class="fa fa-google"></i></a></li>
+          <ul class="list-unstyled list-inline header-social"> Share To:
+            <h2 class="offscreen">Facebook</h2>
+            <li><a href="https://facebook.com/sharer/sharer.php?u=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com" alt="facebook"><i class="fa fa-facebook"></i></a></li>
+            <h2 class="offscreen">Twitter</h2>
+            <li><a href="https://twitter.com/intent/tweet/?text=Super%20great%20and%20easy%20App%20Web.&amp;url=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com" alt="twitter"><i class="fa fa-twitter"></i></a></li>
+            <h2 class="offscreen">Google</h2>
+            <li><a href="https://plus.google.com/share?url=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com" alt="google"> <i class="fa fa-google"></i></a></li>
+            <h2 class="offscreen">Pintrest</h2>
             <li> <a href="https://pinterest.com/pin/create/button/?url=http%3A%2F%2Fsharingbuttons.io&amp;media=http%3A%2F%2Fsharingbuttons.io&amp;summary=Super%20great%20and%20easy%20App%20Web." alt="pintrest"> <i class="fa fa fa-pinterest-p"></i></a></li>
           </ul> 
         </div>
@@ -146,6 +144,7 @@
         <p>UNIVERSITÄT MANNHEIM @ copyrights 2016</p>
       </div>
     </div>
+
   </footer> 
 </body>
 </html>
