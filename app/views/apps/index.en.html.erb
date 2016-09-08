@@ -1,12 +1,13 @@
 <% if params[:category].blank? && params[:search].blank? %>
 <% @categories_list.each do |category| %>
+
 <div class="our-team">
 	<div class="container">
 		<h2 class="title-style-2"><%= category.name %><span class="title-under"></span></h2>
 		<div class="row" style="background:#fff;border-radius: 5px;">
 			<% @apps_all.each do |apps| %>
 			<% if apps.category_id == category.id  %>
-				<div class="col-md-2 col-sm-2">
+			<div class="col-md-2 col-sm-2">
 				<div class="team-member">
 					<div class="thumnail">
 						<a href="/apps/<%= apps.id %>"><%= image_tag apps.app_img.url(:app_index) %></a>
@@ -16,24 +17,24 @@
 					<a href="/apps/<%= apps.id %>">
 						<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div> 
 					</a>
-				</div><br></br>				
-				</div>
+				</div><br></br>
+			</div>
 			<% end %>
 			<% end %>
 			<div>
-					<h4 style="padding-top: 30px"><%= link_to "Mehr Apps...", controller: "categories", action: "show", id: category.id %></h4>
+				<h4 style="padding-top: 30px"><%= link_to "Mehr Apps...", controller: "categories", action: "show", id: category.id %></h4>
 			</div>
 		</div><br></br>
-
 	</div>
 </div>
 <% end %>
-<br />
+
+<br/>
 <% elsif !params[:category].blank? && params[:search].blank? %>
 
 <div class="row">
 	<% @apps_all.each do |apps| %>
-		<div class="col-md-2 col-sm-2">
+	<div class="col-md-2 col-sm-2">
 		<div class="team-member">
 			<div class="thumnail">
 				<a href="/apps/<%= apps.id %>"><%= image_tag apps.app_img.url(:app_index) %></a>
@@ -47,6 +48,7 @@
 </div>
 
 <% elsif %>
+
 <div class="row">
 	<% @apps_all.each do |apps| %>
 		<div class="col-md-2 col-sm-2">
@@ -62,6 +64,7 @@
 	<% end %>
 </div>
 <% end %>
+
 <script>
 	$('.average-review-rating').raty({
 		readOnly: true,
