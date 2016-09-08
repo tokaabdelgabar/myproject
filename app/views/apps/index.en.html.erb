@@ -1,10 +1,18 @@
+<!DOCTYPE html>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+	<title></title>
+</head>
+<body>
 <% if params[:category].blank? && params[:search].blank? %>
 <% @categories_list.each do |category| %>
 
 <div class="our-team">
 	<div class="container">
 		<h2 class="title-style-2"><%= category.name %><span class="title-under"></span></h2>
-		<div class="row" style="background:#fff;border-radius: 5px;">
+		<div class="row" style="background:#fff;border-radius: 5px;padding-top:50px">
 			<% @apps_all.each do |apps| %>
 			<% if apps.category_id == category.id  %>
 			<div class="col-md-2 col-sm-2">
@@ -74,3 +82,5 @@
 		}
 	});
 </script>
+</body>
+</html>
