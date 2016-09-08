@@ -74,11 +74,11 @@
             <h2 class="offscreen">Website Navigation</h2>
             <ul class="list-unstyled list-inline header-contact">
               <% if user_signed_in? %>
-              <li><%= link_to "Mein Konto", edit_user_registration_path %>i><%= image_tag("user-8.png") %></i></li>
-              <li><%= link_to "Ausloggen", destroy_user_session_path, method: :delete %><i><%= image_tag("delete.png") %></i></li>
+              <li><%= link_to "Mein Konto", edit_user_registration_path %><i><%= image_tag("user-8.png",:alt => "Mein Konto Foto") %></i></li>
+              <li><%= link_to "Ausloggen", destroy_user_session_path, method: :delete %><i><%= image_tag("delete.png",:alt => "Ausloggen Foto") %></i></li>
               <% else %>  
-              <li><%= link_to "Einloggen", new_user_session_path %><i><%= image_tag("people-2.png") %></i></li>
-              <li><%= link_to "Registrieren", new_user_registration_path%><i><%= image_tag("people-1.png") %></i></li>
+              <li><%= link_to "Einloggen", new_user_session_path %><i><%= image_tag("people-2.png",:alt => "Einloggen Foto") %></i></li>
+              <li><%= link_to "Registrieren", new_user_registration_path%><i><%= image_tag("people-1.png",:alt => "Registrieren Foto") %></i></li>
               <% end %>
               <h2 class="offscreen">Schriftgröße:</h2>
               <a role=button tabindex=0 id="zoom_reset" accesskey="o"><%= image_tag("zoom out.png",:size =>"30x30",:alt => "Zoom Out")%></a>
@@ -103,6 +103,7 @@
 
             <h2 class="offscreen">Pages Navigation</h2>
             <ul class="nav navbar-nav" id="nav">
+              <li><%= link_to 'Startseite', root_path %></li>
               <li><%= link_to 'Neuigkeiten', notification_path %></li>
               <li><%= link_to "Leichte Sprache", help_path%></li>
               <li><%= link_to "Über uns", about_us_path %></li>

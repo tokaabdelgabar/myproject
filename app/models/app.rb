@@ -9,7 +9,7 @@ class App < ActiveRecord::Base
     accepts_nested_attributes_for :operations   
 	acts_as_votable
 	
-	has_attached_file :app_img, :styles => { :app_index => "250x350>", :app_show => "325x475>" }, :default_url => "/images/:style/missing.png"
+	has_attached_file :app_img, :styles => { :app_index => "250x350>", :app_show => "325x475>" }, :default_url => "/images/:style/missing.png" 
     validates_attachment_content_type :app_img, :content_type => /\Aimage\/.*\Z/
     
     has_attached_file :image1, :styles => { :app_index => "250x350>", :app_show => "325x475>" }, :default_url => "/images/:style/missing.png"

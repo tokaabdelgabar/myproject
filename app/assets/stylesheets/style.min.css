@@ -1139,6 +1139,15 @@ height:1px;
 text-align: left; 
 overflow:hidden;
 }
+h3.offscreen {
+position:absolute;
+left:-1000px;
+top:-1000px;
+width:1px;
+height:1px;
+text-align: left; 
+overflow:hidden;
+}
 
 a.offscreen:focus, a.offscreen:active, a.offscreen:hover { 
 position:absolute; 
@@ -1152,6 +1161,16 @@ border: 1px dotted #000;
 }
 
 h2.offscreen:focus, h2.offscreen:active, h2.offscreen:hover { 
+position:absolute; 
+left:0; 
+top:0; 
+width:auto; 
+height:auto; 
+overflow:visible;
+background-color:#FF3;
+border: 1px dotted #000;
+}
+h3.offscreen:focus, h3.offscreen:active, h3.offscreen:hover { 
 position:absolute; 
 left:0; 
 top:0; 
