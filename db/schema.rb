@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160907180622) do
+ActiveRecord::Schema.define(version: 20160909095339) do
 
   create_table "about_us", force: :cascade do |t|
     t.string   "title"
@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 20160907180622) do
     t.string   "name"
     t.text     "description"
     t.string   "developer"
-    t.string   "youtubeLink"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "user_id"
@@ -162,6 +161,8 @@ ActiveRecord::Schema.define(version: 20160907180622) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.date     "date"
+    t.string   "author"
+    t.string   "link"
   end
 
   create_table "operatingsystem_translations", force: :cascade do |t|
