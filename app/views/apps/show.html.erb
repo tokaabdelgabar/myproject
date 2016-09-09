@@ -96,12 +96,11 @@
 						<% if Review.where(user_id: current_user.id, app_id: @app.id).count > 0 %>
 						<%= link_to "Back", root_path, class: 'btn btn-primary pull-right' %>
 						<% else %>
-						<%= link_to "Add Review", new_app_review_path(@app), id: 'new_review', class: 'btn btn-primary pull-left' %>
-						<%= link_to "Back", root_path, class: 'btn btn-primary pull-right' %>
+						<%= link_to "Add Review", new_app_review_path(@app), id: 'new_review', class: 'btn btn-primary pull-left'%>
 						<% end %> 
 						<% end %>			
 					</div><br>
-					<div class="row" style="margin-left:3px;margin-right:3px"">
+					<div class="row" style="margin-left:3px;margin-right:3px">
 						<p>User Rating</p>
 						<%= render @reviews %>
 						<%= will_paginate @reviews , :previous_label => t("previous"), :next_label => t("next")%>
