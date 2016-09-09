@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160909095339) do
+ActiveRecord::Schema.define(version: 20160909114535) do
 
   create_table "about_us", force: :cascade do |t|
     t.string   "title"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20160909095339) do
     t.string   "paragraph1content"
     t.string   "paragraph2heading"
     t.string   "paragraph2content"
+    t.string   "paragraph3heading"
+    t.string   "paragraph3content"
   end
 
   create_table "app_translations", force: :cascade do |t|
