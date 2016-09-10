@@ -4,7 +4,7 @@
 	<div class="container">
 		<h2 class="title-style-2"><%= category.name %> Apps<span class="title-under"></span></h2>
 		<div class="row" style="background:#fff;border-radius: 5px;padding-top:50px">
-			<% @apps_all.each do |apps| %>
+			<% @apps_all.limit(5).each do |apps| %>
 			<% if apps.category_id == category.id  %>
 			<div class="col-md-2 col-sm-2">
 				<div class="team-member">
