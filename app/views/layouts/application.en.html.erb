@@ -38,8 +38,8 @@
     jQuery(document).ready(function($)
     {
       var zoom_level=100;
-      $('#zoom_in').click(function() { zoom_page(15, $(this)) });
-      $('#zoom_out').click(function() { zoom_page(20, $(this)) });
+      $('#zoom_in').click(function() { zoom_page(20, $(this)) });
+      $('#zoom_out').click(function() { zoom_page(30, $(this)) });
       $('#zoom_reset').click(function() { zoom_page(0, $(this)) });
       function zoom_page(step, trigger){
         if(zoom_level>=120 && step>0 || zoom_level<=80 && step<0) return;
@@ -77,13 +77,15 @@
               <li><%= link_to "My Account", edit_user_registration_path %><i><%= image_tag("user-8.png") %></i></li>
               <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %><i><%= image_tag("delete.png") %></i></li>
               <% else %>  
-              <li><%= link_to "Sign In", new_user_session_path %><i><%= image_tag("people-2.png") %></i></li>
-              <li><%= link_to "Register", new_user_registration_path%><i><%= image_tag("people-1.png") %></i></li>
+              <li><%= link_to "Sign In", new_user_session_path %><i><%= image_tag("people-2.png", :size => "20x20")%></i></li>
+              <li><%= link_to "Register", new_user_registration_path%><i><%= image_tag("people-1.png", :size => "20x20") %></i></li>
               <% end %>
+              <a href="#" onclick="body.style.backgroundColor='black'"><%= image_tag("Black.png",:size => "20x20")%></a>
+              <a href="#" onclick="body.style.backgroundColor='white'"><%= image_tag("white.png",:size => "20x20")%></a>
               <h2 class="offscreen">Page size</h2>
-              <a role=button tabindex=0 id="zoom_reset" accesskey="o"><%= image_tag("zoom out.png",:size =>"30x30",:alt => "Zoom Out")%></a>
-              <a role=button tabindex=0 id="zoom_in" accesskey="i"><%= image_tag("zoom in.png",:size => "30x30",:alt => "Zoom In")%></a>
-              <a role=button tabindex=0 id="zoom_out" accesskey="i">zoom More</a>
+              <a role=button tabindex=0 id="zoom_reset" accesskey="o"><%= image_tag("zoom.png",:size =>"12x20",:alt => "Zoom Out")%></a>
+              <a role=button tabindex=0 id="zoom_in" accesskey="i"><%= image_tag("zoom-1.png",:size => "20x20",:alt => "Zoom In")%></a>
+              <a role=button tabindex=0 id="zoom_in" accesskey="i"><%= image_tag("zoom-2.png",:size => "20x20",:alt => "Zoom In")%></a>
               <li><%= link_to_unless I18n.locale == :de, image_tag("German.png",:size => "40x25", :alt => "Switch language to German"),set_language_german_path %></li>
             </ul>
           </div>
@@ -121,7 +123,7 @@
                 <!-- <input type="Search" placeholder="Search..." class="form-control" /> -->
                 <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Search...", :style =>"border-radius: 5px"%>
                 <div class="input-group-btn">
-                  <button class="btn btn-info">
+                  <button class="btn btn-third">
                     <span class="glyphicon glyphicon-search"></span>
                   </button>
                 </div>

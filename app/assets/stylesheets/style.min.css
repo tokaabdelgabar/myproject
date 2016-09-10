@@ -58,6 +58,10 @@ a:hover, a:focus, a:active {
 .table-vcenter td {
    vertical-align: middle!important;
 }
+button:target {
+  background: #01B6AD;
+  color: #000;
+}
 /* =============================================================================
   Contact
 ========================================================================== */
@@ -448,7 +452,7 @@ a:hover, a:focus, a:active {
 }
 .footer-form .btn-submit {
   border-radius: 0;
-  background: #115c9b;
+  background: #0A4958;
   text-transform: uppercase;
   border: 1px solid #fff;
   -moz-transition: all, 0.5s;
@@ -552,7 +556,7 @@ form .alert {
 }
 
 /* =============================================================================
-	Module
+  Module
 ========================================================================== */
 .btn-primary {
   background:  #0A4958;
@@ -573,15 +577,23 @@ form .alert {
 }
 
 .btn-secondary {
-  background: #fff;
-  color: #000;
-  border-radius: 0;
+  background: #0A4958;
+  color: #fff;
+  border-radius: 5px;
 }
 .btn-secondary:hover {
-  background: #009688;
+  background: #01B6AD;
   color: #000;
 }
-
+button:checked{
+  background: #01B6AD;
+  color: #000;
+}
+.btn-third {
+  background: #0A4958;
+  color: #fff;
+  border-radius: 5px;
+}
 .title-style-1 {
   text-align: center;
   text-transform: uppercase;
@@ -810,7 +822,7 @@ form .alert {
 }
 
 /* =============================================================================
-	Responsive
+  Responsive
 ========================================================================== */
 /* Large devices (large desktops, 1200px and Down) */
 @media (max-width: 1200px) {
@@ -930,7 +942,7 @@ form .alert {
   }
 }
 /* =============================================================================
-	Animations
+  Animations
 ========================================================================== */
 .animate-onscroll {
   visibility: hidden;
@@ -1139,15 +1151,6 @@ height:1px;
 text-align: left; 
 overflow:hidden;
 }
-h3.offscreen {
-position:absolute;
-left:-1000px;
-top:-1000px;
-width:1px;
-height:1px;
-text-align: left; 
-overflow:hidden;
-}
 
 a.offscreen:focus, a.offscreen:active, a.offscreen:hover { 
 position:absolute; 
@@ -1161,16 +1164,6 @@ border: 1px dotted #000;
 }
 
 h2.offscreen:focus, h2.offscreen:active, h2.offscreen:hover { 
-position:absolute; 
-left:0; 
-top:0; 
-width:auto; 
-height:auto; 
-overflow:visible;
-background-color:#FF3;
-border: 1px dotted #000;
-}
-h3.offscreen:focus, h3.offscreen:active, h3.offscreen:hover { 
 position:absolute; 
 left:0; 
 top:0; 
