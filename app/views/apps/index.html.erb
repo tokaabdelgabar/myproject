@@ -4,8 +4,7 @@
 	<div class="container">
 		<h2 class="title-style-2" aria-hidden="false" tabindex=0><h3 class="offscreen"> Dieser Abschnitt enthält</h3><%= category.name %> Apps<span class="title-under"></span></h2>
 		<div class="row" style="background:#fff;border-radius: 5px;padding-top:50px">
-			<% @apps_all.limit(5).each do |apps| %>
-			<% if apps.category_id == category.id  %>
+			<% App.where(category_id: category.id).limit(5).each do |apps| %>
 			<div class="col-md-2 col-sm-2">
 				<div class="team-member">
 					<div class="thumnail"> 
@@ -22,7 +21,6 @@
 				</div>
 				<br></br>
 			</div>
-			<% end %>
 			<% end %>
 			<div>
 				<h4 style="padding-top: 30px" aria-hidden="false" role=button><h3 class="offscreen"> Klicken Sie hier für </h3><%= link_to "Mehr Apps...", controller: "categories", 
