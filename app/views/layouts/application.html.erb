@@ -80,6 +80,9 @@
               <li><%= link_to "Einloggen", new_user_session_path %><i><%= image_tag("people-2.png",:alt => "Einloggen Foto") %></i></li>
               <li><%= link_to "Registrieren", new_user_registration_path%><i><%= image_tag("people-1.png",:alt => "Registrieren Foto") %></i></li>
               <% end %>
+
+              <a href="#" onclick="body.style.backgroundColor='black'"><%= image_tag("Black.png",:size => "20x20")%></a>
+              
               <h2 class="offscreen">Schriftgröße:</h2>
               <a role=button tabindex=0 id="zoom_reset" accesskey="o"><%= image_tag("zoom out.png",:size =>"30x30",:alt => "Zoom Out")%></a>
               <a role=button tabindex=0 id="zoom_in" accesskey="i"><%= image_tag("zoom in.png",:size => "30x30",:alt => "Zoom In")%></a>
