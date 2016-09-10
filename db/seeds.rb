@@ -30,6 +30,9 @@ second_app = App.create(:id => 2, :name => "Blind 2", :price => 9.00, :category_
 third_app = App.create(:id => 3, :name => "Blind 3", :price => 10.00, :category_id => 1, :app_img_file_name => "app3.jpg" , :user_id => 1)
 fourth_app = App.create(:id => 4,:name => "Blind 4", :price => 100.00, :category_id => 1, :app_img_file_name => "app4.jpg" )
 fifth_app = App.create(:id => 5,:name => "Blind 5", :price => 99.00, :category_id => 1, :app_img_file_name => "app5.jpg" )
+fifth_app = App.create(:id => 11,:name => "Blind 5", :price => 99.00, :category_id => 1, :app_img_file_name => "app5.jpg" )
+rep_app = App.create!(:id => 13,:name => "Blind 11", :price => 99.00, :category_id => 1)
+
 
 sixth_app = App.create(:id => 6, :name => "Sight 1", :price => 12, :category_id => 2, :app_img_file_name => "app6.jpg" )
 seventh_app = App.create(:id =>7, :name => "Sight 2", :price => 9, :category_id => 2, :app_img_file_name => "app7.jpg" )
@@ -48,6 +51,8 @@ third_review_third_app   = Review.create!(:id => 23, :rating => 2, :comment => "
 second_review = Review.create(:id => 3, :rating => 3, :comment => "average", :app_id => 2, :user_id => 1)
 fourth_review = Review.create(:id => 4, :rating => 2, :comment => "bad", :app_id => 4, :user_id => 1)
 fifth_review = Review.create(:id => 5, :rating => 1, :comment => "very good", :app_id => 5, :user_id => 1)
+sexy_review = Review.create(:id => 111, :rating => 1, :comment => "very good", :app_id => 11, :user_id => 1)
+
 
 sixth_review = Review.create(:id => 6, :rating => 5, :comment => "very good", :app_id => 6, :user_id => 1)
 seventh_review = Review.create(:id => 7, :rating => 4, :comment => "good", :app_id => 7, :user_id => 1)

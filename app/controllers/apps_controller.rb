@@ -4,7 +4,7 @@ before_action :find_app, only: [:show, :edit, :update, :destroy, :upvote, :downv
 	
 	def index
 
-		@apps_all= App.all 
+		@apps_all= App.all
 		@categories_list= Category.all
 		@operatingsystem_list= Operatingsystem.all
 

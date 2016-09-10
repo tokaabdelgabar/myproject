@@ -26,7 +26,7 @@ class CategoriesController < ApplicationController
 		#display Product
 			@products = @search
 			.result
-			.joins(:reviews)
+			.eager_load(:reviews)
 			.select("apps.*, avg(reviews.rating) as average, count(*) as total")
 			.group("apps.id")
 			.where(:category_id => params[:id])
