@@ -1,23 +1,23 @@
 <div class="row" style="background:#fff; border-radius: 5px;">
     <% @about_us.each do |about_u| %>
   <div>
-    <h2><%= about_u.title %></h2>
+    <h2 tabindex=0><%= about_u.title %></h2>
   </div>
   <div class="col-md-12 about">
-    <h3><%= about_u.paragraph1heading %></h3>
-    <h4><%= about_u.paragraph1content %></h4><br />
+    <h3 tabindex=0><%= about_u.paragraph1heading %></h3>
+    <h4 tabindex=0><%= about_u.paragraph1content %></h4><br />
   </div>
   <div class="col-md-12 about">
-    <h3><%= about_u.paragraph2heading %></h3>
-    <h4><%= about_u.paragraph2content %></h4> <br />
+    <h3 tabindex=0><%= about_u.paragraph2heading %></h3>
+    <h4 tabindex=0><%= about_u.paragraph2content %></h4> <br />
   </div>
   <div class="col-md-12 about">
-    <h3><%= about_u.paragraph3heading %></h3>
-    <h4><%= about_u.paragraph3content %></h4> <br />
+    <h3 tabindex=0><%= about_u.paragraph3heading %></h3>
+    <h4 tabindex=0><%= about_u.paragraph3content %></h4> <br />
   </div>
 
-  <div>
-    <%= image_tag about_u.picture %>
+  <div class="col-md-12 about" tabindex=0>
+    <%= image_tag about_u.picture, alt: about_u.picture_alt %>
   </div>
 
    <% end %>

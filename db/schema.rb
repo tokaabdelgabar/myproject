@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160909114535) do
+ActiveRecord::Schema.define(version: 20160911155630) do
 
   create_table "about_us", force: :cascade do |t|
     t.string   "title"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160909114535) do
     t.string   "paragraph2content"
     t.string   "paragraph3heading"
     t.string   "paragraph3content"
+    t.string   "picture_alt"
   end
 
   create_table "app_translations", force: :cascade do |t|
@@ -133,6 +134,7 @@ ActiveRecord::Schema.define(version: 20160909114535) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "photo_alt"
   end
 
   create_table "languages", force: :cascade do |t|
@@ -165,6 +167,8 @@ ActiveRecord::Schema.define(version: 20160909114535) do
     t.date     "date"
     t.string   "author"
     t.string   "link"
+    t.string   "image_alt"
+    t.string   "photo_alt"
   end
 
   create_table "operatingsystem_translations", force: :cascade do |t|
