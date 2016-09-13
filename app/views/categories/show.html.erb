@@ -1,14 +1,15 @@
 
-<div class="main">
-	<div class="container">
-		<h2><b><%= @category.name %></p></h2>
-		<section class="product">
-			<% if @product %>
-			<p><strong>Category:</strong><%= @product.name %></p>
-			<% end %>
-		</section>
-
-		<div class="row">
+		<div class="main">
+			<div class="container">
+				<h2><b><%= @category.name %></p></h2>
+				<section class="product">
+					<% if @product %>
+					<p>
+						<strong>Category:</strong><%= @product.name %>
+					</p>
+					<% end %>
+				</section>
+				<div class="row">
 					<div class="col-md-6">
 						<table>
 							<tr>
