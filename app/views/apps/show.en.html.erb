@@ -4,7 +4,7 @@
 			<h2 class="title-style-2"><%= App.human_attribute_name(:App_Name) %>: <%= @app.name %><span class="title-under"></span></h2>
 		</div>
 
-		<div class="col-md-5 form-group" style="background:#fff; border-radius: 5px; margin-left:-5px; float: left;">
+		<div class="col-md-5 form-group border-white" style="margin-left:-5px; float: left;">
 			<div class="row">
 				<div class="app-logo">
 				<%= image_tag @app.app_img.url(:app_show), class: "img-responsive" %>
@@ -53,7 +53,7 @@
 			</div><br>
 		</div>
 		<div class="col-md-7 form-group" style="float:right; margin-right: -5px;">
-			<div class="col-md-12" style="background:#fff; border-radius: 5px">
+			<div class="col-md-12 border-white">
 				<div class="row" style="margin-left:3px;margin-right:3px">
 					<h4 style="padding-top:5px">By <%= App.human_attribute_name(:Developer)%>: <%= @app.developer %></h4>			
 					<p><div class="average-review-rating" data-score=<%= @average_review %>></div><h4>Based on&nbsp;<%= @app.reviews.count %>&nbsp;reviews</h4></p>						
@@ -82,7 +82,7 @@
 					</h4></p>
 				</div>
 			</div><br>
-			<div class="col-md-12" style="background:#fff; border-radius: 5px; margin-top:25px;">
+			<div class="col-md-12 border-white" style="margin-top:25px;">
 				<div class="row" style="margin-left:3px;margin-right:3px; margin-top:25px">			
 					<% if user_signed_in? %>
 					<% if Review.where(user_id: current_user.id, app_id: @app.id).count > 0 %>
@@ -123,12 +123,12 @@
 		                <div class="modal-body next"></div>
 		                <div class="modal-footer">
 		                    <button type="button" class="btn btn-primary pull-left prev">
-		                        <i class="glyphicon glyphicon-chevron-left"></i>
+		                        <i class="fa fa-chevron-left"></i>
 		                        Previous
 		                    </button>
 		                    <button type="button" class="btn btn-primary next">
 		                        Next
-		                        <i class="glyphicon glyphicon-chevron-right"></i>
+		                        <i class="fa fa-chevron-right"></i>
 		                    </button>
 		                </div>
 		            </div>
