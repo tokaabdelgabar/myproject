@@ -11,6 +11,7 @@
 					<div class="row" style="margin-left:3px;margin-right:3px">
 						<h4>By Entwickler: <%= @app.developer %></h4>			
 						<p aria-hidden="false">
+							<h4>Average review is:</h4>
 							<div class="average-review-rating" data-score=<%= @average_review %>></div>
 							<h4>Based on&nbsp;<%= @app.reviews.count %>&nbsp;reviews</h4>
 						</p>						
@@ -27,9 +28,9 @@
 					<h4>Links zum DownloadSeiten:</h4>
 					<div class="text-center">
 						<div class="btn-group">
-							<a class="btn btn-forth" href="">iOS</a>
-							<a class="btn btn-forth" href="">Windows Phone</a>
-							<a class="btn btn-forth" href="">Android</a>
+							<a class="btn btn-forth" href="" tabindex=0 role=button title="Link to iOS download" >iOS</a>
+							<a class="btn btn-forth" href="" tabindex=0 role=button title="Link to windows phone download">Windows Phone</a>
+							<a class="btn btn-forth" href="" tabindex=0 role=button title="Link to android download">Android</a>
 						</div>
 					</div>
 				</div>
@@ -114,7 +115,7 @@
 					<div>
 						<div class="embed-responsive embed-responsive-16by9" style=" margin-right:20px">
 							<% unless @app.youtube_link.blank? %>
-							<%= raw(youtube_embed(@app.youtube_link))%>
+							<%= raw(youtube_embed(@app.youtube_link)) , alt: @app.youtube_alt%>
 							<% end %>
 						</div>
 					</div>
