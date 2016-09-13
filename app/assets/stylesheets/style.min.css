@@ -120,17 +120,17 @@ button:target {
 }
 .navbar-brand>img {
   height: 100%;
-  padding: 15px;
   width: auto;
-  position: relative;
+  margin-top: -15px;
+  position: absolute;
   z-index: 2;
 }
 .navbar-main a:hover,
 .navbar-main a:active,
 .navbar-main a:focus,
 .navbar-main a.is-active {
-  background: none !important;
-  color: inherit;
+  background: #0A4958;
+  color: #000;
   border-bottom: 2px solid #fff;
 }
 .navbar-main .submenu {
