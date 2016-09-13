@@ -2,8 +2,10 @@
   <% @apps.each do |app| %>
     <div class="col-sm-6 col-md-3">
       <div class="thumbnail">
-        <%= link_to (image_tag app.image.url(:medium), class: 'image'), app %>
+        <%= link_to (image_tag app.image.url(:medium), alt: app.app_img_alt ,class: 'image'), app %>
       </div>
     </div>
   <% end %>
 </div>
+
+
