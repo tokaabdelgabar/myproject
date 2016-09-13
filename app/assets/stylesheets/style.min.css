@@ -378,6 +378,7 @@ button:target {
     text-align: center;
     padding-bottom: 15px;
     border: 1px solid #9E9E9E;
+    border-radius: 5px;
 }
 .team-member .thumnail img {
   width: 100%;
@@ -610,6 +611,13 @@ button:checked{
   font-size: 26px;
   margin-bottom: 25px;
 }
+.title-style-3 {
+  text-align: left;
+  text-transform: lowercase;
+  font-size: 26px;
+  margin-bottom: 50px;
+}
+
 .title-style-2 .title-under {
   display: block;
   margin: 5px 0;
@@ -1163,7 +1171,24 @@ height:1px;
 text-align: left; 
 overflow:hidden;
 }
-
+h4.offscreen {
+  position:absolute;
+  left:-1000px;
+  top:-1000px;
+  width:1px;
+  height:1px;
+  text-align: left; 
+  overflow:hidden;
+}
+h5.offscreen {
+  position:absolute;
+  left:-1000px;
+  top:-1000px;
+  width:1px;
+  height:1px;
+  text-align: left; 
+  overflow:hidden;
+}
 a.offscreen:focus, a.offscreen:active, a.offscreen:hover { 
 position:absolute; 
 left:0; 
