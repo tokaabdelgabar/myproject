@@ -1,44 +1,121 @@
 	<div class="main">
 		<div class="container">
+			
 			<div class="col-md-12">
-			<h2 class="title-style-2"><%= App.human_attribute_name(:App_Name) %>: <%= @app.name %><span class="title-under"></span></h2>
+			<h2 class="title-style-2">App Name: <%= @app.name %>
+				<span class="title-under"></span>
+			</h2>
 			</div>
+			
+			<div class="col-md-7 form-group" style="float:right; margin-right: -5px;">
+				<div class="col-md-12" style="background:#fff; border-radius: 5px">
+					<div class="row" style="margin-left:3px;margin-right:3px">
+						<h4>By Entwickler: <%= @app.developer %></h4>			
+						<p aria-hidden="false">
+							<div class="average-review-rating" data-score=<%= @average_review %>></div>
+							<h4>Based on&nbsp;<%= @app.reviews.count %>&nbsp;reviews</h4>
+						</p>						
+						<h4>Preis: <%= @app.price %>€</h4>				
+					</div><br>
+
+					<div class="row" style="border-top:1px solid #9E9E9E; margin-left:3px;margin-right:3px">
+						<p style="padding-left:15px;" aria-hidden="false">
+							<h4>Beschreibung: <%= @app.description %></h4>
+						</p>
+					</div><br>
+
+					<div class="row" style="border-top:1px solid #9E9E9E;margin-left:3px; margin-right:3px">
+						<h4>Links zum DownloadSeiten:</h4>
+						<% @app.operations.each do |operatingsystem| %>
+						<div class="col-md-4">
+							<h4>System: <%= operatingsystem.id %> 
+								<a tabindex=0 role=link class="btn btn-primary" 
+								href=<%= operatingsystem.link %> title="Link to operating system">Link</a>
+							</h4>
+						</div>
+						<!-- <h4>Information: <%= operatingsystem.information %> </h4> -->
+						<% end %>
+					</div><br>
+
+					<div class="row" style="border-top:1px solid #9E9E9E;margin-left:3px;margin-right:3px">
+						<p style="padding-left:15px;" aria-hidden="false">
+							<h4>Price Pro: <%= @app.price_pro %>€</h4>
+						</p>
+						<p style="padding-left:15px;" aria-hidden="false">
+							<h4>App Type: <%= @app.app_type %></h4>
+						</p>
+						<p style="padding-left:15px;" aria-hidden="false">
+							<h4>Languages Avilable:
+						<% @app.languages.each do |language| %>
+						<%= language.name %> **
+						<% end %>
+						</h4>
+					    </p>
+					</div>
+
+				</div><br>
+
+				<div class="col-md-12" style="background:#fff; border-radius: 5px; margin-top:25px;">
+					<div class="row" style="margin-left:3px;margin-right:3px; margin-top:10px">			
+						<% if user_signed_in? %>
+						<% if Review.where(user_id: current_user.id, app_id: @app.id).count > 0 %>
+						<p aria-hidden="false">You have already posted a review</p>
+						<% else %>
+						<%= link_to "Add Review", new_app_review_path(@app), id: 'new_review', class: 'btn btn-primary pull-left', title:"link to another page to create a new review for the application"%>
+						<% end %>
+						<% else %>
+						 <%= link_to "Sign In To Review app", new_user_session_path , id: 'new_review', class: 'btn btn-primary pull-left' , title:"link to sign in to be able to post review"%>
+						<% end %>			
+					</div><br>
+
+					<div class="row" style="margin-left:3px;margin-right:3px">
+						<p aria-hidden="false">User Rating</p>
+						<%= render @reviews %>
+						<%= will_paginate @reviews , :previous_label => t("previous"), :next_label => t("next")%>
+					</div>
+
+				</div>			
+			</div>
+
 			<div class="col-md-5 form-group" style="background:#fff; border-radius: 5px; margin-left:-5px; float: left;">
+				
 				<div class="row">
 					<div class="app-logo">
-					<%= image_tag @app.app_img.url(:app_show), class: "img-responsive" %>
+					<%= image_tag @app.app_img.url(:app_show), alt: @app.app_img_alt , class: "img-responsive" %>
 					</div>
 				</div><br>
+
 				<div class="row" style="margin-left:3px;">
 					<p>This is for the gallery</p>
 					<div id="links">
 					    <% unless @app.image1.blank? %>	
 					    <a href="<%= @app.image1.url(:app_show) %>" data-gallery>
-					        <%= image_tag @app.image1.url(:app_show), alt: "Image gallery", class: "gallery" %>
+					        <%= image_tag @app.image1.url(:app_show), alt: @app.image1_alt, class: "gallery" %>
 					    </a>
 					    <% end %>				    
 					    <% unless @app.image2.blank? %>	
 					    <a href="<%= @app.image2.url(:app_show) %>" data-gallery>
-					        <%= image_tag @app.image2.url(:app_show), alt: "Image gallery", class: "gallery" %>
+					        <%= image_tag @app.image2.url(:app_show), alt:  @app.image2_alt , class: "gallery" %>
 					    </a>
 					    <% end %>
 					    <% unless @app.image3.blank? %>				  				    
 					    <a href="<%= @app.image3.url(:app_show) %>" data-gallery>
-					        <%= image_tag @app.image3.url(:app_show), alt: "Image gallery", class: "gallery" %>
+					        <%= image_tag @app.image3.url(:app_show), alt: @app.image3_alt , class: "gallery" %>
 					    </a>
 					    <% end %>
 					    <% unless @app.image4.blank? %>
 					    <a href="<%= @app.image4.url(:app_show) %>" data-gallery>
-					        <%= image_tag @app.image4.url(:app_show), alt: "Image gallery", class: "gallery" %>
+					        <%= image_tag @app.image4.url(:app_show), alt: @app.image4_alt , class: "gallery" %>
 					    </a>
 					    <% end %>
 					    <% unless @app.image5.blank? %>
 					    <a href="<%= @app.image5.url(:app_show) %>" data-gallery>
-					        <%= image_tag @app.image5.url(:app_show), alt: "Image gallery", class: "gallery" %>
+					        <%= image_tag @app.image5.url(:app_show), alt: @app.image5_alt , class: "gallery" %>
 					    </a>
 					    <% end %>				    
 					</div>
 				</div><br>
+				
 				<div class="row" style="margin-left:3px;">
 					<p>This is for embeded video</p>
 					<% unless @app.youtube_link.blank? %>
@@ -48,56 +125,6 @@
 	                    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/zpOULjyy-n8?rel=0"></iframe>
 	                </div>
 				</div><br>
-			</div>
-			<div class="col-md-7 form-group" style="float:right; margin-right: -5px;">
-				<div class="col-md-12" style="background:#fff; border-radius: 5px">
-					<div class="row" style="margin-left:3px;margin-right:3px">
-						<h4>By <%= App.human_attribute_name(:Entwickler)%>: <%= @app.developer %></h4>			
-						<p><div class="average-review-rating" data-score=<%= @average_review %>></div><h4>Based on&nbsp;<%= @app.reviews.count %>&nbsp;reviews</h4></p>						
-						<h4><%= App.human_attribute_name(:Preis) %>: <%= @app.price %>€</h4>				
-					</div><br>
-					<div class="row" style="border-top:1px solid #9E9E9E; margin-left:3px;margin-right:3px">
-						<p style="padding-left:15px;"><h4><%= App.human_attribute_name(:Beschreibung) %>: <%= @app.description %></h4></p>
-					</div><br>
-					<div class="row" style="border-top:1px solid #9E9E9E;margin-left:3px; margin-right:3px">
-						<h4>Links zum DownloadSeiten:</h4>
-						<% @app.operations.each do |operatingsystem| %>
-						<div class="col-md-4">
-							<h4>System: <%= operatingsystem.id %> <a class="btn btn-primary" href=<%= operatingsystem.link %>>Link</a></h4>
-						</div>
-						
-						<!-- <h4>Information: <%= operatingsystem.information %> </h4> -->
-						<% end %>
-					</div><br>
-					<div class="row" style="border-top:1px solid #9E9E9E;margin-left:3px;margin-right:3px">
-						<p style="padding-left:15px;"><h4><%= App.human_attribute_name(:Price_Pro) %>: <%= @app.price_pro %>€</h4></p>
-						<p style="padding-left:15px;"><h4><%= App.human_attribute_name(:App_Type) %>: <%= @app.app_type %></h4></p>
-						<p style="padding-left:15px;"><h4>Languages Avilable:
-						<% @app.languages.each do |language| %>
-						<%= language.name %> **
-						<% end %>
-						</h4></p>
-					</div>
-				</div><br>
-				<div class="col-md-12" style="background:#fff; border-radius: 5px; margin-top:25px;">
-					<div class="row" style="margin-left:3px;margin-right:3px; margin-top:10px">			
-						<% if user_signed_in? %>
-						<% if Review.where(user_id: current_user.id, app_id: @app.id).count > 0 %>
-						<p>You have already posted a review</p>
-						<% else %>
-						<%= link_to "Add Review", new_app_review_path(@app), id: 'new_review', class: 'btn btn-primary pull-left'%>
-						<% end %>
-						 <% else %>
-						 <%= link_to "Sign In To Review app", new_user_session_path , id: 'new_review', class: 'btn btn-primary pull-left' %>
-						 <%= link_to "Register if you don't have an account", new_user_registration_path, class: 'btn btn-primary pull-right' %>
-						<% end %>			
-					</div><br>
-					<div class="row" style="margin-left:3px;margin-right:3px">
-						<p>User Rating</p>
-						<%= render @reviews %>
-						<%= will_paginate @reviews , :previous_label => t("previous"), :next_label => t("next")%>
-					</div>
-				</div>			
 			</div>
 		</div>
 	</div>

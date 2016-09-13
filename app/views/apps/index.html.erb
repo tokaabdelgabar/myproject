@@ -2,7 +2,7 @@
 <% @categories_list.each do |category| %>
 <div class="our-team">
 	<div class="container">
-		<h2 class="title-style-2" aria-hidden="false" tabindex=0>List of <%= category.name %> Applications
+		<h2 class="title-style-2" aria-hidden="false" >List of <%= category.name %> Applications
 			<span class="title-under"></span>
 		</h2>
 		
@@ -26,14 +26,16 @@
 				<br></br>
 			</div>
 			<% end %>
-<div class="col-md-2 col-sm-2">
+
+			<div class="col-md-2 col-sm-2">
 			<div>
 				<h4 style="padding-top: 100px"  aria-hidden="false" role=link><%= link_to "Mehr Apps...", 
-				controller: "categories", action: "show", id: category.id %><span class="fa fa-external-link"></span></h4>
+				controller: "categories", action: "show", id: category.id , title:"this page links to list more app of this category"%><span class="fa fa-external-link"></span></h4>
 			</div>
 		</div>
 		<br></br>
 	</div>
+</div>
 </div>
 <% end %>
 <br/>
