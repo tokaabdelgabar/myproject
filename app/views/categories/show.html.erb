@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<html lang="de" xml:lang="de" xmlns="http://www.w3.org/1999/xhtml">
-<head></head>
-	<body>
-		<div class="main">
-			<div class="container">
-				<h2><b><p><%= @category.name %></p></b></h2>
-				<section class="product">
-					<% if @product %>
-					<p>
-						<strong>Category:</strong><%= @product.name %>
-					</p>
-					<% end %>
-				</section>
-				<div class="row">
+
+<div class="main">
+	<div class="container">
+		<h2><b><%= @category.name %></p></h2>
+		<section class="product">
+			<% if @product %>
+			<p><strong>Category:</strong><%= @product.name %></p>
+			<% end %>
+		</section>
+
+		<div class="row">
 					<div class="col-md-6">
 						<table>
 							<tr>
@@ -196,5 +191,3 @@
 				<%= link_to 'Bearbeiten', edit_category_path(@category), class: "btn btn-primary" %><br>
 			</div><br>
 		</div>	
-	</body>
-</html>
