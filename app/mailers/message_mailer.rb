@@ -5,4 +5,5 @@ class MessageMailer < ApplicationMailer
 
     mail from: @msg.email, subject: @msg.subject, body: @msg.content
   end
+
 end
