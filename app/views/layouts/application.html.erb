@@ -97,17 +97,16 @@
               role: "search" do %>
       
               <div class="input-group">
-                <%= text_field_tag :search, params[:search], class: "form-control", name:"search field",type:"text", title: "Suchfeld",
+                <%= text_field_tag :search, params[:search], class: "form-control", 
                 placeholder:"Suchen", :style =>"border-radius: 5px" %>
-                <span class="input-group-btn">
+                <div class="input-group-btn">
                   <button class="btn btn-third" type="submit" title="Suche absenden Schaltfläche">
                     <span class="fa fa-search" aria-hidden="true"></span>
                   </button>
-                </span>
+                </div>
               </div>
               <% end %> 
             </div>
-
           </ul>     
         </div>
       </div>
