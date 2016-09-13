@@ -55,9 +55,6 @@ a:hover, a:focus, a:active {
   width: 180px;
   margin: 15px;
 }
-.table-vcenter td {
-   vertical-align: middle!important;
-}
 button:target {
   background: #01B6AD;
   color: #000;
@@ -589,9 +586,23 @@ form .alert {
   background: #01B6AD;
   color: #000;
 }
-button:checked{
+.btn-forth {
+  background:  #0A4958;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 25px;
+  margin: 15px;
+  border: 1px solid transparent;
+  -moz-transition: all, 0.3s;
+  -o-transition: all, 0.3s;
+  -webkit-transition: all, 0.3s;
+  transition: all, 0.3s;
+}
+.btn-forth:hover {
   background: #01B6AD;
   color: #000;
+  border: 1px solid #000;
 }
 .btn-third {
   background: #0A4958;
@@ -676,7 +687,10 @@ button:checked{
 .table-style-2 th {
   border-bottom: 1px solid #1f76bd;
 }
-
+.table thead {
+  background: none;
+  border: none;
+}
 /* Tabs
 ================================= */
 .nav-tabs {

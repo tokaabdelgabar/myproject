@@ -11,8 +11,8 @@
 				</div>
 			</div><br>
 			<div class="row" style="margin-left:3px;">
-				<p style="">Gallery</p>
-				<div id="links" style="border-top:1px solid #9E9E9E; margin-right:20px">
+				<p style="border-bottom:1px solid #9E9E9E; margin-right:20px">Gallery</p>
+				<div id="links">
 					    <% unless @app.image1.blank? %>	
 					    <a href="<%= @app.image1.url(:app_show) %>" data-gallery>
 					        <%= image_tag @app.image1.url(:app_show), alt: "Image gallery", class: "gallery" %>
@@ -64,16 +64,13 @@
 				</div><br>
 				<div class="row" style="border-top:1px solid #9E9E9E;margin-left:3px; margin-right:3px">
 					<h4>Links to download pages:</h4>
-					<table>
-						<tr>
-							<% @app.operations.each do |operatingsystem| %>
-								<th style="margin-left:30px">
-									<a class="btn btn-primary" href=<%= operatingsystem.link %>>Link</a>
-								</th>							
-							<!-- <h4>Information: <%= operatingsystem.information %> </h4> -->
-							<% end %>
-						</tr>
-					</table>
+						<div class="text-center">
+							<div class="btn-group">
+								<a class="btn btn-forth" href="">iOS</a>
+								<a class="btn btn-forth" href="">Windows Phone</a>
+								<a class="btn btn-forth" href="">Android</a>
+							</div>
+						</div>
 				</div><br>
 				<div class="row" style="border-top:1px solid #9E9E9E;margin-left:3px;margin-right:3px; padding-bottom:5px">
 					<p style="padding-left:15px;"><h4><%= App.human_attribute_name(:Price_Pro) %>: <%= @app.price_pro %>€</h4></p>
