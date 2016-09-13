@@ -25,7 +25,6 @@
   <%= javascript_include_tag 'bootstrap-image-gallery.min', 'data-turbolinks-track' => true %>
   <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
   <%= javascript_include_tag 'jquery-image-gallery.min', 'data-turbolinks-track' => true %>
-
   <script>
   (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
     function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
@@ -80,12 +79,12 @@
               <li><%= link_to "Sign In", new_user_session_path %><i><%= image_tag("people-2.png", :size => "20x20")%></i></li>
               <li><%= link_to "Register", new_user_registration_path%><i><%= image_tag("people-1.png", :size => "20x20") %></i></li>
               <% end %>
-              <a href="#" onclick="body.style.backgroundColor='black'"><%= image_tag("Black.png",:size => "20x20")%></a>
-              <a href="#" onclick="body.style.backgroundColor='white'"><%= image_tag("white.png",:size => "20x20")%></a>
+              <li><a href="#" onclick="body.style.backgroundColor='black'"><%= image_tag("Black.png",:size => "20x20")%></a>
+              <a href="#" onclick="body.style.backgroundColor='white'"><%= image_tag("White.png",:size => "20x20")%></a></li>
               <h2 class="offscreen">Page size</h2>
-              <a role=button tabindex=0 id="zoom_reset" accesskey="o"><%= image_tag("zoom.png",:size =>"12x20",:alt => "Zoom Out")%></a>
-              <a role=button tabindex=0 id="zoom_in" accesskey="i"><%= image_tag("zoom-1.png",:size => "20x20",:alt => "Zoom In")%></a>
-              <a role=button tabindex=0 id="zoom_in" accesskey="i"><%= image_tag("zoom-2.png",:size => "20x20",:alt => "Zoom In")%></a>
+              <li><a role=button tabindex=0 id="zoom_reset" accesskey="o"><%= image_tag("zoom.png",:size =>"7x12",:alt => "Zoom Out", :style => "margin:4px")%></a>
+              <a role=button tabindex=0 id="zoom_in" accesskey="i"><%= image_tag("zoom-1.png",:size => "18x18",:alt => "Zoom In")%></a>
+              <a role=button tabindex=0 id="zoom_in" accesskey="i"><%= image_tag("zoom-2.png",:size => "24x24",:alt => "Zoom In")%></a><li>
               <li><%= link_to_unless I18n.locale == :de, image_tag("German.png",:size => "40x25", :alt => "Switch language to German"),set_language_german_path %></li>
             </ul>
           </div>
@@ -105,8 +104,8 @@
               <% if user_signed_in? && (current_user.admin ==true or current_user.superadmin == true) %>
               <li><%= link_to "Administration", rails_admin.dashboard_path, method: :get %><li>  
                 <% end %>
-              </ul>
-            </div> 
+            </ul>
+          </div> 
 
             <div class="navbar-collapse collapse pull-right" role="searchbar">
               <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", :style =>"padding-top:5px", role: "search" do %>
@@ -115,7 +114,7 @@
                 <%= text_field_tag :search, params[:search], class: "form-control", placeholder:"Search...", :style =>"border-radius: 5px"%>
                 <div class="input-group-btn">
                   <button class="btn btn-third">
-                    <span class="glyphicon glyphicon-search"></span>
+                    <span class="fa fa-search"></span>
                   </button>
                 </div>
               </div>
