@@ -7,39 +7,43 @@
 <!-- <h2>Sign up</h2> -->
 <h2 class="title-style-2">Registrieren<span class="title-under"></span></h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+   <h2><%= devise_error_messages! %></h2>
 
 <div class="row">
 <div class="col-md-6">
   <div class="field">
-    <%= f.label :first_name, "Vorname (required):"  %>
+    <%= f.label :first_name, "Vorname (Optional):"  %>
     <%= f.text_field :first_name, autofocus: true, class:"form-control"%>
     </div>
     <div class="field">
-        <%= f.label :last_name, "Nachname (required):"  %>
-        <%= f.text_field :last_name, autofocus: true, class:"form-control" %>
+        <%= f.label :last_name, "Nachname (Optional):"  %>
+        <%= f.text_field :last_name, class:"form-control" %>
     </div>
     <div class="field">
-        <%= f.label :username, "Benutzername (required):"  %>
-        <%= f.text_field :username, autofocus: true, class:"form-control" %>
+        <%= f.label :username, "Benutzername:"  %>
+        <%= f.text_field :username, class:"form-control" %>
     </div>
     <div class="field">
-        <%= f.label :email, "Email (required):"  %>
-        <%= f.email_field :email, autofocus: true, class:"form-control" %>
+        <%= f.label :email, "Email:"  %>
+        <span>
+        <%= f.email_field :email, class:"form-control" %>
+        <span id="expDesc" tabindex="-1">joe@example.com</span>
+        </span>
+    </div>
+
+    <div class="field">
+        <%= f.label :birthday, "Geburtsdatum (Optional):"  %>
+        <%= f.date_field :birthday, class:"form-control" %>
     </div>
     <div class="field">
-        <%= f.label :birthday, "Geburtsdatum (required): DD/MM/YYYY"  %>
-        <%= f.date_field :birthday, autofocus: true, class:"form-control" %>
-    </div>
-    <div class="field">
-        <%= f.label :password, "Passwort (required):" %>
+        <%= f.label :password, "Passwort:" %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %>
         <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
     </div>
     <div class="field">
-        <%= f.label :password_confirmation, "Passwort wiederholen (required):" %>
+        <%= f.label :password_confirmation, "Passwort wiederholen:" %>
         <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control"%><br />
     </div>
     <div class="actions">
