@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Registrieren</title>
-</head>
-<body>
-<!-- <h2>Sign up</h2> -->
-<h2 class="title-style-2">Registrieren<span class="title-under"></span></h2>
+<legend>Registrieren </legend>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
    <h2><%= devise_error_messages! %></h2>
 
@@ -17,34 +10,31 @@
     </div>
     <div class="field">
         <%= f.label :last_name, "Nachname (Optional):"  %>
-        <%= f.text_field :last_name, class:"form-control" %>
+        <%= f.text_field :last_name, autofocus: true,class:"form-control" %>
     </div>
     <div class="field">
         <%= f.label :username, "Benutzername:"  %>
-        <%= f.text_field :username, class:"form-control" %>
+        <%= f.text_field :username, autofocus: true,class:"form-control" %>
     </div>
     <div class="field">
         <%= f.label :email, "Email:"  %>
-        <span>
-        <%= f.email_field :email, class:"form-control" %>
-        <span id="expDesc" tabindex="-1">joe@example.com</span>
-        </span>
+        <%= f.email_field :email, autofocus: true, class:"form-control" , placeholder:"joe@example.com"%>
     </div>
 
     <div class="field">
         <%= f.label :birthday, "Geburtsdatum (Optional):"  %>
-        <%= f.date_field :birthday, class:"form-control" %>
+        <%= f.date_field :birthday,autofocus: true, class:"form-control" %>
     </div>
     <div class="field">
         <%= f.label :password, "Passwort:" %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %>
-        <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
+        <%= f.password_field :password, autofocus: true, autocomplete: "off", class:"form-control" %>
     </div>
     <div class="field">
         <%= f.label :password_confirmation, "Passwort wiederholen:" %>
-        <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control"%><br />
+        <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "off", class:"form-control"%><br />
     </div>
     <div class="actions">
         <%= f.submit "Registrieren", class: 'btn btn-primary pull-left' %><br />
@@ -63,49 +53,6 @@
       
     </div>     
 </div>
-<!--   <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true %>
-  </div>
-
-<div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true %>
-  </div>
-
-<div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true %>
-  </div>
-<div class="field">
-    <%= f.label :birthday %><br />
-    <%= f.date_field :birthday, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div> -->
-
 <% end %>
 
 <%= render "devise/shared/links" %>
-</body>
-</html>
