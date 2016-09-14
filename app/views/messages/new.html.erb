@@ -20,7 +20,7 @@
         <div class="col-md-12">
           <div class="col-md-3"></div>
           <div class="col-md-6">
-            <h2 class="title-style-2">SEND US AN EMAIL<span class="title-under"></span></h2>
+            <h2 class="title-style-2">Kontakt<span class="title-under"></span></h2>
             <ul>
               <li>Use the form below to ask a question or request our help</li>
               <li>Call us  on 0800  - Germany from 08:00-18:00, Monday-Friday</li>
@@ -82,6 +82,8 @@
           <div class="col-md-3"></div>
           <div class="col-md-6">
             <h2 class="title-style-2">SEND US AN EMAIL<span class="title-under"></span></h2>
+             <h4>Möchten Sie uns etwas mitteilen? Egal ob Fragen, Anregungen oder Beschwerden, wir freuen uns über Ihr Interesse und werden jede Nachricht beantworten. Nutzen Sie einfach das Formular und schicken Sie uns eine Nachricht.</h4>
+              <h4>Noch ein Hinweis: Nur E-Mail-Adresse und eine Nachricht sind hier erfoderlich.</h4>
             <ul>
               <li>Use the form below to ask a question or request our help</li>
               <li>Call us  on 0800  - Germany from 08:00-18:00, Monday-Friday</li>
@@ -97,23 +99,23 @@
           <div class="row">
 
             <div class="form-group col-md-12">
-              <%= f.label :name, "Name:"  %>
+              <%= f.label :name, "Ihr Name:"  %>
               <%= f.text_field :name, autofocus: true, class:"form-control", placeholder:"Name" %>
             </div>
 
             <div class="form-group col-md-12">
-              <%= f.label :email, "Email:"  %>
+              <%= f.label :email, "Ihre E-Mail-Adresse: "  %>
               <%= f.text_field :email, autofocus: true, class:"form-control", placeholder:"Email" %>
             </div>
 
             <div class="form-group col-md-12">
-              <%= f.label :subject, "Subject (optional):"  %>
-              <%= f.text_field :subject, autofocus: true, class:"form-control", placeholder:"Subject" %>
+              <%= f.label :subject, "Worum geht es? (optional):"  %>
+              <%= f.text_field :subject, autofocus: true, class:"form-control", placeholder:"Betreff " %>
             </div>
 
             <div class="form-group col-md-12">
-              <%= f.label :content, "Message:"  %>
-              <%= f.text_area :content, autofocus: true, class:"form-control", placeholder:"Content" %>
+              <%= f.label :content, "Wie können wir Ihnen helfen?:"  %>
+              <%= f.text_area :content, autofocus: true, class:"form-control", placeholder:"Nachricht" %>
             </div>
 
             <div class="form-group col-md-12">
