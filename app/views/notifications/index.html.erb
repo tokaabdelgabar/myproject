@@ -1,24 +1,43 @@
 <div class="row">
-		<h2 class="title-style-2" style="padding-left:29px;" tabindex=0>Neuigkeiten<span class="title-under"></span></h2>
+	<h2 class="title-style-2" style="padding-left:29px;" tabindex=0>Neuigkeiten<span class="title-under"></span></h2>
 </div><br />
+
 <% @notifications.each do |notification| %>
 <div class="row">
 	<div class="col-md-12 news" style="background:#fff; border-radius: 5px;">
 		<div class="col-md-9">
-			<p aria-hidden="false"><h2 class="news" tabindex=0><% unless notification.title.blank? %><%= notification.title%><% end %></h2></p>
-			<p aria-hidden="false"><h5 class="news" tabindex=0><% unless notification.author.blank? %> Autor: <%= notification.author%>|<% end %><% unless notification.date.blank? %> Datum: <%= notification.date%><% end %></h5></p>
+			<p aria-hidden="false">
+				<h2 class="news" tabindex=0><% unless notification.title.blank? %>
+					<%= notification.title%><% end %>
+				</h2>
+			</p>
+			
+			<p aria-hidden="false">
+				<h5 class="news" tabindex=0>
+					<% unless notification.author.blank? %> Autor: <%= notification.author%>|<% end %>
+					<% unless notification.date.blank? %> Datum: <%= notification.date%><% end %>
+				</h5>
+			</p>
+
 			<% unless notification.content.blank? %>
-			<p aria-hidden="false"><h4 tabindex=0><%= notification.content%></h4></p>
+			<p aria-hidden="false">
+				<h4 tabindex=0><%= notification.content%></h4>
+			</p>
 			<% end %>
 		</div>
+		
 		<% unless notification.image.blank? %>
 		<div class="col-md-3 news" style="  padding-top:40px;" tabindex=0>
 			<%= image_tag notification.image.url(:notification_index), class:"img-thumbnail",alt: notification.image_alt %>
 		</div>
 		<% end %>
+
 		<% unless notification.link.blank? %>	
-		<p class="col-md-12" style="padding-bottom:10px;" aria-hidden="false"><a tabindex=0 role=button href="<%= notification.link%>" class="news">Gehen Sie zur Seite der App</a></p>
+		<p class="col-md-12" style="padding-bottom:10px;" aria-hidden="false">
+			<a tabindex=0 role=link title="" href="<%= notification.link%>" class="news">Gehen Sie zur Seite der App</a>
+		</p>
 		<% end %>
+
 	</div><br />
 </div><br />
 <% end %>
