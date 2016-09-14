@@ -2,7 +2,7 @@
 <% @categories_list.each do |category| %>
 <div class="our-team">
 	<div class="container">
-		<h2 class="title-style-3" aria-hidden="false" >List of <%= category.name %> Applications
+		<h2 class="title-style-3" aria-hidden="false" ><%= category.name %>
 			<span class="title-under"></span>
 		</h2>
 		
@@ -16,7 +16,7 @@
 						</a>
 					</div>
 					<p class="app-name" aria-hidden="false"><%=  apps.name %></p>
-					<p class="app-name" aria-hidden="false">Preis ist <%= apps.price %>€</p>
+					<p class="app-name" aria-hidden="false"><%= apps.price %>€</p>
 					
 					<h3 class="offscreen"> Durchschnittliche Bewertung der Anwendung ist </h3>
 					<div class="average-review-rating" 
