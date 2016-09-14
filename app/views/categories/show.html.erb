@@ -54,8 +54,8 @@
 					  <button type="button" class="btn btn-third">
 					  	<%= link_to "English", controller: "categories", action: "show",language_id: 2 %>
 					  </button>
-					  <% if @free_app.present? %>
 					  
+					  <% if @free_app.present? %>
 					  <button type="button" class="btn btn-third">
 					  	<%= link_to "Free", controller: "categories", action: "show", id: @category.id, price: '0' %>
 					  	<% end %>
