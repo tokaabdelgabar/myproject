@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bestätigung</title>
+  <title>Bestätigungsmail anfordern</title>
+  <h4>Hier können Sie eine Bestätigungsmail anfordern um Ihr Benutzerkonto zu aktivieren</h4>
 </head>
 <body>
 <!-- <h2>Resend confirmation instructions</h2> -->
-<h2 class="title-style-2">Sende erneut Bestätigungsanleitung<span class="title-under"></span></h2>
+<h2 class="title-style-2">Bestätigungsmail anfordern<span class="title-under"></span></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
@@ -15,17 +16,18 @@
     <%= f.input :email, required: true, autofocus: true %>
   </div> -->
   <div class="form-group col-md-6">
-  	<h4>Email:</h4> 
+  	<h4>Ihe E-Mail-Adresse:</h4> 
     <input type="email" name="email" class="form-control" placeholder="Email*" required>
   </div>
   <!-- <div class="form-actions">
     <%= f.button :submit, "Sende erneut Bestätigungsanleitung" %>
   </div> -->
   <div class="form-group">
-      <%= f.submit 'Sign Up', class: 'btn btn-primary pull-left' %>
+      <%= f.submit 'Anfordern', class: 'btn btn-primary pull-left' %>
   </div>
 <% end %>
-
+<br></br>
+<br></br>
 <%= render "devise/shared/links" %>
 </body>
 </html>

@@ -1,40 +1,42 @@
 <legend>Registrieren </legend>
+<h4>Loggen Sie sich ein um Kommentare zu schreiben und Apps zu bewerten.</h4>
+<h4>Noch ein Hinweis: Nachname, Vorname und Geburtsdatum brauchen Sie nicht anzugeben.</h4>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
    <h2><%= devise_error_messages! %></h2>
 
 <div class="row">
 <div class="col-md-6">
   <div class="field">
-    <%= f.label :first_name, "Vorname (Optional):"  %>
-    <%= f.text_field :first_name, autofocus: true, class:"form-control"%>
+    <%= f.label :first_name, "Ihr Vorname (Optional):"  %>
+    <%= f.text_field :first_name, autofocus: true, placeholder:"Vorname ",class:"form-control"%>
     </div>
     <div class="field">
-        <%= f.label :last_name, "Nachname (Optional):"  %>
-        <%= f.text_field :last_name, autofocus: true,class:"form-control" %>
+        <%= f.label :last_name, "Ihr Nachname (Optional):"  %>
+        <%= f.text_field :last_name, autofocus: true,placeholder:"Nachname ",class:"form-control" %>
     </div>
     <div class="field">
-        <%= f.label :username, "Benutzername:"  %>
-        <%= f.text_field :username, autofocus: true,class:"form-control" %>
+        <%= f.label :username, "Ihr gewünschter Benutzername:"  %>
+        <%= f.text_field :username, autofocus: true, placeholder:"Benutzername ", class:"form-control" %>
     </div>
     <div class="field">
-        <%= f.label :email, "Email:"  %>
-        <%= f.email_field :email, autofocus: true, class:"form-control" , placeholder:"joe@example.com"%>
+        <%= f.label :email, "Ihre E-Mail-Adresse:"  %>
+        <%= f.email_field :email, autofocus: true, class:"form-control" , placeholder:"E-Mail"%>
     </div>
 
     <div class="field">
-        <%= f.label :birthday, "Geburtsdatum (Optional):"  %>
-        <%= f.date_field :birthday,autofocus: true, class:"form-control" %>
+        <%= f.label :birthday, "Ihr Geburtsdatum (Optional):"  %>
+        <%= f.date_field :birthday,autofocus: true, placeholder:"Geburtsdatum ", class:"form-control" %>
     </div>
     <div class="field">
-        <%= f.label :password, "Passwort:" %>
+        <%= f.label :password, "Ihr Passwort:" %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %>
-        <%= f.password_field :password, autofocus: true, autocomplete: "off", class:"form-control" %>
+        <%= f.password_field :password, autofocus: true, autocomplete: "off", placeholder:"Passwort ", class:"form-control" %>
     </div>
     <div class="field">
         <%= f.label :password_confirmation, "Passwort wiederholen:" %>
-        <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "off", class:"form-control"%><br />
+        <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "off",placeholder:"Passwort ", class:"form-control"%><br />
     </div>
     <div class="actions">
         <%= f.submit "Registrieren", class: 'btn btn-primary pull-left' %><br />
