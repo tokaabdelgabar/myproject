@@ -13,23 +13,57 @@
 			<div class="col-md-6">
 				<div class="text-center btn-group" style="margin-top: 10px">
 					<p>Sorting:
-					  <button type="button" class="btn btn-third"><%= sort_link @search, :name, "Product Name" %></button>
-					  <button type="button" class="btn btn-third"><%= sort_link @search, :price, "Price" %></button>
-					  <button type="button" class="btn btn-third"><%= sort_link @search, :average, "Best Rated" %></button>
-					  <button type="button" class="btn btn-third"><%= sort_link @search, :total, "Most Rated" %></button></p>
+					  <button type="button" class="btn btn-third">
+					  	<%= sort_link @search, :name, "Product Name" %>
+					  </button>
+					  
+					  <button type="button" class="btn btn-third">
+					  	<%= sort_link @search, :price, "Price" %>
+					  </button>
+					  
+					  <button type="button" class="btn btn-third">
+					  	<%= sort_link @search, :average, "Best Rated" %>
+					  </button>
+					  
+					  <button type="button" class="btn btn-third">
+					  	<%= sort_link @search, :total, "Most Rated" %>
+					  </button>
+					</p>
 				</div>	
 			</div>
+
 			<div class="col-md-6">
 				<div class="text-center btn-group" style="margin-top:10px">
 					<p>Filter:
-					  <button type="button" class="btn btn-third"><%= link_to "Andriod", controller: "categories", action: "show", operatingsystem_id: 1  %></button>
-					  <button type="button" class="btn btn-third"><%= link_to "IOS", controller: "categories", action: "show", operatingsystem_id: 2  %></button>
-					  <button type="button" class="btn btn-third"><%= link_to "Windows", controller: "categories", action: "show", operatingsystem_id: 3  %></button>
-					  <button type="button" class="btn btn-third"><%= link_to "German", controller: "categories", action: "show",language_id: 1 %></button>
-					  <button type="button" class="btn btn-third"><%= link_to "English", controller: "categories", action: "show",language_id: 2 %>
-					  <% if @free_app.present? %>						
-						<button type="button" class="btn btn-third"><%= link_to "Free", controller: "categories", action: "show", id: @category.id, price: '0' %><% end %></button>
-					  <button type="button" class="btn btn-third"><%= link_to "All Apps", controller: "categories", action: "show", category_id: @category.id %></button></p>	
+					  <button type="button" class="btn btn-third">
+					  	<%= link_to "Andriod", controller: "categories", action: "show", operatingsystem_id: 1  %>
+					  </button>
+					  
+					  <button type="button" class="btn btn-third">
+					  	<%= link_to "IOS", controller: "categories", action: "show", operatingsystem_id: 2  %>
+					  </button>
+					  
+					  <button type="button" class="btn btn-third">
+					  	<%= link_to "Windows", controller: "categories", action: "show", operatingsystem_id: 3  %>
+					  </button>
+					  
+					  <button type="button" class="btn btn-third">
+					  	<%= link_to "German", controller: "categories", action: "show",language_id: 1 %>
+					  </button>
+					  
+					  <button type="button" class="btn btn-third">
+					  	<%= link_to "English", controller: "categories", action: "show",language_id: 2 %>
+					  </button>
+					  <% if @free_app.present? %>
+					  
+					  <button type="button" class="btn btn-third">
+					  	<%= link_to "Free", controller: "categories", action: "show", id: @category.id, price: '0' %>
+					  	<% end %>
+					  </button>
+					  
+					  <button type="button" class="btn btn-third"><%= link_to "All Apps", controller: "categories", action: "show", category_id: @category.id %>
+					  </button>
+					</p>	
 				</div>
 			</div>
 		</div>
