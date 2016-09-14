@@ -9,16 +9,15 @@
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div> -->
   <div class="field">
-        <label for="email">E-Mail-Adresse:</label>
-        <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"E-mail*" %>
+        <%= f.label :email, "Email (required):"  %>
+        <%= f.email_field :email, autofocus: true, class:"form-control"%>
   </div>
-
    <div class="field">
-        <h4>Passwort:</h4>
+        <%= f.label :password, "Passwort (required):"  %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %>
-        <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Passwort*" %>
+        <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
     </div>
     <div class="field">
     	<%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
