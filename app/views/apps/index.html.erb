@@ -2,11 +2,11 @@
 <% @categories_list.each do |category| %>
 <div class="our-team">
 	<div class="container">
-		<h2 class="title-style-2" aria-hidden="false" >List of <%= category.name %> Applications
+		<h2 class="title-style-3" aria-hidden="false" >List of <%= category.name %> Applications
 			<span class="title-under"></span>
 		</h2>
 		
-		<div class="row" style="background:#fff;border-radius: 5px;padding-top:50px">
+		<div class="row white-border" style="padding-top:50px">
 			<% App.where(category_id: category.id).limit(5).each do |apps| %>
 			<div class="col-md-2 col-sm-2">
 				<div class="team-member">

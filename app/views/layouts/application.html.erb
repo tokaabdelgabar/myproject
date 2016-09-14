@@ -51,11 +51,11 @@
             <h2 class="offscreen">Website Navigation</h2>
             <ul class="list-unstyled list-inline header-contact">
               <% if user_signed_in? %>
-              <li><%= link_to "Mein Konto", edit_user_registration_path %><i><%= image_tag("user-8.png", :alt => "Mein Konto") %></i></li>
-              <li><%= link_to "Ausloggen", destroy_user_session_path, method: :delete %><i><%= image_tag("delete.png",:alt => "Ausloggen") %></i></li>
+              <li><%= link_to "Mein Konto", edit_user_registration_path %><i><%= image_tag("user-8.png", :alt => "Mein Konto", class:"top-icon") %></i></li>
+              <li><%= link_to "Ausloggen", destroy_user_session_path, method: :delete %><i><%= image_tag("delete.png",:alt => "Ausloggen", class:"top-icon") %></i></li>
               <% else %>  
-              <li><%= link_to "Einloggen", new_user_session_path %><i><%= image_tag("people-2.png",:alt => "Einloggen") %></i></li>
-              <li><%= link_to "Registrieren", new_user_registration_path%><i><%= image_tag("people-1.png",:alt => "Registrieren") %></i></li>
+              <li><%= link_to "Einloggen", new_user_session_path %><i><%= image_tag("people-2.png",:alt => "Einloggen", class:"top-icon") %></i></li>
+              <li><%= link_to "Registrieren", new_user_registration_path%><i><%= image_tag("people-1.png",:alt => "Registrieren", class:"top-icon") %></i></li>
               <% end %>
   
               <li class="contrast" id="contrast">Kontrast:
@@ -69,7 +69,7 @@
               <a href="#" tabindex=0 title="Schrift sehr groß" id="zoom_out"><%= image_tag("zoom-2.png",:size => "24x24",:alt => "Zoom In more")%></a> 
             </li>
 
-              <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "40x25", :alt => "Zur Englischen Seite wechseln"),set_language_english_path%>
+              <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "30x30", :alt => "Zur Englischen Seite wechseln"),set_language_english_path%>
               </li>
             </ul>
           </div>
@@ -93,7 +93,7 @@
             </div> 
 
             <div class="navbar-collapse collapse pull-right" role="searchbar">
-              <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", :style =>"padding-top:12px", 
+              <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", :style =>"padding-top:6px", 
               role: "search" do %>
       
               <div class="input-group">

@@ -43,7 +43,7 @@ a:hover, a:focus, a:active {
   Single app page
 ========================================================================== */
 .app-logo{
-  height: 200px; width: 200px; border: 1px solid #9E9E9E; padding:1px;border-radius: 5px;
+  height: 150px; width: 150px; border: 1px solid #9E9E9E; padding:1px;border-radius: 5px;
   margin-top: 20px; margin-bottom: 10px; margin-left:130px;
 
 }
@@ -55,9 +55,12 @@ a:hover, a:focus, a:active {
   width: 180px;
   margin: 15px;
 }
-button:target {
-  background: #01B6AD;
-  color: #000;
+.white-border{
+  background:#fff; border-radius: 5px;
+}
+.top-icon{
+  height: 30px;
+  width: 20px;
 }
 /* =============================================================================
   Contact
@@ -609,6 +612,11 @@ form .alert {
   color: #fff;
   border-radius: 5px;
 }
+.btn-third:hover {
+  background: #01B6AD;
+  color: #000;
+  border: 1px solid #000;
+}
 .title-style-1 {
   text-align: center;
   text-transform: uppercase;
@@ -628,7 +636,14 @@ form .alert {
   font-size: 26px;
   margin-bottom: 50px;
 }
-
+.title-style-3 .title-under{
+  display: block;
+  margin: 5px 0;  
+}
+.title-style-3 .title-under:after {
+  margin: 0;
+  margin-top: 10px;
+}
 .title-style-2 .title-under {
   display: block;
   margin: 5px 0;
