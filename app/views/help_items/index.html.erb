@@ -1,33 +1,32 @@
-<h1>Leichte Sprache</h1>
-    <% @help_items.each do |help_item| %>
-    <div class="row">
-      <% unless help_item.heading.blank? %>
-      <div class="col-sm-6 col-md-12">
-        <h2 class="title-style-2"><%= help_item.heading %></h2>
-        <br />    
-      </div>
+<h2 class="title-style-3">Leichte Sprache<span class="title-under"></span></h2>
+<% @help_items.each do |help_item| %>
+<div class="row white-border">
+    <% unless help_item.heading.blank? %>
+    <div class="col-sm-12 col-md-12">
+      <h2><%= help_item.heading %></h2>    
+    </div>
+    <% end %>
+    <% unless help_item.photo.blank? %>
+      <div class="col-sm-6 col-md-3">
+          <%= image_tag (help_item.photo), class: "help-image" ,alt: help_item.photo_alt%>
+      </div> 
+    <% end %><br>
+    <div class="col-sm-3 col-md-9">
+      <% unless help_item.title1.blank? %>
+      <h3 class="help-title"><%= help_item.title1 %></h3>
       <% end %>
-<% unless help_item.photo.blank? %>
-<div class="col-sm-6 col-md-3">
-    <%= image_tag (help_item.photo), :style => "height: 100%; width: 110%", class: "help-image" ,alt: help_item.photo_alt%>
-</div> 
-<% end %>
-<div class="col-sm-3 col-md-9">
-  <% unless help_item.title1.blank? %>
-  <h3 style="margin-left: 20px"><%= help_item.title1 %></h3>
-  <% end %>
-  <% unless help_item.title2.blank? %>
-  <h3 style="margin-left: 20px"><%= help_item.title2 %></h3>
-  <% end %>
-  <% unless help_item.bullet_heading.blank? %>
-  <h4 style="margin-left: 20px"><strong><%= help_item.bullet_heading %></strong></h4>
-  <% end %>
-  <ul>
-    <% unless help_item.bullet1.blank? %><li class="contact-item"><%= help_item.bullet1 %></li><% end %>
-    <% unless help_item.bullet2.blank? %><li class="contact-item"><%= help_item.bullet2 %></li><% end %>
-    <% unless help_item.bullet3.blank? %><li class="contact-item"><%= help_item.bullet3 %></li><% end %>
-    <% unless help_item.bullet5.blank? %><li class="contact-item"><%= help_item.bullet5 %></li><% end %>
-  </ul>
-</div>
+      <% unless help_item.title2.blank? %>
+      <h3 class="help-title"><%= help_item.title2 %></h3>
+      <% end %>
+      <% unless help_item.bullet_heading.blank? %>
+      <h4 class="help-title"><strong><%= help_item.bullet_heading %></strong></h4>
+      <% end %>
+      <ul>
+        <% unless help_item.bullet1.blank? %><li class="contact-item"><%= help_item.bullet1 %></li><% end %>
+        <% unless help_item.bullet2.blank? %><li class="contact-item"><%= help_item.bullet2 %></li><% end %>
+        <% unless help_item.bullet3.blank? %><li class="contact-item"><%= help_item.bullet3 %></li><% end %>
+        <% unless help_item.bullet5.blank? %><li class="contact-item"><%= help_item.bullet5 %></li><% end %>
+      </ul>
+    </div>
 </div><br />
 <% end %>
