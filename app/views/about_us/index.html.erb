@@ -1,19 +1,19 @@
-<div class="row" style="background:#fff; border-radius: 5px;">
+<div class="row white-border">
     <% @about_us.each do |about_u| %>
   <div>
-    <h2><%= about_u.title %></h2>
+    <h2 aria-hidden="false"><%= about_u.title %></h2>
   </div>
   <div class="col-md-12 about">
-    <h3><%= about_u.paragraph1heading %></h3>
-    <h4><%= about_u.paragraph1content %></h4><br />
+    <h3 aria-hidden="false"><%= about_u.paragraph1heading %></h3>
+    <h4 aria-hidden="false"><%= about_u.paragraph1content %></h4><br />
   </div>
   <div class="col-md-12 about">
-    <h3><%= about_u.paragraph2heading %></h3>
-    <h4><%= about_u.paragraph2content %></h4> <br />
+    <h3 aria-hidden="false"><%= about_u.paragraph2heading %></h3>
+    <h4 aria-hidden="false"><%= about_u.paragraph2content %></h4> <br />
   </div>
   <div class="col-md-12 about">
-    <h3><%= about_u.paragraph3heading %></h3>
-    <h4><%= about_u.paragraph3content %></h4> <br />
+    <h3 aria-hidden="false"><%= about_u.paragraph3heading %></h3>
+    <h4 aria-hidden="false"><%= about_u.paragraph3content %></h4> <br />
   </div>
 
   <div class="col-md-12 about">

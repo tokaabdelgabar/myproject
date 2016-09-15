@@ -59,8 +59,34 @@ a:hover, a:focus, a:active {
   background:#fff; border-radius: 5px;
 }
 .top-icon{
-  height: 30px;
+  height: 20px;
+  width: 15px;
+  margin-bottom: 8px;
+  margin-left: 5px;
+}
+.contrast-icon{
+  height: 20px;
   width: 20px;
+  margin-bottom: 8px;
+  margin-left: 5px;
+}
+.zoom-out{
+  margin-bottom: 8px;
+  height: 12px;
+  width: 7px;
+  margin:4px;
+}
+.zoom-in{
+
+  margin-bottom: 8px;
+  width: 18px;
+  height: 18px;
+}
+.zoom-in-plus{
+
+  margin-bottom: 13px;
+  width: 24px;
+  height: 24px;
 }
 /* =============================================================================
   Contact
@@ -68,7 +94,39 @@ a:hover, a:focus, a:active {
 .contact{
   background:#fff; border-radius: 5px;
 }
-
+/* =============================================================================
+  Place holder
+========================================================================== */
+input::-webkit-input-placeholder {
+color: black !important;
+}
+ 
+input:-moz-placeholder { /* Firefox 18- */
+color: black !important;  
+}
+ 
+input::-moz-placeholder {  /* Firefox 19+ */
+color: black !important;  
+}
+ 
+input:-ms-input-placeholder {  
+color: black !important;  
+}
+textarea::-webkit-input-placeholder {
+color: black !important;
+}
+ 
+textarea:-moz-placeholder { /* Firefox 18- */
+color: black !important;  
+}
+ 
+textarea::-moz-placeholder {  /* Firefox 19+ */
+color: black !important;  
+}
+ 
+textarea:-ms-input-placeholder {  
+color: black !important;  
+}
 /* =============================================================================
   About us
 ========================================================================== */
@@ -83,6 +141,18 @@ a:hover, a:focus, a:active {
 }
 .disclaimer{
   padding-bottom: 15px;
+}
+/* =============================================================================
+  Easy language
+========================================================================== */
+.help-image{
+  height: 80%;
+  width: 80%;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+.help-title{
+  margin-left: 20px;
 }
 /* =============================================================================
   Layout
