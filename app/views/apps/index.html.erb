@@ -6,8 +6,8 @@
 			<span class="title-under"></span>
 		</h2>
 		
-		<div class="row white-border" style="padding-top:50px">
-			<% App.where(category_id: category.id).limit(5).each do |apps| %>
+		<div class="row white-border" style="padding-top:20px">
+			<% App.where(category_id: category.id).limit(6).each do |apps| %>
 			<div class="col-md-2 col-sm-2">
 				<div class="team-member">
 					<div class="thumnail" > 
@@ -23,17 +23,21 @@
 					data-score=<%= apps.reviews.average(:rating)%>>
 				    </div>
 				</div>
-				<br></br>
+				<br>
 			</div>
 			<% end %>
-
-			<div class="col-md-2 col-sm-2">
+			<div class="col-md-12" style="margin-bottom:20px">
+				<button class="btn btn-third pull-right" tabindex=0 role=button>
+					<%= link_to "Mehr Apps...", 
+					controller: "categories", action: "show", id: category.id , title:"this page links to list more app of this category"%><span class="fa fa-external-link"></span>
+				</button>
+			</div><br>
+			<!-- <div class="col-md-2 col-sm-2">
 			<div>
 				<h4 style="padding-top: 100px"  aria-hidden="false" role=link><%= link_to "Mehr Apps...", 
 				controller: "categories", action: "show", id: category.id , title:"this page links to list more app of this category"%><span class="fa fa-external-link"></span></h4>
 			</div>
-		</div>
-		<br></br>
+			</div> -->
 	</div>
 </div>
 </div>
@@ -41,7 +45,7 @@
 <br/>
 
 <% elsif !params[:category].blank? && params[:search].blank? %>
-<div class="row">
+<div class="row white-border" style="padding-top:20px">
 	<% @apps_all.each do |apps| %>
 		<div class="col-md-2 col-sm-2">
 		<div class="team-member">
@@ -53,13 +57,13 @@
 			 
 			<h3 class="offscreen"> Durchschnittliche Bewertung der Anwendung ist </h3>
 			<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div>
-		</div><br></br>
+		</div><br>
 	</div>
 	<% end %>
 </div>
 
 <% elsif %>
-<div class="row">
+<div class="row white-border" style="padding-top:20px">
 	<% @apps_all.each do |apps| %>
 		<div class="col-md-2 col-sm-2">
 		<div class="team-member">
@@ -71,7 +75,7 @@
 
 			<h3 class="offscreen"> Durchschnittliche Bewertung der Anwendung ist </h3>
 			<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div>
-		</div><br></br>
+		</div><br>
 	</div>
 	<% end %>
 </div>
