@@ -64,9 +64,9 @@
               </li>
 
              <li class="fontsize"> Schriftgröße:
-              <a href="#" tabindex=0 title="Schrift normal" id="zoom_reset"><%= image_tag("zoom.png",:alt => "Zoom Out", class: "zoom-out")%></a>
-              <a href="#" tabindex=0 title="Schrift groß" id="zoom_in"><%= image_tag("zoom-1.png",:alt => "Zoom In", class: "zoom-in")%></a>
-              <a href="#" tabindex=0 title="Schrift sehr groß" id="zoom_out"><%= image_tag("zoom-2.png",:alt => "Zoom In more", class: "zoom-in-plus")%></a> 
+              <a tabindex=0 title="Schrift normal" id="zoom-reset"><%= image_tag("zoom.png",:alt => "Zoom Out", class: "zoom-out")%></a>
+              <a tabindex=0 title="Schrift sehr groß" id="zoom-out"><%= image_tag("zoom-1.png",:alt => "Zoom Out",class: "zoom-in")%></a>
+              <a tabindex=0 title="Schrift sehr groß" id="zoom-in"><%= image_tag("zoom-2.png",:alt => "Zoom In more", class: "zoom-in-plus")%></a>
             </li>
 
               <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "30x30", :alt => "Zur Englischen Seite wechseln"),set_language_english_path%>
@@ -154,32 +154,27 @@
         <p>Copyright @ Universität Mannheim 2016</p>
       </div>
     </div> 
+  </footer>
+  <script>
+  $('#zoom-in').click(function() {
+   updateZoom(0.1);
+  });
 
-  </footer> 
+  $('#zoom-out').click(function() {
+   updateZoom(-0.1);
+  });
+
+  $('#zoom-reset').click(function() {
+   updateZoom(0);
+  });
+    zoomLevel = 1;
+    var updateZoom = function(zoom) {
+      if(zoom==0) zoomLevel=1;
+      else 
+      zoomLevel += zoom; 
+      $('body').css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
+    }
+  </script> 
 </body>
 </html>
 
- <script>
-    jQuery(document).ready(function($)
-    {
-      var zoom_level=100;
-      $('#zoom_in').click(function() { zoom_page(20, $(this)) });
-      $('#zoom_out').click(function() { zoom_page(30, $(this)) });
-      $('#zoom_reset').click(function() { zoom_page(0, $(this)) });
-      function zoom_page(step, trigger){
-        if(zoom_level>=120 && step>0 || zoom_level<=80 && step<0) return;
-        if(step==0) zoom_level=100;
-        else zoom_level=zoom_level+step;
-        $('body').css({
-        transform: 'scale('+(zoom_level/100)+')', // set zoom
-        transformOrigin: '50% 0' // set transform scale base
-      });
-        if(zoom_level>100) $('body').css({ width: (zoom_level*1.2)+'%' });
-        else $('body').css({ width: '100%' });
-        if(zoom_level>=120 || zoom_level<=80) trigger.addClass('disabled');
-        else trigger.parents('ul').find('.disabled').removeClass('disabled');
-        if(zoom_level!=100) $('#zoom_reset').removeClass('disabled');
-        else $('#zoom_reset').addClass('disabled');
-      }
-    });
-</script>
