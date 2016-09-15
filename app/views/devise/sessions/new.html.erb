@@ -1,32 +1,36 @@
-<!-- <h2>Log in</h2> -->
-<h2 class="title-style-2">Einloggen<span class="title-under"></span></h2>
-<p>Loggen Sie sich ein um Kommentare zu schreiben und Apps zu bewerten.</p>
-<p>Noch ein Hinweis: Hier sind E-Mail-Adresse und Passwort erforderlich.</p>
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <!-- <div class="form-inputs">
-
-    <%= f.input :email, required: false, autofocus: true, class:"form-control", placeholder:"E-Mail-Adresse" %>
-    <%= f.input :password, required: false, class:"form-control", placeholder:"Passwort" %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div> -->
-  <div class="field">
-        <%= f.label :email, "Ihre E-Mail-Adresse (required):"  %>
-        <%= f.email_field :email, autofocus: true, placeholder:"E-mail",class:"form-control"%>
+<div class="main">
+  <div class="container">
+    <div class="row">
+      <h2 class="title-style-3">Einloggen<span class="title-under"></span></h2>
+      <p>Loggen Sie sich ein um Kommentare zu schreiben und Apps zu bewerten.</p>
+      <p>Noch ein Hinweis: Hier sind E-Mail-Adresse und Passwort erforderlich.</p>
+    </div>    
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="row white-border">
+        <div class="col-md-12">
+            <div class="field">
+                  <%= f.label :email, "Ihre E-Mail-Adresse (required):", :style =>"margin-top:15px" %>
+                  <%= f.email_field :email, autofocus: true, placeholder:"E-mail",class:"form-control"%>
+            </div>
+            <div class="field">
+                <%= f.label :password, "Ihr Passwort (required):"  %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %>
+                <%= f.password_field :password, autocomplete: "off", placeholder:"Passwort", class:"form-control" %>
+            </div>
+            <div class="field">
+              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            </div>
+            <div class="form-actions">
+              <%= f.button :submit, "Einloggen", class: 'btn btn-primary pull-Left' %>
+            </div><br>
+        </div>
+      </div><br>
+    <% end %>
+      <div>
+        <%= render "devise/shared/links" %>
+      </div>
+  
   </div>
-   <div class="field">
-        <%= f.label :password, "Ihr Passwort (required):"  %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %>
-        <%= f.password_field :password, autocomplete: "off", placeholder:"Passwort", class:"form-control" %>
-    </div>
-    <div class="field">
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-    </div>
-  <div class="form-actions">
-    <%= f.button :submit, "Einloggen", class: 'btn btn-primary pull-Left' %>
-  </div>
- <!--  <br></br>  -->
-<% end %>
-<%= render "devise/shared/links" %>
-
+</div>
