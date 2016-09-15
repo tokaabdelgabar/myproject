@@ -192,6 +192,7 @@ color: black !important;
   height: 100%;
   width: auto;
   margin-top: -15px;
+  margin-left:-15px;
   position: absolute;
   z-index: 2;
 }

@@ -4,16 +4,16 @@
     <h2 aria-hidden="false"><%= about_u.title %></h2>
   </div>
   <div class="col-md-12 about">
-    <h3 aria-hidden="false"><%= about_u.paragraph1heading %></h3>
-    <h4 aria-hidden="false"><%= about_u.paragraph1content %></h4><br />
+    <p aria-hidden="false"><%= about_u.paragraph1heading %></p>
+    <p aria-hidden="false"><%= about_u.paragraph1content %></p><br />
   </div>
   <div class="col-md-12 about">
-    <h3 aria-hidden="false"><%= about_u.paragraph2heading %></h3>
-    <h4 aria-hidden="false"><%= about_u.paragraph2content %></h4> <br />
+    <p aria-hidden="false"><%= about_u.paragraph2heading %></p>
+    <p aria-hidden="false"><%= about_u.paragraph2content %></p> <br />
   </div>
   <div class="col-md-12 about">
-    <h3 aria-hidden="false"><%= about_u.paragraph3heading %></h3>
-    <h4 aria-hidden="false"><%= about_u.paragraph3content %></h4> <br />
+    <p aria-hidden="false"><%= about_u.paragraph3heading %></p>
+    <p aria-hidden="false"><%= about_u.paragraph3content %></p> <br />
   </div>
 
   <div class="col-md-12 about">
@@ -21,3 +21,176 @@
   </div>
    <% end %>
 </div><br />
+
+
+app index
+<div class="row">
+	<div class="col-md-12">
+		<h3 class="title-style-2" aria-hidden="false">Kategorien von Apps für:<span class="title-under"></span></h3>
+	</div>
+</div>
+<% if params[:category].blank? && params[:search].blank? %>
+<% @categories_list.each do |category| %>
+<div class="our-team">
+	<div class="container">		
+		<div class="row white-border">
+			<div class="col-md-12">
+				<div class="col-md-6">
+					<h2 class="title-style-3" aria-hidden="false" style="margin-left:-15px; color:#01B6AD"><%= category.name %></h2>
+				</div>
+				<div class="col-md-6">
+					<button class="btn btn-third pull-right" tabindex=0 role=button style="margin-top:25px; margin-right: -15px">
+						<%= link_to "Mehr Apps...", 
+						controller: "categories", action: "show", id: category.id , title:"this page links to list more app of this category"%><span class="fa fa-external-link"></span>
+					</button>
+				</div>
+			</div>
+			<% App.where(category_id: category.id).limit(6).each do |apps| %>
+			<div class="col-md-2 col-sm-2">
+				<div class="team-member">
+					<div class="thumnail" > 
+						<a tabindex=0 role=button href="/apps/<%= apps.id %>" title="Link to this application page">
+							<%= image_tag apps.app_img.url(:app_index) , alt: apps.app_img_alt %>
+						</a>
+					</div>
+					<p class="app-name" aria-hidden="false"><%=  apps.name %></p>
+					<p class="app-name" aria-hidden="false"><%= apps.price %>€</p>
+					
+					<h3 class="offscreen"> Durchschnittliche Bewertung der Anwendung ist </h3>
+					<div class="average-review-rating" 
+					data-score=<%= apps.reviews.average(:rating)%>>
+				    </div>
+				</div>
+				<br>
+			</div>
+			<% end %>
+			<!-- <div class="col-md-12" style="margin-bottom:20px">
+				<button class="btn btn-third pull-right" tabindex=0 role=button>
+					<%= link_to "Mehr Apps...", 
+					controller: "categories", action: "show", id: category.id , title:"this page links to list more app of this category"%><span class="fa fa-external-link"></span>
+				</button>
+			</div> --><br>
+			<!-- <div class="col-md-2 col-sm-2">
+			<div>
+				<h4 style="padding-top: 100px"  aria-hidden="false" role=link><%= link_to "Mehr Apps...", 
+				controller: "categories", action: "show", id: category.id , title:"this page links to list more app of this category"%><span class="fa fa-external-link"></span></h4>
+			</div>
+			</div> -->
+	</div>
+</div>
+</div><br>
+<% end %>
+<br>
+
+<% elsif !params[:category].blank? && params[:search].blank? %>
+<div class="row white-border" style="padding-top:20px">
+	<% @apps_all.each do |apps| %>
+		<div class="col-md-2 col-sm-2">
+		<div class="team-member">
+			<div class="thumnail">
+				<a role=button href="/apps/<%= apps.id %>"><%= image_tag apps.app_img.url(:app_index) %></a>
+			</div>
+			<p class="app-name" aria-hidden="false"><%= apps.name %></p>
+			<p class="app-name" aria-hidden="false">Preis ist <%= apps.price %>€</p>
+			 
+			<h3 class="offscreen"> Durchschnittliche Bewertung der Anwendung ist </h3>
+			<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div>
+		</div><br>
+	</div>
+	<% end %>
+</div>
+
+<% elsif %>
+<div class="row white-border" style="padding-top:20px">
+	<% @apps_all.each do |apps| %>
+		<div class="col-md-2 col-sm-2">
+		<div class="team-member">
+			<div class="thumnail">
+				<a role=button href="/apps/<%= apps.id %>"><%= image_tag apps.app_img.url(:app_index) %></a>
+			</div>
+			<p class="app-name" aria-hidden="false"><%= link_to apps.name, app_path(apps) %></p>
+			<p class="app-name" aria-hidden="false"><%= apps.price %>€</p>
+
+			<h3 class="offscreen"> Durchschnittliche Bewertung der Anwendung ist </h3>
+			<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div>
+		</div><br>
+	</div>
+	<% end %>
+</div>
+<% end %>
+
+<script>
+	$('.average-review-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
+	});
+</script>
+
+registration new
+<div class="main">
+    <div class="container">
+        <div class="row">
+            <h2 class="title-style-3">Registrieren<span class="title-under"></span></h2>
+            <h4>Loggen Sie sich ein um Kommentare zu schreiben und Apps zu bewerten.</h4>
+            <h4>Noch ein Hinweis: Nachname, Vorname und Geburtsdatum brauchen Sie nicht anzugeben.</h4> 
+        </div>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+           <h2><%= devise_error_messages! %></h2>
+
+        <div class="row white-border">
+            <div class="col-md-12">
+                <div class="field">
+                    <%= f.label :first_name, "Ihr Vorname (Optional):", :style=>"margin-top:15px" %>
+                    <%= f.text_field :first_name, autofocus: true, placeholder:"Vorname ",class:"form-control"%>
+                </div>
+                <div class="field">
+                    <%= f.label :last_name, "Ihr Nachname (Optional):"  %>
+                    <%= f.text_field :last_name, autofocus: true,placeholder:"Nachname ",class:"form-control" %>
+                </div>
+                <div class="field">
+                    <%= f.label :username, "Ihr gewünschter Benutzername:"  %>
+                    <%= f.text_field :username, autofocus: true, placeholder:"Benutzername ", class:"form-control" %>
+                </div>
+                <div class="field">
+                    <%= f.label :email, "Ihre E-Mail-Adresse:"  %>
+                    <%= f.email_field :email, autofocus: true, class:"form-control" , placeholder:"E-Mail"%>
+                </div>
+
+                <div class="field">
+                    <%= f.label :birthday, "Ihr Geburtsdatum (Optional):"  %>
+                    <%= f.date_field :birthday,autofocus: true, placeholder:"Geburtsdatum ", class:"form-control" %>
+                </div>
+                <div class="field">
+                    <%= f.label :password, "Ihr Passwort:" %>
+                    <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <% end %>
+                    <%= f.password_field :password, autofocus: true, autocomplete: "off", placeholder:"Passwort ", class:"form-control" %>
+                </div>
+                <div class="field">
+                    <%= f.label :password_confirmation, "Passwort wiederholen:" %>
+                    <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "off",placeholder:"Passwort ", class:"form-control"%>
+                </div><br>
+                <div class="form-actions">
+                    <%= f.submit "Registrieren", class: 'btn btn-primary pull-left' %>
+                </div><br>
+            </div>
+            <div class="row">
+                <div class="form-group alerts">
+                                
+                <div class="alert alert-success" role="alert"></div>
+
+                <div class="alert alert-danger" role="alert"></div>
+              
+                </div> 
+            </div>
+                 
+        </div><br>
+        <% end %>
+        <div class="row"><%= render "devise/shared/links" %></div>
+        
+    </div>
+</div>
