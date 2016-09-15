@@ -59,14 +59,14 @@
               <% end %>
   
               <li class="contrast" id="contrast">Kontrast:
-                <a href="#" tabindex=0 title="make the page visible in high contrast" onclick="body.style.backgroundColor='black'"><%= image_tag("Black.png",:size => "20x20",:alt => "switch to high contrast ")%></a>
-                <a href="#" tabindex=0 title="make the page visible in normal colors" onclick="body.style.backgroundColor='white'"><%= image_tag("White.png",:size => "20x20",:alt => "switch to low contrast")%></a>
+                <a href="#" tabindex=0 title="make the page visible in high contrast" onclick="body.style.backgroundColor='black'"><%= image_tag("Black.png",class: "contrast-icon" ,:alt => "switch to high contrast ")%></a>
+                <a href="#" tabindex=0 title="make the page visible in normal colors" onclick="body.style.backgroundColor='white'"><%= image_tag("White.png",class: "contrast-icon",:alt => "switch to low contrast")%></a>
               </li>
 
              <li class="fontsize"> Schriftgröße:
-              <a href="#" tabindex=0 title="Schrift normal" id="zoom_reset"><%= image_tag("zoom.png",:size =>"7x12",:alt => "Zoom Out", :style => "margin:4px")%></a>
-              <a href="#" tabindex=0 title="Schrift groß" id="zoom_in"><%= image_tag("zoom-1.png",:size => "18x18",:alt => "Zoom In")%></a>
-              <a href="#" tabindex=0 title="Schrift sehr groß" id="zoom_out"><%= image_tag("zoom-2.png",:size => "24x24",:alt => "Zoom In more")%></a> 
+              <a href="#" tabindex=0 title="Schrift normal" id="zoom_reset"><%= image_tag("zoom.png",:alt => "Zoom Out", class: "zoom-out")%></a>
+              <a href="#" tabindex=0 title="Schrift groß" id="zoom_in"><%= image_tag("zoom-1.png",:alt => "Zoom In", class: "zoom-in")%></a>
+              <a href="#" tabindex=0 title="Schrift sehr groß" id="zoom_out"><%= image_tag("zoom-2.png",:alt => "Zoom In more", class: "zoom-in-plus")%></a> 
             </li>
 
               <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "30x30", :alt => "Zur Englischen Seite wechseln"),set_language_english_path%>
