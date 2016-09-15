@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160914231616) do
+ActiveRecord::Schema.define(version: 20160915120234) do
 
   create_table "about_us", force: :cascade do |t|
     t.string   "title"
@@ -43,8 +43,9 @@ ActiveRecord::Schema.define(version: 20160914231616) do
 
   create_table "apps", force: :cascade do |t|
     t.string   "name"
-    t.text     "description"
+    t.text     "searchDescription"
     t.string   "developer"
+    t.string   "youtubeLink"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "user_id"
@@ -88,6 +89,7 @@ ActiveRecord::Schema.define(version: 20160914231616) do
     t.string   "android_link"
     t.string   "ios_link"
     t.string   "windows_link"
+    t.text     "description"
   end
 
   create_table "apptranslations", force: :cascade do |t|

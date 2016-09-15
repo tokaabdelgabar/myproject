@@ -14,7 +14,7 @@ before_action :find_app, only: [:show, :edit, :update, :destroy, :upvote, :downv
 			@category_id = Category.find_by(name: params[:category]).id
 			@apps_all = App.where(:category_id => @category_id).order("created_at DESC")
 		else
-			@apps_all = App.where (["name LIKE ?","%#{params[:search]}%"])
+			@apps_all = App.where("name LIKE ? or searchDescription LIKE ?  or developer LIKE ? or price LIKE ? or app_type LIKE ?","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%")
   		end		
 	end
 
