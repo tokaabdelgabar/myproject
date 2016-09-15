@@ -59,15 +59,16 @@
               <% end %>
   
               <li class="contrast" id="contrast">Kontrast:
-                <a href="#" tabindex=0 title="make the page visible in high contrast" onclick="body.style.backgroundColor='black'"><%= image_tag("Black.png",class: "contrast-icon" ,:alt => "switch to high contrast ")%></a>
-                <a href="#" tabindex=0 title="make the page visible in normal colors" onclick="body.style.backgroundColor='white'"><%= image_tag("White.png",class: "contrast-icon",:alt => "switch to low contrast")%></a>
+                <a tabindex=0 title="make the page visible in high contrast" id="contrast-black"><%= image_tag("Black.png",class: "contrast-icon" ,:alt => "switch to high contrast ")%></a>
+                <a tabindex=0 title="make the page visible in normal colors" onclick="body.style.backgroundColor='white'"><%= image_tag("White.png",class: "contrast-icon",:alt => "switch to low contrast")%></a>
               </li>
+              <button id="contrast-black" >black</button>
 
              <li class="fontsize"> Schriftgröße:
               <a tabindex=0 title="Schrift normal" id="zoom-reset"><%= image_tag("zoom.png",:alt => "Zoom Out", class: "zoom-out")%></a>
                <a tabindex=0 title="Schrift sehr groß" id="zoom-out"><%= image_tag("zoom-1.png",:alt => "Zoom Out",class: "zoom-in")%></a>
                <a tabindex=0 title="Schrift sehr groß" id="zoom-in"><%= image_tag("zoom-2.png",:alt => "Zoom In more", class: "zoom-in-plus")%></a>
-              
+               
             </li>
 
               <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "30x30", :alt => "Zur Englischen Seite wechseln"),set_language_english_path%>
@@ -160,8 +161,7 @@
 <script>
    $('#zoom-in').click(function() {
     updateZoom(0.1);
-   });
- 
+   }); 
    $('#zoom-out').click(function() {
     updateZoom(-0.1);
    });
@@ -177,6 +177,18 @@
        $('body').css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
      }
    </script> 
-
+<script>
+   $('#contrast-black').click(function() {
+     contrast();
+   }); 
+     var contrast = function() {
+       $('body').css("background-color", "black");
+       $('div').css("background-color", "black");
+       $('p').css("color", "white");
+       $('h4').css("color", "white");
+       $('h2').css("color", "white");
+       $('li').css("color", "white");
+     }
+   </script> 
 </body>
 </html>
