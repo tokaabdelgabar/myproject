@@ -18,7 +18,7 @@
 					<p class="app-name" aria-hidden="false"><%=  apps.name %></p>
 					<p class="app-name" aria-hidden="false"><%= apps.price %>€</p>
 					
-					<h3 class="offscreen"> Durchschnittliche Bewertung der Anwendung ist </h3>
+					<p class="offscreen"> Durchschnittliche Bewertung der Anwendung ist </p>
 					<div class="average-review-rating" 
 					data-score=<%= apps.reviews.average(:rating)%>>
 				    </div>
@@ -55,7 +55,7 @@
 			<p class="app-name" aria-hidden="false"><%= apps.name %></p>
 			<p class="app-name" aria-hidden="false">Preis ist <%= apps.price %>€</p>
 			 
-			<h3 class="offscreen"> Durchschnittliche Bewertung der Anwendung ist </h3>
+			<p class="offscreen"> Durchschnittliche Bewertung der Anwendung ist </p>
 			<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div>
 		</div><br>
 	</div>
@@ -73,7 +73,7 @@
 			<p class="app-name" aria-hidden="false"><%= link_to apps.name, app_path(apps) %></p>
 			<p class="app-name" aria-hidden="false"><%= apps.price %>€</p>
 
-			<h3 class="offscreen"> Durchschnittliche Bewertung der Anwendung ist </h3>
+			<p class="offscreen"> Durchschnittliche Bewertung der Anwendung ist </p>
 			<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div>
 		</div><br>
 	</div>
