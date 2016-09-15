@@ -43,9 +43,8 @@ ActiveRecord::Schema.define(version: 20160915120234) do
 
   create_table "apps", force: :cascade do |t|
     t.string   "name"
-    t.text     "searchDescription"
+    t.text     "description"
     t.string   "developer"
-    t.string   "youtubeLink"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "user_id"
@@ -89,7 +88,7 @@ ActiveRecord::Schema.define(version: 20160915120234) do
     t.string   "android_link"
     t.string   "ios_link"
     t.string   "windows_link"
-    t.text     "description"
+    t.text     "searchDescription"
   end
 
   create_table "apptranslations", force: :cascade do |t|
