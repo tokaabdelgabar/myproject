@@ -24,8 +24,8 @@ before_action :find_app, only: [:show, :edit, :update, :destroy, :upvote, :downv
 
 		if @app.reviews.blank?
 			@average_review=0
-		else
-			@average_review=@app.reviews.average(:rating).round(2)
+		elsif @app.reviews.count(:rating) !=0 
+			@average_review=@app.reviews.sum(:rating)/@app.reviews.count(:rating) 
 		end
 	end
 
