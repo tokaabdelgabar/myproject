@@ -1,3 +1,100 @@
+<% if params[:category].blank? && params[:search].blank? %>
+<% @categories_list.each do |category| %>
+<div class="our-team">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="col-md-9" style="margin-left:-15px">
+					<h2 class="title-style-3" aria-hidden="false" >List of <%= category.name %> Applications<span class="title-under"></span></h2>
+				</div>
+				<div class="col-md-3" style="padding-right:-25px">
+					<button type="button" class="btn btn-third pull-right" style="margin-top:23px">See more</button>
+				</div>
+			</div>
+		</div>
+		<div class="row white-border" style="padding-top:50px">
+			<% App.where(category_id: category.id).limit(5).each do |apps| %>
+			<div class="col-md-2 col-sm-2">
+				<div class="team-member">
+					<div class="thumnail" > 
+						<a tabindex=0 role=button href="/apps/<%= apps.id %>" title="Link to this application page">
+							<%= image_tag apps.app_img.url(:app_index) , alt: apps.app_img_alt %>
+						</a>
+					</div>
+					<p class="app-name" aria-hidden="false"><%=  apps.name %></p>
+					<p class="app-name" aria-hidden="false">Preis ist <%= apps.price %>€</p>
+					
+					<h3 class="offscreen"> Durchschnittliche Bewertung der Anwendung ist </h3>
+					<div class="average-review-rating" 
+					data-score=<%= apps.reviews.average(:rating)%>>
+				    </div>
+				</div>
+				<br></br>
+			</div>
+			<% end %>
+
+			<div class="col-md-2 col-sm-2">
+				<div class="team-member">
+					<h4 style="padding: 50% 0;"  aria-hidden="false" role=link><%= link_to "Mehr Apps...", 
+					controller: "categories", action: "show", id: category.id , title:"this page links to list more app of this category"%><span class="fa fa-external-link"></span></h4>
+				</div>
+			</div>
+		<br></br>
+	</div>
+</div>
+</div>
+<% end %>
+<br/>
+
+<% elsif !params[:category].blank? && params[:search].blank? %>
+<div class="row">
+	<% @apps_all.each do |apps| %>
+		<div class="col-md-2 col-sm-2">
+		<div class="team-member">
+			<div class="thumnail">
+				<a role=button href="/apps/<%= apps.id %>"><%= image_tag apps.app_img.url(:app_index) %></a>
+			</div>
+			<p class="app-name" aria-hidden="false"><%= apps.name %></p>
+			<p class="app-name" aria-hidden="false">Preis ist <%= apps.price %>€</p>
+			 
+			<h3 class="offscreen"> Durchschnittliche Bewertung der Anwendung ist </h3>
+			<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div>
+		</div><br></br>
+	</div>
+	<% end %>
+</div>
+
+<% elsif %>
+<div class="row">
+	<% @apps_all.each do |apps| %>
+		<div class="col-md-2 col-sm-2">
+		<div class="team-member">
+			<div class="thumnail">
+				<a role=button href="/apps/<%= apps.id %>"><%= image_tag apps.app_img.url(:app_index) %></a>
+			</div>
+			<p class="app-name" aria-hidden="false"><%= link_to apps.name, app_path(apps) %></p>
+			<p class="app-name" aria-hidden="false"><%= apps.price %>€</p>
+
+			<h3 class="offscreen"> Durchschnittliche Bewertung der Anwendung ist </h3>
+			<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div>
+		</div><br></br>
+	</div>
+	<% end %>
+</div>
+<% end %>
+
+<script>
+	$('.average-review-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
+	});
+</script>
+
+category show
+
 
 <div class="main">
 	<div class="container">
@@ -9,27 +106,32 @@
 			</p>
 			<% end %>
 		</section>
-		<div class="row white-border">
-			<div class="col-md-6">
-				<div class="text-center btn-group" style="margin-top: 10px">
-					<p>Sorting:
-					  <button type="button" class="btn btn-third"><%= sort_link @search, :name, "Product Name" %></button>
-					  <button type="button" class="btn btn-third"><%= sort_link @search, :price, "Price" %></button>
-					  <button type="button" class="btn btn-third"><%= sort_link @search, :average, "Best Rated" %></button>
-					  <button type="button" class="btn btn-third"><%= sort_link @search, :total, "Most Rated" %></button></p>
+		<div class="row ">
+			<div class="col-md-6 white-border" style="margin-right: 3px; margin-left:-3px">
+				
+				<div class="text-center" style="margin:10px 0">
+					<p>Sorting:</p>
+					<div class="btn-group">
+					  <button type="button" class="btn btn-fifth"><%= sort_link @search, :name, "Product Name" %></button>
+					  <button type="button" class="btn btn-fifth"><%= sort_link @search, :price, "Price" %></button>
+					  <button type="button" class="btn btn-fifth"><%= sort_link @search, :average, "Best Rated" %></button>
+					  <button type="button" class="btn btn-fifth"><%= sort_link @search, :total, "Most Rated" %></button>
+					</div>
 				</div>	
 			</div>
-			<div class="col-md-6">
-				<div class="text-center btn-group" style="margin-top:10px">
-					<p>Filter:
-					  <button type="button" class="btn btn-third"><%= link_to "Andriod", controller: "categories", action: "show", operatingsystem_id: 1  %></button>
-					  <button type="button" class="btn btn-third"><%= link_to "IOS", controller: "categories", action: "show", operatingsystem_id: 2  %></button>
-					  <button type="button" class="btn btn-third"><%= link_to "Windows", controller: "categories", action: "show", operatingsystem_id: 3  %></button>
-					  <button type="button" class="btn btn-third"><%= link_to "German", controller: "categories", action: "show",language_id: 1 %></button>
-					  <button type="button" class="btn btn-third"><%= link_to "English", controller: "categories", action: "show",language_id: 2 %>
-					  <% if @free_app.present? %>						
-						<button type="button" class="btn btn-third"><%= link_to "Free", controller: "categories", action: "show", id: @category.id, price: '0' %><% end %></button>
-					  <button type="button" class="btn btn-third"><%= link_to "All Apps", controller: "categories", action: "show", category_id: @category.id %></button></p>	
+			<div class="col-md-6 white-border" style="margin-left: 3px; margin-right:-3px">
+				
+				<div class="text-center" style="margin:10px 0">
+					<p>Filter:</p>
+					<div class="btn-group">
+					  <button type="button" class="btn btn-fifth"><%= link_to "Andriod", controller: "categories", action: "show", operatingsystem_id: 1  %></button>
+					  <button type="button" class="btn btn-fifth"><%= link_to "IOS", controller: "categories", action: "show", operatingsystem_id: 2  %></button>
+					  <button type="button" class="btn btn-fifth"><%= link_to "Windows", controller: "categories", action: "show", operatingsystem_id: 3  %></button>
+					  <button type="button" class="btn btn-fifth"><%= link_to "German", controller: "categories", action: "show",language_id: 1 %></button>
+					  <button type="button" class="btn btn-fifth"><%= link_to "English", controller: "categories", action: "show",language_id: 2 %></button>
+					  <% if @free_app.present? %><button type="button" class="btn btn-fifth"><%= link_to "Free", controller: "categories", action: "show", id: @category.id, price: '0' %></button><% end %>
+					  <button type="button" class="btn btn-fifth"><%= link_to "All Apps", controller: "categories", action: "show", category_id: @category.id %></button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -147,7 +249,7 @@
 		<% end %>
 		</div>
 
-		<%= link_to 'Change category', edit_category_path(@category), class: "btn btn-forth", alt: "switch to other categories" %><br>
+		<%= link_to 'Bearbeiten', edit_category_path(@category), class: "btn btn-forth", alt: "Umstellung auf andere Kategorien" %><br>
 	</div><br>
 </div>	
 		<script>

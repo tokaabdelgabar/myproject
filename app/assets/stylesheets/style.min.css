@@ -617,6 +617,17 @@ form .alert {
   color: #000;
   border: 1px solid #000;
 }
+.btn-fifth{
+  background: #0A4958;
+  color: #fff;
+  border-radius: 5px;
+  margin: 5px;
+}
+.btn-fifth:hover {
+  background: #01B6AD;
+  color: #000;
+  border: 1px solid #000;
+}
 .title-style-1 {
   text-align: center;
   text-transform: uppercase;
@@ -632,7 +643,6 @@ form .alert {
 }
 .title-style-3 {
   text-align: left;
-  text-transform: lowercase;
   font-size: 26px;
   margin-bottom: 50px;
 }
@@ -1182,15 +1192,6 @@ height:1px;
 text-align: left; 
 overflow:hidden;
 }
-p.offscreen {
-position:absolute;
-left:-1000px;
-top:-1000px;
-width:1px;
-height:1px;
-text-align: left; 
-overflow:hidden;
-}
 h2.offscreen {
 position:absolute;
 left:-1000px;
@@ -1248,17 +1249,7 @@ overflow:visible;
 background-color:#FF3;
 border: 1px dotted #000;
 }
-h3.offscreen:focus, h3.offscreen:active, h3.offscreen:hover { 
-position:absolute; 
-left:0; 
-top:0; 
-width:auto; 
-height:auto; 
-overflow:visible;
-background-color:#FF3;
-border: 1px dotted #000;
-}
-p.offscreen:focus, p.offscreen:active, p.offscreen:hover { 
+h3.offscreen:focus, h3.offscreen:active, h33.offscreen:hover { 
 position:absolute; 
 left:0; 
 top:0; 

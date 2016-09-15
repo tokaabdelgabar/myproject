@@ -106,6 +106,8 @@ GEM
     globalize (5.0.1)
       activemodel (>= 4.2.0, < 4.3)
       activerecord (>= 4.2.0, < 4.3)
+    gretel (3.0.9)
+      rails (>= 3.1.0)
     haml (4.0.7)
       tilt
     hike (1.2.3)
@@ -305,6 +307,7 @@ DEPENDENCIES
   devise-i18n
   font-awesome-rails
   globalize (~> 5.0.0)
+  gretel
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
