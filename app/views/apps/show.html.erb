@@ -28,9 +28,15 @@
 					<h4>Links zu Portalen zum Herunterladen:</h4>
 					<div class="text-center">
 						<div class="btn-group">
+							<% unless @app.android_link.blank? %>	
 							<a class="btn btn-forth" href="<%=@app.android_link%>" tabindex=0 role=button title="Link to android download" >Android</a>
+							<% end %>
+							<% unless @app.ios_link.blank? %>	
 							<a class="btn btn-forth" href="<%=@app.ios_link%>" tabindex=0 role=button title="Link to iOS download">iOS</a>
+							<% end %>
+							<% unless @app.windows_link.blank? %>	
 							<a class="btn btn-forth" href="<%=@app.windows_link%>" tabindex=0 role=button title="Link to windows phone download">Windows Phone</a>
+							<% end %>
 						</div>
 					</div>
 				</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160915120234) do
+ActiveRecord::Schema.define(version: 20160915193349) do
 
   create_table "about_us", force: :cascade do |t|
     t.string   "title"
@@ -172,7 +172,6 @@ ActiveRecord::Schema.define(version: 20160915120234) do
     t.string   "author"
     t.string   "link"
     t.string   "image_alt"
-    t.string   "photo_alt"
   end
 
   create_table "operatingsystem_translations", force: :cascade do |t|
