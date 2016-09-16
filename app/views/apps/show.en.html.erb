@@ -1,17 +1,17 @@
 <div class="main" >
 	<div class="container">
 		<div class="col-md-12">
-			<h2 class="title-style-2"><%= App.human_attribute_name(:App_Name) %>: <%= @app.name %><span class="title-under"></span></h2>
+			<h2 class="title-style-2" aria-hidden="false"><%= App.human_attribute_name(:App_Name) %>: <%= @app.name %><span class="title-under"></span></h2>
 		</div>
 
-		<div class="col-md-5 form-group border-white" style="margin-left:-5px; float: left;">
+		<div class="col-md-5 form-group white-border" style="margin-left:-5px; float: left;">
 			<div class="row">
 				<div class="app-logo">
 				<%= image_tag @app.app_img.url(:app_show), class: "img-responsive" %>
 				</div>
 			</div><br>
 			<div class="row" style="margin-left:3px;">
-				<p style="border-bottom:1px solid #9E9E9E; margin-right:20px">Gallery</p>
+				<p style="border-bottom:1px solid #9E9E9E; margin-right:20px" aria-hidden="false">Gallery</p>
 				<div id="links">
 					    <% unless @app.image1.blank? %>	
 					    <a href="<%= @app.image1.url(:app_show) %>" data-gallery>
@@ -41,7 +41,7 @@
 				</div>
 			</div><br>
 			<div class="row" style="margin-left:3px;">
-				<p style="border-bottom:1px solid #9E9E9E; margin-right:20px">Video</p>
+				<p style="border-bottom:1px solid #9E9E9E; margin-right:20px" aria-hidden="false">Video</p>
 				
 			 	 <div>
 				 	<div class="embed-responsive embed-responsive-16by9" style=" margin-right:20px">
@@ -53,33 +53,33 @@
 			</div><br>
 		</div>
 		<div class="col-md-7 form-group" style="float:right; margin-right: -5px;">
-			<div class="col-md-12 border-white">
+			<div class="col-md-12 white-border">
 				<div class="row" style="margin-left:3px;margin-right:3px">
-					<h4 style="padding-top:5px">By <%= App.human_attribute_name(:Developer)%>: <%= @app.developer %></h4>			
-					<p><div class="average-review-rating" data-score=<%= @average_review %>></div><h4>Based on&nbsp;<%= @app.reviews.count %>&nbsp;reviews</h4></p>						
-					<h4><%= App.human_attribute_name(:Price) %>: <%= @app.price %>€</h4>				
+					<p  style="padding-top:5px" aria-hidden="false">By <%= App.human_attribute_name(:Developer)%>: <%= @app.developer %></h4>			
+					<p><div class="average-review-rating" data-score=<%= @average_review %>></div>Based on&nbsp;<%= @app.reviews.count %>&nbsp;reviews></p>						
+					<p aria-hidden="false"><%= App.human_attribute_name(:Price) %>: <%= @app.price %>€</p>				
 				</div><br>
 				<div class="row" style="border-top:1px solid #9E9E9E; margin-left:3px;margin-right:3px;">
-					<p style="padding-left:15px;"><h4><%= App.human_attribute_name(:Description) %>: <%= @app.description %></h4></p>
+					<p style="padding-left:15px;" aria-hidden="false"><h4><%= App.human_attribute_name(:Description) %>: <%= @app.description %></h4></p>
 				</div><br>
 				<div class="row" style="border-top:1px solid #9E9E9E;margin-left:3px; margin-right:3px">
-					<h4>Links to download pages:</h4>
-						<div class="text-center">
-							<div class="btn-group">
-								<a class="btn btn-forth" href="">iOS</a>
-								<a class="btn btn-forth" href="">Windows Phone</a>
-								<a class="btn btn-forth" href="">Android</a>
-							</div>
+					<p aria-hidden="false">Links to download pages:</p>
+					<div class="text-center">
+						<div class="btn-group">
+							<a class="btn btn-forth" href="<%=@app.android_link%>" tabindex=0 role=button title="Link to android download" >Android</a>
+							<a class="btn btn-forth" href="<%=@app.ios_link%>" tabindex=0 role=button title="Link to iOS download">iOS</a>
+							<a class="btn btn-forth" href="<%=@app.windows_link%>" tabindex=0 role=button title="Link to windows phone download">Windows Phone</a>
 						</div>
+					</div>
 				</div><br>
 				<div class="row" style="border-top:1px solid #9E9E9E;margin-left:3px;margin-right:3px; padding-bottom:5px">
-					<p style="padding-left:15px;"><h4><%= App.human_attribute_name(:Price_Pro) %>: <%= @app.price_pro %>€</h4></p>
-					<p style="padding-left:15px;"><h4><%= App.human_attribute_name(:App_Type) %>: <%= @app.app_type %></h4></p>
-					<p style="padding-left:15px;"><h4>Languages Available:
+					<p style="padding-left:15px;" aria-hidden="false"><%= App.human_attribute_name(:Price_Pro) %>: <%= @app.price_pro %>€</p>
+					<p style="padding-left:15px;" aria-hidden="false"><%= App.human_attribute_name(:App_Type) %>: <%= @app.app_type %></p>
+					<p style="padding-left:15px;" aria-hidden="false">Languages Available:
 					<% @app.languages.each do |language| %>
 					<%= language.name %> **
 					<% end %>
-					</h4></p>
+					</p>
 				</div>
 			</div><br>
 			<div class="col-md-12 white-border" style="margin-top:25px;">
@@ -96,7 +96,7 @@
 
 					</div><br>
 				<div class="row" style="margin-left:3px;margin-right:3px"">
-					<p>User Rating</p>
+					<p aria-hidden="false">User Rating</p>
 					<%= render @reviews %>
 					<%= will_paginate @reviews , :previous_label => t("previous"), :next_label => t("next")%>
 				</div>

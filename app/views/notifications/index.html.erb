@@ -1,23 +1,19 @@
-<div class="row">
-	<h2 class="title-style-2" style="padding-left:29px;">Neuigkeiten<span class="title-under"></span></h2>
-</div><br />
+<div class="main">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+			<h2 class="title-style-3">Neuigkeiten<span class="title-under"></span></h2>
+			</div><br />
 
-<% @notifications.each do |notification| %>
-<div class="row">
-	<div class="col-md-12 news" style="background:#fff; border-radius: 5px;">
-		<div class="col-md-9">
-			<p aria-hidden="false">
-				<h2 class="news"><% unless notification.title.blank? %>
-					<%= notification.title%><% end %>
-				</h2>
-			</p>
-			
-			<p aria-hidden="false">
-				<h5 class="news">
-					<% unless notification.author.blank? %> Autor: <%= notification.author%>|<% end %>
-					<% unless notification.date.blank? %> Datum: <%= notification.date%><% end %>
-				</h5>
-			</p>
+		<% @notifications.each do |notification| %>
+			<div class="row">
+				<div class="col-md-12 news white=border">
+					<div class="col-md-9">
+						<p aria-hidden="false"><h2  class="news"><% unless notification.title.blank? %><%= notification.title%><% end %></h2></p>
+						
+						<p aria-hidden="false" class="news">
+								<% unless notification.author.blank? %> Autor: <%= notification.author%>|<% end %>
+								<% unless notification.date.blank? %> Datum: <%= notification.date%><% end %></p>
 
 			<% unless notification.content.blank? %>
 			<p aria-hidden="false">
@@ -38,6 +34,8 @@
 		</p>
 		<% end %>
 
-	</div><br />
-</div><br />
-<% end %>
+				</div><br />
+			</div><br />
+		<% end %>
+	</div>
+</div>

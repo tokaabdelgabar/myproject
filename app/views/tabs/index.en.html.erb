@@ -1,12 +1,12 @@
 <div class="row">
-  <h2 class="title-style-2" style="padding-left:15px">Disclaimer<span class="title-under"></span></h2>
+  <h2 class="title-style-3" style="padding-left:15px">Disclaimer<span class="title-under"></span></h2>
 </div><br />
-<div class="row" style="background:#fff; border-radius: 5px;">
+<div class="row white-border">
   <% @disclaimers_list.each do |disclaimer| %>
     <div class="col-md-12 disclaimer">  
       <% @tabs.each do |tab| %>
         <% if tab.disclaimer_id == disclaimer.id  %>
-        <p><h3 style="color:#01B6AD;"><%= tab.name %></h3></p>
+        <p><h3 class="text-aquacolor"><%= tab.name %></h3></p>
         <p><h4><%= tab.paragraph1 %></h4></p>
         <p><h4><%= tab.paragraph2 %></h4></p>
         <p><h4><%= tab.paragraph3 %></h4></p>
