@@ -45,4 +45,5 @@ Rails.application.routes.draw do
   get '/notification' => 'notifications#index'
   get 'messages/new'
   get 'pages/news'
+  get '/all_apps' => 'all_apps#show'
 end
