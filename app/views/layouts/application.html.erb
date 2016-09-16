@@ -84,13 +84,13 @@
           <div class="navbar-collapse collapse pull-left">
             <h2 class="offscreen">Hauptnavigation</h2>
             <ul class="nav navbar-nav" id="nav">
-              <li><%= link_to 'Starteseite', root_path , :title"Zur Startseite" %></li>
-              <li><%= link_to 'Neuigkeiten', notification_path, :title"Zu den Neuigkeiten" %></li>
-              <li><%= link_to "Leichte Sprache", help_path, :title"Zur leichten Sprache"%></li>
-              <li><%= link_to "Über uns", about_us_path , :title"Zu den Informationen über uns"%></li>
-              <li><%= link_to "Kontakt", new_message_path , :title"Zum Kontaktformular"%></li>
+              <li><%= link_to 'Starteseite', root_path , :title =>"Zur Startseite" %></li>
+              <li><%= link_to 'Neuigkeiten', notification_path, :title => "Zu den Neuigkeiten" %></li>
+              <li><%= link_to "Leichte Sprache", help_path, :title => "Zur leichten Sprache"%></li>
+              <li><%= link_to "Über uns", about_us_path , :title =>"Zu den Informationen über uns"%></li>
+              <li><%= link_to "Kontakt", new_message_path , :title => "Zum Kontaktformular"%></li>
               <% if user_signed_in? && (current_user.admin ==true or current_user.superadmin == true) %>
-              <li><%= link_to "Administration", rails_admin.dashboard_path, method: :get , :title"Zur Administration" %><li>  
+              <li><%= link_to "Administration", rails_admin.dashboard_path, method: :get , :title =>"Zur Administration" %><li>  
                 <% end %>
               </ul>
             </div> 
