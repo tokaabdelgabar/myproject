@@ -9,51 +9,48 @@
 			<div class="col-md-7 form-group" style="float:right; margin-right: -5px;">
 				<div class="col-md-12 white-border">
 					<div class="row" style="margin-left:3px;margin-right:3px">
-						<h4>Entwickler: <%= @app.developer %></h4>			
+						<p aria-hidden="false">Entwickler: <%= @app.developer %></p>			
 						<p aria-hidden="false">
-							<h4>Durchschnittliche Bewertung:</h4>
+							<p aria-hidden="false">Durchschnittliche Bewertung:</p>
 							<div class="average-review-rating" data-score=<%= @average_review %>></div>
-							<h4>Anzahl der Bewertungen:&nbsp;<%= @app.reviews.count %>&nbsp;reviews</h4>
+							<p aria-hidden="false">Anzahl der Bewertungen:&nbsp;<%= @app.reviews.count %>&nbsp;reviews</p>
 						</p>						
-						<h4>Preis: <%= @app.price %>€</h4>				
+						<p aria-hidden="false">Preis: <%= @app.price %>€</p>				
 					</div><br>
 
 					<div class="row" style="border-top:1px solid #9E9E9E; margin-left:3px;margin-right:3px">
 						<p style="padding-left:15px;" aria-hidden="false">
-							<h4>Beschreibung: <%= @app.searchDescription %></h4>
+							<p aria-hidden="false">Beschreibung: <%= @app.searchDescription %></p>
 						</p>
 					</div><br>
 
 					<div class="row" style="border-top:1px solid #9E9E9E;margin-left:3px; margin-right:3px">
-					<h4>Links zu Portalen zum Herunterladen:</h4>
-					<div class="text-center">
-						<div class="btn-group">
-							<a class="btn btn-forth" href="<%=@app.android_link%>" tabindex=0 role=button title="Link to android download" >Android</a>
-							<a class="btn btn-forth" href="<%=@app.ios_link%>" tabindex=0 role=button title="Link to iOS download">iOS</a>
-							<a class="btn btn-forth" href="<%=@app.windows_link%>" tabindex=0 role=button title="Link to windows phone download">Windows Phone</a>
+						<p aria-hidden="false">Links zu Portalen zum Herunterladen:</p>
+						<div class="text-center">
+							<div class="btn-group">
+								<a class="btn btn-forth" href="<%=@app.android_link%>" tabindex=0 role=button title="Link to android download" >Android</a>
+								<a class="btn btn-forth" href="<%=@app.ios_link%>" tabindex=0 role=button title="Link to iOS download">iOS</a>
+								<a class="btn btn-forth" href="<%=@app.windows_link%>" tabindex=0 role=button title="Link to windows phone download">Windows Phone</a>
+							</div>
 						</div>
 					</div>
-				</div>
 
 					<div class="row" style="border-top:1px solid #9E9E9E;margin-left:3px;margin-right:3px">
 						<p style="padding-left:15px;" aria-hidden="false">
 							<h4>Preis der Bezahlversion:<%= @app.price_pro %>€</h4>
 						</p>
 						<p style="padding-left:15px;" aria-hidden="false">
-							<h4>Art der App: <%= @app.app_type %></h4>
+							Art der App: <%= @app.app_type %></p>
+						<p aria-hidden="false" style="padding-left:15px;">Verfügbare Sprachen:
+							<% @app.languages.each do |language| %>
+							<%= language.name %> **
+							<% end %>
 						</p>
-						<p style="padding-left:15px;" aria-hidden="false">
-							<h4>Verfügbare Sprachen:
-						<% @app.languages.each do |language| %>
-						<%= language.name %> **
-						<% end %>
-						</h4>
-					    </p>
 					</div>
 				</div><br>
 
 				<div class="col-md-12 white-border" style="margin-top:25px;">
-					<div class="row" style="margin-left:3px;margin-right:3px;">			
+					<div class="row" style="margin-left:3px;margin-right:3px;margin-top:25px">	
 						<% if user_signed_in? %>
 						<% if Review.where(user_id: current_user.id, app_id: @app.id).count > 0 %>
 						<p aria-hidden="false">Sie können Ihre vorherige Bewertung überarbeiten.</p>
@@ -62,7 +59,8 @@
 						<% end %>
 						<% else %>
 						 <%= link_to "Sign In To Review app", new_user_session_path , id: 'new_review', class: 'btn btn-forth pull-left' , title:"link to sign in to be able to post review"%>
-						<% end %>			
+						<% end %>
+
 					</div><br>
 
 					<div class="row" style="margin-left:3px;margin-right:3px">
@@ -80,7 +78,7 @@
 					</div>
 				</div><br>
 				<div class="row" style="margin-left:3px;">
-					<p style="border-bottom:1px solid #9E9E9E; margin-right:20px">This is for the Galerie</p>
+					<p style="border-bottom:1px solid #9E9E9E; margin-right:20px">Galerie</p>
 					<div id="links">
 					    <% unless @app.image1.blank? %>	
 					    <a href="<%= @app.image1.url(:app_show) %>" data-gallery>
