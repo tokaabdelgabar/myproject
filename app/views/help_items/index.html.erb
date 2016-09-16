@@ -1,9 +1,9 @@
-<h2 class="title-style-3">Leichte Sprache<span class="title-under"></span></h2>
+<h2 class="title-style-3" aria-hidden="false">Leichte Sprache<span class="title-under"></span></h2>
 <% @help_items.each do |help_item| %>
 <div class="row white-border">
     <% unless help_item.heading.blank? %>
     <div class="col-sm-12 col-md-12">
-      <h2><%= help_item.heading %></h2>    
+      <p aria-hidden="false"><%= help_item.heading %></p>    
     </div>
     <% end %>
     <% unless help_item.photo.blank? %>
@@ -16,10 +16,10 @@
       <p aria-hidden="false" class="help-title"><%= help_item.title1 %></p>
       <% end %>
       <% unless help_item.title2.blank? %>
-      <h3 class="help-title"><%= help_item.title2 %></h3>
+      <p aria-hidden="false" class="help-title"><%= help_item.title2 %></p>
       <% end %>
       <% unless help_item.bullet_heading.blank? %>
-      <h4 class="help-title"><strong><%= help_item.bullet_heading %></strong></h4>
+      <p aria-hidden="false" class="help-title"><strong><%= help_item.bullet_heading %></strong></p>
       <% end %>
       <ul>
         <% unless help_item.bullet1.blank? %><li class="contact-item"><%= help_item.bullet1 %></li><% end %>
