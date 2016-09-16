@@ -13,7 +13,7 @@
     <% end %><br>
     <div class="col-sm-3 col-md-9">
       <% unless help_item.title1.blank? %>
-      <h3 class="help-title"><%= help_item.title1 %></h3>
+      <p aria-hidden="false" class="help-title"><%= help_item.title1 %></p>
       <% end %>
       <% unless help_item.title2.blank? %>
       <h3 class="help-title"><%= help_item.title2 %></h3>

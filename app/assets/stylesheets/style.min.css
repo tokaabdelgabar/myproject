@@ -202,8 +202,7 @@ color: black !important;
 .navbar-main a.is-active {
   background: none !important;
   color: inherit;
-  border-bottom: 2px solid #fff;
-  border-top: 2px solid #fff;
+  border-bottom: 4px solid #fff;
 }
 .navbar-main .submenu {
   position: absolute;
@@ -1252,7 +1251,15 @@ form .alert {
   -webkit-animation-name: zoomIn;
   animation-name: zoomIn;
 }
-
+p.offscreen{
+  position:absolute;
+  left:-1000px;
+  top:-1000px;
+  width:1px;
+  height:1px;
+  text-align: left; 
+  overflow:hidden;
+}
 
 a.offscreen {
 position:absolute;
