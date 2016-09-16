@@ -1299,6 +1299,15 @@ h5.offscreen {
   text-align: left; 
   overflow:hidden;
 }
+p.offscreen {
+  position:absolute;
+  left:-1000px;
+  top:-1000px;
+  width:1px;
+  height:1px;
+  text-align: left; 
+  overflow:hidden;
+}
 a.offscreen:focus, a.offscreen:active, a.offscreen:hover { 
 position:absolute; 
 left:0; 
@@ -1320,7 +1329,37 @@ overflow:visible;
 background-color:#FF3;
 border: 1px dotted #000;
 }
-h3.offscreen:focus, h3.offscreen:active, h33.offscreen:hover { 
+h3.offscreen:focus, h3.offscreen:active, h3.offscreen:hover { 
+position:absolute; 
+left:0; 
+top:0; 
+width:auto; 
+height:auto; 
+overflow:visible;
+background-color:#FF3;
+border: 1px dotted #000;
+}
+p.offscreen:focus, p.offscreen:active, p.offscreen:hover { 
+position:absolute; 
+left:0; 
+top:0; 
+width:auto; 
+height:auto; 
+overflow:visible;
+background-color:#FF3;
+border: 1px dotted #000;
+}
+h4.offscreen:focus, h4.offscreen:active, h4.offscreen:hover { 
+position:absolute; 
+left:0; 
+top:0; 
+width:auto; 
+height:auto; 
+overflow:visible;
+background-color:#FF3;
+border: 1px dotted #000;
+}
+h5.offscreen:focus, h5.offscreen:active, h5.offscreen:hover { 
 position:absolute; 
 left:0; 
 top:0; 
