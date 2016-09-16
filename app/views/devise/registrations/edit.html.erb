@@ -6,19 +6,19 @@
             <legend>Edit <%= resource_name.to_s.humanize %></legend>
             <div class="form-group col-md-6">
                   <%= f.label :first_name, "Vorname (Optional):"  %>
-                  <%= f.text_field :first_name, autofocus: true, class:"form-control" %>
+                  <%= f.text_field :first_name, autofocus: true, class:"form-control", placeholder:"Vorname" %>
 
                   <%= f.label :last_name, "Nachname (Optional):"  %>
-                  <%= f.text_field :last_name, autofocus: true, class:"form-control"%>
+                  <%= f.text_field :last_name, autofocus: true, class:"form-control", placeholder:"Nachname"%>
 
                   <%= f.label :username, "Benutzername:"  %>
-                  <%= f.text_field :username, autofocus: true, class:"form-control" %>
+                  <%= f.text_field :username, autofocus: true, class:"form-control", placeholder:"Benutzername" %>
 
                   <%= f.label :birthday, "Geburtsdatum (Optional):"  %>
-                  <%= f.date_field :birthday, autofocus: true, class:"form-control"%>
+                  <%= f.date_field :birthday, autofocus: true, class:"form-control", placeholder:"TT.MM.JJJJ"%>
 
-                  <%= f.label :email, "Email:"  %>
-                  <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"joe@example.com" %>
+                  <%= f.label :email, "E-Mail-Adresse:"  %>
+                  <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"z.B.: max@beispiel.de" %>
 
                   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                   <div>Warte auf Bestätigung: <%= resource.unconfirmed_email %></div>
@@ -30,7 +30,7 @@
                   <% end %>
                   <%= f.password_field :password, autocomplete: "off", class:"form-control" , placeholder:"Lassen Sie das Feld leer, falls sie das Passwort nicht ändern möchten."%>
 
-                  <%= f.label :password_confirmation, "New Passwort wiederholen:" %> 
+                  <%= f.label :password_confirmation, "Neues Passwort wiederholen:" %> 
                   <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %>
 
                   <%= f.label :password, "Aktuelles Passwort:" %>

@@ -1,12 +1,12 @@
 <!-- <h1>Bearbeiten Bewertung</h1> -->
-<h2 class="title-style-2">Bewertung bearbeitung<span class="title-under"></span></h2>
+<h2 class="title-style-2">Bewertung und Kommentar bearbeiten<span class="title-under"></span></h2>
 <div class="form-group col-md-6">
 <%= simple_form_for([@app, @review]) do |f| %>
 		<div id="rating-form">
-		<label><b><h4>Beertung</h4></b></label>
+		<label><b><h4>Bewertung</h4></b></label>
 		</div>
 			<label><b><h4>Kommentar</h4></b></label>
-			<%= f.text_area :comment, :rows =>"5", class:"form-control", placeholder:"Comment" %><br>
+			<%= f.text_area :comment, :rows =>"5", class:"form-control", placeholder:"Ihr Kommentar" %><br>
 			<%= f.button :submit , class: 'btn btn-primary pull-left'%><br>
 <% end %>	
 <br>

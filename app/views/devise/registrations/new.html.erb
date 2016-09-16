@@ -16,7 +16,7 @@
                 </div>
                 <div class="field">
                     <%= f.label :last_name, "Ihr Nachname (Optional):"  %>
-                    <%= f.text_field :last_name, autofocus: true,placeholder:"Nachname ",class:"form-control" %>
+                    <%= f.text_field :last_name, autofocus: true, placeholder:"Nachname ",class:"form-control" %>
                 </div>
                 <div class="field">
                     <%= f.label :username, "Ihr gewünschter Benutzername:"  %>
@@ -24,12 +24,12 @@
                 </div>
                 <div class="field">
                     <%= f.label :email, "Ihre E-Mail-Adresse:"  %>
-                    <%= f.email_field :email, autofocus: true, class:"form-control" , placeholder:"E-Mail"%>
+                    <%= f.email_field :email, autofocus: true, class:"form-control" , placeholder:"z.B.: max@beispiel.de"%>
                 </div>
 
                 <div class="field">
                     <%= f.label :birthday, "Ihr Geburtsdatum (Optional):"  %>
-                    <%= f.date_field :birthday,autofocus: true, placeholder:"Geburtsdatum ", class:"form-control" %>
+                    <%= f.date_field :birthday,autofocus: true, placeholder:"TT.MM.JJJJ ", class:"form-control" %>
                 </div>
                 <div class="field">
                     <%= f.label :password, "Ihr Passwort:" %>

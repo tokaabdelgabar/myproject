@@ -1,14 +1,14 @@
 
 <div class="form-group" style="border-top: 1px solid #9E9E9E; padding:1px;">
 	<h4><b><%= review.user.username %>:&nbsp;</b><%= review.comment %></h4>
-	<div class="review-rating" data-score="<%= review.rating %>"><label><h4>Rating:&nbsp;</h4></label></div>
+	<div class="review-rating" data-score="<%= review.rating %>"><label><h4>Bewertungen:&nbsp;</h4></label></div>
 	<!-- <h4>Comment:&nbsp;<%= review.comment %></h4> -->
-	<h6>Rating:&nbsp;<%= review.rating %>&nbsp;of 5 Stars</h6>
+	<h6>Nutzerbewertung:&nbsp;<%= review.rating %>&nbsp;von 5 Sternen</h6>
 		<% if user_signed_in? %>
 
 		<% if review.user_id == current_user.id %>			
-			<%= link_to "Edit", edit_app_review_path(review.app, review)%>
-			<%= link_to "Delete", app_review_path(review.app, review), method: :delete, data: { confirm: "Are you sure?" }%>
+			<%= link_to "Bearbeiten", edit_app_review_path(review.app, review), title:"Die Bewertung bearbeiten"%>
+			<%= link_to "Löschen", app_review_path(review.app, review), title:"Die Bewertung löschen", method: :delete, data: { confirm: "Sind Sie sicher?" }%>
 		<% end %>	
 
 	<% end %>

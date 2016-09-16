@@ -1,9 +1,9 @@
 <%= form_for @message do |f| %>
   <% if @message.errors.any? %>
     <div id="error_explanation">
-      <h2>
-        <%= "#{pluralize(@message.errors.count, "error")} prohibited this message from being sent:" %>
-      </h2>
+      <p>
+        <%= "#{pluralize(@message.errors.count, "error")} hat leider verhindert, dass die Nachricht geschickt werden konnte. Versuchen Sie es doch einfach per E-Mail. Danke." %>
+      </p>
 
       <ul>
         <% @message.errors.full_messages.each do |msg| %>
@@ -21,14 +21,13 @@
           <div class="col-md-3"></div>
           <div class="col-md-6">
             <h2 class="title-style-2">Kontakt<span class="title-under"></span></h2>
-            <h4>Möchten Sie uns etwas mitteilen? Egal ob Fragen, Anregungen oder Beschwerden, wir freuen uns über Ihr Interesse und werden jede Nachricht beantworten. Nutzen Sie einfach das Formular und schicken Sie uns eine Nachricht.</h4>
-              <h4>Noch ein Hinweis: Nur E-Mail-Adresse und eine Nachricht sind hier erfoderlich.</h4>
+            <p>Möchten Sie uns etwas mitteilen? Egal ob Fragen, Anregungen oder Beschwerden, wir freuen uns über Ihr Interesse und werden jede Nachricht beantworten. </p>              
             <ul>
-              <li>Use the form below to ask a question or request our help</li>
-              <li>Call us  on 0800  - Germany from 08:00-18:00, Monday-Friday</li>
-              <li><a tabindex=0 role=button href="">University of Mannheim </a></li>
-              <li>Email:</li>
+              <li>Nutzen Sie einfach das Formular und schicken Sie uns eine Nachricht.</li>
+              <li>Senden Sie uns eine E-Mail:</li>
+              <li>Oder rufen Sie uns an:</li>          
             </ul>
+              <p>Noch ein Hinweis: Nur E-Mail-Adresse und eine Nachricht sind hier erfoderlich.</p>
           </div>
           <div class="col-md-3"></div>
         </div>
@@ -49,16 +48,16 @@
 
             <div class="form-group col-md-12">
               <%= f.label :subject,  "Worum geht es? (optional)"  %>
-              <%= f.text_field :subject,  autofocus: true, class:"form-control", placeholder:"Subject" %>
+              <%= f.text_field :subject,  autofocus: true, class:"form-control", placeholder:"Ihr Betreff" %>
             </div>
 
             <div class="form-group col-md-12">
               <%= f.label :content, "Wie können wir Ihnen helfen?"  %>
-              <%= f.text_area :content, autofocus: true, class:"form-control", placeholder:"Content" %>
+              <%= f.text_area :content, autofocus: true, class:"form-control", placeholder:"Ihr Text" %>
             </div><br>
 
             <div class="form-group col-md-12" role=button>
-              <%= f.submit 'Send email', autofocus: true,  class: 'btn btn-primary pull-right' %>
+              <%= f.submit 'Nachricht versenden', autofocus: true,  class: 'btn btn-primary pull-right' %>
             </div>
         </div>
 
@@ -74,8 +73,6 @@
     </div>
   </div>
 
-  
-
   <% else %>
     <div class="main-container">
       <div class="container contact">
@@ -84,14 +81,13 @@
           <div class="col-md-3"></div>
           <div class="col-md-6">
             <h2 class="title-style-2">Kontakt<span class="title-under"></span></h2>
-             <h4>Möchten Sie uns etwas mitteilen? Egal ob Fragen, Anregungen oder Beschwerden, wir freuen uns über Ihr Interesse und werden jede Nachricht beantworten. Nutzen Sie einfach das Formular und schicken Sie uns eine Nachricht.</h4>
-              <h4>Noch ein Hinweis: Nur E-Mail-Adresse und eine Nachricht sind hier erfoderlich.</h4>
+            <p>Möchten Sie uns etwas mitteilen? Egal ob Fragen, Anregungen oder Beschwerden, wir freuen uns über Ihr Interesse und werden jede Nachricht beantworten. </p>              
             <ul>
-              <li>Use the form below to ask a question or request our help</li>
-              <li>Call us  on 0800  - Germany from 08:00-18:00, Monday-Friday</li>
-              <li><a tabindex=0 role=button href="">University of Mannheim </a></li>
-              <li>Email:</li>
+              <li>Nutzen Sie einfach das Formular und schicken Sie uns eine Nachricht.</li>
+              <li>Senden Sie uns eine E-Mail:</li>
+              <li>Oder rufen Sie uns an:</li>          
             </ul>
+              <p>Noch ein Hinweis: Nur E-Mail-Adresse und eine Nachricht sind hier erfoderlich.</p>
           </div>
           <div class="col-md-3"></div>
         </div>
@@ -107,21 +103,21 @@
 
             <div class="form-group col-md-12">
               <%= f.label :email, "Ihre E-Mail-Adresse: "  %>
-              <%= f.text_field :email, autofocus: true, class:"form-control", placeholder:"Email" %>
+              <%= f.text_field :email, autofocus: true, class:"form-control", placeholder:"z.B.: max@beispiel.de" %>
             </div>
 
             <div class="form-group col-md-12">
               <%= f.label :subject, "Worum geht es? (optional)"  %>
-              <%= f.text_field :subject, autofocus: true, class:"form-control", placeholder:"Betreff " %>
+              <%= f.text_field :subject, autofocus: true, class:"form-control", placeholder:"Ihr Betreff " %>
             </div>
 
             <div class="form-group col-md-12">
               <%= f.label :content, "Wie können wir Ihnen helfen?"  %>
-              <%= f.text_area :content, autofocus: true, class:"form-control", placeholder:"Nachricht" %>
+              <%= f.text_area :content, autofocus: true, class:"form-control", placeholder:"Ihre Nachricht" %>
             </div>
 
             <div class="form-group col-md-12">
-              <%= f.submit 'Send email', class: 'btn btn-primary pull-right' %>
+              <%= f.submit 'Nachricht versenden', class: 'btn btn-primary pull-right' %>
             </div>
 
             <div class="form-group alerts">        

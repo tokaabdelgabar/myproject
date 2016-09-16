@@ -28,13 +28,13 @@
 		
 		<% unless notification.image.blank? %>
 		<div class="col-md-3 news" style="  padding-top:40px;" tabindex=0>
-			<%= image_tag notification.image.url(:notification_index), class:"img-thumbnail",alt: notification.image_alt %>
+			<%= image_tag notification.image.url(:notification_index), class:"img-thumbnail", alt: notification.image_alt %>
 		</div>
 		<% end %>
 
 		<% unless notification.link.blank? %>	
 		<p class="col-md-12" style="padding-bottom:10px;" aria-hidden="false">
-			<a tabindex=0 role=link title="link to the app page" href="<%= notification.link%>" class="news">Hier erfahren Sie mehr...</a>
+			<a tabindex=0 role=link title="Link für weitere Informationen" href="<%= notification.link%>" class="news">Hier erfahren Sie mehr...</a>
 		</p>
 		<% end %>
 

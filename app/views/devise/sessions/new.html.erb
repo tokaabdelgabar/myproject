@@ -9,11 +9,11 @@
       <div class="row white-border">
         <div class="col-md-12">
             <div class="field">
-                  <%= f.label :email, "Ihre E-Mail-Adresse (required):", :style =>"margin-top:15px" %>
-                  <%= f.email_field :email, autofocus: true, placeholder:"E-mail",class:"form-control"%>
+                  <%= f.label :email, "Ihre E-Mail-Adresse:", :style =>"margin-top:15px" %>
+                  <%= f.email_field :email, autofocus: true, placeholder:" z.B.: max@beispiel.de",class:"form-control"%>
             </div>
             <div class="field">
-                <%= f.label :password, "Ihr Passwort (required):"  %>
+                <%= f.label :password, "Ihr Passwort:" %>
                 <% if @minimum_password_length %>
                 <em>(<%= @minimum_password_length %> characters minimum)</em>
                 <% end %>

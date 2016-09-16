@@ -1,23 +1,23 @@
 <div class="row">
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Sie sind bereits registriert? Hier können Sie sich einloggen.", new_session_path(resource_name) , title:"Sie sind bereits registriert? Hier können Sie sich einloggen."%><br />
+  <%= link_to "Sie sind bereits registriert? Hier können Sie sich einloggen.", new_session_path(resource_name) , title:"Zum Login"%><br />
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sie sind noch nicht registriert? Klicken sie hier um sich zu registrieren.", new_registration_path(resource_name) , title:"Sie sind noch nicht registriert? Klicken sie hier um sich zu registrieren."%><br />
+  <%= link_to "Sie sind noch nicht registriert? Klicken sie hier um sich zu registrieren.", new_registration_path(resource_name) , title:"Zur Registrierung"%><br />
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Sie haben ihr Passwort vergessen? Hier können Sie es zurücksetzen.", new_password_path(resource_name) , title:"Sie haben ihr Passwort vergessen? Hier können Sie es zurücksetzen."%><br />
+  <%= link_to "Sie haben ihr Passwort vergessen? Hier können Sie es zurücksetzen.", new_password_path(resource_name) , title:"Password zurücksetzen"%><br />
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
 
-  <%= link_to "Sie haben keien Bestätigungsmail erhalten? Dann klicken sie hier.", new_confirmation_path(resource_name), title:"Sie haben keine Bestätigungsmail erhalten?" %><br />
+  <%= link_to "Sie haben keien Bestätigungsmail erhalten? Dann klicken sie hier.", new_confirmation_path(resource_name), title:"Bestätigungsmail anfordern" %><br />
 <% end -%>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to "Sie haben keine Mail zur Entsperrung erhalten?", new_unlock_path(resource_name), title:"Sie haben keine Mail zur Entsperrung erhalten?" %><br />
+  <%= link_to "Sie haben keine Mail zur Entsperrung des Kontos erhalten? Klicken Sie hier.", new_unlock_path(resource_name), title:"Benutzerkonto entsperren." %><br />
 <% end -%>
 
 <%- if devise_mapping.omniauthable? %>

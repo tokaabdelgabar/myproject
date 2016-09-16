@@ -12,22 +12,22 @@
 		<div class="row">
 			<div class="col-md-6 white-border" style="margin-right: 3px; margin-left:-3px">
 				<div class="text-center" style="margin:10px 0">
-					<p>Sort Apps by:</p>
+					<p>Apps sortieren nach:</p>
 					<div class="btn-group">
 					  <button type="button" class="btn btn-fifth">
-					  	<%= sort_link @search, :name, "Product Name" %>
+					  	<%= sort_link @search, :name, "Name" %>
 					  </button>
 					  
 					  <button type="button" class="btn btn-fifth">
-					  	<%= sort_link @search, :price, "Price" %>
+					  	<%= sort_link @search, :price, "Preis" %>
 					  </button>
 					  
 					  <button type="button" class="btn btn-fifth">
-					  	<%= sort_link @search, :average, "Best Rated" %>
+					  	<%= sort_link @search, :average, "Bewertung" %>
 					  </button>
 					  
 					  <button type="button" class="btn btn-fifth">
-					  	<%= sort_link @search, :total, "Most Rated" %>
+					  	<%= sort_link @search, :total, "Anzahl der Bewertungen" %>
 					  </button>
 					</div>
 				</div>	
@@ -38,11 +38,11 @@
 					<p>Filter Apps by:</p>
 					<div class="btn-group">
 					  <button type="button" class="btn btn-fifth">
-					  	<%= link_to "Andriod", controller: "categories", action: "show", operatingsystem_id: 1  %>
+					  	<%= link_to "Android", controller: "categories", action: "show", operatingsystem_id: 1  %>
 					  </button>
 					  
 					  <button type="button" class="btn btn-fifth">
-					  	<%= link_to "IOS", controller: "categories", action: "show", operatingsystem_id: 2  %>
+					  	<%= link_to "iOS", controller: "categories", action: "show", operatingsystem_id: 2  %>
 					  </button>
 					  
 					  <button type="button" class="btn btn-fifth">
@@ -50,16 +50,16 @@
 					  </button>
 					  
 					  <button type="button" class="btn btn-fifth">
-					  	<%= link_to "German", controller: "categories", action: "show",language_id: 1 %>
+					  	<%= link_to "Deutsch", controller: "categories", action: "show",language_id: 1 %>
 					  </button>
 					  
 					  <button type="button" class="btn btn-fifth">
-					  	<%= link_to "English", controller: "categories", action: "show",language_id: 2 %>
+					  	<%= link_to "Englisch", controller: "categories", action: "show",language_id: 2 %>
 					  </button>
 					  
 					  <% if @free_app.present? %>
 					  <button type="button" class="btn btn-fifth">
-					  	<%= link_to "Free", controller: "categories", action: "show", id: @category.id, price: '0' %>					  	
+					  	<%= link_to "Kostenlos", controller: "categories", action: "show", id: @category.id, price: '0' %>					  	
 					  </button><% end %>
 					  
 					  <button type="button" class="btn btn-fifth"><%= link_to "All Apps", controller: "categories", action: "show", category_id: @category.id %>
@@ -78,9 +78,11 @@
 			<div class="col-md-2 col-sm-2">
 				<div class="team-member">
 					<div class="thumnail">
-						<%= image_tag product.app_img.url(:app_index), alt: product.app_img_alt  %>
+						<a role=button href="/apps/<%= product.id %>" title="Zur Seite der App">
+						<%= image_tag product.app_img.url(:app_index), alt: product.name %>
+						</a>
 					</div>
-					<p aria-hidden="false" class="app-name"><%= link_to product.name, app_path(product) %></p>
+					<p aria-hidden="false" class="app-name"><%= product.name %></p>
 					<!--<p> 
 						<% product.operatingsystems.each do |operation| %>
 						<li><%= operation.name %></li>
@@ -94,7 +96,7 @@
 					</ul>
 				</p> -->
 					<p aria-hidden="false" class="app-name"><%= number_to_currency(product.price) %></p>
-					<p aria-hidden="true" class="offscreen"> Durchschnittliche Bewertung der Anwendung ist </p>
+					<p aria-hidden="true" class="offscreen">Durchschnittliche Bewertung:</p>
 					<div class="average-review-rating" data-score=<%= product.reviews.average(:rating) %>></div>
 				</div><br>
 			</div>
@@ -107,9 +109,11 @@
 			<div class="col-md-2 col-sm-2">
 				<div class="team-member">
 					<div class="thumnail">
-						<%= image_tag product.app_img.url(:app_index) , alt: product.app_img_alt %>
+						<a role=button href="/apps/<%= product.id %>" title="Zur Seite der App">
+						<%= image_tag product.app_img.url(:app_index), alt: product.name %>
+						</a>
 					</div>
-					<p aria-hidden="false" class="app-name"><%= link_to product.name, app_path(product) %></p>
+					<p aria-hidden="false" class="app-name"><%= product.name %></p>
 					<!-- <p> 
 						<% product.operatingsystems.each do |operation| %>
 						<li><%= operation.name %></li>
@@ -123,7 +127,7 @@
 					</ul>
 					</p> -->
 					<p aria-hidden="false" class="app-name"><%= number_to_currency(product.price) %></p>
-					<p aria-hidden="true" class="offscreen"> Durchschnittliche Bewertung der Anwendung ist </p>
+					<p aria-hidden="true" class="offscreen">Durchschnittliche Bewertung:</p>
 					<div class="average-review-rating" data-score=<%= product.reviews.average(:rating) %>></div>
 				</div><br>
 			</div>
@@ -135,9 +139,11 @@
 			<div class="col-md-2 col-sm-2">
 				<div class="team-member">
 					<div class="thumnail">
-						<%= image_tag product.app_img.url(:app_index), alt: product.app_img_alt %>
+						<a role=button href="/apps/<%= product.id %>" title="Zur Seite der App">
+						<%= image_tag product.app_img.url(:app_index), alt: product.name %>
+						</a>
 					</div>
-					<p aria-hidden="false" class="app-name"><%= link_to product.name, app_path(product) %></p>
+					<p aria-hidden="false" class="app-name"><%= product.name %></p>
 					<!-- <p> 
 						<% product.operatingsystems.each do |operation| %>
 						<li><%= operation.name %></li>
@@ -151,7 +157,7 @@
 					</ul>
 					</p> -->
 					<p aria-hidden="false" class="app-name"><%= number_to_currency(product.price) %></p>
-					<p aria-hidden="true" class="offscreen"> Durchschnittliche Bewertung der Anwendung ist </p>
+					<p aria-hidden="true" class="offscreen">Durchschnittliche Bewertung:</p>
 					<div class="average-review-rating" data-score=<%= product.reviews.average(:rating) %>></div>
 				</div><br>
 			</div>
@@ -163,10 +169,12 @@
 			<div class="col-md-2 col-sm-2">
 				<div class="team-member">
 					<div class="thumnail">
-						<%= image_tag product.app_img.url(:app_index), alt: product.app_img_alt %>
+						<a role=button href="/apps/<%= product.id %>" title="Zur Seite der App">
+						<%= image_tag product.app_img.url(:app_index), alt: product.name %>
+						</a>
 					</div>
-					
-					<p aria-hidden="false" class="app-name"><%= link_to product.name, app_path(product) %></p>
+			
+					<p aria-hidden="false" class="app-name"><%= product.name%></p>
 					<!-- <p> 
 						<% product.operatingsystems.each do |operation| %>
 						<li><%= operation.name %></li>
@@ -180,14 +188,14 @@
 					</ul>
 					</p> -->
 					<p aria-hidden="false" class="app-name"><%= number_to_currency(product.price) %></p>
-					<p aria-hidden="true" class="offscreen"> Durchschnittliche Bewertung der Anwendung ist </p>
+					<p aria-hidden="true" class="offscreen">Durchschnittliche Bewertung:</p>
 					<div class="average-review-rating" data-score=<%= product.reviews.average(:rating) %>></div>
 				</div><br>
 			</div>
 		<% end %>
 		</div>
 
-		<!--<%= link_to 'Bearbeiten', edit_category_path(@category), class: "btn btn-forth", title: "Umstellung auf andere Kategorien" %><br>-->
+		<!--<%= link_to 'Bearbeiten', edit_category_path(@category), class: "btn btn-forth", title: "Umstellung zu anderer Kategorie" %><br>-->
 	</div><br>
 </div>	
 		<script>

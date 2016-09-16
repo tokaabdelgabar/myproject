@@ -1,4 +1,4 @@
-<h2 class="title-style-2">Überprüfung<span class="title-under"></span></h2>
+<h2 class="title-style-2">Bewertung und Kommentar<span class="title-under"></span></h2>
 <%= simple_form_for([@app, @app.reviews.build]) do |f| %>
 <div class="form-group col-md-6">
 	<div id="rating-form">
@@ -7,10 +7,10 @@
 	</div>
 	<h4>Kommentar</h4> 
     <!-- <textarea name="message" rows="5" class="form-control" placeholder="Comment*" required></textarea> -->
-	<%= f.text_area :comment, :rows =>"5", class:"form-control", placeholder:"Comment" %><br/>
+	<%= f.text_area :comment, :rows =>"5", class:"form-control", placeholder:"Ihr Kommentar" %><br/>
     <br/>
-    <p class="offscreen">Click here to submit your reviews</p> 
-    <%= f.submit 'Submit Reviews', class: 'btn btn-primary pull-left' %>
+    <p class="offscreen">Klicken Sie hier um Ihre Bewertung abzugeben</p> 
+    <%= f.submit 'Bewerten', class: 'btn btn-primary pull-left' %>
 	<!--<%= f.button :submit %> -->
 </div>
 <br/>
