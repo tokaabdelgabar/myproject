@@ -88,6 +88,29 @@ a:hover, a:focus, a:active {
   width: 24px;
   height: 24px;
 }
+.border-bottom{
+  border-bottom:1px solid #9E9E9E; 
+  margin-right:20px;
+}
+
+.text-aquacolor{
+  color: #01B6AD;
+}
+/* =============================================================================
+  Back to top
+========================================================================== */
+.back-to-top{
+  cursor: pointer;
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  display: inline;
+  z-index: 100;
+}
+.back-to-top>img{
+  height: 40px;
+  width: 40px;
+}
 /* =============================================================================
   Contact
 ========================================================================== */

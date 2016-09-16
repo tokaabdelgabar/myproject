@@ -4,27 +4,73 @@
 			<h2 class="title-style-3"><%= @app.name %>
 				<span class="title-under"></span>
 			</h2>
-			</div>
+		</div>
+		<div class="col-md-5 form-group white-border" style="margin-left:-5px; float: left;">
+			<div class="row">
+				<div class="app-logo">
+				<%= image_tag @app.app_img.url(:app_show), alt: @app.app_img_alt , class: "img-responsive" %>
+				</div>
+			</div><br>
+			<div class="row" style="margin-left:3px;">
+				<p style="border-bottom:1px solid #9E9E9E; margin-right:20px" aria-hidden="false">Galerie</p>
+				<div id="links">
+				    <% unless @app.image1.blank? %>	
+				    <a href="<%= @app.image1.url(:app_show) %>" data-gallery>
+				        <%= image_tag @app.image1.url(:app_show), alt: @app.image1_alt, class: "gallery" %>
+				    </a>
+				    <% end %>				    
+				    <% unless @app.image2.blank? %>	
+				    <a href="<%= @app.image2.url(:app_show) %>" data-gallery>
+				        <%= image_tag @app.image2.url(:app_show), alt:  @app.image2_alt , class: "gallery" %>
+				    </a>
+				    <% end %>
+				    <% unless @app.image3.blank? %>				  				    
+				    <a href="<%= @app.image3.url(:app_show) %>" data-gallery>
+				        <%= image_tag @app.image3.url(:app_show), alt: @app.image3_alt , class: "gallery" %>
+				    </a>
+				    <% end %>
+				    <% unless @app.image4.blank? %>
+				    <a href="<%= @app.image4.url(:app_show) %>" data-gallery>
+				        <%= image_tag @app.image4.url(:app_show), alt: @app.image4_alt , class: "gallery" %>
+				    </a>
+				    <% end %>
+				    <% unless @app.image5.blank? %>
+				    <a href="<%= @app.image5.url(:app_show) %>" data-gallery>
+				        <%= image_tag @app.image5.url(:app_show), alt: @app.image5_alt , class: "gallery" %>
+				    </a>
+				    <% end %>				    
+				</div>
+			</div><br>
+	
+			<div class="row" style="margin-left:3px;">
+				<p style="border-bottom:1px solid #9E9E9E; margin-right:20px" aria-hidden="false">Video</p>
+				<div>
+					<div class="embed-responsive embed-responsive-16by9" style=" margin-right:20px">
+						<% unless @app.youtube_link.blank? %>
+						<%= raw(youtube_embed(@app.youtube_link))%>
+						<% end %>
+					</div>
+				</div>
+			</div><br>
+		</div>
+		<div class="col-md-7 form-group" style="float:right; margin-right: -5px;">
+			<div class="col-md-12 white-border">
+				<div class="row" style="margin-left:3px;margin-right:3px">
+					<p aria-hidden="false" style="padding-top:5px">Entwickler: <%= @app.developer %></p>			
+					<p aria-hidden="false">
+						<p aria-hidden="false">Durchschnittliche Bewertung:</p>
+						<div class="average-review-rating" data-score=<%= @average_review %>></div>
+						<p aria-hidden="false">Anzahl der Bewertungen:&nbsp;<%= @app.reviews.count %>&nbsp;reviews</p>
+					</p>						
+					<p aria-hidden="false">Preis: <%= @app.price %>€</p>				
+				</div><br>
 
-			<div class="col-md-7 form-group" style="float:right; margin-right: -5px;">
-				<div class="col-md-12 white-border">
-					<div class="row" style="margin-left:3px;margin-right:3px">
-						<p aria-hidden="false">Entwickler: <%= @app.developer %></p>			
-						<p aria-hidden="false">
-							<p aria-hidden="false">Durchschnittliche Bewertung:</p>
-							<div class="average-review-rating" data-score=<%= @average_review %>></div>
-							<p aria-hidden="false">Anzahl der Bewertungen:&nbsp;<%= @app.reviews.count %>&nbsp;reviews</p>
-						</p>						
-						<p aria-hidden="false">Preis: <%= @app.price %>€</p>				
-					</div><br>
+				<div class="row" style="border-top:1px solid #9E9E9E; margin-left:3px;margin-right:3px">
+					<p style="padding-left:15px;" aria-hidden="false">Beschreibung: <%= @app.searchDescription %>
+					</p>
+				</div><br>
 
-					<div class="row" style="border-top:1px solid #9E9E9E; margin-left:3px;margin-right:3px">
-						<p style="padding-left:15px;" aria-hidden="false">
-							<p aria-hidden="false">Beschreibung: <%= @app.searchDescription %></p>
-						</p>
-					</div><br>
-
-					<div class="row" style="border-top:1px solid #9E9E9E;margin-left:3px; margin-right:3px">
+				<div class="row" style="border-top:1px solid #9E9E9E;margin-left:3px; margin-right:3px">
 					<p aria-hidden="false">Links zu Portalen zum Herunterladen:</p>
 					<div class="text-center">
 						<div class="btn-group">
@@ -39,125 +85,73 @@
 							<% end %>
 						</div>
 					</div>
-
-					<div class="row" style="border-top:1px solid #9E9E9E;margin-left:3px;margin-right:3px">
-						<p style="padding-left:15px;" aria-hidden="false">
-							<h4>Preis der Bezahlversion:<%= @app.price_pro %>€</h4>
-						</p>
-						<p style="padding-left:15px;" aria-hidden="false">
-							Art der App: <%= @app.app_type %></p>
-						<p aria-hidden="false" style="padding-left:15px;">Verfügbare Sprachen:
-							<% @app.languages.each do |language| %>
-							<%= language.name %> **
-							<% end %>
-						</p>
-					</div>
-				</div><br>
-
-				<div class="col-md-12 white-border" style="margin-top:25px;">
-					<div class="row" style="margin-left:3px;margin-right:3px;margin-top:25px">	
-						<% if user_signed_in? %>
-						<% if Review.where(user_id: current_user.id, app_id: @app.id).count > 0 %>
-						<p aria-hidden="false">Sie können Ihre vorherige Bewertung überarbeiten.</p>
-						<% else %>
-						<%= link_to "Add Review", new_app_review_path(@app), id: 'new_review', class: 'btn btn-forth pull-left', title:"link to another page to create a new review for the application"%>
+				</div>
+				<div class="row" style="border-top:1px solid #9E9E9E;margin-left:3px;margin-right:3px; padding-bottom:5px">
+					<p style="padding-left:15px;" aria-hidden="false">Preis der Bezahlversion:<%= @app.price_pro %>€</p>
+					<p style="padding-left:15px;" aria-hidden="false">
+						Art der App: <%= @app.app_type %></p>
+					<p aria-hidden="false" style="padding-left:15px;">Verfügbare Sprachen:
+						<% @app.languages.each do |language| %>
+						<%= language.name %> **
 						<% end %>
-						<% else %>
-						 <%= link_to "Sign In To Review app", new_user_session_path , id: 'new_review', class: 'btn btn-forth pull-left' , title:"link to sign in to be able to post review"%>
-						<% end %>
-
-					</div><br>
-
-					<div class="row" style="margin-left:3px;margin-right:3px">
-						<p aria-hidden="false">Bewertungen</p>
-						<%= render @reviews %>
-						<%= will_paginate @reviews , :previous_label => t("previous"), :next_label => t("next")%>
-					</div>
-				</div>			
-			</div>
-
-			<div class="col-md-5 form-group white-border" style="margin-left:-5px; float: left;">
-				<div class="row">
-					<div class="app-logo">
-					<%= image_tag @app.app_img.url(:app_show), alt: @app.app_img_alt , class: "img-responsive" %>
-					</div>
-				</div><br>
-				<div class="row" style="margin-left:3px;">
-					<p style="border-bottom:1px solid #9E9E9E; margin-right:20px">Galerie</p>
-					<div id="links">
-					    <% unless @app.image1.blank? %>	
-					    <a href="<%= @app.image1.url(:app_show) %>" data-gallery>
-					        <%= image_tag @app.image1.url(:app_show), alt: @app.image1_alt, class: "gallery" %>
-					    </a>
-					    <% end %>				    
-					    <% unless @app.image2.blank? %>	
-					    <a href="<%= @app.image2.url(:app_show) %>" data-gallery>
-					        <%= image_tag @app.image2.url(:app_show), alt:  @app.image2_alt , class: "gallery" %>
-					    </a>
-					    <% end %>
-					    <% unless @app.image3.blank? %>				  				    
-					    <a href="<%= @app.image3.url(:app_show) %>" data-gallery>
-					        <%= image_tag @app.image3.url(:app_show), alt: @app.image3_alt , class: "gallery" %>
-					    </a>
-					    <% end %>
-					    <% unless @app.image4.blank? %>
-					    <a href="<%= @app.image4.url(:app_show) %>" data-gallery>
-					        <%= image_tag @app.image4.url(:app_show), alt: @app.image4_alt , class: "gallery" %>
-					    </a>
-					    <% end %>
-					    <% unless @app.image5.blank? %>
-					    <a href="<%= @app.image5.url(:app_show) %>" data-gallery>
-					        <%= image_tag @app.image5.url(:app_show), alt: @app.image5_alt , class: "gallery" %>
-					    </a>
-					    <% end %>				    
-					</div>
-				</div><br>
-				
-				<div class="row" style="margin-left:3px;">
-					<p style="border-bottom:1px solid #9E9E9E; margin-right:20px">Video</p>
-					<div>
-						<div class="embed-responsive embed-responsive-16by9" style=" margin-right:20px">
-							<% unless @app.youtube_link.blank? %>
-							<%= raw(youtube_embed(@app.youtube_link))%>
-							<% end %>
-						</div>
-					</div>
+					</p>
 				</div>
 			</div><br>
+			<div class="col-md-12 white-border" style="margin-top:25px;">
+				<div class="row" style="margin-left:3px;margin-right:3px;margin-top:25px">	
+					<% if user_signed_in? %>
+					<% if Review.where(user_id: current_user.id, app_id: @app.id).count > 0 %>
+					<p aria-hidden="false">Sie können Ihre vorherige Bewertung überarbeiten.</p>
+					<% else %>
+					<%= link_to "Add Review", new_app_review_path(@app), id: 'new_review', class: 'btn btn-forth pull-left', title:"link to another page to create a new review for the application"%>
+					<% end %>
+					<% else %>
+					 <%= link_to "Sign In To Review app", new_user_session_path , id: 'new_review', class: 'btn btn-forth pull-left' , title:"link to sign in to be able to post review"%>
+					<% end %>
 
-			<div class="container">
-				<div id="blueimp-gallery" class="blueimp-gallery">
-					<div class="slides"></div>
-					<h3 class="title"></h3>
-					<a class="prev">‹</a>
-					<a class="next">›</a>
-					<a class="close">×</a>
-					<a class="play-pause"></a>
-					<ol class="indicator"></ol>
+				</div><br>
 
-					<div class="modal fade">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" aria-hidden="true">&times;</button>
-									<h4 class="modal-title"></h4>
-								</div>
-								<div class="modal-body next"></div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-primary pull-left prev">
-										<i class="fa fa-chevron-left"></i>Previous
-									</button>
-									<button type="button" class="btn btn-primary next">Next
-										<i class="fa fa-chevron-right"></i>
-									</button>
-								</div>
+				<div class="row" style="margin-left:3px;margin-right:3px">
+					<p aria-hidden="false">Bewertungen</p>
+					<%= render @reviews %>
+					<%= will_paginate @reviews , :previous_label => t("previous"), :next_label => t("next")%>
+				</div>
+			</div>			
+		</div>
+
+		<div class="container">
+			<div id="blueimp-gallery" class="blueimp-gallery">
+				<div class="slides"></div>
+				<h3 class="title"></h3>
+				<a class="prev">‹</a>
+				<a class="next">›</a>
+				<a class="close">×</a>
+				<a class="play-pause"></a>
+				<ol class="indicator"></ol>
+
+				<div class="modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" aria-hidden="true">&times;</button>
+								<h4 class="modal-title"></h4>
+							</div>
+							<div class="modal-body next"></div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary pull-left prev">
+									<i class="fa fa-chevron-left"></i>Previous
+								</button>
+								<button type="button" class="btn btn-primary next">Next
+									<i class="fa fa-chevron-right"></i>
+								</button>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div><br>
+	</div>
+</div><br>
 
 <script>
 $('.review-rating').raty({
