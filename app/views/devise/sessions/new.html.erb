@@ -4,25 +4,25 @@
       <h2 class="title-style-3">Einloggen<span class="title-under"></span></h2>
       <p>Loggen Sie sich ein um Kommentare zu schreiben und Apps zu bewerten.</p>
       <p>Noch ein Hinweis: Hier sind E-Mail-Adresse und Passwort erforderlich.</p>
-    </div>    
+    </div> <br>   
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="row white-border">
         <div class="col-md-12">
-            <div class="field">
-                  <%= f.label :email, "Ihre E-Mail-Adresse:", :style =>"margin-top:15px" %>
-                  <%= f.email_field :email, autofocus: true, placeholder:" z.B.: max@beispiel.de",class:"form-control"%>
+            <div class="form-group col-md-12">
+                  <%= f.label :email, "Ihre E-Mail-Adresse (required):", :style =>"margin-top:15px" %>
+                  <%= f.email_field :email, autofocus: true, placeholder:"E-mail",class:"form-control"%>
             </div>
-            <div class="field">
-                <%= f.label :password, "Ihr Passwort:" %>
+            <div class="form-group col-md-12">
+                <%= f.label :password, "Ihr Passwort (required):"  %>
                 <% if @minimum_password_length %>
                 <em>(<%= @minimum_password_length %> characters minimum)</em>
                 <% end %>
                 <%= f.password_field :password, autocomplete: "off", placeholder:"Passwort", class:"form-control" %>
             </div>
-            <div class="field">
+            <div style="padding-left:15px; margin-top:-5px">
               <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
             </div>
-            <div class="form-actions">
+            <div class="form-group col-md-12">
               <%= f.button :submit, "Einloggen", class: 'btn btn-primary pull-Left' %>
             </div><br>
         </div>

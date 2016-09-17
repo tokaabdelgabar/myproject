@@ -10,41 +10,42 @@
 
         <div class="row white-border">
             <div class="col-md-12">
-                <div class="field">
+                <div class="form-group col-md-12">
                     <%= f.label :first_name, "Ihr Vorname (Optional):", :style=>"margin-top:15px" %>
                     <%= f.text_field :first_name, autofocus: true, placeholder:"Vorname ",class:"form-control"%>
                 </div>
-                <div class="field">
+                <div class="form-group col-md-12">
                     <%= f.label :last_name, "Ihr Nachname (Optional):"  %>
-                    <%= f.text_field :last_name, autofocus: true, placeholder:"Nachname ",class:"form-control" %>
+                    <%= f.text_field :last_name, autofocus: true,placeholder:"Nachname ",class:"form-control" %>
                 </div>
-                <div class="field">
+                <div class="form-group col-md-12">
                     <%= f.label :username, "Ihr gewünschter Benutzername:"  %>
                     <%= f.text_field :username, autofocus: true, placeholder:"Benutzername ", class:"form-control" %>
                 </div>
-                <div class="field">
+                <div class="form-group col-md-12">
                     <%= f.label :email, "Ihre E-Mail-Adresse:"  %>
-                    <%= f.email_field :email, autofocus: true, class:"form-control" , placeholder:"z.B.: max@beispiel.de"%>
+                    <%= f.email_field :email, autofocus: true, class:"form-control" , placeholder:"E-Mail"%>
                 </div>
 
-                <div class="field">
+                <div class="form-group col-md-12">
                     <%= f.label :birthday, "Ihr Geburtsdatum (Optional):"  %>
-                    <%= f.date_field :birthday,autofocus: true, placeholder:"TT.MM.JJJJ ", class:"form-control" %>
+                    <%= f.date_field :birthday,autofocus: true, placeholder:"Geburtsdatum ", class:"form-control" %>
                 </div>
-                <div class="field">
+                <div class="form-group col-md-12">
                     <%= f.label :password, "Ihr Passwort:" %>
                     <% if @minimum_password_length %>
                     <em>(<%= @minimum_password_length %> characters minimum)</em>
                     <% end %>
                     <%= f.password_field :password, autofocus: true, autocomplete: "off", placeholder:"Passwort ", class:"form-control" %>
                 </div>
-                <div class="field">
+                <div class="form-group col-md-12">
                     <%= f.label :password_confirmation, "Passwort wiederholen:" %>
                     <%= f.password_field :password_confirmation, autofocus: true, autocomplete: "off",placeholder:"Passwort ", class:"form-control"%>
                 </div><br>
-                <div class="form-actions">
-                    <%= f.submit "Registrieren", class: 'btn btn-primary pull-left' , :style=>"margin-bottom:20px"%>
+                <div class="form-group col-md-12">
+                    <%= f.submit "Registrieren", class: 'btn btn-primary pull-left' , :style=>"margin-bottom:5px; margin-top:5px"%>
                 </div>
+
             </div><br>
             <div class="row">
                 <div class="form-group alerts">

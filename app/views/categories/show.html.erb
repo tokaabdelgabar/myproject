@@ -1,18 +1,15 @@
-
 <div class="main">
 	<div class="container">
-		<h2 class="title-style-3"><%= @category.name %><span class="title-under"></span></h2>
+		<h2 class="title-style-3" aria-hidden="false"><%= @category.name %><span class="title-under"></span></h2>
 		<section class="product">
 			<% if @product %>
-			<p>
-				<strong>Category:</strong><%= @product.name %>
-			</p>
+			<p aria-hidden="false"><strong>Category:</strong><%= @product.name %></p>
 			<% end %>
 		</section>
 		<div class="row">
 			<div class="col-md-6 white-border" style="margin-right: 3px; margin-left:-3px">
 				<div class="text-center" style="margin:10px 0">
-					<p>Apps sortieren nach:</p>
+					<p aria-hidden="false">Apps sortieren nach:</p>
 					<div class="btn-group">
 					  <button type="button" class="btn btn-fifth">
 					  	<%= sort_link @search, :name, "Name" %>
@@ -35,7 +32,7 @@
 
 			<div class="col-md-6 white-border" style="margin-left: 3px; margin-right:-3px">		
 				<div class="text-center" style="margin:10px 0">
-					<p>Filter Apps by:</p>
+					<p aria-hidden="false">Filter Apps by:</p>
 					<div class="btn-group">
 					<% i=0 %>
 					<% j=0 %>

@@ -1,57 +1,60 @@
-<h2 class="title-style-2">Edit<%= resource_name.to_s.humanize %><span class="title-under"></span></h2>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="container">
+    <h2 class="title-style-2" aria-hidden="false">Edit<%= resource_name.to_s.humanize %><span class="title-under"></span></h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= devise_error_messages! %>
+          <div class="col-md-8" style="float:left; margin-left:-3px">
+            <div class="row  white-border">
 
-<div class="row">
+                <div class="form-group col-md-12">
 
-    <div class="form-group col-md-6">
+                    <%= f.label :first_name, "First Name (Optional):", style:"margin-top:10px" %>
+                    <%= f.text_field :first_name, autofocus: true, class:"form-control" %>               
+                </div>
+                <div class="form-group col-md-12">
+                    <%= f.label :last_name, "Last Name (Optional):"  %>
+                    <%= f.text_field :last_name, autofocus: true, class:"form-control"%>
+                </div>
+                <div class="form-group col-md-12">
+                    <%= f.label :username, "Username:"  %>
+                    <%= f.text_field :username, autofocus: true, class:"form-control" %>
+                </div>
+                <div class="form-group col-md-12">
+                    <%= f.label :birthday, "Date of birth (Optional):"  %>
+                    <%= f.date_field :birthday, autofocus: true, class:"form-control"%>
+                </div>
+                <div class="form-group col-md-12">
+                    <%= f.label :email, "Email:"  %>
+                    <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"joe@example.com" %>
+                </div>
+                <div class="form-group col-md-12">
+                    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                    <% end %>
 
-      <h4>First Name:</h4> 
-      <!-- <input type="text" name="name" class="form-control" placeholder="First Name*" required> -->
-      <%= f.text_field :first_name, autofocus: true, class:"form-control", placeholder:"First Name*" %>
+                    <%= f.label :password, "New Password:" %><i>(leave blank if you don't want to change it)</i> <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <% end %>
 
-      <h4>Last Name:</h4> 
-      <!-- <input type="text" name="name" class="form-control" placeholder="Last Name*" required> -->
-      <%= f.text_field :last_name, autofocus: true, class:"form-control", placeholder:"Last Name*" %>
-
-      <h4>Username:</h4>
-      <!-- <input type="text" name="name" class="form-control" placeholder="Username*" required> -->
-        <%= f.text_field :username, autofocus: true, class:"form-control", placeholder:"Username*" %>
-
-      <h4>Date of birth:</h4> 
-      <!-- <input type="date" name="date" class="form-control" placeholder="Date of birth*" required> -->
-      <%= f.date_field :birthday, autofocus: true, class:"form-control" %>
-
-      <h4>Email:</h4> 
-      <!-- <input type="email" name="email" class="form-control" placeholder="Email*" required> -->
-      <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"Email*" %>
-
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
-
-      <h4>New Password:</h4><i>(leave blank if you don't want to change it)</i> <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %>
-      <!-- <input type="password" name="password" class="form-control" placeholder="Password*" required> -->
-      <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Password*" %>
-
-      <h4>Confirm New Password:</h4> 
-      <!-- <input type="password_confirmation" name="password_confirmation" class="form-control" placeholder="Confirm Password*" required> -->
-      <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control", placeholder:"Password Confirm*"%>
-
-      <h4>Current Password:**</h4><i>(we need your current password to confirm your changes)</i><br /> 
-      <!-- <input type="password" name="password_confirmation" class="form-control" placeholder="Current Password*" required> -->
-      <%= f.password_field :current_password, autocomplete: "off", class:"form-control", placeholder:"Password Confirm*" %>
-      <br/>
-
-      <div class="form-group">
-      <%= f.submit 'Update', class: 'btn btn-primary pull-left' %>
-      <% end %>
-      </div>
+                    <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"Lassen Sie das Feld leer, falls sie das Passwort nicht ändern möchten." %>
+                </div>
+                <div class="form-group col-md-12">
+                    <%= f.label :password_confirmation, "New Password confirm:" %>
+                    <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control" %>
+                </div>
+                <div class="form-group col-md-12">
+                    <%= f.label :password, "Current password:" %>
+                    <%= f.password_field :current_password, autocomplete: "off", class:"form-control" , placeholder:"Ihr aktuelles Passwort ist nötig um Änderungen zu machen."%>
+                </div>
+                <div class="form-group col-md-12">
+                <%= f.submit 'Update Profile', class: 'btn btn-primary pull-left' %>               
+                </div>
+              </div>             
+          </div>
+    <div class="col-md-4 white-border" style="float:right; margin-right:-3px">
+        <h4 aria-hidden="false">Cancel my account</h4>
+            <p aria-hidden="false">Unhappy?</p>
+            <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-primary", :style =>"margin-bottom:15px" %><br>
+            
     </div>
-
-    <h3>Cancel my account</h3>
-    <p><h3>Unhappy?</h3> <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-    <%= link_to "Back", :back %>
-</div>
+    <% end %>
+</div><br>
