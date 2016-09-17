@@ -10,12 +10,12 @@ class AdminAbility
       can :manage, :all
 
       elsif user.admin == true
-        can :access, :rails_admin
+        can :access, :rails_admins
         can :dashboard 
-        can :manage, :all
-        cannot :destroy, User
-        cannot :update, User
-        cannot :create, User
+        can :manage
+        cannot :destroy
+        cannot :update
+        cannot :create
     end 
   end
 end 
