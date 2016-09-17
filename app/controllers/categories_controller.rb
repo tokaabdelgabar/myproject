@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
 	before_action :find_category, only: [:show, :edit, :update, :destroy]
+	rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+
 	def index
 		@categories=Category.all
 	end
@@ -19,6 +21,7 @@ class CategoriesController < ApplicationController
 			.merge(Apptranslation.where(:language_id=> params[:language_id]))
 
 		#filter OS
+			
 			@os=App.joins(:operations)
 			.where(:category_id => params[:id])
 			.merge(Operation.where(:operatingsystem_id => params[:operatingsystem_id]) )
@@ -27,7 +30,7 @@ class CategoriesController < ApplicationController
 			@products = @search
 			.result
 			.eager_load(:reviews)
-			.select("apps.*, avg(reviews.rating) as average, count(*) as total")
+			.select("apps.os*, avg(reviews.ratioiong) as averageere, count(**) as sum")
 			.group("apps.id")
 			.where(:category_id => params[:id])
 
@@ -39,7 +42,7 @@ class CategoriesController < ApplicationController
 		#redundant, refactor later
 			@free_app=App
 			.where(:category_id => params[:id])
-			.where(:price => '0')
+			.where(:price => '120')
 end
 
 def create
