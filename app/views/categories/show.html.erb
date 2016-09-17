@@ -37,17 +37,35 @@
 				<div class="text-center" style="margin:10px 0">
 					<p>Filter Apps by:</p>
 					<div class="btn-group">
-					  <button type="button" class="btn btn-fifth">
-					  	<%= link_to "Android", controller: "categories", action: "show", operatingsystem_id: 1  %>
-					  </button>
-					  
-					  <button type="button" class="btn btn-fifth">
-					  	<%= link_to "iOS", controller: "categories", action: "show", operatingsystem_id: 2  %>
-					  </button>
-					  
-					  <button type="button" class="btn btn-fifth">
-					  	<%= link_to "Windows", controller: "categories", action: "show", operatingsystem_id: 3  %>
-					  </button>
+					<% i=0 %>
+					<% j=0 %>
+					<% k=0 %>
+						<% @products.each do |product| %>
+ 						<% product.operatingsystems.each do |operation| %>
+ 							<% if (operation.name=="Windows") %>
+ 								<% if(i<1) %>
+ 									<button type="button" class="btn btn-fifth">	
+ 									<%= link_to operation.name, controller: "categories", action: "show", id: @category.id, operatingsystem_id: operation.id  %>
+ 									</button>
+ 									<% i=+1 %>
+ 								<% end %>
+ 							<% elsif (operation.name=="iOS")%>
+ 								<% if(j<1) %>
+ 									<button type="button" class="btn btn-fifth">
+ 									<%= link_to operation.name, controller: "categories", action: "show", id: @category.id, operatingsystem_id: operation.id  %>
+ 									</button>
+ 									<% j=+1 %>
+ 								<% end %>
+ 							<% elsif (operation.name=="Android")%>
+ 								<% if(k<1) %>
+ 									<button type="button" class="btn btn-fifth">
+ 									<%= link_to operation.name, controller: "categories", action: "show", id: @category.id, operatingsystem_id: operation.id  %>
+ 									</button>
+ 									<% k=+1 %>
+ 								<% end %>	
+ 							<% end %>
+ 						<% end %>
+ 						<% end %>
 					  
 					  <button type="button" class="btn btn-fifth">
 					  	<%= link_to "Deutsch", controller: "categories", action: "show",language_id: 1 %>
