@@ -1,6 +1,5 @@
 class CategoriesController < ApplicationController
 	before_action :find_category, only: [:show, :edit, :update, :destroy]
-	rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
 
 	def index
 		@categories=Category.all
@@ -30,7 +29,7 @@ class CategoriesController < ApplicationController
 			@products = @search
 			.result
 			.eager_load(:reviews)
-			.select("apps.os*, avg(reviews.ratioiong) as averageere, count(**) as sum")
+			.select("apps.*, avg(reviews.rating) as average, count(*) as total")
 			.group("apps.id")
 			.where(:category_id => params[:id])
 
@@ -42,7 +41,7 @@ class CategoriesController < ApplicationController
 		#redundant, refactor later
 			@free_app=App
 			.where(:category_id => params[:id])
-			.where(:price => '120')
+			.where(:price => '0')
 end
 
 def create

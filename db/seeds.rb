@@ -75,7 +75,6 @@ os_windows  = Operatingsystem.create!(:id => 3, :name  => "Windows")
 
 Operation.delete_all
 op1 = Operation.create!(:id => 1, :app_id => 1, :operatingsystem_id => 1)
-op1 = Operation.create!(:id => 4, :app_id => 2, :operatingsystem_id => 1)
 op2 = Operation.create!(:id => 2, :app_id => 2, :operatingsystem_id => 2)
 op3 = Operation.create!(:id => 3, :app_id => 3, :operatingsystem_id => 3)
 op4 = Operation.create!(:id => 5, :app_id => 8, :operatingsystem_id => 3)

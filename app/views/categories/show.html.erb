@@ -33,13 +33,6 @@
 				</div>	
 			</div>
 
-
-<% @products.select(:operatingsystems).map(&:operatingsystems).each do |product| %>
- <% product.select(:operations).distinct.each do |operation| %>
- <li><%= link_to operation.name, controller: "categories", action: "show", id: @category.id, operatingsystem_id: operation.id  %></li>
- <% end %>
- <% end %>
-
 			<div class="col-md-6 white-border" style="margin-left: 3px; margin-right:-3px">		
 				<div class="text-center" style="margin:10px 0">
 					<p>Filter Apps by:</p>
