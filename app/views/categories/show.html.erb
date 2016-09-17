@@ -66,14 +66,30 @@
  							<% end %>
  						<% end %>
  						<% end %>
+
+
+ 					<% p=0 %>
+					<% h=0 %>
+						<% @products.each do |product| %>
+ 						<% product.languages.each do |lang| %>
+ 							<% if (lang.name=="German") %>
+ 								<% if(p<1) %>
+ 									<button type="button" class="btn btn-fifth">	
+ 									<%= link_to lang.name, controller: "categories", action: "show", id: @category.id, language_id: lang.id %>
+ 									</button>
+ 									<% p=+1 %>
+ 								<% end %>
+ 							<% elsif (lang.name=="English")%>
+ 								<% if(h<1) %>
+ 									<button type="button" class="btn btn-fifth">
+ 									<%= link_to lang.name, controller: "categories", action: "show", id: @category.id, language_id: lang.id %>
+ 									</button>
+ 									<% h=+1 %>
+ 								<% end %>	
+ 							<% end %>
+ 						<% end %>
+ 						<% end %>
 					  
-					  <button type="button" class="btn btn-fifth">
-					  	<%= link_to "Deutsch", controller: "categories", action: "show",language_id: 1 %>
-					  </button>
-					  
-					  <button type="button" class="btn btn-fifth">
-					  	<%= link_to "Englisch", controller: "categories", action: "show",language_id: 2 %>
-					  </button>
 					  
 					  <% if @free_app.present? %>
 					  <button type="button" class="btn btn-fifth">
