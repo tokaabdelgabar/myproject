@@ -162,26 +162,24 @@
   </footer> 
 <script>
    $('#zoom-in').click(function() {
-    updateZoom(20);
+    updateZoom(10);
    }); 
    $('#zoom-out').click(function() {
-    updateZoom(-10);
+    updateZoom(-5);
    });
 
-   $('#zoom-reset').click(function() {
-    updateZoom(0);
-   });
-     zoomLevel = 0;
+     zoomLevel = 10;
      var updateZoom = function(zoom) {
        if(zoom==0) zoomLevel=0;
        else 
         zoomLevel += zoom; 
         $('body').css("font-size", zoomLevel );
-        $('p').css("font-size", "30px");
-        $('h4').css("font-size", "30px");
-        $('h2').css("font-size", "30px");
-        $('label').css("font-size", "30px");
-        $('li').css("font-size", "40px");
+        $('p').css("font-size", zoomLevel);
+        $('h4').css("font-size", zoomLevel);
+        $('h2').css("font-size", zoomLevel);
+        $('label').css("font-size", zoomLevel);
+        $('li').css("font-size", zoomLevel);
+        $('button').css("font-size", zoomLevel);
      }
    </script> 
 <script>
