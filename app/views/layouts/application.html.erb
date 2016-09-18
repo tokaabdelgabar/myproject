@@ -66,7 +66,7 @@
              
 
              <li class="fontsize">Schriftgröße:
-              <a tabindex=0 title="Normal" id="zoom-reset"><%= image_tag("zoom.png",:alt => "Normale Schriftgröße", class: "zoom-out")%></a>
+              <a href="#" tabindex=0 title="Normal" ><%= image_tag("zoom.png",:alt => "Normale Schriftgröße", class: "zoom-out")%></a>
                <a tabindex=0 title="Groß" id="zoom-out"><%= image_tag("zoom-1.png",:alt => "Vergrößerte Schriftgröße",class: "zoom-in")%></a>
                <a tabindex=0 title="Sehr groß" id="zoom-in"><%= image_tag("zoom-2.png",:alt => "Stark vergrößerte Schriftgröße", class: "zoom-in-plus")%></a>
                
@@ -128,7 +128,7 @@
     <% end %>
     <%= yield %>
     <a id="back-to-top" href="#" class="back-to-top" 
-    role="button" title="Back to Top" data-toggle="tooltip" data-placement="top" style="cursor: pointer;position: fixed;bottom: 40px;right: 20px;display: inline;z-index: 100;"><%= image_tag("top.png", :alt => "Zum Seitenanfang", :size=> "60x60") %>
+    role="button" title="Back to Top" data-toggle="tooltip" data-placement="top" style="cursor: pointer;position: fixed;bottom: 40px;right: 20px;display: inline;z-index: 100;"><%= image_tag("top.png", :alt => "Zum Seitenanfang", :size=> "50x50") %>
     </a>
   </div>
 </main>
@@ -162,21 +162,26 @@
   </footer> 
 <script>
    $('#zoom-in').click(function() {
-    updateZoom(0.1);
+    updateZoom(20);
    }); 
    $('#zoom-out').click(function() {
-    updateZoom(-0.1);
+    updateZoom(-10);
    });
 
    $('#zoom-reset').click(function() {
     updateZoom(0);
    });
-     zoomLevel = 1;
+     zoomLevel = 0;
      var updateZoom = function(zoom) {
-       if(zoom==0) zoomLevel=1;
+       if(zoom==0) zoomLevel=0;
        else 
-       zoomLevel += zoom; 
-       $('body').css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
+        zoomLevel += zoom; 
+        $('body').css("font-size", zoomLevel );
+        $('p').css("font-size", "30px");
+        $('h4').css("font-size", "30px");
+        $('h2').css("font-size", "30px");
+        $('label').css("font-size", "30px");
+        $('li').css("font-size", "40px");
      }
    </script> 
 <script>
@@ -184,18 +189,15 @@
      contrast();
    }); 
      var contrast = function() {
-       $('body').css("background-color", "black");
+       $('body').css("background-color","black");
        $('div').css("background-color", "black");
        $('p').css("color", "white");
        $('h4').css("color", "white");
        $('h2').css("color", "white");
        $('li').css("color", "white");
        $('label').css("color", "white");
-       $('back-to-top').css("color", "white");
      }
    </script> 
-   <script>
-     
-   </script>>
+   <script></script>>
 </body>
 </html>
