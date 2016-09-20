@@ -29,8 +29,11 @@
 						</a>
 					</div>
 					<p class="app-name" aria-hidden="false"><%=  apps.name %></p>
+					<% if apps.price == 0 %>
+					<p class="app-name" aria-hidden="false"> Free </p>
+					<% else %>
 					<p class="app-name" aria-hidden="false"><%= apps.price %>€</p>
-					
+					<% end%>
 					<p class="offscreen">Durchschnittliche Bewertung:</p>
 					<div class="average-review-rating" 
 					data-score=<%= apps.reviews.average(:rating)%>>

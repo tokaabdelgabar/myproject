@@ -61,8 +61,13 @@
 						<p aria-hidden="false">Durchschnittliche Bewertung:</p>
 						<div class="average-review-rating" data-score=<%= @average_review %>></div>
 						<p aria-hidden="false">Anzahl der Bewertungen:&nbsp;<%= @app.reviews.count %>&nbsp;reviews</p>
-					</p>						
-					<p aria-hidden="false">Preis: <%= @app.price %>€</p>				
+					</p>
+					<p class="app-name" aria-hidden="false"><%=  apps.name %></p>
+					<% if @app.price == 0 %>
+					<p aria-hidden="false"> Free </p>
+					<% else %>
+					<p  aria-hidden="false"><%= @app.price %>€</p>
+					<% end%>									
 				</div><br>
 
 				<div class="row" style="border-top:1px solid #9E9E9E; margin-left:3px;margin-right:3px">
