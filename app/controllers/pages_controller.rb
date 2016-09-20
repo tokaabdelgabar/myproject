@@ -8,4 +8,8 @@ class PagesController < ApplicationController
   def news
   	
   end
+
+  def slideshow
+  	
+  end
 end

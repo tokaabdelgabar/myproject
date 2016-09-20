@@ -5,13 +5,15 @@
   #link: "http://www.bemyeyes.org/", developer: "someone", 
   #operation: "abc", price: "free", locale: "en")
 User.delete_all
-user1 = User.create!(:id => 1, :email => "superadmin@abc.com", :password => "12345678", :password_confirmation => "12345678",:username	=> "huihui",:confirmation_token => true, :superadmin => true, :confirmed_at => "2016-08-23 10:15:50", :confirmation_sent_at => "2016-08-23 10:15:40")
+#user1 = User.create!(:id => 1, :email => "superad@abc.com", :password => "12345678", :password_confirmation => "12345678",:username	=> "huihui",:confirmation_token => true, :superadmin => true, :confirmed_at => "2016-08-23 10:15:50", :confirmation_sent_at => "2016-08-23 10:15:40")
+#user1.save!
+#user2 = User.create!(:id => 2, :email => "admin@abc.com", :password => "12345678", :password_confirmation => "12345678",:username  => "xiaohui", :admin => true, :confirmed_at => "2016-08-23 10:15:50", :confirmation_sent_at => "2016-08-23 10:15:40")
+#user4 = User.create!(:id => 4, :email => "account@abc.com", :password => "12345678", :password_confirmation => "12345678",:username  => "xiaohui", :app_manager => true)
+user1 = User.create!(:id => 1, :email => "abc@abc.com", :password => "12345678", :password_confirmation => "12345678",:username  => "xiaohui", :admin => true, :app_manager => true, :confirmation_token => true, :superadmin => true, :confirmed_at => Time.now.utc, :confirmation_sent_at => Time.now.utc)
 user1.save!
-user2 = User.create!(:id => 2, :email => "admin@abc.com", :password => "12345678", :password_confirmation => "12345678",:username  => "xiaohui", :admin => true)
-user4 = User.create!(:id => 4, :email => "account@abc.com", :password => "12345678", :password_confirmation => "12345678",:username  => "xiaohui", :app_manager => true)
-user5 = User.create!(:id => 5, :email => "adminandaccount@abc.com", :password => "12345678", :password_confirmation => "12345678",:username  => "xiaohui", :admin => true, :app_manager => true)
-user3 = User.create!(:id => 3, :email => "abc@huihui.com", :password => "12345678", :password_confirmation => "12345678",:username  => "ahhui")
-
+#user3 = User.create!(:id => 3, :email => "abc@huihui.com", :password => "12345678", :password_confirmation => "12345678",:username  => "ahhui")
+#user7 = User.create!(:id => 5, :email => "ad@abc.com", :password => "12345678", :password_confirmation => "12345678",:username  => "xiaohui", :admin => true, :app_manager => true, :confirmed_at => "2016-08-23 10:15:50", :confirmation_sent_at => "2016-08-23 10:15:40")
+#user7.save!
 Category.delete_all
 first_category = Category.create(:name => "Blind", :id => 1)
 second_category = Category.create(:name => "Sight", :id => 2 )
@@ -43,11 +45,11 @@ tenth_app = App.create(:id =>10,:name => "Sight 5", :price => 99, :category_id =
 Review.delete_all
 
 first_review_first_app  = Review.create!(:id => 11, :rating => 5, :comment => "very good", :app_id => 1, :user_id => 1)
-second_review_first_app = Review.create!(:id => 12, :rating => 3, :comment => "extremely good", :app_id => 1, :user_id => 2)
-third_review_first_app  = Review.create!(:id => 13, :rating => 2, :comment => "sangat bagus", :app_id => 1, :user_id => 3)
+#second_review_first_app = Review.create!(:id => 12, :rating => 3, :comment => "extremely good", :app_id => 1, :user_id => 2)
+#third_review_first_app  = Review.create!(:id => 13, :rating => 2, :comment => "sangat bagus", :app_id => 1, :user_id => 3)
 #first_review_third_app  = Review.create!(:id => 21, :rating => 4, :comment => "good ge pi", :app_id => 3, :user_id => 1)
-second_review_third_app  = Review.create!(:id => 22, :rating => 1, :comment => "good la", :app_id => 3, :user_id => 2)
-third_review_third_app   = Review.create!(:id => 23, :rating => 2, :comment => "good wat", :app_id => 3, :user_id => 3)
+#second_review_third_app  = Review.create!(:id => 22, :rating => 1, :comment => "good la", :app_id => 3, :user_id => 2)
+#third_review_third_app   = Review.create!(:id => 23, :rating => 2, :comment => "good wat", :app_id => 3, :user_id => 3)
 second_review = Review.create(:id => 3, :rating => 3, :comment => "average", :app_id => 2, :user_id => 1)
 fourth_review = Review.create(:id => 4, :rating => 2, :comment => "bad", :app_id => 4, :user_id => 1)
 fifth_review = Review.create(:id => 5, :rating => 1, :comment => "very good", :app_id => 5, :user_id => 1)

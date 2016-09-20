@@ -1,20 +1,20 @@
 <% @title="Zappatory.com - Verzeichnis für assistive Apps -Bewertung und Kommentar bearbeiten" %>
-<!-- <h1>Bearbeiten Bewertung</h1> -->
-<h2 class="title-style-2">Bewertung und Kommentar bearbeiten<span class="title-under"></span></h2>
-<div class="form-group col-md-6">
-<%= simple_form_for([@app, @review]) do |f| %>
-		<div id="rating-form">
-		<label><b><h4>Bewertung</h4></b></label>
-		</div>
-			<label><b><h4>Kommentar</h4></b></label>
-			<%= f.text_area :comment, :rows =>"5", class:"form-control", placeholder:"Ihr Kommentar" %><br>
-			<%= f.button :submit , class: 'btn btn-primary pull-left'%><br>
-<% end %>	
-<br>
-</div>	
+<div class="container">
+  <h2 class="title-style-2">Bewertung und Kommentar bearbeiten<span class="title-under"></span></h2>
+  <div class="form-group col-md-12 white-border">
+    <%= simple_form_for([@app, @review]) do |f| %>
+        <div id="rating-form">
+        <label><b><p aria-hidden="false" style="margin-top:15px">Bewertung</p></b></label>
+        </div>
+        <label><b><p aria-hidden="false">Kommentar</p></b></label>
+        <%= f.text_area :comment, :rows =>"5", class:"form-control", placeholder:"Ihr Kommentar" %><br>
+        <%= f.button :submit , class: 'btn btn-primary pull-left', style: "margin-bottom:20px"%>
+    <% end %> 
+  </div>
+</div> <br> 
 <script>
-	$('#rating-form').raty({
-		path: '/assets/',
-		scoreName: 'review[rating]'
-	});
+  $('#rating-form').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });
 </script>

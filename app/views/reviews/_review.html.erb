@@ -1,8 +1,7 @@
 <div class="form-group" style="border-top: 1px solid #9E9E9E; padding:1px;">
 	<p aria-hidden="false"><b><%= review.user.username %>:&nbsp;</b><%= review.comment %></p>
 	<div class="review-rating" data-score="<%= review.rating %>"><label><p aria-hidden="false">Rating:&nbsp;</p></label></div>
-	<!-- <h4>Comment:&nbsp;<%= review.comment %></h4> -->
-	<h6>Rating:&nbsp;<%= review.rating %>&nbsp;of 5 Stars</h6>
+	<p class="offscreen">Rating:&nbsp;<%= review.rating %>&nbsp;of 5 Stars</p>
 		<% if user_signed_in? %>
 
 		<% if review.user_id == current_user.id %>			
