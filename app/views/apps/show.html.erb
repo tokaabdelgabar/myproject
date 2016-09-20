@@ -42,17 +42,16 @@
 				    <% end %>				    
 				</div>
 			</div><br>
-	
+	<% unless @app.youtube_link.blank? %>
 			<div class="row" style="margin-left:3px;">
 				<p style="border-bottom:1px solid #9E9E9E; margin-right:20px" aria-hidden="false">Video</p>
 				<div>
 					<div class="embed-responsive embed-responsive-16by9" style=" margin-right:20px">
-						<% unless @app.youtube_link.blank? %>
 						<%= raw(youtube_embed(@app.youtube_link))%>
-						<% end %>
 					</div>
 				</div>
 			</div><br>
+			<% end %>
 		</div>
 		<div class="col-md-7 form-group" style="float:right; margin-right: -5px;">
 			<div class="col-md-12 white-border">
