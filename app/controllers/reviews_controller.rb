@@ -15,6 +15,7 @@ before_action :authenticate_user!, only: [:new, :edit]
 		else
 			render 'new'
 		end
+		add_breadcrumb "Neu Bewertung"
 	end
 
 	def edit
@@ -26,6 +27,7 @@ before_action :authenticate_user!, only: [:new, :edit]
 		else
 			render 'edit'
 		end
+		add_breadcrumb "Bearbeiten Bewertung"
 	end
 
 	def destroy

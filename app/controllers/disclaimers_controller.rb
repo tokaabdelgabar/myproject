@@ -1,6 +1,6 @@
 class DisclaimersController < ApplicationController
   before_action :set_disclaimer, only: [:show, :edit, :update, :destroy]
-
+  add_breadcrumb "Haftungsausschluss", :disclaimer_path
   # GET /disclaimers
   # GET /disclaimers.json
   def index

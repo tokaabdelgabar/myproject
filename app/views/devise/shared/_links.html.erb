@@ -1,28 +1,28 @@
 <div class="row">
 <%- if controller_name != 'sessions' %>
-  <p aria-hidden="false">Sie sind bereits registriert? Hier können Sie sich <%= link_to "einloggen.", new_session_path(resource_name) , title:"Sie sind bereits registriert? Hier können Sie sich einloggen."%></p>
+  <p aria-hidden="false">Sie sind bereits registriert? Hier können Sie sich <%= link_to "einloggen.", new_session_path(resource_name) , title:"Sie sind bereits registriert? Hier können Sie sich einloggen.", style:"color:#01B6AD"%></p>
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <p aria-hidden="false">Sie sind noch nicht registriert? Klicken sie hier um sich zu <%= link_to "registrieren.", new_registration_path(resource_name) , title:"Sie sind noch nicht registriert? Klicken sie hier um sich zu registrieren."%></p>
+  <p aria-hidden="false">Sie sind noch nicht registriert? Klicken sie hier um sich zu <%= link_to "registrieren.", new_registration_path(resource_name) , title:"Sie sind noch nicht registriert? Klicken sie hier um sich zu registrieren.", style:"color:#01B6AD"%></p>
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <p aria-hidden="false">Sie haben ihr Passwort vergessen? Hier können Sie es <%= link_to "zurücksetzen.", new_password_path(resource_name) , title:"Sie haben ihr Passwort vergessen? Hier können Sie es zurücksetzen."%></p>
+  <p aria-hidden="false">Sie haben ihr Passwort vergessen? Hier können Sie es <%= link_to "zurücksetzen.", new_password_path(resource_name) , title:"Sie haben ihr Passwort vergessen? Hier können Sie es zurücksetzen.", style:"color:#01B6AD"%></p>
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
 
-  <p aria-hidden="false">Sie haben keien Bestätigungsmail erhalten? <%= link_to "Dann klicken sie hier.", new_confirmation_path(resource_name), title:"Sie haben keine Bestätigungsmail erhalten?" %></p>
+  <p aria-hidden="false">Sie haben keien Bestätigungsmail erhalten? <%= link_to "Dann klicken sie hier.", new_confirmation_path(resource_name), title:"Sie haben keine Bestätigungsmail erhalten?", style:"color:#01B6AD" %></p>
 <% end -%>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <p aria-hidden="false">Sie haben keine <%= link_to "Mail zur Entsperrung erhalten?", new_unlock_path(resource_name), title:"Sie haben keine Mail zur Entsperrung erhalten?" %></p>
+  <p aria-hidden="false">Sie haben keine <%= link_to "Mail zur Entsperrung erhalten?", new_unlock_path(resource_name), title:"Sie haben keine Mail zur Entsperrung erhalten?", style:"color:#01B6AD" %></p>
 <% end -%>
 
 <%- if devise_mapping.omniauthable? %>
   <p aria-hidden="false"><%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %></p><br />
+    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), style:"color:#01B6AD" %></p><br />
   <% end -%>
 <% end -%>
 </div><br>

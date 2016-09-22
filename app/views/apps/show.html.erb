@@ -62,7 +62,7 @@
 						<div class="average-review-rating" data-score=<%= @average_review %>></div>
 						<p aria-hidden="false">Anzahl der Bewertungen:&nbsp;<%= @app.reviews.count %>&nbsp;reviews</p>
 					</p>
-					<p class="app-name" aria-hidden="false"><%=  apps.name %></p>
+					<p class="app-name" aria-hidden="false"><%=  @app.name %></p>
 					<% if @app.price == 0 %>
 					<p aria-hidden="false"> Free </p>
 					<% else %>

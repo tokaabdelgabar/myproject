@@ -1,5 +1,6 @@
 class AboutUsController < ApplicationController
   before_action :set_about_u, only: [:show, :edit, :update, :destroy]
+  add_breadcrumb "Über uns", :about_us_path
   # GET /about_us
   # GET /about_us.json
   def index

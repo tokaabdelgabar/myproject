@@ -91,45 +91,7 @@ a:hover, a:focus, a:active {
 .text-aquacolor{
   color: #01B6AD;
 }
-/* =============================================================================
-  Rating
-========================================================================== */
-.rating {
-    unicode-bidi: bidi-override;
-    direction: rtl;
-    width: 8.5em;
-}
 
-.rating input {
-    position: absolute;
-    left: -999999px;
-}
-
-.rating label {
-    display: inline-block;
-    font-size: 0;
-}
-
-.rating > label:before {
-    position: relative;
-    font: 24px/1 FontAwesome;
-    display: block;
-    content: "\f005";
-    color: #ccc;
-    background: -webkit-linear-gradient(-45deg, #d9d9d9 0%, #b3b3b3 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.rating > label:hover:before,
-.rating > label:hover ~ label:before,
-.rating > label.selected:before,
-.rating > label.selected ~ label:before {
-    color: #f0ad4e;
-    background: -webkit-linear-gradient(-45deg, #fcb551 0%, #d69a45 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
 
 /* =============================================================================
   Back to top
@@ -257,7 +219,7 @@ color: black !important;
 .navbar-main a:hover,
 .navbar-main a:active,
 .navbar-main a:focus,
-.navbar-main a.is-active {
+.navbar-main a.active_class{
   background: none !important;
   color: inherit;
   border-bottom: 4px solid #fff;

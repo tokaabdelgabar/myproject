@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  add_breadcrumb "Kontakt", :new_message_path
   def new
   	@message = Message.new
   end
