@@ -224,6 +224,11 @@ color: black !important;
   color: inherit;
   border-bottom: 4px solid #fff;
 }
+.navbar #nav > .active > a {
+  background: none !important;
+  color: inherit;
+  border-bottom: 4px solid #fff;
+}
 .navbar-main .submenu {
   position: absolute;
   list-style: none;
