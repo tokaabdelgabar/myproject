@@ -6,10 +6,12 @@
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="row white-border">
       <div class="col-md-12">
+        
         <div class="field">
           <%= f.label :email, "Email (required):", :style =>"margin-top:15px"  %>
           <%= f.email_field :email, autofocus: true, class:"form-control"%>
         </div>
+        
         <div class="field">
           <%= f.label :password, "Password (required):"  %>
           <% if @minimum_password_length %>
@@ -17,12 +19,15 @@
           <% end %>
           <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
         </div>
+        
         <div class="field">
             <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
         </div>
+        
         <div class="form-actions">
           <%= f.button :submit, "Sign in", class: 'btn btn-primary pull-Left' %>
         </div><br>
+      
       </div>
     </div><br>
     <% end %>
