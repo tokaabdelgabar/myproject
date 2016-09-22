@@ -1,4 +1,5 @@
 class NotificationsController < ApplicationController
+	add_breadcrumb "Neuigkeiten", :notification_path
 	def index
 		@notifications=Notification.all.order("created_at DESC")
 	end

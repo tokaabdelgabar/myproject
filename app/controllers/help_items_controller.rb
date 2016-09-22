@@ -1,6 +1,6 @@
 class HelpItemsController < ApplicationController
   before_action :set_help_item, only: [:show, :edit, :update, :destroy]
-
+  add_breadcrumb "Leichte Sprache", :help_path
   # GET /help_items
   # GET /help_items.json
   def index

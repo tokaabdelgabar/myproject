@@ -10,6 +10,7 @@ class CategoriesController < ApplicationController
 	end
 
 	def show
+		add_breadcrumb Category.name
 		@page_title = "Category Details"
 		@search = App.ransack(params[:q])
 

@@ -27,6 +27,7 @@ before_action :find_app, only: [:show, :edit, :update, :destroy, :upvote, :downv
 		elsif @app.reviews.count(:rating) !=0 
 			@average_review=@app.reviews.sum(:rating)/@app.reviews.count(:rating) 
 		end
+	add_breadcrumb "Single app page", :app_path
 	end
 
 	def new
