@@ -230,5 +230,20 @@
       $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
   });
 </script>
+<script>
+     $('#contrast-black').click(function() {
+       contrast();
+     }); 
+       var contrast = function() {
+         $('body').css("background-color", "black");
+         $('div').css("background-color", "black");
+         $('p').css("color", "white");
+         $('h4').css("color", "white");
+         $('h2').css("color", "white");
+         $('li').css("color", "white");
+         $('label').css("color", "white");
+         $('@title').css("color", "white");
+       }
+     </script> 
 </body>
 </html>
