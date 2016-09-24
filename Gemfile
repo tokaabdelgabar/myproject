@@ -64,3 +64,4 @@ gem 'compass-rails', '~> 2.0', '>= 2.0.4'
 
 # Fonts
 gem "font-awesome-rails"
+gem 'filterrific'

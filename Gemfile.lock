@@ -100,6 +100,8 @@ GEM
     ffi (1.9.14)
     ffi (1.9.14-x64-mingw32)
     ffi (1.9.14-x86-mingw32)
+    filterrific (2.0.5)
+      rails (>= 3.1.0)
     font-awesome-rails (4.6.3.1)
       railties (>= 3.2, < 5.1)
     globalid (0.3.7)
@@ -305,6 +307,7 @@ DEPENDENCIES
   compass-rails (~> 2.0, >= 2.0.4)
   devise (~> 3.4, >= 3.4.1)
   devise-i18n
+  filterrific
   font-awesome-rails
   globalize (~> 5.0.0)
   jbuilder (~> 2.0)
