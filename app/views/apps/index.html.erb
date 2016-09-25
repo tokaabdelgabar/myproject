@@ -1,4 +1,5 @@
 <% @title="Zappatory.com - Verzeichnis für assistive Apps -index" %>
+<div class="container">
 <div class="row">
 	<div class="col-md-12">
 		<p aria-hidden="false">Willkommen auf Zappatory.com! 
@@ -8,10 +9,7 @@
 		Ausserdem können Sie mit der Suchfunktion nach Stichworten oder dem Namen der App suchen.
 		Schauen Sie sich um, Sie werden bestimmt einige interessante Apps finden.</p>
 	</div>
-	<div class="col-md-12">
-		<div class="col-md-12">
-			<h2 class="title-style-2" aria-hidden="false">App Kategorien<span class="title-under"></span></h2>
-		</div>
+		<h2 class="title-style-2" aria-hidden="false">App Kategorien<span class="title-under"></span></h2>
 	</div>	
 </div>
 <% if params[:category].blank? && params[:search].blank? %>
@@ -100,6 +98,7 @@
 		</div><br>
 	</div>
 	<% end %>
+</div>
 </div><br>
 <% end %>
 

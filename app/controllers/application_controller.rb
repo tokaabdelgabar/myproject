@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
  # http_basic_authenticate_with :name => "huihui", :password => "test1234"
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  add_breadcrumb 'Starteseite', :root_path, :title=>"Zurück zum Über uns"
+  add_breadcrumb 'Startseite', :root_path, :title=>"Zurück zum Über uns"
   protect_from_forgery with: :exception
   #begin translate 
   before_filter :set_locale

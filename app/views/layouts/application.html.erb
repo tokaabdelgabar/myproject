@@ -69,16 +69,15 @@
   
               <li class="contrast" id="contrast">Kontrast:
                 <a tabindex=0 title="Hoher Kontrast" id="contrast-black"><%= image_tag("Black.png",class: "contrast-icon" ,:alt => "Zu hohem Kontrast wechseln")%></a>
-                <a tabindex=0 title="Normaler Kontrast" href="#"><%= image_tag("White.png",class: "contrast-icon",:alt => "Zu den Standardfarben wechseln")%></a>
+                <a tabindex=0 title="Normaler Kontrast" id="contrast-white"><%= image_tag("White.png",class: "contrast-icon",:alt => "Zu den Standardfarben wechseln")%></a>
               </li>
              
 
              <li class="fontsize">Schriftgröße:
-              <a href="#" tabindex=0 title="Normal" ><%= image_tag("zoom.png",:alt => "Normale Schriftgrˆﬂe", class: "normal")%></a>
-               <a tabindex=0 title="Groß" id="zoom-out"><%= image_tag("zoom-out.png",:alt => "Schrifgrˆﬂe verkleinern",class: "zoom")%></a>
-               <a tabindex=0 title="Sehr groß" id="zoom-in"><%= image_tag("zoom-in.png",:alt => "Schriftgrˆﬂe vergrˆﬂern", class: "zoom")%></a>
-               
-            </li>
+              <a href="#" tabindex=0 title="Normal" ><%= image_tag("zoom.png",:alt => "Normale Schriftgröße", class: "normal")%></a>
+              <a tabindex=0 title="Groß" id="zoom-out"><%= image_tag("zoom-out.png",:alt => "Vergrößerte Schriftgröße",class: "zoom")%></a>
+              <a tabindex=0 title="Sehr groß" id="zoom-in"><%= image_tag("zoom-in.png",:alt => "Stark vergrößerte Schriftgröße", class: "zoom")%></a>
+             </li>
 
               <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "30x30", :alt => "Zur Englischen Seite wechseln"),set_language_english_path%>
               </li>
@@ -93,10 +92,10 @@
             <h2 class="offscreen">Hauptnavigation</h2>
             <ul class="nav navbar-nav" id="nav">
               <li><%= link_to 'Starteseite', root_path %></li>
+              <li><%= link_to "Alle Apps", all_apps_path %></li>
               <li><%= link_to 'Neuigkeiten', notification_path %></li>
               <li><%= link_to "Leichte Sprache", help_path %></li>
               <li><%= link_to "Über uns", about_us_path %></li>
-              <li><%= link_to "Alle Apps", all_apps_path %></li>
               <li><%= link_to "Kontakt", new_message_path %></li>
               <% if user_signed_in? && (current_user.admin ==true or current_user.superadmin == true) %>
               <li><%= link_to "Administration", rails_admin.dashboard_path, method: :get %><li>  
@@ -129,7 +128,7 @@
   <div class="container">
     <br>
     <div class="col-md-12">
-      <%= render_breadcrumbs %>
+     <p aria-hidden="false"><%= render_breadcrumbs %></p>
     </div>
     <br>
     <% if notice %>
@@ -140,7 +139,7 @@
     <% end %>
     <%= yield %>
     <a id="back-to-top" class="back-to-top" href="#"
-    role="button" title="Zum Seitenanfang" data-toggle="tooltip" data-placement="top" style="cursor: pointer;position: fixed;bottom: 40px;right: 20px;display: inline;z-index: 100;"><%= image_tag("top.png", :alt => "Zum Seitenanfang", :size=> "50x50") %>
+    role="button" title="Back to Top" data-toggle="tooltip" data-placement="top" style="cursor: pointer;position: fixed;bottom: 40px;right: 20px;display: inline;z-index: 100;"><%= image_tag("top.png", :alt => "Zum Seitenanfang", :size=> "50x50") %>
     </a>
   </div>
 </main>
@@ -167,7 +166,9 @@
 
     <div class="footer-bottom">
       <div class="container text-left">
-        <p>Copyright @ Universität Mannheim 2016</p>
+        <div class="col-md-12">
+          <p>Copyright @ Universität Mannheim 2016</p>
+        </div>
       </div>
     </div> 
 
@@ -242,8 +243,23 @@
          $('h2').css("color", "white");
          $('li').css("color", "white");
          $('label').css("color", "white");
-         $('title').css("color", "white");
+         $('@title').css("color", "white");
        }
-     </script> 
+</script> 
+<script>
+     $('#contrast-white').click(function() {
+       contrast();
+     }); 
+       var contrast = function() {
+         $('body').css("background-color", "white");
+         $('div').css("background-color", "white");
+         $('p').css("color", "black");
+         $('h4').css("color", "black");
+         $('h2').css("color", "black");
+         $('li').css("color", "black");
+         $('label').css("color", "black");
+         $('@title').css("color", "black");
+       }
+</script> 
 </body>
 </html>
