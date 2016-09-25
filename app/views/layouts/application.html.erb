@@ -92,11 +92,19 @@
           <div class="navbar-collapse collapse pull-left">
             <h2 class="offscreen">Hauptnavigation</h2>
             <ul class="nav navbar-nav" id="nav">
+<<<<<<< HEAD
               <li><%= link_to 'Startseite', root_path %></li>
               <li><%= link_to 'Neuigkeiten', notification_path %></li>
               <li><%= link_to "Leichte Sprache", help_path %></li>
               <li><%= link_to "Über uns", about_us_path %></li>
               <li><%= link_to "Einzelne App", all_apps_path %></li>
+=======
+              <li><%= link_to 'Starteseite', root_path %></li>
+              <li><%= link_to 'Neuigkeiten', notification_path %></li>
+              <li><%= link_to "Leichte Sprache", help_path %></li>
+              <li><%= link_to "Über uns", about_us_path %></li>
+              <li><%= link_to "Alle Apps", all_apps_path %></li>
+>>>>>>> parent of fad90fd... fixed single app page
               <li><%= link_to "Kontakt", new_message_path %></li>
               <% if user_signed_in? && (current_user.admin ==true or current_user.superadmin == true) %>
               <li><%= link_to "Administration", rails_admin.dashboard_path, method: :get %><li>  
