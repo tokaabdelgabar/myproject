@@ -7,12 +7,12 @@
         <div class="col-md-12">
           <div class="row white-border">
               <% unless help_item.heading.blank? %>
-              <div class="col-md-12">
+
               <div class="col-sm-12 col-md-12 about">
                 <h2 aria-hidden="false"><%= help_item.heading %></h2>    
-              </div></div>
+              </div>
               <% end %>
-              <div class="col-md-12">
+
                 <% unless help_item.photo.blank? %>
                   <div class="col-sm-6 col-md-3">
                       <%= image_tag (help_item.photo), class: "help-image" ,alt: help_item.photo_alt%>
@@ -35,7 +35,7 @@
                     <% unless help_item.bullet5.blank? %><li class="contact-item"><%= help_item.bullet5 %></li><% end %>
                   </ul>
                 </div>
-              </div>
+
             </div><br>
         </div>
       <% end %>

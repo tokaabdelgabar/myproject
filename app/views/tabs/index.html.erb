@@ -1,21 +1,23 @@
 <% @title="Zappatory.com - Verzeichnis für assistive Apps -Haftungsausschluss" %>
-<div class="row">
-  <h2 class="title-style-3" style="padding-left:10px" aria-hidden="false"> Haftungsausschluss<span class="title-under"></span></h2>
-</div>
-<div class="row white-border">
-  <% @disclaimers_list.each do |disclaimer| %>
-    <div class="col-md-12 disclaimer">  
-      <% @tabs.each do |tab| %>
-        <% if tab.disclaimer_id == disclaimer.id  %>
-        <p aria-hidden="false">
-          <h3 class="text-aquacolor"><%= tab.name %></h3>
-        </p>
-        <p aria-hidden="false"><%= tab.paragraph1 %></p>
-        <p aria-hidden="false"><%= tab.paragraph2 %></p>
-        <p aria-hidden="false"><%= tab.paragraph3 %></p>
-        <p aria-hidden="false"><%= tab.paragraph4 %></p>
+<div class="container">
+  <div class="row">
+    <h2 class="title-style-3" aria-hidden="false"> Haftungsausschluss<span class="title-under"></span></h2>
+  </div>
+  <div class="row white-border">
+    <% @disclaimers_list.each do |disclaimer| %>
+      <div class="col-md-12 disclaimer">  
+        <% @tabs.each do |tab| %>
+          <% if tab.disclaimer_id == disclaimer.id  %>
+          <p aria-hidden="false">
+            <h3 class="text-aquacolor"><%= tab.name %></h3>
+          </p>
+          <p aria-hidden="false"><%= tab.paragraph1 %></p>
+          <p aria-hidden="false"><%= tab.paragraph2 %></p>
+          <p aria-hidden="false"><%= tab.paragraph3 %></p>
+          <p aria-hidden="false"><%= tab.paragraph4 %></p>
+          <% end %>
         <% end %>
-      <% end %>
-    </div><br />
-  <% end %>
-</div><br />
+      </div><br>
+    <% end %>
+  </div>
+</div><br>

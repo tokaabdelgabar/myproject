@@ -1,41 +1,37 @@
 <% @title="Zappatory.com - Verzeichnis für assistive Apps -Neuigkeiten" %>
 <div class="main">
+	<h2 class="title-style-3">Neuigkeiten<span class="title-under"></span></h2>
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-			<h2 class="title-style-3">Neuigkeiten<span class="title-under"></span></h2>
-			</div><br />
-
+				
 		<% @notifications.each do |notification| %>
-			<div class="row">
-				<div class="col-md-12 news white=border">
+			<div class="row news white=border">
 					<div class="col-md-9">
 						<p aria-hidden="false"><h2  class="news"><% unless notification.title.blank? %><%= notification.title%><% end %></h2></p>						
 						<p aria-hidden="false" class="news">
 								<% unless notification.author.blank? %> Autor: <%= notification.author%>|<% end %>
 								<% unless notification.date.blank? %> Datum: <%= notification.date%><% end %></p>
 
-			<% unless notification.content.blank? %>
-			<p aria-hidden="false">
-				<h4><%= notification.content%></h4>
-			</p>
-			<% end %>
-		</div>
+						<% unless notification.content.blank? %>
+						<p aria-hidden="false">
+							<h4><%= notification.content%></h4>
+						</p>
+						<% end %>
+					</div>
 		
-		<% unless notification.image.blank? %>
-		<div class="col-md-3 news" style="  padding-top:40px;" tabindex=0>
-			<%= image_tag notification.image.url(:notification_index), class:"img-thumbnail", alt: notification.image_alt %>
-		</div>
-		<% end %>
+					<% unless notification.image.blank? %>
+					<div class="col-md-3 news" style="  padding-top:40px;" tabindex=0>
+						<%= image_tag notification.image.url(:notification_index), class:"img-thumbnail", alt: notification.image_alt %>
+					</div>
+					<% end %>
 
-		<% unless notification.link.blank? %>	
-		<p class="col-md-12" style="padding-bottom:10px;" aria-hidden="false">
-			<a tabindex=0 role=link title="Link für weitere Informationen" href="<%= notification.link%>" class="news">Hier erfahren Sie mehr...</a>
-		</p>
-		<% end %>
+					<% unless notification.link.blank? %>	
+					<p class="col-md-12" style="padding-bottom:10px;" aria-hidden="false">
+						<a tabindex=0 role=link title="Link für weitere Informationen" href="<%= notification.link%>" class="news">Hier erfahren Sie mehr...</a>
+					</p>
+					<% end %>
 
-				</div><br />
-			</div><br />
+
+			</div><br>
 		<% end %>
 	</div>
 </div>

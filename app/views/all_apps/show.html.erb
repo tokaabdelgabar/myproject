@@ -1,25 +1,26 @@
 <% @title="Zappatory.com - Verzeichnis für assistive Apps - Einzelne App" %>
-<br>
-<div class="container">
-	<div class="row white-border" style="padding-top:20px">
-		<% @apps_all.each do |apps| %>
-		<div class="col-md-2 col-sm-2">
-			<div class="team-member">
-				<div class="thumnail" > 
-					<a tabindex=0 role=button href="/apps/<%= apps.id %>" title="Zur Seite der App">
-						<%= image_tag apps.app_img.url(:app_index) , alt: apps.name %>
-					</a>
+<div class="main">
+	<h2 class="title-style-3" aria-hidden="false">All Apps<span class="title-under"></span></h2>
+	<div class="container">
+		
+		<div class="row white-border" style="padding-top:20px">
+			<% @apps_all.each do |apps| %>
+			<div class="col-md-2 col-sm-2">
+				<div class="team-member">
+					<div class="thumnail"> 
+						<a tabindex=0 role=button href="/apps/<%= apps.id %>" title="Zur Seite der App"><%= image_tag apps.app_img.url(:app_index), alt: apps.name %></a>
+					</div>
+					<p class="app-name" aria-hidden="false"><%=  apps.name %></p>
+					<p class="app-name" aria-hidden="false"><%= apps.price %>€</p>
+					
+					<p class="offscreen">Durchschnittliche Bewertung:</p>
+					<div class="average-review-rating" 
+					data-score=<%= apps.reviews.average(:rating)%>>
+				    </div>
 				</div>
-				<p class="app-name" aria-hidden="false"><%=  apps.name %></p>
-				<p class="app-name" aria-hidden="false"><%= apps.price %>€</p>
-				
-				<p class="offscreen">Durchschnittliche Bewertung:</p>
-				<div class="average-review-rating" 
-				data-score=<%= apps.reviews.average(:rating)%>>
-			    </div>
+				<br>
 			</div>
-			<br>
+			<% end %>
 		</div>
-		<% end %>
 	</div>
 </div><br>
