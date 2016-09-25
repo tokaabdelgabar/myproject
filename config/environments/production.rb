@@ -51,6 +51,7 @@ config.action_mailer.smtp_settings = {
   :domain  => 'yourdomain.com'
 }
 
+<<<<<<< HEAD
  # aws
  # config.paperclip_defaults = {
   #storage: :s3,
@@ -62,4 +63,16 @@ config.action_mailer.smtp_settings = {
   #}
 #
 
+=======
+  # aws
+#config.paperclip_defaults = {
+  #storage: :s3,
+  #s3_credentials: {
+    #bucket: ENV.fetch('S3_BUCKET_NAME'),
+    #access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
+   # secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
+  #  s3_region: ENV.fetch('AWS_REGION'),
+ # }
+#}
+>>>>>>> a5df99a88515140a32cf0073520671a6baa523f6
 end
