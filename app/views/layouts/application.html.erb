@@ -75,10 +75,9 @@
 
              <li class="fontsize">Schriftgröße:
               <a href="#" tabindex=0 title="Normal" ><%= image_tag("zoom.png",:alt => "Normale Schriftgröße", class: "normal")%></a>
-               <a tabindex=0 title="Groß" id="zoom-out"><%= image_tag("zoom-1.png",:alt => "Vergrößerte Schriftgröße",class: "zoom")%></a>
-               <a tabindex=0 title="Sehr groß" id="zoom-in"><%= image_tag("zoom-2.png",:alt => "Stark vergrößerte Schriftgröße", class: "zoom")%></a>
-               
-            </li>
+              <a tabindex=0 title="Groß" id="zoom-out"><%= image_tag("zoom-out.png",:alt => "Vergrößerte Schriftgröße",class: "zoom")%></a>
+              <a tabindex=0 title="Sehr groß" id="zoom-in"><%= image_tag("zoom-in.png",:alt => "Stark vergrößerte Schriftgröße", class: "zoom")%></a>
+             </li>
 
               <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "30x30", :alt => "Zur Englischen Seite wechseln"),set_language_english_path%>
               </li>

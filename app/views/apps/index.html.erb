@@ -1,10 +1,17 @@
 <% @title="Zappatory.com - Verzeichnis für assistive Apps -index" %>
 <div class="row">
 	<div class="col-md-12">
-		<p>This page is an interactive app catalogue for apps that support people with disabilities in their daily life</p>
+		<p aria-hidden="false">Willkommen auf Zappatory.com! 
+		Auf Zappatory.com  finden Sie zahlreiche Apps die Menschen mit Behinderungen im Alltag unterstützen.
+		Die nachfolgenden Kategorien sind nach Behinderungsgruppen unterteilt. 
+		Klicken Sie auf "Mehr Apps..." um alle Apps der entsprechenden Kategorie zu sehen.
+		Ausserdem können Sie mit der Suchfunktion nach Stichworten oder dem Namen der App suchen.
+		Schauen Sie sich um, Sie werden bestimmt einige interessante Apps finden.</p>
 	</div>
 	<div class="col-md-12">
-		<h2 class="title-style-2" aria-hidden="false">App Kategorien<span class="title-under"></span></h2>
+		<div class="col-md-12">
+			<h2 class="title-style-2" aria-hidden="false">App Kategorien<span class="title-under"></span></h2>
+		</div>
 	</div>	
 </div>
 <% if params[:category].blank? && params[:search].blank? %>
