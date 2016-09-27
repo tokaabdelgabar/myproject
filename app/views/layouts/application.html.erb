@@ -68,18 +68,19 @@
               <% end %>
   
               <li class="contrast" id="contrast">Kontrast:
-                <a tabindex=0 title="Hoher Kontrast" id="contrast-black"><%= image_tag("Black.png",class: "contrast-icon" ,:alt => "Zu hohem Kontrast wechseln")%></a>
-                <a tabindex=0 title="Normaler Kontrast" id="contrast-white"><%= image_tag("White.png",class: "contrast-icon",:alt => "Zu den Standardfarben wechseln")%></a>
+                <a tabindex=0 title="Hoher Kontrast" id="contrast-black"><%= image_tag("contrast-2.png",class: "contrast-icon" ,:alt => "Zu hohem Kontrast wechseln")%></a>
+                <a tabindex=0 title="Normaler Kontrast" id="contrast-white"><%= image_tag("contrast-1.png",class: "contrast-icon",:alt => "Zu den Standardfarben wechseln")%></a>
+                <a tabindex=0 title="Normaler Kontrast" id="contrast-white"><%= image_tag("normal-ct.png",class: "contrast-icon",:alt => "Zu den Standardfarben wechseln")%></a>
               </li>
              
 
              <li class="fontsize">Schriftgröße:
+              <a tabindex=0 title="Groß" id="zoom-out"><%= image_tag("zoom-out.png",:alt => "Vergrößerte Schriftgröße",class: "zoom-out")%></a>
               <a href="#" tabindex=0 title="Normal" ><%= image_tag("zoom.png",:alt => "Normale Schriftgröße", class: "normal")%></a>
-              <a tabindex=0 title="Groß" id="zoom-out"><%= image_tag("zoom-out.png",:alt => "Vergrößerte Schriftgröße",class: "zoom")%></a>
-              <a tabindex=0 title="Sehr groß" id="zoom-in"><%= image_tag("zoom-in.png",:alt => "Stark vergrößerte Schriftgröße", class: "zoom")%></a>
+              <a tabindex=0 title="Sehr groß" id="zoom-in"><%= image_tag("zoom-in.png",:alt => "Stark vergrößerte Schriftgröße", class: "zoom-in")%></a>
              </li>
 
-              <li><%= link_to_unless I18n.locale == :en, image_tag("English.png",:size => "30x30", :alt => "Zur Englischen Seite wechseln"),set_language_english_path%>
+              <li><%= link_to_unless I18n.locale == :en, image_tag("English.png", :alt => "Zur Englischen Seite wechseln", :class =>"language"),set_language_english_path%>
               </li>
             </ul>
           </div>

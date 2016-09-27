@@ -83,7 +83,7 @@ a:hover, a:focus, a:active {
 ========================================================================== */
 .app-logo{
   height: 150px; width: 150px; border: 1px solid #9E9E9E; padding:1px;border-radius: 5px;
-  margin-top: 20px; margin-bottom: 10px; margin-left:130px;
+  margin-top: 20px; margin-bottom: 10px; margin-left:35%;
 
 }
 .app{
@@ -109,16 +109,20 @@ a:hover, a:focus, a:active {
   margin-bottom: 8px;
   margin-left: 5px;
 }
-.zoom{
-  margin-bottom: 10px;
+.zoom-out{
+  margin-bottom: 8px;
+  height: 15px;
+  width: 15px;
+}
+.zoom-in{
+  margin-bottom: 12px;
   height: 20px;
   width: 20px;
 }
 .normal{
   margin-bottom: 10px;
-  height: 20px;
-  width: 12px;
-  margin-left:4px;
+  height: 17px;
+  width: 11px;
   margin-right:4px;
 }
 
@@ -130,8 +134,21 @@ a:hover, a:focus, a:active {
 .text-aquacolor{
   color: #01B6AD;
 }
-
-
+.welcome{
+  background-image: url("background.png");
+  background-size: 102%;
+  background-repeat: no-repeat;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+}
+.language{
+  height: 20px;
+  width: 20px;
+  border:1px solid #9E9E9E;
+  margin-bottom: 12px;
+  padding-left: 1px;
+}
 /* =============================================================================
   Back to top
 ========================================================================== */

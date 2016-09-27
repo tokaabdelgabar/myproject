@@ -13,6 +13,7 @@
 						<a href="/apps/<%= apps.id %>"><%= image_tag apps.app_img.url(:app_index) %></a>
 					</div>
 					<p><%= link_to apps.name, app_path(apps) %></p>
+					<p class="app-name" aria-hidden="false"><%=  apps.app_type %></p>
 					<p class="app-name"><%= apps.price %>€</p>
 					<a href="/apps/<%= apps.id %>">
 						<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div> 
@@ -41,6 +42,7 @@
 				<a href="/apps/<%= apps.id %>"><%= image_tag apps.app_img.url(:app_index) %></a>
 			</div>
 			<p><%= link_to apps.name, app_path(apps) %></p>
+			<p class="app-name" aria-hidden="false"><%=  apps.app_type %></p>
 			<p class="app-name"><%= apps.price %>€</p>
 			<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div>
 		</div><br></br>
@@ -57,6 +59,7 @@
 				<a href="/apps/<%= apps.id %>"><%= image_tag apps.app_img.url(:app_index) %></a>
 			</div>
 			<p><%= link_to apps.name, app_path(apps) %></p>
+			<p class="app-name" aria-hidden="false"><%=  apps.app_type %></p>
 			<p class="app-name"><%= apps.price %>€</p>
 			<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div>
 		</div><br></br>
