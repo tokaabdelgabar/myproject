@@ -1325,15 +1325,6 @@ p.offscreen{
   overflow:hidden;
 }
 
-a.offscreen {
-position:absolute;
-left:-1000px;
-top:-1000px;
-width:1px;
-height:1px;
-text-align: left; 
-overflow:hidden;
-}
 h2.offscreen {
 position:absolute;
 left:-1000px;
@@ -1379,17 +1370,6 @@ p.offscreen {
   text-align: left; 
   overflow:hidden;
 }
-a.offscreen:focus, a.offscreen:active, a.offscreen:hover { 
-position:absolute; 
-left:0; 
-top:0; 
-width:auto; 
-height:auto; 
-overflow:visible;
-background-color:#FF3;
-border: 1px dotted #000;
-}
-
 h2.offscreen:focus, h2.offscreen:active, h2.offscreen:hover { 
 position:absolute; 
 left:0; 
@@ -1440,3 +1420,33 @@ overflow:visible;
 background-color:#FF3;
 border: 1px dotted #000;
 }
+
+a.offscreen {
+position:absolute;
+left:-1000px;
+top:-1000px;
+width:1px;
+height:1px;
+text-align: left; 
+overflow:hidden;
+}
+
+a.offscreen:focus, a.offscreen:active, a.offscreen:hover { 
+position:absolute; 
+left:0; 
+top:0; 
+width:auto; 
+height:auto; 
+overflow:visible;
+background-color:#FF3;
+border: 1px dotted #000;
+}
+
+  a.hidden {
+    position: absolute;
+    left: -999px;
+  }
+
+  a.hidden:focus, a.hidden:active { 
+    left: 5px;
+  }

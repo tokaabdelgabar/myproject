@@ -25,5 +25,8 @@ module Ability
 
     config.assets.initialize_on_precompile = false
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Add Rails Admin assets (required) 
+    config.assets.precompile += ['rails_admin/rails_admin.css', 'rails_admin/rails_admin.js']
   end
 end

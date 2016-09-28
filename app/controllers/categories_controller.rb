@@ -30,8 +30,17 @@ class CategoriesController < ApplicationController
 			@products = @search
 			.result
 			.eager_load(:reviews)
-			.select("apps.*, avg(reviews.rating) as average, count(*) as total")
-			.group("apps.id")
+			.select("apps.name, apps.description ,apps.developer, apps.youtube_link ,apps.created_at,
+				apps.updated_at ,apps.user_id ,apps.category_id ,apps.app_img_file_name, apps.app_img_content_type ,apps.app_img_file_size ,
+				apps.app_img_updated_at , apps.price_pro ,apps.image1_file_name ,apps.image1_content_type, apps.image1_file_size ,apps.image1_updated_at,
+				apps.image2_file_name ,apps.image2_content_type ,apps.image2_file_size ,apps.image2_updated_at, apps.image3_file_name, 
+				apps.image3_content_type , apps.image3_file_size ,apps.image3_updated_at ,apps.image4_file_name, 
+				apps.image4_content_type, apps.image4_file_size, apps.image4_updated_at, apps.image5_file_name, apps.image5_content_type,
+				apps.image5_file_size, apps.image5_updated_at, apps.price, apps.size, apps.app_type, apps.youtube_link,
+				apps.image1_alt, apps.image2_alt, apps.image3_alt, apps.image4_alt,apps.image5_alt,
+				apps.app_img_alt, apps.youtube_alt, apps.android_link, apps.ios_link, apps.windows_link, 
+				avg(reviews.rating) as average, count(*) as total")
+			.group("apps.id, reviews.id")
 			.where(:category_id => params[:id])
 
 		#free

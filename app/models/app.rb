@@ -1,5 +1,5 @@
 class App < ActiveRecord::Base
-     belongs_to :user
+    belongs_to :user
  	belongs_to :category
  	has_many :operations
  	has_many :operatingsystems, :through => :operations

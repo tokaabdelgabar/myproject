@@ -43,12 +43,23 @@
         });
      });
   </script>
- 
+
+<script type="text/javascript">
+$(document).ready( function(e) {
+    $('.hidden').click( function( e) {
+        var selector = $(this).attr( 'href');
+        if ( selector) {
+            $(selector).focus();
+            e.preventDefault();
+        }
+    });
+});
+</script>
 </head>
 
 <body class="texts">
-<header role="banner">
-  <a href="#main" class="offscreen" role=link tabindex=0 accesskey="s">Zum Inhalt springen</a>
+<header role="banner">  
+  <a href="#main" >Skip to main content</a>
   <nav class="navbar navbar-static-top" role="navigation">
       <div class="navbar-top">
         <div class="container">
@@ -124,7 +135,7 @@
     </nav>
 </header>
 
-<main role="main" id="main">
+<main role="main" id="main"  tabindex="-1">
   <div class="container">
     <br>
     <p aria-hidden="false"><%= render_breadcrumbs %></p>
@@ -258,5 +269,23 @@
          $('@title').css("color", "black");
        }
 </script> 
+
+<script>
+  $(document).ready(function() {
+    // add a click handler to all links 
+    // that point to same-page targets (href="#...")    
+    $("a[href^='#']").click(function() {
+      // get the href attribute of the internal link
+      // then strip the first character off it (#)
+      // leaving the corresponding id attribute
+      $("#"+$(this).attr("href").slice(1)+"")
+        // give that id focus (for browsers that didn't already do so)
+        .focus()
+        // add a highlight effect to that id (comment out if not using)     
+        .effect("highlight", {}, 3000);
+    });
+  });
+</script>
+
 </body>
 </html>

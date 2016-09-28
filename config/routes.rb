@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :operatingsystems
   resources :language
   resources :about_us
+  resources :category
 
   #Contact
   resources :messages, only: [:new, :create]
