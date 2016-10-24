@@ -41,6 +41,7 @@ gem "table_print"
 gem 'aws-sdk', '~> 2.3'
 gem 'cancancan', '~> 1.10'
 gem 'will_paginate', '~> 3.1.0'
+gem "rails-erd"
 
 #gem breadscrumb
 #gem "gretel"
