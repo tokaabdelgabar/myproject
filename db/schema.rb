@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160922172647) do
+ActiveRecord::Schema.define(version: 20160915193349) do
 
   create_table "about_us", force: :cascade do |t|
     t.string   "title"
@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 20160922172647) do
     t.string   "app_img_content_type"
     t.integer  "app_img_file_size"
     t.datetime "app_img_updated_at"
-    t.decimal  "price_pro"
     t.string   "image1_file_name"
     t.string   "image1_content_type"
     t.integer  "image1_file_size"
@@ -76,6 +75,7 @@ ActiveRecord::Schema.define(version: 20160922172647) do
     t.integer  "image5_file_size"
     t.datetime "image5_updated_at"
     t.decimal  "price"
+    t.decimal  "price_pro"
     t.decimal  "size"
     t.string   "app_type"
     t.string   "youtube_link"
@@ -97,36 +97,6 @@ ActiveRecord::Schema.define(version: 20160922172647) do
     t.integer  "language_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "carousels", force: :cascade do |t|
-    t.string   "image1_file_name"
-    t.string   "image1_content_type"
-    t.integer  "image1_file_size"
-    t.datetime "image1_updated_at"
-    t.string   "image2_file_name"
-    t.string   "image2_content_type"
-    t.integer  "image2_file_size"
-    t.datetime "image2_updated_at"
-    t.string   "image3_file_name"
-    t.string   "image3_content_type"
-    t.integer  "image3_file_size"
-    t.datetime "image3_updated_at"
-    t.string   "image4_file_name"
-    t.string   "image4_content_type"
-    t.integer  "image4_file_size"
-    t.datetime "image4_updated_at"
-    t.string   "image5_file_name"
-    t.string   "image5_content_type"
-    t.integer  "image5_file_size"
-    t.datetime "image5_updated_at"
-    t.string   "image1_alt"
-    t.string   "image2_alt"
-    t.string   "image3_alt"
-    t.string   "image4_alt"
-    t.string   "image5_alt"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
   end
 
   create_table "categories", force: :cascade do |t|
