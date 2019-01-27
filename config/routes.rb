@@ -1,13 +1,22 @@
 Rails.application.routes.draw do
 
+  get 'users/index'
+
   resources :about_us
   #devise
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users, controllers: { confirmations: 'confirmations'}
+  #devise_for :users, controllers: { confirmations: 'confirmations'}
   #language scope
   scope "(:locale)", locale: /en|de/ do
     root "apps#index" 
   end
+
+  #user profile matching username
+  match '/users/:id', to: 'users#show', via: 'get'
+
+  #devise to recognize the show method 
+  devise_for :users, :path_prefix => 'd'
+  resources :users, :only =>[:show]
 
   #resources
   resources :help_items

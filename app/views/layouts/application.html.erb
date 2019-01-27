@@ -71,7 +71,7 @@ $(document).ready( function(e) {
             <h2 class="offscreen">Benutzerkonto und Einstellungen</h2>
             <ul class="list-unstyled list-inline header-contact">
               <% if user_signed_in? %>
-              <li><%= link_to "Mein Konto", edit_user_registration_path %><i><%= image_tag("user-8.png", :alt => "Mein Konto - Bild", class:"top-icon") %></i></li>
+              <li><%= link_to "Mein Konto", current_user %><i><%= image_tag("user-8.png", :alt => "Mein Konto - Bild", class:"top-icon") %></i></li>
               <li><%= link_to "Ausloggen", destroy_user_session_path, method: :delete %><i><%= image_tag("log-out.png",:alt => "Ausloggen - Bild", class:"top-icon") %></i></li>
               <% else %>  
               <li><%= link_to "Einloggen", new_user_session_path %><i><%= image_tag("log-in.png",:alt => "Einloggen - Bild", class:"top-icon") %></i></li>
