@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   add_breadcrumb 'Startseite', :root_path, :title=>"Zurück zum Über uns"
   protect_from_forgery with: :exception
   #begin translate 
-  before_filter :set_locale
+  before_action :set_locale
   private
 
   def set_page_title
@@ -30,12 +30,12 @@ class ApplicationController < ActionController::Base
 
    protected
   	def configure_permitted_parameters
-  	devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:first_name, :last_name, :username, :birthday, :email, :password, :remember_me)}
-		devise_parameter_sanitizer.for(:sign_in) {|u| u.permit(:email, :password, :remember_me)}
-		devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:first_name, :last_name, :username, :birthday,:about, :email, :password,:current_password, :remember_me)}
+  	devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit(:first_name, :last_name, :username, :birthday, :email, :password, :remember_me)}
+		devise_parameter_sanitizer.permit(:sign_in) {|u| u.permit(:email, :password, :remember_me)}
+		devise_parameter_sanitizer.permit(:account_update) {|u| u.permit(:first_name, :last_name, :username, :birthday,:about, :email, :password,:current_password, :remember_me)}
   	end
 
-  before_filter :set_cache_buster
+  before_action :set_cache_buster
 
     def set_cache_buster
        response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"

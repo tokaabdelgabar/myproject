@@ -7,7 +7,7 @@ gem 'rails', '~> 5.2', '>= 5.2.2'
 gem 'sqlite3', group: :development
 gem 'pg', '0.18.4', group: :production
 gem 'rails_12factor', group: :production
-gem 'sass-rails', '~> 5.0'
+#gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '~> 4.1', '>= 4.1.20'
 gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
@@ -17,7 +17,7 @@ gem 'jquery-turbolinks'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+gem 'bootsnap', require: false
 gem 'simple_form', '~> 4.1'
 gem 'bootstrap', '~> 4.2', '>= 4.2.1'
 #user authentication
@@ -53,7 +53,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -61,7 +61,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "recaptcha", require: "recaptcha/rails"
 
 # Compass
-gem 'compass-rails', '~> 3.1'
+#gem 'compass-rails', '~> 3.1'
 
 # Fonts
 gem "font-awesome-rails"

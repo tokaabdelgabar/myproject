@@ -744,8 +744,9 @@ GEM
     aws-sigv2 (1.0.1)
     aws-sigv4 (1.0.3)
     bcrypt (3.1.12-x86-mingw32)
-    binding_of_caller (0.8.0)
-      debug_inspector (>= 0.0.1)
+    bindex (0.5.0)
+    bootsnap (1.3.2)
+      msgpack (~> 1.0)
     bootstrap (4.2.1)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
@@ -755,7 +756,6 @@ GEM
     byebug (10.0.2)
     cancancan (2.3.0)
     choice (0.2.0)
-    chunky_png (1.3.11)
     climate_control (0.2.0)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -764,25 +764,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    compass (1.0.3)
-      chunky_png (~> 1.2)
-      compass-core (~> 1.0.2)
-      compass-import-once (~> 1.0.5)
-      rb-fsevent (>= 0.9.3)
-      rb-inotify (>= 0.9)
-      sass (>= 3.3.13, < 3.5)
-    compass-core (1.0.3)
-      multi_json (~> 1.0)
-      sass (>= 3.3.0, < 3.5)
-    compass-import-once (1.0.5)
-      sass (>= 3.2, < 3.5)
-    compass-rails (3.1.0)
-      compass (~> 1.0.0)
-      sass-rails (< 5.1)
-      sprockets (< 4.0)
     concurrent-ruby (1.1.4)
     crass (1.0.4)
-    debug_inspector (0.0.3)
     devise (4.5.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -850,6 +833,7 @@ GEM
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
+    msgpack (1.2.6-x86-mingw32)
     multi_json (1.13.1)
     multipart-post (2.0.0)
     nested_form (0.3.2)
@@ -941,7 +925,11 @@ GEM
       builder (>= 2.1.2)
       faraday (>= 0.9.0)
     ruby-graphviz (1.2.4)
-    sass (3.4.25)
+    sass (3.7.3)
+      sass-listen (~> 4.0.0)
+    sass-listen (4.0.0)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
     sass-rails (5.0.7)
       railties (>= 4.0.0, < 6)
       sass (~> 3.1)
@@ -996,11 +984,11 @@ GEM
       execjs (>= 0.3.0, < 3)
     warden (1.2.8)
       rack (>= 2.0.6)
-    web-console (2.3.0)
-      activemodel (>= 4.0)
-      binding_of_caller (>= 0.7.2)
-      railties (>= 4.0)
-      sprockets-rails (>= 2.0, < 4.0)
+    web-console (3.7.0)
+      actionview (>= 5.0)
+      activemodel (>= 5.0)
+      bindex (>= 0.4.0)
+      railties (>= 5.0)
     websocket-driver (0.7.0)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -1014,12 +1002,12 @@ PLATFORMS
 DEPENDENCIES
   acts_as_votable (~> 0.12.0)
   aws-sdk (~> 3.0, >= 3.0.1)
+  bootsnap
   bootstrap (~> 4.2, >= 4.2.1)
   breadcrumbs_on_rails
   byebug
   cancancan (~> 2.3)
   coffee-rails (~> 4.2, >= 4.2.2)
-  compass-rails (~> 3.1)
   devise (~> 4.5)
   devise-i18n (~> 1.7, >= 1.7.1)
   font-awesome-rails
@@ -1036,7 +1024,6 @@ DEPENDENCIES
   ransack
   rdoc
   recaptcha
-  sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simple_form (~> 4.1)
   sqlite3
@@ -1046,7 +1033,7 @@ DEPENDENCIES
   turbolinks
   tzinfo-data
   uglifier (~> 4.1, >= 4.1.20)
-  web-console (~> 2.0)
+  web-console
   will_paginate (~> 3.1, >= 3.1.6)
   zopim_rails
 

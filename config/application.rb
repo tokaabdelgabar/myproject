@@ -16,8 +16,8 @@ module Ability
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     
-    config.assets.initialize_on_precompile = false
-    config.active_record.raise_in_transactional_callbacks = true
+    #config.assets.initialize_on_precompile = false
+   # config.active_record.raise_in_transactional_callbacks = true
 
     # Add Rails Admin assets (required) 
     config.assets.precompile += ['rails_admin/rails_admin.css', 'rails_admin/rails_admin.js']
