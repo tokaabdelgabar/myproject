@@ -2,15 +2,15 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '~> 5.2', '>= 5.2.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: :development
 gem 'pg', '0.18.4', group: :production
 gem 'rails_12factor', group: :production
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'uglifier', '~> 4.1', '>= 4.1.20'
+gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -18,29 +18,29 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'simple_form', '~> 3.1.0'
-gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'simple_form', '~> 4.1'
+gem 'bootstrap', '~> 4.2', '>= 4.2.1'
 #user authentication
-gem 'devise', '~> 3.4', '>= 3.4.1'
+gem 'devise', '~> 4.5'
 #image upload
-gem 'paperclip', '~> 4.3', '>= 4.3.6'
+gem 'paperclip', '~> 6.1'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 #rating system
-gem 'acts_as_votable', '~> 0.10.0'
+gem 'acts_as_votable', '~> 0.12.0'
 #ransack as sort
 gem 'ransack'
 gem 'rdoc'
 #gem 'paperclip-i18n'
-gem 'globalize', '~> 5.0.0'
-gem 'devise-i18n'
+gem 'globalize', '~> 5.2'
+gem 'devise-i18n', '~> 1.7', '>= 1.7.1'
 #gem 'traco'
 gem 'rails_admin'
 gem 'zopim_rails'
 gem "table_print"
-gem 'aws-sdk', '~> 2.3'
-gem 'cancancan', '~> 1.10'
-gem 'will_paginate', '~> 3.1.0'
+gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
+gem 'cancancan', '~> 2.3'
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem "rails-erd"
 
 #gem breadscrumb
@@ -61,7 +61,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "recaptcha", require: "recaptcha/rails"
 
 # Compass
-gem 'compass-rails', '~> 2.0', '>= 2.0.4'
+gem 'compass-rails', '~> 3.1'
 
 # Fonts
 gem "font-awesome-rails"
