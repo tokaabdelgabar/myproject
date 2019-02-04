@@ -7,7 +7,7 @@ gem 'rails', '~> 5.2', '>= 5.2.2'
 gem 'sqlite3', group: :development
 gem 'pg', '0.18.4', group: :production
 gem 'rails_12factor', group: :production
-#gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '~> 4.1', '>= 4.1.20'
 gem 'coffee-rails', '~> 4.2', '>= 4.2.2'

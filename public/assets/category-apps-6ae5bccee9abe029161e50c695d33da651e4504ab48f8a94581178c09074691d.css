@@ -1,0 +1,212 @@
+.help-image{
+  height: 
+}
+
+[role="button"] {
+  cursor: pointer;
+}
+.app {
+    background: #F8F9FA;
+    height: 300px;
+    width: 100%;
+    float: left;
+    border: 1px solid #E4E4E4;
+    border-radius: 0.3rem;
+    display: block;
+    line-height: 20px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+    transition: all 0.2s ease-in-out;
+
+}
+.app .app_image {
+    height: 200px;
+    width: 200px;
+    padding-top: 5px;
+    overflow: hidden;
+    border: 0 solid transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+.app_image h4 {
+    height: 50px;
+    width: 200px;
+}
+.app-frame {
+    height: 300px;
+    width: 200px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+    transition: all 0.2s ease-in-out;
+}
+.app-frame{
+    border: 0 solid transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+@media (max-width: 979px) and (min-width: 768px){
+.app-image {
+    width: 22.92817679558011%;
+}}
+@media (max-width: 979px) and (min-width: 768px){
+.app [class*="app-image"] {
+    display: block;
+    float: left;
+    width: 100%;
+    min-height: 30px;
+    margin-left: 2.7624309392265194%;
+    box-sizing: border-box;
+}}
+.app .app-image {
+    width: 23.404255319148934%;
+}
+.app [class*="app-image"] {
+    display: block;
+    width: 100%;
+    min-height: 30px;
+    box-sizing: border-box;
+    float: left;
+    margin-left: 2.127659574468085%;
+}
+
+@media (max-width: 979px) and (min-width: 768px){
+.app-iamge {
+    width: 166px;
+}}
+@media (max-width: 979px) and (min-width: 768px){
+[class*="app-image"] {
+    float: left;
+    min-height: 1px;
+    margin-left: 20px;
+}}
+.app-image {
+    width: 220px;
+}
+
+.go-top{
+  position: fixed;
+  bottom: 20em;
+  right: 20em;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 1em;
+}
+
+body.highcontrast {
+  background: #000;
+  color:#fff;
+}
+
+body.highcontrast a {color:#fff;}
+body.highcontrast a.active {color:#FF0000;}
+
+.product-slider {
+  margin-bottom: 20px;
+}
+.product-slider:before,
+.product-slider:after {
+  content: " ";
+  display: table;
+}
+.product-slider:after {
+  clear: both;
+}
+.product-slider .item {
+  margin: 0 25px;
+  visibility: hidden;
+}
+.product-slider .owl-controls {
+  position: relative;
+  top: -30px;
+}
+.product-slider .owl-controls .owl-buttons {
+  display: none;
+}
+.product-slider .owl-controls .owl-page.active span,
+.product-slider .owl-controls.clickable .owl-page:hover span {
+  background: #4993e4;
+}
+
+.owl-carousel .owl-wrapper-outer{
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.owl-carousel .owl-wrapper-outer.autoHeight{
+    transition: height 500ms ease-in-out;
+}
+.owl-carousel  .owl-wrapper, .owl-carousel  .owl-item{
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility:    hidden;
+    -ms-backface-visibility:     hidden;
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+}
+.owl-carousel .owl-item {
+    float: left;
+}
+.product-slider .item {
+    margin: 0 25px;
+    visibility: hidden;
+}
+ .product .flip-container, #content .product .front, #content .product .back {
+    width: 100%;
+}
+.product .flip-container {
+    cursor: pointer;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+.product .flipper {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: 0.6s;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.product .flip-container,
+.product .front,
+.product .back {
+  width: 100%;
+}
+.product .front,
+.product .back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: 0.6s;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.product .back {
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+.product .front {
+  z-index: 2;
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+.product:hover .front {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+.product:hover .back {
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  z-index: 2;
+}

@@ -94,14 +94,17 @@ Rails.application.configure do
 
 
   #confirmations 
-config.action_mailer.default_url_options = {:host => 'yourdomain.com'}
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.smtp_settings = {
+  config.action_mailer.default_url_options = {:host => 'yourdomain.com'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
   :address => "127.0.0.1",
   :port    => 25,
   :domain  => 'yourdomain.com'
 }
-  # aws
+
+config.serve_static_assets = true
+
+# aws
 #config.paperclip_defaults = {
  # storage: :s3,
   #s3_credentials: {
