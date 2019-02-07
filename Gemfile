@@ -20,6 +20,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootsnap', require: false
 gem 'simple_form', '~> 4.1'
 gem 'bootstrap', '~> 4.2', '>= 4.2.1'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 #user authentication
 gem 'devise', '~> 4.5'
 #image upload

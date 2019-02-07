@@ -1027,6 +1027,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simple_form (~> 4.1)
+  sprockets-rails
   sqlite3
   sunspot_rails
   sunspot_solr

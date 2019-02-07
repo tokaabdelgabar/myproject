@@ -16,6 +16,8 @@ before_action :find_app, only: [:show, :edit, :update, :destroy, :upvote, :downv
 		else
 			@apps_all = App.where("name LIKE ? or searchDescription LIKE ?  or developer LIKE ? or price LIKE ? or app_type LIKE ?","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%")
   		end		
+@apps_high = App.joins(:reviews).select("*, AVG(reviews.rating) as average_rating").group("apps.id").order("average_rating DESC")
+
 	end
 
 	def show
