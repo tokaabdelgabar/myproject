@@ -1,7 +1,5 @@
 class OperatingsystemController < ApplicationController
 	def index
-
-
 		@application = App.all
 		operatingsystem_params
 		@operatingsystems=Operatingsystem.all.order("created_at DESC")
@@ -17,7 +15,6 @@ class OperatingsystemController < ApplicationController
 	end
 
 	def create
-		
 		@operatingsystem=Operatingsystem.new(operatingsystem_params)
 		if @operatingsystem.save
 			redirect_to root_path
