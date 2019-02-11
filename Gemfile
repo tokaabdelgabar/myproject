@@ -8,6 +8,7 @@ gem 'sqlite3', group: :development
 gem 'pg', '0.18.4', group: :production
 gem 'rails_12factor', group: :production
 gem 'sass-rails', '~> 5.0'
+gem 'bootstrap', '~> 4.0.0.alpha3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '~> 4.1', '>= 4.1.20'
 gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
@@ -19,7 +20,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootsnap', require: false
 gem 'simple_form', '~> 4.1'
-gem 'bootstrap', '~> 4.2', '>= 4.2.1'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 #user authentication
 gem 'devise', '~> 4.5'
@@ -62,7 +62,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "recaptcha", require: "recaptcha/rails"
 
 # Compass
-#gem 'compass-rails', '~> 3.1'
+#gem 'compass-rails'
 
 # Fonts
 gem "font-awesome-rails"
