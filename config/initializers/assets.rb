@@ -16,6 +16,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.precompile += %w( bootstrap.min.css )
 Rails.application.config.assets.precompile += %w( category-apps.css )
+Rails.application.config.assets.precompile += %w( bootstrap.css )
 #Rails.application.config.assets.precompile += %w( custom.css )
 Rails.application.config.assets.precompile += %w( bootstrap.min.js )
 Rails.application.config.assets.precompile += %w( modernizr-2.6.2.min.js )

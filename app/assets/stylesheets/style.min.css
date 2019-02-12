@@ -1,7 +1,13 @@
 /* =============================================================================
   Base
 ========================================================================== */
-html, body{
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+
+html,{
   font-family: 'Open Sans', sans-serif;
   background:#EDF4F5;
   font-size: 100%;
