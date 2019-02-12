@@ -7,6 +7,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   color: #666;
+  background-color: #EDF4F5;;
   padding-top: 123px;
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
@@ -693,4 +694,86 @@ footer .social a {
 
 .home-1 {
   background-image: url("background.png");
+  background-size: 100% 100%;
+  color: #fff;
+}
+
+
+.title-style-1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 26px;
+  margin-bottom: 50px;
+}
+
+.title-style-2 {
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 26px;
+  margin-bottom: 25px;
+}
+.title-style-3 {
+  text-align: left;
+  font-size: 26px;
+  margin-bottom: 50px;
+}
+.title-style-3 .title-under{
+  display: block;
+  margin: 5px 0;  
+}
+.title-style-3 .title-under:after {
+  margin: 0;
+  margin-top: 10px;
+}
+.title-style-2 .title-under {
+  display: block;
+  margin: 5px 0;
+}
+.title-style-2 .title-under:after {
+  margin: 0;
+  margin-top: 10px;
+}
+
+.title-under {
+  display: block;
+  margin: 5px auto;
+  background: #009688;
+  height: 1px;
+  width: 280px;
+}
+.title-under:after {
+  content: '';
+  display: block;
+  background: inherit;
+  height: 2px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.text-aquacolor{
+  color: #01B6AD;
+}
+
+.white-border{
+  background:#fff; border-radius: 5px;
+}
+
+/* Team 
+================================= */
+.team-member {
+    background: #fff;
+    color: #000;
+    text-align: center;
+    padding-bottom: 15px;
+    border: 1px solid #9E9E9E;
+    border-radius: 5px;
+}
+.team-member .thumnail img {
+  width: 100%;
+}
+.team-member .member-name {
+  font-weight: bold;
+}
+.team-member .member-position {
+  padding: 0 15px 5px;
 }

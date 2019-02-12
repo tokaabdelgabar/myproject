@@ -10,13 +10,14 @@
   
   <%= stylesheet_link_tag "application", media: "all" ,'data-turbolinks-track' => true%>
   <%= stylesheet_link_tag 'app', media: 'all', 'data-turbolinks-track' => true %>
-  
+  <%= stylesheet_link_tag 'category-apps', media: 'all', 'data-turbolinks-track' => true %>
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'app', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'bootstrap-hover-dropdown.min', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'query.smooth-scroll.min', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'vide.min', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'bgswitcher', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'jquery.smooth-scroll.min', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'jquery.vide.min', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'jquery.bgswitcher', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
  <script>
@@ -108,7 +109,7 @@
     </div>
   </div>
 
-  <div class="container">
+  <div class="container navbar-main">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top_main_navigation" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -140,7 +141,7 @@
 
     <!-- Main element -->
     <main role="main" id="main_content">
-      <div class="content">
+      <div class="container">
         <br><br/>
         <% if notice %>
         <p role="notice" class="alert alert-success"><%= notice %></p>

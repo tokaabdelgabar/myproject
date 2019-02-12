@@ -1,41 +1,16 @@
 <% @title="Zappatory.com - Verzeichnis für assistive Apps -index" %>
 <div class="main">
-
-		<div class="banner home-1" data-type="background" data-speed="4">
-			<div class="banner-interior">
-				<div class="container tall">
-					<div class="row">
-						<div class="col-md-10 col-md-offset-1 text-center">
-							<h1>Accessible Framework</h1>
-							<p class="lead">A simple theme for building WCAG compliant web experiences</p>
-							<p><a href="page1.html" class="btn btn-primary btn-lg">Page Templates</a> <a href="components.html" class="btn btn-default btn-lg">Components</a></p>
-						</div>
-					</div>
-				</div>
+	<div class="container">
+		<div class="jumbotron home-1">
+			<div class="container">
+				<h1>Welcome to Zappatory.com!</h1>
+				<p>On Zappatory.com you will find numerous apps that support people with disabilities in everyday life. The Apps are divided into disability groups. Click on "More Apps ..." to see all apps in the corresponding category. In addition, you can use the search function to search for keywords or the name of the app. Take a look around, you'll probably find some interesting apps.</p>
 			</div>
 		</div>
 
-
-	
-	<div class="container">
 		<div class="row">
-			<div class="col-md-12 welcome">
-				<div class="col-md-2"></div>
-				<div class="col-md-8 text-left">
-					<p aria-hidden="false" style="text-align: center; font-size: 150%">WILLKOMMEN AUF ZAPPATORY.COM!</p>
-					<p aria-hidden="false"> 
-					Auf Zappatory.com  finden Sie zahlreiche Apps die Menschen mit Behinderungen im Alltag unterstützen.</p>
-					<p aria-hidden="false">Die nachfolgenden Kategorien sind nach Behinderungsgruppen unterteilt.</p>
-					<p aria-hidden="false">Klicken Sie auf "Mehr Apps..." um alle Apps der entsprechenden Kategorie zu sehen.</p>
-					<p aria-hidden="false">Ausserdem können Sie mit der Suchfunktion nach Stichworten oder dem Namen der App suchen.</p>
-					<p aria-hidden="false">Schauen Sie sich um, Sie werden bestimmt einige interessante Apps finden.</p>
-				</div>
-				<div class="col-md-2"></div>
-			</div>	
+			<h2 class="title-style-3" aria-hidden="false">Appication Categories<span class="title-under"></span></h2>
 		</div>
-		<div class="row">
-			<h2 class="title-style-3" aria-hidden="false">App Kategorien<span class="title-under"></span></h2>
-		</div>	
 	</div>
 	
 
@@ -59,7 +34,7 @@
 				<div class="col-md-2 col-sm-2">
 					<div class="team-member">
 						<div class="thumnail" > 
-							<a tabindex=0 role=button href="/apps/<%= apps.id %>" title="Zur Seite der App">
+							<a tabindex=0 role=button href="/apps/<%= apps.id %>" title="To the App page">
 								<%= image_tag apps.app_img.url(:app_index) , alt: apps.name %>
 							</a>
 						</div>
@@ -70,15 +45,14 @@
 						<% else %>
 						<p class="app-name" aria-hidden="false"><%= apps.price %>€</p>
 						<% end%>
-						<p class="offscreen">Durchschnittliche Bewertung:</p>
+						<p class="offscreen">Average Rating:</p>
 						<div class="average-review-rating" 
 						data-score=<%= apps.reviews.average(:rating)%>>
 					    </div>
 					</div>
 					<br>
 				</div>
-				<% end %>
-				
+				<% end %>	
 			</div><br>
 	</div>
 	</div>
@@ -129,34 +103,6 @@
 	</div>
 </div><br>
 <% end %>
-
-
-
-	<div class="container text-center">    
-  <h3>Top Applications</h3>
-  <br>
-  <div class="row">
-    <div class="col-sm-3">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      <p>Current Project</p>
-    </div>
-    <div class="col-sm-3"> 
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      <p>Project 2</p>    
-    </div>
-    <div class="col-sm-3"> 
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      <p>Project 2</p>    
-    </div>
-    <div class="col-sm-3"> 
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      <p>Project 2</p>    
-    </div>
-    
-    
-  </div>
-  <hr>
-</div>
 
 <script>
 	$('.average-review-rating').raty({
