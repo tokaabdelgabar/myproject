@@ -1,292 +1,442 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 
 <head>
-  <title><%= @title %></title>
-  <%= favicon_link_tag ("favicon.ico") %>
+  <title>Zappatory.com - Supportive Apps Directory</title>
   <meta http-equiv="content-type" content="text/html" charset="UTF-8"
   name="viewport" content="width=device-width, initial-scale=1"/>
   <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' type='text/css'>
   <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700'  type='text/css'>
-  <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
-
   <%= stylesheet_link_tag "application", media: "all" ,'data-turbolinks-track' => true%>
   <%= stylesheet_link_tag 'font-awesome.min', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag 'style.min', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag 'category-apps', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag 'bootstrap-image-gallery.min', media: 'all', 'data-turbolinks-track' => true %>      
- 
-  <%= javascript_include_tag 'modernizr-2.6.2.min', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'app', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'app', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'main', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'bootstrap-image-gallery.min', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'jquery-image-gallery.min', 'data-turbolinks-track' => true %>
-
+   <%= javascript_include_tag 'bootstrap-hover-dropdown.min', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'jquery.smooth-scroll.min, 'data-turbolinks-track' => true %>
+     <%= javascript_include_tag 'vide.min', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'bgswitcher', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script>
-  (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-  e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-  e.src='http:http://www.google-analytics.com/analytics.js';
-  r.parentNode.insertBefore(e,r)}(window,document,'script','ga');
-  ga('create','UA-XXXXX-X');ga('send','pageview');
-  </script>
-  <script>
-    $(function() {
-        $('#nav li a').click(function() {
-           $('#nav li').removeClass();
-           $($(this).attr('href')).addClass('active');
-        });
-     });
-  </script>
-
-<script type="text/javascript">
-$(document).ready( function(e) {
-    $('.hidden').click( function( e) {
-        var selector = $(this).attr( 'href');
-        if ( selector) {
-            $(selector).focus();
-            e.preventDefault();
-        }
-    });
-});
-</script>
 </head>
+  <body>
 
-<body class="texts">
-<header role="banner">  
-  <a href="#main" >Skip to main content</a>
-  <nav class="navbar navbar-static-top" role="navigation">
-      <div class="navbar-top">
+    <!-- Main navigation element for site, html5 elements used to improve rendering on assistive devices -->
+    <nav class="navbar navbar-default navbar-fixed-top navbar-white">
+      <div class="top-header">
         <div class="container">
-          <div class="col-sm-4 col-xs-12">
-            <%= link_to image_tag("logo.png", alt:"Logo von Zappatory.com", title:"Link zur Startseite"), 
-            root_path, class: "navbar-brand" %>
+          
+          <!-- Skip to content link allows users rendering the site on a screen reader to skip past navigational elements -->
+          <div class="menu-block pull-left no-pad hidden-xs">
+            <a href="#main_content" class="btn btn-link scroller"><em class="fa fa-level-down" aria-hidden="true"></em> Skip to Content &nbsp;</a>
           </div>
-          <div class="col-sm-8 col-xs-12 text-right" style="padding-top:10px">
-            <h2 class="offscreen">Benutzerkonto und Einstellungen</h2>
-            <ul class="list-unstyled list-inline header-contact">
-              <% if user_signed_in? %>
-              <li><%= link_to "Mein Konto", current_user %><i><%= image_tag("user-8.png", :alt => "Mein Konto - Bild", class:"top-icon") %></i></li>
-              <li><%= link_to "Ausloggen", destroy_user_session_path, method: :delete %><i><%= image_tag("log-out.png",:alt => "Ausloggen - Bild", class:"top-icon") %></i></li>
-              <% else %>  
-              <li><%= link_to "Einloggen", new_user_session_path %><i><%= image_tag("log-in.png",:alt => "Einloggen - Bild", class:"top-icon") %></i></li>
-              <li><%= link_to "Registrieren", new_user_registration_path%><i><%= image_tag("register-v3.png",:alt => "Registrieren - Bild", class:"top-icon") %></i></li>
-              <% end %>
-  
-              <li class="contrast" id="contrast">Kontrast:
-                <a tabindex=0 title="Hoher Kontrast" id="contrast-black"><%= image_tag("contrast-2.png",class: "contrast-icon" ,:alt => "Zu hohem Kontrast wechseln")%></a>
-                <a tabindex=0 title="Normaler Kontrast" id="contrast-white"><%= image_tag("contrast-1.png",class: "contrast-icon",:alt => "Zu den Standardfarben wechseln")%></a>
-                <a tabindex=0 title="Normaler Kontrast" id="contrast-white"><%= image_tag("normal-ct.png",class: "contrast-icon",:alt => "Zu den Standardfarben wechseln")%></a>
-              </li>
-             
 
-             <li class="fontsize">Schriftgröße:
-              <a tabindex=0 title="Groß" id="zoom-out"><%= image_tag("zoom-out.png",:alt => "Vergrößerte Schriftgröße",class: "zoom-out")%></a>
-              <a href="#" tabindex=0 title="Normal" ><%= image_tag("zoom.png",:alt => "Normale Schriftgröße", class: "normal")%></a>
-              <a tabindex=0 title="Sehr groß" id="zoom-in"><%= image_tag("zoom-in.png",:alt => "Stark vergrößerte Schriftgröße", class: "zoom-in")%></a>
-             </li>
-
-              <li><%= link_to_unless I18n.locale == :en, image_tag("English.png", :alt => "Zur Englischen Seite wechseln", :class =>"language"),set_language_english_path%>
-              </li>
+          <!-- This is optional, comment out if you do not need this set of dropdowns at the top -->
+          <div class="dropdown pull-left">
+            <button class="btn btn-link dropdown-toggle" type="button" id="lang_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <em class="fa fa-globe" aria-hidden="true"></em> English
+            <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="lang_menu">
+              <li><a href="#">English</a></li>
+              <li><a href="#">French</a></li>
+              <li><a href="#">Spanish</a></li>
+              <li><a href="#">Russian</a></li>
             </ul>
           </div>
+
+          <!-- Enable the user to adjust the font size of the web page -->
+          <div class="menu-block pull-left hidden-xs">Text Size:</div>
+          <button type="button" class="btn btn-link pull-left hidden-xs increase-font" aria-label="Increase"><em class="fa fa-plus" aria-hidden="true"></em></button>
+          <button type="button" class="btn btn-link pull-left hidden-xs decrease-font" aria-label="Decrease"><em class="fa fa-minus" aria-hidden="true"></em></button>
+
+          
+          <!-- Secondary navigation and login dropdown -->
+          <div class="menu-block pull-right no-pad">
+            <ul>
+              <!-- Example secondary links -->
+              <li><a href="#" class="btn btn-link">Link One</a></li>
+              <li><a href="#" class="btn btn-link">Link Two</a></li>
+              <li><a href="#" class="btn btn-link">Link Three</a></li>
+              
+              <!-- Login dropdown -->
+              <li class="dropdown">
+                    <a href="#" class="dropdown-toggle btn-login" data-toggle="dropdown"><em class="fa fa-lock" aria-hidden="true"></em>  Sign In</a>
+                <ul id="login-dp" class="dropdown-menu">
+                  <li>
+                     <div class="row">
+                        <div class="col-md-12">
+                           <form class="form" role="form" method="post" action="login" id="login-nav">
+                              <div class="form-group">
+                                 <label for="loginUser">Username</label>
+                                 <input type="text" class="form-control" id="loginUser" placeholder="Username" required>
+                              </div>
+                              <div class="form-group">
+                                 <label for="loginPassword">Password</label>
+                                 <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
+                                                       <div class="help-block text-right"><a href="#">Forget password?</a></div>
+                              </div>
+                              <div class="form-group">
+                                 <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                              </div>
+                           </form>
+                        </div>
+                        <div class="bottom text-center col-sm-12">
+                          <a href="#">Register new account</a>
+                        </div>
+                     </div>
+                  </li>
+                </ul>
+                  </li>
+                </ul>
+          </div>
+
         </div>
-      </div> 
+      </div>
 
-      <div class="navbar-main">
-        <div class="container">
-          <div class="navbar-collapse collapse pull-left">
-            <h2 class="offscreen">Hauptnavigation</h2>
-            <ul class="nav navbar-nav" id="nav">
-              <li><%= link_to 'Starteseite', root_path %></li>
-              <li><%= link_to "Alle Apps", all_apps_path %></li>
-              <li><%= link_to 'Neuigkeiten', notification_path %></li>
-              <li><%= link_to "Leichte Sprache", help_path %></li>
-              <li><%= link_to "Über uns", about_us_path %></li>
-              <li><%= link_to "Kontakt", new_message_path %></li>
-              <% if user_signed_in? && (current_user.admin ==true or current_user.superadmin == true) %>
-              <li><%= link_to "Administration", rails_admin.dashboard_path, method: :get %><li>  
-                <% end %>
+      <div class="container">
+        
+        <!-- Mobile hamburger style menu -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top_main_navigation" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">
+            <img src="assets/img/global/logo-dark.png" alt="Back to home" />
+          </a>
+        </div>
+
+        <!-- Main site header -->
+        <div class="collapse navbar-collapse" id="top_main_navigation">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="index.html">Static Photo</a></li>
+                <li><a href="home2.html">Rotating Photo</a></li>
+                <li><a href="home3.html">Video Background</a></li>
+                <li><a href="home4.html">Coming Soon</a></li>
               </ul>
-            </div> 
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="page1.html">General Content</a></li>
+                <li><a href="page2.html">Blog Main</a></li>
+                <li><a href="page3.html">Blog Article</a></li>
+                <li><a href="page4.html">Portfolio</a></li>
+                <li><a href="page5.html">Job Listing</a></li>
+                <li><a href="page6.html">Job Detail</a></li>
+                <li><a href="page7.html">Search Results</a></li>
+                <li><a href="page8.html">User Profile</a></li>
+                <li><a href="page9.html">Login</a></li>
+                <li><a href="page10.html">Sign-Up</a></li>
+                <li><a href="page11.html">404 Not Found</a></li>
+                <li><a href="page12.html">Legal</a></li>
+              </ul>
+            </li>
+            <li><a href="components.html">Components</a></li>
+          </ul>
 
-            <div class="navbar-collapse collapse pull-right" role="searchbar">
-              <%= form_tag apps_path, method: :get, class: "navbar-form navbar-right", :style =>"padding-top:6px", 
-              role: "search" do %>
-      
-              <div class="input-group">
-                <%= text_field_tag :search, params[:search], class: "form-control", 
-                placeholder:"Suche nach Apps...", :style =>"border-radius: 5px" %>
-                <div class="input-group-btn">
-                  <button class="btn btn-third" type="submit" title="Suchen">
-                    <span class="fa fa-search" aria-hidden="true"></span>
-                  </button>
-                </div>
-              </div>
-              <% end %> 
+          <form class="navbar-form navbar-right hidden-sm hidden-md" action="page7.html">
+            <div class="input-group">
+              <label for="search_main" class="hidden">Site Search</label>
+              <input type="text" class="form-control" id="search_main" placeholder="Search this site">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit" aria-label="Search"><em class="fa fa-search" aria-hidden="true"></em></button>
+              </span>
             </div>
-          </ul>     
+          </form>
         </div>
       </div>
     </nav>
-</header>
 
-<main role="main" id="main"  tabindex="-1">
-  <div class="container">
-    <br>
-    <p aria-hidden="false"><%= render_breadcrumbs %></p>
-    <% if notice %>
-    <p role="notice" class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-    <p role="alert" class="alert alert-danger"><%= alert %></p>
-    <% end %>
-    <%= yield %>
-    <a id="back-to-top" class="back-to-top" href="#"
-    role="button" title="Back to Top" data-toggle="tooltip" data-placement="top" style="cursor: pointer;position: fixed;bottom: 40px;right: 20px;display: inline;z-index: 100;"><%= image_tag("top.png", :alt => "Zum Seitenanfang", :size=> "50x50") %>
-    </a>
-
-  </div>
-</main>
-
-<footer role="contentinfo" class="main-footer">
-    <div class="footer-main">
-      <div class="container">
-        <div class="col-sm-6 col-xs-6 text-left">
-          <h2 class="offscreen">Weiter Seiten</h2>
-          <ul class="list-unstyled list-inline header-contact">
-            <li><%= link_to 'Haftungsausschluss', disclaimer_path %></li>
-          </ul>
-        </div>
-        <div class="col-sm-6 col-xs-6 text-right">
-          <ul class="list-unstyled list-inline header-social"> Teilen auf:
-            <li>Facebook <a href="https://facebook.com/sharer/sharer.php?u=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com" title="Auf Facebook teilen"><i class="fa fa-facebook"></i></a></li>
-            <li>Twitter<a href="https://twitter.com/intent/tweet/?text=Super%20great%20and%20easy%20App%20Web.&amp;url=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com" title="Auf Twitter teilen"><i class="fa fa-twitter"></i></a></li>
-            <li>Google<a href="https://plus.google.com/share?url=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com" title="Auf Google Plus teilen"> <i class="fa fa-google"></i></a></li>
-            <li>Pintrest<a href="https://pinterest.com/pin/create/button/?url=http%3A%2F%2Fsharingbuttons.io&amp;media=http%3A%2F%2Fsharingbuttons.io&amp;summary=Super%20great%20and%20easy%20App%20Web." title="Auf Pintrest teilen"> <i class="fa fa fa-pinterest-p"></i></a></li>
-          </ul> 
+    <div class="banner home-1" data-type="background" data-speed="4">
+      <div class="banner-interior">
+        <div class="container tall">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1 text-center">
+              <h1>Accessible Framework</h1>
+              <p class="lead">A simple theme for building WCAG compliant web experiences</p>
+              <p><a href="page1.html" class="btn btn-primary btn-lg">Page Templates</a> <a href="components.html" class="btn btn-default btn-lg">Components</a></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <div class="container text-left">
-        <div class="col-md-12">
-          <p>Copyright @ Universität Mannheim 2016</p>
+
+    <!-- Begin main page content -->
+    <div class="content" id="main_content">
+      <div class="container">
+        
+        <!-- Secondary headline -->
+        <div class="row pad-top-sm pad-bottom line-bottom">
+          <div class="col-md-12 text-center">
+            <h2 class="text-center">Enhancing Bootstrap's Accessibility </h2>
+            <p class="lead">The Accessible Theme aims to standardize coding practices and empower developers to build websites and apps with pre-tested WCAG 2.0 AA components. All templates within this theme have been rigorously tested to the WCAG 2.0 AA standard for schematics, contrast ratios and best practices.</p>
+          </div>
+        </div>
+
+
+        <div class="row pad-bottom line-bottom">
+          <div class="col-md-5">
+            <h3>Two Color Schemes</h3>
+            <p>Accessible is equipped with two independent colored schemes. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis turpis nec dui cursus facilisis. Cras lacus elit, fermentum eu vulputate quis, tempor nec metus. Sed ut enim metus. Suspendisse id augue lectus. </p>
+            <hr />
+            <h3>Simple and Well Documented CSS</h3>
+            <p>The theme CSS for Accessible is well documented, extensible and just shy of 700 lines. The theme focuses on maximizing flexibility while maintaining simplisity.</p> 
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis turpis nec dui cursus facilisis. Cras lacus elit, fermentum eu vulputate quis, tempor nec metus. </p>
+            
+          </div>
+
+          <div class="col-md-6 col-md-offset-1">
+            <img src="assets/img/demo/home-call1.png" alt="placeholder image" class="img-responsive img-rounded" />
+          </div>
+        </div>
+
+        <div class="row pad-bottom">
+          <div class="col-md-7">
+            <img src="assets/img/demo/home-call2.png" alt="placeholder image" class="img-responsive img-rounded" />
+          </div>
+
+          <div class="col-md-4 col-md-offset-1">
+            <h3>Ideal for Government &amp; Healthcare</h3>
+            <p>The need for Accessible was driven based upon our work with healthcare and government agencies required to maintain/implement WCAG compliance. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis turpis nec dui cursus facilisis. Cras lacus elit, fermentum eu vulputate quis, tempor nec metus.</p>
+            <hr />
+            <h3>Mobile &amp; Tablet Friendly</h3>
+            <p>Based upon Bootstrap 3, Accessible is designed to support a wide array of smartphone and tablet devices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis turpis nec dui cursus facilisis.</p>
+            <a href="#" class="btn btn-primary btn-lg">Click Here</a>
+          </div>
         </div>
       </div>
-    </div> 
+    </div>
 
-  </footer> 
-<script>
-   $('#zoom-in').click(function() {
-    updateZoom(10);
-   }); 
-   $('#zoom-out').click(function() {
-    updateZoom(-5);
-   });
 
-     zoomLevel = 10;
-     var updateZoom = function(zoom) {
-       if(zoom==0) zoomLevel=0;
-       else 
-        zoomLevel += zoom; 
-        $('body').css("font-size", zoomLevel );
-        $('p').css("font-size", zoomLevel);
-        $('h4').css("font-size", zoomLevel);
-        $('h2').css("font-size", zoomLevel);
-        $('label').css("font-size", zoomLevel);
-        $('li').css("font-size", zoomLevel);
-        $('button').css("font-size", zoomLevel);
-     }
-</script>
-<script>
-    $('#back-to-top').click(function() {
-      top();
-    }); 
-    var top = function() {
-      $('html,body').scrollTop(0);
-     }
-</script>> 
-<script>
-  if ($('#back-to-top').length) {
-      var scrollTrigger = 100, // px
-          backToTop = function () {
-              var scrollTop = $(window).scrollTop();
-              if (scrollTop > scrollTrigger) {
-                  $('#back-to-top').addClass('show');
-              } else {
-                  $('#back-to-top').removeClass('show');
-              }
-          };
-      backToTop();
-      $(window).on('scroll', function () {
-          backToTop();
-      });
-      $('#back-to-top').on('click', function (e) {
-          e.preventDefault();
-          $('html,body').animate({
-              scrollTop: 0
-          });
-      });
-  }
-</script> 
-<script>
-  $(document).ready(function () {
-      $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
-  });
-</script>
-<script>
-     $('#contrast-black').click(function() {
-       contrast();
-     }); 
-       var contrast = function() {
-         $('body').css("background-color", "black");
-         $('div').css("background-color", "black");
-         $('p').css("color", "white");
-         $('h4').css("color", "white");
-         $('h2').css("color", "white");
-         $('li').css("color", "white");
-         $('label').css("color", "white");
-         $('@title').css("color", "white");
-       }
-</script> 
-<script>
-     $('#contrast-white').click(function() {
-       contrast();
-     }); 
-       var contrast = function() {
-         $('body').css("background-color", "white");
-         $('div').css("background-color", "white");
-         $('p').css("color", "black");
-         $('h4').css("color", "black");
-         $('h2').css("color", "black");
-         $('li').css("color", "black");
-         $('label').css("color", "black");
-         $('@title').css("color", "black");
-       }
-</script> 
+    <div class="banner interior home-2" data-type="background" data-speed="4">
+      <div class="banner-interior">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1 text-center">
+              <h3>Inline Banner</h3>
+              <p class="lead">This is an example of an inline banner ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <p><a href="page1.html" class="btn btn-primary btn-lg">See More Layouts</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<script>
-  $(document).ready(function() {
-    // add a click handler to all links 
-    // that point to same-page targets (href="#...")    
-    $("a[href^='#']").click(function() {
-      // get the href attribute of the internal link
-      // then strip the first character off it (#)
-      // leaving the corresponding id attribute
-      $("#"+$(this).attr("href").slice(1)+"")
-        // give that id focus (for browsers that didn't already do so)
-        .focus()
-        // add a highlight effect to that id (comment out if not using)     
-        .effect("highlight", {}, 3000);
-    });
-  });
-</script>
 
-</body>
+
+    <div class="content">
+
+      <div class="container">   
+
+
+        <div class="row pad-top-sm pad-bottom-sm">
+          <div class="col-md-12 text-center">
+            <h3 class="text-center large">App-like mobile grid/list combos</h3>
+            <p class="lead">View the theme on mobile to check out how the following images and the previous icons scaffold on mobile</p>
+          </div>
+        </div>
+
+        <!-- Icon row one -->
+        <div class="row text-center pad-top-sm pad-bottom-sm ">
+
+          <div class="col-sm-4">
+            <a href="page3.html">
+              <div class="row mobile-left">
+                <div class="col-xs-5 col-sm-12 text-center">
+                  <em class="fa fa-rounded fa-list" aria-hidden="true"></em>
+                </div>
+                <div class="col-xs-7 col-sm-12">
+                  <h4>Blog Styling Included</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <hr class="visible-xs col-xs-12" />
+
+          <div class="col-sm-4">
+            <a href="page5.html">
+              <div class="row mobile-left">
+                <div class="col-xs-5 col-sm-12 text-center">
+                  <em class="fa fa-rounded fa-user" aria-hidden="true"></em>
+                </div>
+                <div class="col-xs-7 col-sm-12">
+                  <h4>Job Listing Components</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <hr class="visible-xs col-xs-12" />
+
+          <div class="col-sm-4">
+            <a href="page4.html">
+              <div class="row mobile-left">
+                <div class="col-xs-5 col-sm-12 text-center">
+                  <em class="fa fa-rounded fa-th" aria-hidden="true"></em>
+                </div>
+                <div class="col-xs-7 col-sm-12">
+                  <h4>Filterable Portfolio</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+
+        <!-- Image row NEW MARKUP -->
+        <div class="row text-center">
+
+          <hr class="visible-xs col-xs-12" />
+
+          <div class="col-sm-4">
+            <a href="#" class="no-hover fancy-hover">
+              <div class="row mobile-left">
+                <div class="col-xs-5 col-sm-12">
+                  <img src="assets/img/demo/500placeholder.jpg" alt="placeholder image" class="img-responsive img-circle img-pad" />
+                </div>
+                <div class="col-xs-7 col-sm-12">
+                  <h4>Example 1</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <hr class="visible-xs col-xs-12" />
+
+          <div class="col-sm-4">
+            <a href="#" class="no-hover fancy-hover">
+              <div class="row mobile-left">
+                <div class="col-xs-5 col-sm-12">
+                  <img src="assets/img/demo/500placeholder.jpg" alt="placeholder image" class="img-responsive img-circle img-pad" />
+                </div>
+                <div class="col-xs-7 col-sm-12">
+                  <h4>Example 2</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <hr class="visible-xs col-xs-12" />
+
+          <div class="col-sm-4">
+            <a href="#" class="no-hover fancy-hover">
+              <div class="row mobile-left">
+                <div class="col-xs-5 col-sm-12">
+                  <img src="assets/img/demo/500placeholder.jpg" alt="placeholder image" class="img-responsive img-circle img-pad" />
+                </div>
+                <div class="col-xs-7 col-sm-12">
+                  <h4>Example 3</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      
+      </div>
+    </div>
+
+    
+
+
+    <!-- Footer element -->
+    <footer>
+      <div class="container">
+        <div class="row footer-one">
+          <div class="col-md-7 hidden-sm hidden-xs">
+
+            <div class="row sub-links">
+              <div class="col-xs-3">
+                <ul class="list-unstyled">
+                  <li><strong>Home Concepts</strong></li>
+                  <li><a href="index.html">Static Photo</a></li>
+                  <li><a href="home2.html">Rotating Photo</a></li>
+                  <li><a href="home3.html">Video Background</a></li>
+                  <li><a href="home4.html">Coming Soon</a></li>
+                </ul>
+              </div>
+              <div class="col-xs-3">
+                <ul class="list-unstyled">
+                  <li><strong>Page Concepts</strong></li>
+                  <li><a href="page1.html">General Content</a></li>
+                  <li><a href="page2.html">Blog Main</a></li>
+                  <li><a href="page3.html">Blog Article</a></li>
+                  <li><a href="page4.html">Portfolio</a></li>
+                  <li><a href="page5.html">Job Listing</a></li>
+                  <li><a href="page6.html">Job Detail</a></li>
+                  <li><a href="page7.html">Search Results</a></li>
+                </ul>
+              </div>
+              <div class="col-xs-3">
+                <ul class="list-unstyled">
+                  <li><strong>Page Concepts (cont.)</strong></li>
+                  <li><a href="page8.html">User Profile</a></li>
+                  <li><a href="page9.html">Login</a></li>
+                  <li><a href="page10.html">Sign-Up</a></li>
+                  <li><a href="page11.html">404 Not Found</a></li>
+                  <li><a href="page12.html">Legal</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5 text-right social mobile-left">
+            Connect:
+            <a href="#" target="blank" aria-label="Navigate to Facebook"><em class="fa fa-facebook" aria-hidden="true"></em></a>
+            <a href="#" target="blank" aria-label="Navigate to Twitter"><em class="fa fa-twitter" aria-hidden="true"></em></a>
+            <a href="#" target="blank" aria-label="Navigate to YouTube"><em class="fa fa-youtube" aria-hidden="true"></em></a>
+            <a href="#" target="blank" aria-label="Navigate to Pinterest"><em class="fa fa-pinterest" aria-hidden="true"></em></a>
+            <a href="#" target="blank" aria-label="Navigate to LinkedIn"><em class="fa fa-linkedin" aria-hidden="true"></em></a>
+            <a href="#" target="blank" aria-label="Navigate to Instagram"><em class="fa fa-intagram" aria-hidden="true"></em></a>
+            <span class="spacer" aria-hidden="true"> | </span>
+            <a href="#" target="blank" aria-label="Navigate to iPhone App"><em class="fa fa-apple" aria-hidden="true"></em></a>
+            <a href="#" target="blank" aria-label="Navigate to Android App"><em class="fa fa-android" aria-hidden="true"></em></a>
+
+            <hr />
+
+            <address>
+              <strong>ABC Organization</strong><br />
+              1234 Main Street<br />
+              Suite 12345<br />
+              Treasure Island, FL 33706<br />
+            </address>
+          </div>
+        </div>
+        <div class="row footer-links">
+          <div class="col-sm-12">
+            <a href="#">Page One</a>
+            <a href="#">Page Two</a>
+            <a href="#">Page Three</a>
+            <a href="#">Page Four</a>
+            <a href="#">Page Five</a>
+            <a href="#">Page Six</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit velit sit amet sodales porttitor. Praesent vitae dolor ornare, varius dolor ut, vehicula urna. Suspendisse egestas arcu ut pretium rutrum. Nullam mattis magna nec mauris aliquet, suscipit lobortis sem finibus. Sed sollicitudin erat mollis scelerisque rutrum. Duis dapibus id leo scelerisque pretium. Nulla facilisi.</p>
+            <p>&copy; 2017 <strong>Your Organization</strong>. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    
+  </body>
+
 </html>
