@@ -4,19 +4,19 @@ before_action :find_app, only: [:show, :edit, :update, :destroy, :upvote, :downv
 	
 	def index
 
-		@apps_all= App.all
-		@categories_list= Category.all
-		@operatingsystem_list= Operatingsystem.all
+  	@editor_picks= Pick.first.apps
 
-		if params[:category].blank? && params[:search].blank?
-		
-		elsif !params[:category].blank? && params[:search].blank?
-			@category_id = Category.find_by(name: params[:category]).id
-			@apps_all = App.where(:category_id => @category_id).order("created_at DESC")
-		else
-			@apps_all = App.where("name LIKE ? or searchDescription LIKE ?  or developer LIKE ? or price LIKE ? or app_type LIKE ?","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%")
-  		end		
-@apps_high = App.joins(:reviews).select("*, AVG(reviews.rating) as average_rating").group("apps.id").order("average_rating DESC")
+  	@apps_all= App.all
+  	@categories_list= Category.all
+  	@operatingsystem_list= Operatingsystem.all
+  	if params[:category].blank? && params[:search].blank?
+  	elsif !params[:category].blank? && params[:search].blank?
+  		@category_id = Category.find_by(name: params[:category]).id
+  		@apps_all = App.where(:category_id => @category_id).order("created_at DESC")
+  	else
+  		@apps_all = App.where("name LIKE ? or searchDescription LIKE ?  or developer LIKE ? or price LIKE ? or app_type LIKE ?","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%")
+  	end		
+  	@apps_high = App.joins(:reviews).select("*, AVG(reviews.rating) as average_rating").group("apps.id").order("average_rating DESC")
 
 	end
 

@@ -1,4 +1,5 @@
 <% @title="Zappatory.com - Verzeichnis für assistive Apps -index" %>
+
 <div class="main">
 	<div class="container">
 		<div class="jumbotron home-1">
@@ -8,108 +9,47 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<h2 class="title-style-3" aria-hidden="false">Appication Categories<span class="title-under"></span></h2>
-		</div>
-	</div>
-	
-
-	<% if params[:category].blank? && params[:search].blank? %>
-	<% @categories_list.each do |category| %>
-	<div class="our-team">
-		<div class="container">
-			<div class="col-md-12">
-				<div class="col-md-6">
-					<h2 class="title-style-3 text-aquacolor" aria-hidden="false" style="margin-left:-30px" ><%= category.name %></h2>
-				</div>
-				<div class="col-md-6">
-					<button class="btn btn-third pull-right" tabindex=0 role=button style="margin-top:25px;margin-right:-30px">
-						<%= link_to "Mehr Apps...", 
-						controller: "categories", action: "show", id: category.id , title:"Mehr Apps von dieser Kategorie..."%><span class="fa fa-external-link"></span>
-					</button>
-				</div>
-			</div>		
-			<div class="row white-border" style="padding-top:20px">
-				<% App.where(category_id: category.id).limit(6).each do |apps| %>
-				<div class="col-md-2 col-sm-2">
-					<div class="team-member">
-						<div class="thumnail" > 
-							<a tabindex=0 role=button href="/apps/<%= apps.id %>" title="To the App page">
-								<%= image_tag apps.app_img.url(:app_index) , alt: apps.name %>
-							</a>
-						</div>
-						<p class="app-name" aria-hidden="false"><%=  apps.name %></p>
-						<p class="app-name" aria-hidden="false"><%=  apps.app_type %></p>
-						<% if apps.price == 0 %>
-						<p class="app-name" aria-hidden="false"> Free </p>
-						<% else %>
-						<p class="app-name" aria-hidden="false"><%= apps.price %>€</p>
-						<% end%>
-						<p class="offscreen">Average Rating:</p>
-						<div class="average-review-rating" 
-						data-score=<%= apps.reviews.average(:rating)%>>
-					    </div>
+		<h2 class="title-style-3" aria-hidden="false">Editors Top Picks<span class="title-under"></span>
+		</h2>
+		<div class="row white-border" style="padding-top:50px">
+			<% @editor_picks.limit(5).each do |apps| %>
+			<div class="col-md-2 col-sm-2">
+				<div class="team-member">
+					<div class="thumnail">
+						<a href="/apps/<%= apps.id %>"><%= image_tag apps.app_img.url(:app_index) %>
+						</a>
 					</div>
-					<br>
-				</div>
-				<% end %>	
-			</div><br>
-	</div>
-	</div>
-	<% end %>
-	<br>
-
-	<% elsif !params[:category].blank? && params[:search].blank? %>
-	<div class="row white-border" style="padding-top:20px">
-		<% @apps_all.each do |apps| %>
-			<div class="col-md-2 col-sm-2">
-			<div class="team-member">
-				<div class="thumnail">
-					<a role=button href="/apps/<%= apps.id %>" title="Zur Seite der App">
-						<%= image_tag apps.app_img.url(:app_index) , alt: apps.name %>
+					<p><%= link_to apps.name, app_path(apps) %></p>
+					<p class="app-name" aria-hidden="false"><%=  apps.app_type %></p>
+					<p class="app-name"><%= apps.price %>€</p>
+					<a href="/apps/<%= apps.id %>">
+						<div class="average-review-rating" data-score=
+						<%= apps.reviews.average(:rating) %>></div> 
 					</a>
-				</div>
-				<p class="app-name" aria-hidden="false"><%= apps.name %></p>
-				<p class="app-name" aria-hidden="false"><%=  apps.app_type %></p>
-				<p class="app-name" aria-hidden="false"><%= apps.price %>€</p>
-				 
-				<p class="offscreen">Durchschnittliche Bewertung:</p>
-				<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div>
-			</div><br>
+				</div><br></br>
+			</div>
+			<% end %>
+		</div><br></br>
+
+
+
+		<h2 class="title-style-3" aria-hidden="false">Best new apps<span class="title-under"></span>
+		</h2>
+
+		<h2 class="title-style-3" aria-hidden="false">Highest rated apps<span class="title-under"></span>
+		</h2>
+
+		<h2 class="title-style-3" aria-hidden="false">Highest rated apps<span class="title-under"></span>
+		</h2>
+		
+
+
+		<hr>
+
+		<div class="row">
+			<div class="col-sm-3">
+				<img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+				<p>Current Project</p>
+			</div>
 		</div>
-		<% end %>
-	</div><br>
-
-	<% elsif %>
-	<div class="row white-border" style="padding-top:20px">
-		<% @apps_all.each do |apps| %>
-			<div class="col-md-2 col-sm-2">
-			<div class="team-member">
-				<div class="thumnail">
-					<a role=button href="/apps/<%= apps.id %>" title="Zur Seite der App">
-						<%= image_tag apps.app_img.url(:app_index), alt: apps.name %>
-					</a>
-				</div>
-				<p class="app-name" aria-hidden="false"><%= apps.name %></p>
-				<p class="app-name" aria-hidden="false"><%=  apps.app_type %></p>
-				<p class="app-name" aria-hidden="false"><%= apps.price %>€</p>
-
-				<p class="offscreen">Durchschnittliche Bewertung:</p>
-				<div class="average-review-rating" data-score=<%= apps.reviews.average(:rating) %>></div>
-			</div><br>
-		</div>
-		<% end %>
 	</div>
-	</div>
-</div><br>
-<% end %>
-
-<script>
-	$('.average-review-rating').raty({
-		readOnly: true,
-		path: '/assets/',
-		score: function() {
-			return $(this).attr('data-score')
-		}
-	});
-</script>
