@@ -129,13 +129,10 @@
     <div class="collapse navbar-collapse" id="top_main_navigation">
       <ul class="nav navbar-nav">
         <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to "Apps", all_apps_path %></li>
         <li><%= link_to 'News', notification_path %></li>
-        <li><%= link_to "About Us" %></li>
-        <li><%= link_to "Contact", new_message_path %></li>
-          <% if user_signed_in? && (current_user.admin ==true or current_user.superadmin == true) %>
-        <li><%= link_to "Administration", rails_admin.dashboard_path, method: :get %><li>  
-          <% end %>
-        </ul>
+        <li><%= link_to "Simple Language", help_path %></li>
+      </ul>
         </div>
       </div>
     </nav>
@@ -157,45 +154,45 @@
       </div>
     </main>
 
+
+
     <!-- Footer element -->
     <footer>
       <div class="container">
         <div class="row footer-one">
+          
           <div class="col-md-7 hidden-sm hidden-xs">
             <div class="row sub-links">
               <div class="col-xs-3">
                 <ul class="list-unstyled">
-                  <li><strong>Home Concepts</strong></li>
-                  <li><a href="index.html">Static Photo</a></li>
+                  <li><strong>About and Contact</strong></li>
+                  <li><%= link_to "About Us" %></li>
+                  <li><%= link_to "Contact", new_message_path %></li>
                 </ul>
               </div>
+              <% if user_signed_in? && (current_user.admin ==true or current_user.superadmin == true) %>
               <div class="col-xs-3">
                 <ul class="list-unstyled">
-                  <li><strong>Page Concepts</strong></li>
-                  <li><a href="page1.html">General Content</a></li>
+                  <li><strong>Administration</strong></li>
+                  <li><%= link_to "Administration", rails_admin.dashboard_path, method: :get %><li>
                 </ul>
               </div>
+              <% end %>
             </div>
           </div>
+
           <div class="col-md-5 text-right social mobile-left">
             Connect:
-            <a href="#" target="blank" aria-label="Navigate to Facebook"><em class="fa fa-facebook" aria-hidden="true"></em></a>
-            <a href="#" target="blank" aria-label="Navigate to Twitter"><em class="fa fa-twitter" aria-hidden="true"></em></a>
+            <a href="https://facebook.com/sharer/sharer.php?u=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com" target="blank" aria-label="Navigate to Facebook"><em class="fa fa-facebook" aria-hidden="true"></em></a>
+            <a href="https://twitter.com/intent/tweet/?text=Super%20great%20and%20easy%20App%20Web.&amp;url=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com" target="blank" aria-label="Navigate to Twitter"><em class="fa fa-twitter" aria-hidden="true"></em></a>
             <a href="#" target="blank" aria-label="Navigate to YouTube"><em class="fa fa-youtube" aria-hidden="true"></em></a>
-            <a href="#" target="blank" aria-label="Navigate to Pinterest"><em class="fa fa-pinterest" aria-hidden="true"></em></a>
-            <a href="#" target="blank" aria-label="Navigate to LinkedIn"><em class="fa fa-linkedin" aria-hidden="true"></em></a>
-            <a href="#" target="blank" aria-label="Navigate to Instagram"><em class="fa fa-intagram" aria-hidden="true"></em></a>
-            <span class="spacer" aria-hidden="true"> | </span>
-            <a href="#" target="blank" aria-label="Navigate to iPhone App"><em class="fa fa-apple" aria-hidden="true"></em></a>
-            <a href="#" target="blank" aria-label="Navigate to Android App"><em class="fa fa-android" aria-hidden="true"></em></a>
-
+            <a href="https://pinterest.com/pin/create/button/?url=http%3A%2F%2Fsharingbuttons.io&amp;media=http%3A%2F%2Fsharingbuttons.io&amp;summary=Super%20great%20and%20easy%20App%20Web." target="blank" aria-label="Navigate to Pinterest"><em class="fa fa-pinterest" aria-hidden="true"></em></a>
             <hr />
-
           </div>
         </div>
         <div class="row footer-links">
           <div class="col-sm-12">
-            <a href="#">Page One</a>
+             <%= link_to 'Disclaimer', disclaimer_path %>
           </div>
         </div>
         <div class="row">
@@ -207,5 +204,4 @@
       </div>
     </footer>
   </body>
-
 </html>
