@@ -1,7 +1,8 @@
 <% @title="Zappatory.com - Verzeichnis für assistive Apps -index" %>
 
 <div class="main">
-	<div class="container">
+		
+
 		<div class="jumbotron home-1">
 			<div class="container">
 				<h1>Welcome to Zappatory.com!</h1>
@@ -9,8 +10,9 @@
 			</div>
 		</div>
 
-		<h2 class="title-style-3" aria-hidden="false">Editors Top Picks<span class="title-under"></span>
-		</h2>
+
+
+		<h2 class="title-style-3" aria-hidden="false">Editors Top Picks<span class="title-under"></span></h2>
 		<div class="row white-border" style="padding-top:50px">
 			<% @editor_picks.limit(5).each do |apps| %>
 			<div class="col-md-2 col-sm-2">
@@ -26,30 +28,9 @@
 						<div class="average-review-rating" data-score=
 						<%= apps.reviews.average(:rating) %>></div> 
 					</a>
-				</div><br></br>
+				</div>
 			</div>
 			<% end %>
-		</div><br></br>
-
-
-
-		<h2 class="title-style-3" aria-hidden="false">Best new apps<span class="title-under"></span>
-		</h2>
-
-		<h2 class="title-style-3" aria-hidden="false">Highest rated apps<span class="title-under"></span>
-		</h2>
-
-		<h2 class="title-style-3" aria-hidden="false">Highest rated apps<span class="title-under"></span>
-		</h2>
-		
-
-
-		<hr>
-
-		<div class="row">
-			<div class="col-sm-3">
-				<img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-				<p>Current Project</p>
-			</div>
 		</div>
-	</div>
+
+</div>
