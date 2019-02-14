@@ -115,7 +115,7 @@ a {
 }
 .line-bottom {
   border-bottom: 1px solid #e7e7e7;
-  margin-bottom: 50px;
+ /* margin-bottom: 50px; */ 
 }
 .no-margin {
   margin: 0;
@@ -142,6 +142,10 @@ a {
 .btn {
   padding-left: 40px;
   padding-right: 40px;
+}
+.btn-nopad {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 .btn-primary {
   background-color: #137e91;
@@ -776,4 +780,18 @@ footer .social a {
 }
 .team-member .member-position {
   padding: 0 15px 5px;
+}
+
+p.offscreen{
+  position:absolute;
+  left:-1000px;
+  top:-1000px;
+  width:1px;
+  height:1px;
+  text-align: left; 
+  overflow:hidden;
+}
+
+.footer-form .form-group {
+  margin-bottom: 5px;
 }

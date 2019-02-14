@@ -1,13 +1,11 @@
-<div class="form-group" style="border-top: 1px solid #9E9E9E; padding:1px;">
+<div class="form-group"">
 	<p aria-hidden="false"><b><%= review.user.username %>:&nbsp;</b><%= review.comment %></p>
 	<div class="review-rating" data-score="<%= review.rating %>"><label><p aria-hidden="false">Rating:&nbsp;</p></label></div>
 	<p class="offscreen">Rating:&nbsp;<%= review.rating %>&nbsp;of 5 Stars</p>
-		<% if user_signed_in? %>
-
-		<% if review.user_id == current_user.id %>			
-			<%= link_to "Edit", edit_app_review_path(review.app, review)%>
-			<%= link_to "Delete", app_review_path(review.app, review), method: :delete, data: { confirm: "Are you sure?" }%>
-		<% end %>	
-
+	<% if user_signed_in? %>
+	<% if review.user_id == current_user.id %>			
+	<%= link_to "Edit", edit_app_review_path(review.app, review)%>
+	<%= link_to "Delete", app_review_path(review.app, review), method: :delete, data: { confirm: "Are you sure?" }%>
+	<% end %>
 	<% end %>
 </div>
