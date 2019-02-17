@@ -28,19 +28,19 @@ App.delete_all
 #:app_img_file_name => 
 #File.open(File.join(  Rails.root, 'public', 'stock', 'app1.jpg')
 first_app = App.create(:id => 1, :name => "Blind 1", :price => 12.00, :category_id => 1, :user_id => 1)
-second_app = App.create(:id => 2, :name => "Blind 2", :price => 9.00, :category_id => 1, :app_img_file_name => "app2.jpg", :user_id => 1 )
-third_app = App.create(:id => 3, :name => "Blind 3", :price => 10.00, :category_id => 1, :app_img_file_name => "app3.jpg" , :user_id => 1)
-fourth_app = App.create(:id => 4,:name => "Blind 4", :price => 100.00, :category_id => 1, :app_img_file_name => "app4.jpg" )
-fifth_app = App.create(:id => 5,:name => "Blind 5", :price => 99.00, :category_id => 1, :app_img_file_name => "app5.jpg" )
-fifth_app = App.create(:id => 11,:name => "Blind 5", :price => 99.00, :category_id => 1, :app_img_file_name => "app5.jpg" )
+second_app = App.create(:id => 2, :name => "Blind 2", :price => 9.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app2.jpg", :user_id => 1 )
+third_app = App.create(:id => 3, :name => "Blind 3", :price => 10.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app3.jpg" , :user_id => 1)
+fourth_app = App.create(:id => 4,:name => "Blind 4", :price => 100.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app4.jpg" )
+fifth_app = App.create(:id => 5,:name => "Blind 5", :price => 99.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app5.jpg" )
+fifth_app = App.create(:id => 11,:name => "Blind 5", :price => 99.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app5.jpg" )
 rep_app = App.create!(:id => 13,:name => "Blind 11", :price => 99.00, :category_id => 1)
 
 
-sixth_app = App.create(:id => 6, :name => "Sight 1", :price => 12, :category_id => 2, :app_img_file_name => "app6.jpg" )
-seventh_app = App.create(:id =>7, :name => "Sight 2", :price => 9, :category_id => 2, :app_img_file_name => "app7.jpg" )
-eight_app = App.create(:id =>8, :name => "Sight 3", :price => 0, :category_id => 2, :app_img_file_name => "app8.jpg")
-ninth_app = App.create(:id =>9,:name => "Sight 4", :price => 100, :category_id => 2, :app_img_file_name => "app9.jpg" )
-tenth_app = App.create(:id =>10,:name => "Sight 5", :price => 99, :category_id => 2, :app_img_file_name => "app10.jpg" )
+sixth_app = App.create(:id => 6, :name => "Sight 1", :price => 12, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app6.jpg" )
+seventh_app = App.create(:id =>7, :name => "Sight 2", :price => 9, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app7.jpg" )
+eight_app = App.create(:id =>8, :name => "Sight 3", :price => 0, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app8.jpg")
+ninth_app = App.create(:id =>9,:name => "Sight 4", :price => 100, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app9.jpg" )
+tenth_app = App.create(:id =>10,:name => "Sight 5", :price => 99, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app10.jpg" )
 
 Review.delete_all
 
