@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta http-equiv="content-type" content="text/html" charset="UTF-8"
+  name="viewport" content="width=device-width, initial-scale=0.80"/>
+
+  <!-- Descriptive meta -->
+  <title>Zappatory.com - Supportive Apps Directory</title>
+  <meta name="title" content="max 65 character title">
+  <meta name="description" content="max 165 character description">
+  <meta name="keywords" content="comma, separated, list">
+  <meta name="author" content="University of Mannheim">
+
+  <!-- Stylesheets -->
+
+  <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' type='text/css'>
+  <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700'  type='text/css'>
+  <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+
+  
+  <%= stylesheet_link_tag "application", media: "all" ,'data-turbolinks-track' => true%>
+  <%= stylesheet_link_tag 'app', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'category-apps', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'app', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'bootstrap-hover-dropdown.min', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'jquery.smooth-scroll.min', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'jquery.vide.min', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'jquery.bgswitcher', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+ <script>
+  (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+  e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+  e.src='http:http://www.google-analytics.com/analytics.js';
+  r.parentNode.insertBefore(e,r)}(window,document,'script','ga');
+  ga('create','UA-XXXXX-X');ga('send','pageview');
+  </script>
+
+  <script>
+    $(function() {
+        $('#nav li a').click(function() {
+           $('#nav li').removeClass();
+           $($(this).attr('href')).addClass('active');
+        });
+     });
+  </script>
+
+<script type="text/javascript">
+$(document).ready( function(e) {
+    $('.hidden').click( function( e) {
+        var selector = $(this).attr( 'href');
+        if ( selector) {
+            $(selector).focus();
+            e.preventDefault();
+        }
+    });
+});
+</script>
+</head>
+
+<body>
+<!-- Main navigation element for site, html5 elements used to improve rendering on assistive devices -->
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-white">
+  <div class="top-header">
+    <div class="container">
+      <!-- Skip to content link allows users rendering the site on a screen reader to skip past navigational elements -->
+      <div class="menu-block pull-left no-pad hidden-xs">
+        <a href="#main_content" class="btn btn-link scroller">
+          <em class="fa fa-level-down" aria-hidden="true"></em> Skip to Content &nbsp;
+        </a>
+      </div>
+
+      <div class="dropdown pull-left">
+        <button class="btn btn-link dropdown-toggle" type="button" id="lang_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <em class="fa fa-globe" aria-hidden="true"></em> English
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="lang_menu">
+          <li><a href="#">English</a></li>
+          <li><a href="#">Arabic</a></li>
+        </ul>
+      </div>
+
+
+      <!-- Enable the user to adjust the font size of the web page -->
+      <div class="menu-block pull-left hidden-xs">Text Size:</div>
+      <button type="button" class="btn btn-link pull-left hidden-xs increase-font" aria-label="Increase"><em class="fa fa-plus" aria-hidden="true"></em></button>
+      <button type="button" class="btn btn-link pull-left hidden-xs decrease-font" aria-label="Decrease"><em class="fa fa-minus" aria-hidden="true"></em></button>
+
+
+      <!-- Secondary navigation and login -->
+      <div class="menu-block pull-right hidden-xs">
+        <ul>
+          <% if user_signed_in? %>
+          <li><%= link_to "My Account", current_user %></li>&nbsp;&nbsp;
+          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+          <% else %>  
+          <li><%= link_to "Sign-In", new_user_session_path %></li> &nbsp;&nbsp;
+          <li><%= link_to "Registration", new_user_registration_path%></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container navbar-main">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top_main_navigation" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand">
+        <%= link_to image_tag("logo.png"), root_path, class: "navbar-brand", alt: "back to home" %>
+      </a>
+    </div>
+
+
+    <!-- Main site header -->
+    <div class="collapse navbar-collapse" id="top_main_navigation">
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to "Apps", all_apps_path %></li>
+        <li><%= link_to 'News', notification_path %></li>
+        <li><%= link_to "Simple Language", help_path %></li>
+      </ul>
+        </div>
+      </div>
+    </nav>
+    
+
+    <!-- Main element -->
+    <main role="main" id="main_content">
+      <div class="container">
+        <br><br/>
+        <% if notice %>
+        <p role="notice" class="alert alert-success"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+        <p role="alert" class="alert alert-danger"><%= alert %></p>
+        <% end %>
+        <%= yield %>
+        <a id="back-to-top" class="back-to-top" href="#"
+        role="button" title="Back to Top" data-toggle="tooltip" data-placement="top" style="cursor: pointer;position: fixed;bottom: 40px;right: 20px;display: inline;z-index: 100;"><%= image_tag("top.png", :alt => "Zum Seitenanfang", :size=> "50x50") %>
+        </a>
+      </div>
+    </main>
+
+
+
+    <!-- Footer element -->
+    <footer>
+      <div class="container">
+        <div class="row footer-one">
+          
+          <div class="col-md-7 hidden-sm hidden-xs">
+            <div class="row sub-links">
+              <div class="col-xs-3">
+                <ul class="list-unstyled">
+                  <li><strong>About and Contact</strong></li>
+                  <li><%= link_to "About Us" %></li>
+                  <li><%= link_to "Contact", new_message_path %></li>
+                </ul>
+              </div>
+              <% if user_signed_in? && (current_user.admin ==true or current_user.superadmin == true) %>
+              <div class="col-xs-3">
+                <ul class="list-unstyled">
+                  <li><strong>Administration</strong></li>
+                  <li><%= link_to "Administration", rails_admin.dashboard_path, method: :get %><li>
+                </ul>
+              </div>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="col-md-5 text-right social mobile-left">
+            Connect:
+            <a href="https://facebook.com/sharer/sharer.php?u=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com" target="blank" aria-label="Navigate to Facebook"><em class="fa fa-facebook" aria-hidden="true"></em></a>
+            <a href="https://twitter.com/intent/tweet/?text=Super%20great%20and%20easy%20App%20Web.&amp;url=http%3A%2F%2Fyoung-caverns-86999.herokuapp.com" target="blank" aria-label="Navigate to Twitter"><em class="fa fa-twitter" aria-hidden="true"></em></a>
+            <a href="#" target="blank" aria-label="Navigate to YouTube"><em class="fa fa-youtube" aria-hidden="true"></em></a>
+            <a href="https://pinterest.com/pin/create/button/?url=http%3A%2F%2Fsharingbuttons.io&amp;media=http%3A%2F%2Fsharingbuttons.io&amp;summary=Super%20great%20and%20easy%20App%20Web." target="blank" aria-label="Navigate to Pinterest"><em class="fa fa-pinterest" aria-hidden="true"></em></a>
+            <hr />
+          </div>
+        </div>
+        <div class="row footer-links">
+          <div class="col-sm-12">
+             <%= link_to 'Disclaimer', disclaimer_path %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce blandit velit sit amet sodales porttitor. Praesent vitae dolor ornare, varius dolor ut, vehicula urna. Suspendisse egestas arcu ut pretium rutrum. Nullam mattis magna nec mauris aliquet, suscipit lobortis sem finibus. Sed sollicitudin erat mollis scelerisque rutrum. Duis dapibus id leo scelerisque pretium. Nulla facilisi.</p>
+            <p>&copy; <strong>UNIVERSITÄT MANNHEIM @ copyrights 2019</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
