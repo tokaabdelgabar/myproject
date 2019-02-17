@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Zappatory.com - Supportive Apps Directory</title>
+
   <meta http-equiv="content-type" content="text/html" charset="UTF-8"
-  name="viewport" content="width=device-width, initial-scale=1"/>
+  name="viewport" content="width=device-width, initial-scale=0.80"/>
+
+  <!-- Descriptive meta -->
+  <title>Zappatory.com - Supportive Apps Directory</title>
+  <meta name="title" content="max 65 character title">
+  <meta name="description" content="max 165 character description">
+  <meta name="keywords" content="comma, separated, list">
+  <meta name="author" content="University of Mannheim">
+
+  <!-- Stylesheets -->
 
   <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' type='text/css'>
   <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700'  type='text/css'>
+  <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+
   
   <%= stylesheet_link_tag "application", media: "all" ,'data-turbolinks-track' => true%>
   <%= stylesheet_link_tag 'app', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag 'category-apps', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag 'caroussel', media: 'all', 'data-turbolinks-track' => true %>
 
-  <%= javascript_include_tag 'caroussel', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'app', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'bootstrap-hover-dropdown.min', 'data-turbolinks-track' => true %>
@@ -30,31 +39,8 @@
   r.parentNode.insertBefore(e,r)}(window,document,'script','ga');
   ga('create','UA-XXXXX-X');ga('send','pageview');
   </script>
+
   <script>
-    jQuery(document).ready(function($)
-    {
-      var zoom_level=100;
-      $('#zoom_in').click(function() { zoom_page(20, $(this)) });
-      $('#zoom_out').click(function() { zoom_page(30, $(this)) });
-      $('#zoom_reset').click(function() { zoom_page(0, $(this)) });
-      function zoom_page(step, trigger){
-        if(zoom_level>=120 && step>0 || zoom_level<=80 && step<0) return;
-        if(step==0) zoom_level=100;
-        else zoom_level=zoom_level+step;
-        $('body').css({
-        transform: 'scale('+(zoom_level/100)+')', // set zoom
-        transformOrigin: '50% 0' // set transform scale base
-      });
-        if(zoom_level>100) $('body').css({ width: (zoom_level*1.2)+'%' });
-        else $('body').css({ width: '100%' });
-        if(zoom_level>=120 || zoom_level<=80) trigger.addClass('disabled');
-        else trigger.parents('ul').find('.disabled').removeClass('disabled');
-        if(zoom_level!=100) $('#zoom_reset').removeClass('disabled');
-        else $('#zoom_reset').addClass('disabled');
-      }
-    });
-</script>
- <script>
     $(function() {
         $('#nav li a').click(function() {
            $('#nav li').removeClass();
@@ -63,6 +49,17 @@
      });
   </script>
 
+<script type="text/javascript">
+$(document).ready( function(e) {
+    $('.hidden').click( function( e) {
+        var selector = $(this).attr( 'href');
+        if ( selector) {
+            $(selector).focus();
+            e.preventDefault();
+        }
+    });
+});
+</script>
 </head>
 
 <body>
@@ -97,14 +94,14 @@
 
 
       <!-- Secondary navigation and login -->
-      <div class="menu-block pull-right no-pad">
+      <div class="menu-block pull-right hidden-xs">
         <ul>
           <% if user_signed_in? %>
-          <li><%= link_to "My Account", edit_user_registration_path %><i><%= image_tag("user-8.png", :alt => "Mein Konto", class:"top-icon") %></i></li>
-          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %><i><%= image_tag("delete.png",:alt => "Ausloggen", class:"top-icon") %></i></li>
+          <li><%= link_to "My Account", current_user %></li>&nbsp;&nbsp;
+          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
           <% else %>  
-          <li><%= link_to "Sign In", new_user_session_path %><i><%= image_tag("people-2.png",:alt => "Einloggen", class:"top-icon") %></i></li>
-          <li><%= link_to "Registration", new_user_registration_path%><i><%= image_tag("people-1.png",:alt => "Registrieren", class:"top-icon") %></i></li>
+          <li><%= link_to "Sign-In", new_user_session_path %></li> &nbsp;&nbsp;
+          <li><%= link_to "Registration", new_user_registration_path%></li>
           <% end %>
         </ul>
       </div>
@@ -149,7 +146,8 @@
         <p role="alert" class="alert alert-danger"><%= alert %></p>
         <% end %>
         <%= yield %>
-        <a id="back-to-top" href="#" class="back-to-top" role="button" title="Back to Top" data-toggle="tooltip" data-placement="top"><%= image_tag("top-button.png", :alt => "Back to top") %>
+        <a id="back-to-top" class="back-to-top" href="#"
+        role="button" title="Back to Top" data-toggle="tooltip" data-placement="top" style="cursor: pointer;position: fixed;bottom: 40px;right: 20px;display: inline;z-index: 100;"><%= image_tag("top.png", :alt => "Zum Seitenanfang", :size=> "50x50") %>
         </a>
       </div>
     </main>
