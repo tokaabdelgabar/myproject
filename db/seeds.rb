@@ -35,14 +35,14 @@ App.delete_all
 first_app = App.create(:id => 1, :name => "Blind 1", :price => 12.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app1.jpg", :user_id => 1, :pick_id =>1 )
 second_app = App.create(:id => 2, :name => "Blind 2", :price => 9.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app2.jpg", :user_id => 1, :pick_id =>1 )
 third_app = App.create(:id => 3, :name => "Blind 3", :price => 10.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app3.jpg" , :user_id => 1, :pick_id =>1)
-fourth_app = App.create(:id => 4,:name => "Blind 4", :price => 100.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app4.jpg" , :pick_id =>2)
-fifth_app = App.create(:id => 5,:name => "Blind 5", :price => 99.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app5.jpg" , :pick_id =>2)
+fourth_app = App.create(:id => 4,:name => "Blind 4", :price => 100.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app4.jpg" ,:user_id => 1, :pick_id =>2)
+fifth_app = App.create(:id => 5,:name => "Blind 5", :price => 99.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app5.jpg" ,:user_id => 1, :pick_id =>2)
 
-sixth_app = App.create(:id => 6, :name => "Sight 1", :price => 12, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app6.jpg" , :pick_id =>1 )
-seventh_app = App.create(:id =>7, :name => "Sight 2", :price => 9, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app7.jpg" , :pick_id =>2 )
-eight_app = App.create(:id =>8, :name => "Sight 3", :price => 0, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app8.jpg" , :pick_id =>1)
-ninth_app = App.create(:id =>9,:name => "Sight 4", :price => 100, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app9.jpg" , :pick_id =>2)
-tenth_app = App.create(:id =>10,:name => "Sight 5", :price => 99, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app10.jpg" , :pick_id =>1 )
+sixth_app = App.create(:id => 6, :name => "Sight 1", :price => 12, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app6.jpg" ,:user_id => 1, :pick_id =>1 )
+seventh_app = App.create(:id =>7, :name => "Sight 2", :price => 9, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app7.jpg" ,:user_id => 1, :pick_id =>2 )
+eight_app = App.create(:id =>8, :name => "Sight 3", :price => 0, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app8.jpg" ,:user_id => 1, :pick_id =>1)
+ninth_app = App.create(:id =>9,:name => "Sight 4", :price => 100, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app9.jpg" ,:user_id => 1, :pick_id =>2)
+tenth_app = App.create(:id =>10,:name => "Sight 5", :price => 99, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app10.jpg" ,:user_id => 1, :pick_id =>1)
 
 Review.delete_all
 
