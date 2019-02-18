@@ -24,23 +24,25 @@ sixth_category = Category.create(:name => "Hearing", :id => 5 )
 #category_names = %w(Blind Sight Motorical Learning Hearing)
 #categories = category_names.each_with_index.map{|name, i| Category.create!(name: name, i: i+1)}
 
+Pick.delete_all
+editor_favorits = Pick.create(:title => "Editors Favorits", :id => 1 )
+other_apps = Pick.create(:title => "Other Apps", :id => 2 )
+editor_favorits.save!
+
 App.delete_all
 #:app_img_file_name => 
 #File.open(File.join(  Rails.root, 'public', 'stock', 'app1.jpg')
-first_app = App.create(:id => 1, :name => "Blind 1", :price => 12.00, :category_id => 1, :user_id => 1)
-second_app = App.create(:id => 2, :name => "Blind 2", :price => 9.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app2.jpg", :user_id => 1 )
-third_app = App.create(:id => 3, :name => "Blind 3", :price => 10.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app3.jpg" , :user_id => 1)
-fourth_app = App.create(:id => 4,:name => "Blind 4", :price => 100.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app4.jpg" )
-fifth_app = App.create(:id => 5,:name => "Blind 5", :price => 99.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app5.jpg" )
-fifth_app = App.create(:id => 11,:name => "Blind 5", :price => 99.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app5.jpg" )
-rep_app = App.create!(:id => 13,:name => "Blind 11", :price => 99.00, :category_id => 1)
+first_app = App.create(:id => 1, :name => "Blind 1", :price => 12.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app1.jpg", :user_id => 1, :pick_id =>1 )
+second_app = App.create(:id => 2, :name => "Blind 2", :price => 9.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app2.jpg", :user_id => 1, :pick_id =>1 )
+third_app = App.create(:id => 3, :name => "Blind 3", :price => 10.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app3.jpg" , :user_id => 1, :pick_id =>1)
+fourth_app = App.create(:id => 4,:name => "Blind 4", :price => 100.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app4.jpg" ,:user_id => 1, :pick_id =>2)
+fifth_app = App.create(:id => 5,:name => "Blind 5", :price => 99.00, :category_id => 1, :app_img_file_name => "app/assets/images/stock_app/app5.jpg" ,:user_id => 1, :pick_id =>2)
 
-
-sixth_app = App.create(:id => 6, :name => "Sight 1", :price => 12, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app6.jpg" )
-seventh_app = App.create(:id =>7, :name => "Sight 2", :price => 9, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app7.jpg" )
-eight_app = App.create(:id =>8, :name => "Sight 3", :price => 0, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app8.jpg")
-ninth_app = App.create(:id =>9,:name => "Sight 4", :price => 100, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app9.jpg" )
-tenth_app = App.create(:id =>10,:name => "Sight 5", :price => 99, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app10.jpg" )
+sixth_app = App.create(:id => 6, :name => "Sight 1", :price => 12, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app6.jpg" ,:user_id => 1, :pick_id =>1 )
+seventh_app = App.create(:id =>7, :name => "Sight 2", :price => 9, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app7.jpg" ,:user_id => 1, :pick_id =>2 )
+eight_app = App.create(:id =>8, :name => "Sight 3", :price => 0, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app8.jpg" ,:user_id => 1, :pick_id =>1)
+ninth_app = App.create(:id =>9,:name => "Sight 4", :price => 100, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app9.jpg" ,:user_id => 1, :pick_id =>2)
+tenth_app = App.create(:id =>10,:name => "Sight 5", :price => 99, :category_id => 2, :app_img_file_name => "app/assets/images/stock_app/app10.jpg" ,:user_id => 1, :pick_id =>1)
 
 Review.delete_all
 
@@ -79,4 +81,3 @@ Operation.delete_all
 op1 = Operation.create!(:id => 1, :app_id => 1, :operatingsystem_id => 1)
 op2 = Operation.create!(:id => 2, :app_id => 2, :operatingsystem_id => 2)
 op3 = Operation.create!(:id => 3, :app_id => 3, :operatingsystem_id => 3)
-op4 = Operation.create!(:id => 5, :app_id => 8, :operatingsystem_id => 3)

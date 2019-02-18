@@ -1,4 +1,4 @@
-class AddAttachmentAppImgToApps < ActiveRecord::Migration
+class AddAttachmentAppImgToApps < ActiveRecord::Migration[5.2]
   def self.up
     change_table :apps do |t|
       t.attachment :app_img

@@ -1,4 +1,4 @@
-class AddAttachmentImageToNotifications < ActiveRecord::Migration
+class AddAttachmentImageToNotifications < ActiveRecord::Migration[5.2]
   def self.up
     change_table :notifications do |t|
       t.attachment :image

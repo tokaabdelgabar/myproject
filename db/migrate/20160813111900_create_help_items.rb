@@ -1,4 +1,4 @@
-class CreateHelpItems < ActiveRecord::Migration
+class CreateHelpItems < ActiveRecord::Migration[5.2]
   def change
     create_table :help_items do |t|
       t.string :heading1
