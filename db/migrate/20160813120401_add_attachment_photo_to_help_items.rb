@@ -1,4 +1,4 @@
-class AddAttachmentPhotoToHelpItems < ActiveRecord::Migration
+class AddAttachmentPhotoToHelpItems < ActiveRecord::Migration[5.2]
   def self.up
     change_table :help_items do |t|
       t.attachment :photo

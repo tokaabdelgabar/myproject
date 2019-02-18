@@ -1,4 +1,4 @@
-class RemoveLinkFromApps < ActiveRecord::Migration
+class RemoveLinkFromApps < ActiveRecord::Migration[5.2]
   def change
     remove_column :apps, :link, :string
   end

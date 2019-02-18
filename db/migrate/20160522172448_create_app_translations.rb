@@ -1,4 +1,4 @@
-class CreateAppTranslations < ActiveRecord::Migration
+class CreateAppTranslations < ActiveRecord::Migration[5.2]
 	def self.up
 		App.create_translation_table!({
 			description: :string,

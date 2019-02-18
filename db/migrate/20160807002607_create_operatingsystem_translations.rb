@@ -1,4 +1,4 @@
-class CreateOperatingsystemTranslations < ActiveRecord::Migration
+class CreateOperatingsystemTranslations < ActiveRecord::Migration[5.2]
 def self.up
 		Operatingsystem.create_translation_table!({
 			name: :string,

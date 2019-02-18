@@ -1,4 +1,4 @@
-class CreateCategoryTranslations < ActiveRecord::Migration
+class CreateCategoryTranslations < ActiveRecord::Migration[5.2]
   class Category < ActiveRecord::Base
     translates :name, :content
   end

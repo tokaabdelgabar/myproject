@@ -1,4 +1,4 @@
-class AddPriceToApps < ActiveRecord::Migration
+class AddPriceToApps < ActiveRecord::Migration[5.2]
   def change
     add_column :apps, :price, :decimal
   end

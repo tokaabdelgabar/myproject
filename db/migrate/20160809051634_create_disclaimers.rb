@@ -1,4 +1,4 @@
-class CreateDisclaimers < ActiveRecord::Migration
+class CreateDisclaimers < ActiveRecord::Migration[5.2]
   def change
     create_table :disclaimers do |t|
       t.string :name

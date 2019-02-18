@@ -1,4 +1,4 @@
-class AddSearchDescriptionToApps < ActiveRecord::Migration
+class AddSearchDescriptionToApps < ActiveRecord::Migration[5.2]
   def change
     add_column :apps, :searchDescription, :text
   end

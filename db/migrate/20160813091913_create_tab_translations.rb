@@ -1,4 +1,4 @@
-class CreateTabTranslations < ActiveRecord::Migration
+class CreateTabTranslations < ActiveRecord::Migration[5.2]
 	def self.up
 		Tab.create_translation_table!({
 			name: :string,
