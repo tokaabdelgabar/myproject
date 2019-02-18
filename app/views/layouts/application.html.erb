@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 
-  <meta http-equiv="content-type" content="text/html" charset="UTF-8"
-  name="viewport" content="width=device-width, initial-scale=0.80"/>
+  <meta http-equiv="content-type" charset="UTF-8"
+  name="viewport" content="width=device-width, initial-scale=1"/>
 
   <!-- Descriptive meta -->
   <title>Zappatory.com - Supportive Apps Directory</title>
@@ -19,16 +19,16 @@
   <link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
 
   
-  <%= stylesheet_link_tag "application", media: "all" ,'data-turbolinks-track' => true%>
-  <%= stylesheet_link_tag 'app', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "application", media: "all" , 'data-turbolinks-track' => true%>
+  <%= stylesheet_link_tag 'app', media: 'all', 'data-turbolinks-track' => true%>
   <%= stylesheet_link_tag 'category-apps', media: 'all', 'data-turbolinks-track' => true %>
 
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true%>
   <%= javascript_include_tag 'app', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'bootstrap-hover-dropdown.min', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'jquery.smooth-scroll.min', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'jquery.vide.min', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'jquery.bgswitcher', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'jquery.vide.min', 'data-turbolinks-track' => true%>
+  <%= javascript_include_tag 'jquery.bgswitcher' , 'data-turbolinks-track' => true%>
   <%= csrf_meta_tags %>
 
  <script>
@@ -40,16 +40,7 @@
   ga('create','UA-XXXXX-X');ga('send','pageview');
   </script>
 
-  <script>
-    $(function() {
-        $('#nav li a').click(function() {
-           $('#nav li').removeClass();
-           $($(this).attr('href')).addClass('active');
-        });
-     });
-  </script>
-
-<script type="text/javascript">
+<script>
 $(document).ready( function(e) {
     $('.hidden').click( function( e) {
         var selector = $(this).attr( 'href');
@@ -60,6 +51,7 @@ $(document).ready( function(e) {
     });
 });
 </script>
+
 </head>
 
 <body>
@@ -77,8 +69,7 @@ $(document).ready( function(e) {
 
       <div class="dropdown pull-left">
         <button class="btn btn-link dropdown-toggle" type="button" id="lang_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          <em class="fa fa-globe" aria-hidden="true"></em> English
-          <span class="caret"></span>
+          <em class="fa fa-globe" aria-hidden="true"></em> Choose Language
         </button>
         <ul class="dropdown-menu" aria-labelledby="lang_menu">
           <li><a href="#">English</a></li>
@@ -97,11 +88,11 @@ $(document).ready( function(e) {
       <div class="menu-block pull-right hidden-xs">
         <ul>
           <% if user_signed_in? %>
-          <li><%= link_to "My Account", current_user %></li>&nbsp;&nbsp;
-          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+          <li class="btn btn-link scroller"><%= link_to "My Account", current_user %></li>
+          <li class="btn btn-link scroller"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
           <% else %>  
-          <li><%= link_to "Sign-In", new_user_session_path %></li> &nbsp;&nbsp;
-          <li><%= link_to "Registration", new_user_registration_path%></li>
+          <li class="btn btn-link scroller"><%= link_to "Sign-In", new_user_session_path %></li>
+          <li class="btn btn-link scroller"><%= link_to "Registration", new_user_registration_path%></li>
           <% end %>
         </ul>
       </div>
